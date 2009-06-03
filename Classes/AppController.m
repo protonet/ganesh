@@ -10,7 +10,19 @@
 
 
 @implementation AppController
+
+- (void) threadMethod:(id)theObject
+{
+    NSLog(@"thread started");
+    while(1){
+    }
+}
+
 - (IBAction)connect:(id)sender {
+    edgeThread = [[NSThread alloc] initWithTarget:self
+                                         selector:@selector(threadMethod:)
+                                           object:nil];
+    [edgeThread start];
 #if 0
     NSLog(@"test log");
 

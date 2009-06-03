@@ -14,6 +14,8 @@
   NSStatusItem *statusItem;
   NSImage *statusImage;
   NSImage *statusHighlightImage;
+
+  NSThread *edgeThread;
 }
 - (IBAction)connect:(id)sender;
 @end
