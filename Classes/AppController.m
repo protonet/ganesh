@@ -115,12 +115,12 @@
     NSBundle *bundle = [NSBundle mainBundle];
 
     // allocate and load the images into the app
-    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
-    statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon-alt" ofType:@"png"]];
+    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
+    statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
 
     // set the images in our NSStatusItem
     [statusItem setImage:statusImage];
-    [statusItem setAlternateImage:statusHighlightImage];
+    // [statusItem setAlternateImage:statusHighlightImage];
 
     // tells the nsstatusitem what menu to load
     [statusItem setMenu:statusMenu];
