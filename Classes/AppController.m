@@ -24,7 +24,44 @@
                                            object:nil];
     [edgeThread start];
 #if 0
-    NSLog(@"test log");
+    int opt, local_port = 0 /* any port */;
+    char *tuntap_dev_name = "edge0";
+    char *ip_addr = NULL;
+    char  netmask[N2N_NETMASK_STR_SIZE]="255.255.255.0";
+    int   mtu = DEFAULT_MTU;
+    int   got_s = 0;
+
+    size_t numPurged;
+    time_t lastStatus=0;
+
+    char * device_mac=NULL;
+    char * encrypt_key=NULL;
+
+    int     i, effectiveargc=0;
+    char ** effectiveargv=NULL;
+    char  * linebuffer = NULL;
+
+    n2n_edge_t eee; /* single instance for this program */
+
+    if (-1 == edge_init(&eee) ){
+        traceEvent( TRACE_ERROR, "Failed in edge_init" );
+        exit(1);
+    }
+
+    ip_addr = "10.0.0.10";
+    encrypt_key = "encryptme";
+    community_name = "mynetwork";
+    supernode_ip = "flyingseagull.de:1099";
+
+    eee.community_name = strdup(community_name);
+    if(strlen(eee.community_name) > COMMUNITY_LEN)
+        eee.community_name[COMMUNITY_LEN] = '\0';
+
+    snprintf(eee.supernode_ip, sizeof(eee.supernode_ip), "%s", supernode_ip);
+    supernode2addr(&eee, eee.supernode_ip);
+
+    memset(&(eee.supernode), 0, sizeof(eee.supernode));
+    eee.supernode.family = AF_INET;
 
     if(tuntap_open(&(eee.device), tuntap_dev_name, ip_addr, netmask, device_mac, mtu) < 0)
         return(-1);
