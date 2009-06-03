@@ -1,0 +1,3 @@
+[submodule "n2n"]
+	path = n2n
+	url = git://github.com/fishman/n2n.git
