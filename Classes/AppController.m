@@ -144,6 +144,7 @@
 
 - (void) disconnect
 {
+    [edgeThread exit];
 #if 0
     send_deregister( &eee, &(eee.supernode));
 
