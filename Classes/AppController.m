@@ -10,6 +10,10 @@
 
 
 @implementation AppController
+- (IBAction)connect:(id)sender {
+
+}
+
 
 - (void) awakeFromNib
 {

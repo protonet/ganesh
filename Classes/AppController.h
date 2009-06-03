@@ -15,5 +15,5 @@
   NSImage *statusImage;
   NSImage *statusHighlightImage;
 }
-
+- (IBAction)connect:(id)sender;
 @end
