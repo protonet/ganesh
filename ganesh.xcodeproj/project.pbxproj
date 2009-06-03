@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
+		278035E50FD6DB6B00D57E59 /* edge.c in Sources */ = {isa = PBXBuildFile; fileRef = 278035DD0FD6DB6B00D57E59 /* edge.c */; };
+		278035E60FD6DB6B00D57E59 /* minilzo.c in Sources */ = {isa = PBXBuildFile; fileRef = 278035DE0FD6DB6B00D57E59 /* minilzo.c */; };
+		278035E70FD6DB6B00D57E59 /* n2n.c in Sources */ = {isa = PBXBuildFile; fileRef = 278035DF0FD6DB6B00D57E59 /* n2n.c */; };
+		278035EA0FD6DB6B00D57E59 /* tuntap_osx.c in Sources */ = {isa = PBXBuildFile; fileRef = 278035E20FD6DB6B00D57E59 /* tuntap_osx.c */; };
+		278035EB0FD6DB6B00D57E59 /* twofish.c in Sources */ = {isa = PBXBuildFile; fileRef = 278035E30FD6DB6B00D57E59 /* twofish.c */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -21,6 +26,11 @@
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		278030D40FD6CAED00D57E59 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		278035DD0FD6DB6B00D57E59 /* edge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = edge.c; path = n2n/edge.c; sourceTree = "<group>"; };
+		278035DE0FD6DB6B00D57E59 /* minilzo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = minilzo.c; path = n2n/minilzo.c; sourceTree = "<group>"; };
+		278035DF0FD6DB6B00D57E59 /* n2n.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = n2n.c; path = n2n/n2n.c; sourceTree = "<group>"; };
+		278035E20FD6DB6B00D57E59 /* tuntap_osx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tuntap_osx.c; path = n2n/tuntap_osx.c; sourceTree = "<group>"; };
+		278035E30FD6DB6B00D57E59 /* twofish.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = twofish.c; path = n2n/twofish.c; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -76,6 +86,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		278035DC0FD6DB6000D57E59 /* n2n */ = {
+			isa = PBXGroup;
+			children = (
+				278035DD0FD6DB6B00D57E59 /* edge.c */,
+				278035DE0FD6DB6B00D57E59 /* minilzo.c */,
+				278035DF0FD6DB6B00D57E59 /* n2n.c */,
+				278035E20FD6DB6B00D57E59 /* tuntap_osx.c */,
+				278035E30FD6DB6B00D57E59 /* twofish.c */,
+			);
+			name = n2n;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* ganesh */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +113,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				278035DC0FD6DB6000D57E59 /* n2n */,
 				32CA4F630368D1EE00C91783 /* ganesh_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -173,6 +196,11 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				278030D60FD6CAED00D57E59 /* AppController.m in Sources */,
+				278035E50FD6DB6B00D57E59 /* edge.c in Sources */,
+				278035E60FD6DB6B00D57E59 /* minilzo.c in Sources */,
+				278035E70FD6DB6B00D57E59 /* n2n.c in Sources */,
+				278035EA0FD6DB6B00D57E59 /* tuntap_osx.c in Sources */,
+				278035EB0FD6DB6B00D57E59 /* twofish.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +266,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DBUILD_FRONTEND=1";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};
