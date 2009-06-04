@@ -9,42 +9,29 @@
 #import "AppController.h"
 
 // n2n includes
-#include "minilzo.h"
-#include "n2n.h"
-#include <assert.h>
-#include <sys/stat.h>
+#include "edge.h"
 
 @implementation AppController
 
 - (void) threadMethod:(id)theObject
 {
     NSLog(@"thread started");
-    while(1){
-    }
-}
-
-- (IBAction)connect:(id)sender {
-    edgeThread = [[NSThread alloc] initWithTarget:self
-                                         selector:@selector(threadMethod:)
-                                           object:nil];
-    [edgeThread start];
-#if 0
-    int opt, local_port = 0 /* any port */;
+    int local_port = 0 /* any port */;
     char *tuntap_dev_name = "edge0";
-    char *ip_addr = NULL;
     char  netmask[N2N_NETMASK_STR_SIZE]="255.255.255.0";
     int   mtu = DEFAULT_MTU;
-    int   got_s = 0;
 
     size_t numPurged;
     time_t lastStatus=0;
 
     char * device_mac=NULL;
-    char * encrypt_key=NULL;
 
-    int     i, effectiveargc=0;
-    char ** effectiveargv=NULL;
+    int     i;
     char  * linebuffer = NULL;
+    char ip_addr[] = "10.0.0.10";
+    char encrypt_key[] = "encryptme";
+    char community_name[] = "mynetwork";
+    char supernode_ip[] = "flyingseagull.de:1099";
 
     n2n_edge_t eee; /* single instance for this program */
 
@@ -53,10 +40,6 @@
         exit(1);
     }
 
-    ip_addr = "10.0.0.10";
-    encrypt_key = "encryptme";
-    community_name = "mynetwork";
-    supernode_ip = "flyingseagull.de:1099";
 
     eee.community_name = strdup(community_name);
     if(strlen(eee.community_name) > COMMUNITY_LEN)
@@ -144,7 +127,13 @@
                         peer_list_size( eee.pending_peers ), peer_list_size( eee.known_peers ) );
         }
     } /* while */
-#endif
+}
+
+- (IBAction)connect:(id)sender {
+    edgeThread = [[NSThread alloc] initWithTarget:self
+                                         selector:@selector(threadMethod:)
+                                           object:nil];
+    [edgeThread start];
 }
 
 - (void) disconnect
