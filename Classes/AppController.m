@@ -8,6 +8,11 @@
 
 #import "AppController.h"
 
+// n2n includes
+#include "minilzo.h"
+#include "n2n.h"
+#include <assert.h>
+#include <sys/stat.h>
 
 @implementation AppController
 
