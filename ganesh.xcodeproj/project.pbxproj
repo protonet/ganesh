@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		2708D0B30FDF14BE00E45182 /* n2n.app in Resources */ = {isa = PBXBuildFile; fileRef = 2708D0B20FDF14AF00E45182 /* n2n.app */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		278036300FD71D7200D57E59 /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362E0FD71D7200D57E59 /* ptn_icon_inactive.png */; };
@@ -16,11 +17,23 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2708D0B10FDF14AF00E45182 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1107320486CEB800E47090 /* n2n.app */;
+			remoteInfo = n2n;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = n2n.xcodeproj; path = n2n/osx/n2n.xcodeproj; sourceTree = "<group>"; };
+		2708D1010FDF18E200E45182 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		278030D40FD6CAED00D57E59 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
@@ -75,7 +88,16 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */,
 				8D1107320486CEB800E47090 /* ganesh.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2708D0A60FDF14AF00E45182 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2708D0B20FDF14AF00E45182 /* n2n.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +175,12 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ganesh */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2708D0A60FDF14AF00E45182 /* Products */;
+					ProjectRef = 2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* ganesh */,
@@ -160,11 +188,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2708D0B20FDF14AF00E45182 /* n2n.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = n2n.app;
+			remoteRef = 2708D0B10FDF14AF00E45182 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2708D0B30FDF14BE00E45182 /* n2n.app in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */,
