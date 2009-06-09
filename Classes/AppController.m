@@ -14,8 +14,8 @@
 @implementation AppController
 
 - (IBAction)connect:(id)sender {
-        [[NSDistributedNotificationCenter defaultCenter]
-            postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
+    [[NSDistributedNotificationCenter defaultCenter]
+        postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
 }
 
 - (void) disconnect
