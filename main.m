@@ -3,7 +3,7 @@
 //  ganesh
 //
 //  Created by Reza Jelveh on 6/3/09.
-//  Copyright Acculogic GmbH 2009. All rights reserved.
+//  Copyright Protonet.info 2009. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
