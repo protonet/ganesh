@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		2708D0B30FDF14BE00E45182 /* n2n.app in Resources */ = {isa = PBXBuildFile; fileRef = 2708D0B20FDF14AF00E45182 /* n2n.app */; };
+		2708D2CD0FDF1F9900E45182 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2708D1010FDF18E200E45182 /* Security.framework */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		278036300FD71D7200D57E59 /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362E0FD71D7200D57E59 /* ptn_icon_inactive.png */; };
@@ -52,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				2708D2CD0FDF1F9900E45182 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				2708D1010FDF18E200E45182 /* Security.framework */,
 			);
 			name = ganesh;
 			sourceTree = "<group>";
