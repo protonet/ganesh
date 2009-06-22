@@ -7,6 +7,7 @@
 //
 
 #import "AppController.h"
+#import <SecurityFoundation/SFAuthorization.h>
 
 // n2n includes
 #include "edge.h"
@@ -26,6 +27,21 @@
 {
 }
 
+
+/**
+ * run n2n.app from resources
+ */
+- (void)runApp{
+    NSTask *run;
+    run=[[NSTask alloc] init];
+    [run setLaunchPath: @"/usr/bin/open"];
+    NSString *resPath = [[NSBundle mainBundle] resourcePath];
+    NSString *fullResPath = [resPath stringByAppendingPathComponent:@"n2n.app"];
+    NSArray *arguments = [NSArray arrayWithObjects: fullResPath, nil];
+    [run setArguments: arguments];
+    [run launch];
+    [run release];
+}
 
 - (void) awakeFromNib
 {
@@ -49,6 +65,8 @@
     [statusItem setToolTip:@"Custom Menu Item"];
     // enable highlighting
     [statusItem setHighlightMode:YES];
+
+    [self runApp];
 }
 
 - (void) dealloc
