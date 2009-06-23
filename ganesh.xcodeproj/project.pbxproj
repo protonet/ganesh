@@ -10,6 +10,13 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		2708D0B30FDF14BE00E45182 /* n2n.app in Resources */ = {isa = PBXBuildFile; fileRef = 2708D0B20FDF14AF00E45182 /* n2n.app */; };
 		2708D2CD0FDF1F9900E45182 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2708D1010FDF18E200E45182 /* Security.framework */; };
+		270D92EF0FF0E34B00E6DB56 /* edge.c in Sources */ = {isa = PBXBuildFile; fileRef = 270D92E10FF0E34B00E6DB56 /* edge.c */; };
+		270D92F00FF0E34B00E6DB56 /* minilzo.c in Sources */ = {isa = PBXBuildFile; fileRef = 270D92E20FF0E34B00E6DB56 /* minilzo.c */; };
+		270D92F10FF0E34B00E6DB56 /* n2n.c in Sources */ = {isa = PBXBuildFile; fileRef = 270D92E30FF0E34B00E6DB56 /* n2n.c */; };
+		270D92F30FF0E34B00E6DB56 /* tuntap_osx.c in Sources */ = {isa = PBXBuildFile; fileRef = 270D92E50FF0E34B00E6DB56 /* tuntap_osx.c */; };
+		270D92F40FF0E34B00E6DB56 /* twofish.c in Sources */ = {isa = PBXBuildFile; fileRef = 270D92E60FF0E34B00E6DB56 /* twofish.c */; };
+		270D92F50FF0E34B00E6DB56 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 270D92E70FF0E34B00E6DB56 /* version.c */; };
+		270D93070FF0E3A800E6DB56 /* edge in Resources */ = {isa = PBXBuildFile; fileRef = 270D92D90FF0E2DF00E6DB56 /* edge */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		278036300FD71D7200D57E59 /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362E0FD71D7200D57E59 /* ptn_icon_inactive.png */; };
@@ -35,6 +42,20 @@
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = n2n.xcodeproj; path = n2n/osx/n2n.xcodeproj; sourceTree = "<group>"; };
 		2708D1010FDF18E200E45182 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		270D92D90FF0E2DF00E6DB56 /* edge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = edge; sourceTree = BUILT_PRODUCTS_DIR; };
+		270D92E10FF0E34B00E6DB56 /* edge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = edge.c; sourceTree = "<group>"; };
+		270D92E20FF0E34B00E6DB56 /* minilzo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = minilzo.c; sourceTree = "<group>"; };
+		270D92E30FF0E34B00E6DB56 /* n2n.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = n2n.c; sourceTree = "<group>"; };
+		270D92E50FF0E34B00E6DB56 /* tuntap_osx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tuntap_osx.c; sourceTree = "<group>"; };
+		270D92E60FF0E34B00E6DB56 /* twofish.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = twofish.c; sourceTree = "<group>"; };
+		270D92E70FF0E34B00E6DB56 /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		270D92E80FF0E34B00E6DB56 /* twofish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twofish.h; sourceTree = "<group>"; };
+		270D92E90FF0E34B00E6DB56 /* supernode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = supernode.c; sourceTree = "<group>"; };
+		270D92EA0FF0E34B00E6DB56 /* tuntap_freebsd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tuntap_freebsd.c; sourceTree = "<group>"; };
+		270D92EB0FF0E34B00E6DB56 /* tuntap_linux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tuntap_linux.c; sourceTree = "<group>"; };
+		270D92EC0FF0E34B00E6DB56 /* lzoconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lzoconf.h; sourceTree = "<group>"; };
+		270D92ED0FF0E34B00E6DB56 /* lzodefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lzodefs.h; sourceTree = "<group>"; };
+		270D92EE0FF0E34B00E6DB56 /* edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edge.h; sourceTree = "<group>"; };
 		278030D40FD6CAED00D57E59 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
@@ -48,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		270D92D70FF0E2DF00E6DB56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,6 +91,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				270D92DE0FF0E2F200E6DB56 /* n2n */,
 				278030D40FD6CAED00D57E59 /* AppController.h */,
 				278030D50FD6CAED00D57E59 /* AppController.m */,
 			);
@@ -92,6 +121,7 @@
 			children = (
 				2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */,
 				8D1107320486CEB800E47090 /* ganesh.app */,
+				270D92D90FF0E2DF00E6DB56 /* edge */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +132,27 @@
 				2708D0B20FDF14AF00E45182 /* n2n.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		270D92DE0FF0E2F200E6DB56 /* n2n */ = {
+			isa = PBXGroup;
+			children = (
+				270D92E10FF0E34B00E6DB56 /* edge.c */,
+				270D92E20FF0E34B00E6DB56 /* minilzo.c */,
+				270D92E30FF0E34B00E6DB56 /* n2n.c */,
+				270D92E50FF0E34B00E6DB56 /* tuntap_osx.c */,
+				270D92E60FF0E34B00E6DB56 /* twofish.c */,
+				270D92E70FF0E34B00E6DB56 /* version.c */,
+				270D92E80FF0E34B00E6DB56 /* twofish.h */,
+				270D92E90FF0E34B00E6DB56 /* supernode.c */,
+				270D92EA0FF0E34B00E6DB56 /* tuntap_freebsd.c */,
+				270D92EB0FF0E34B00E6DB56 /* tuntap_linux.c */,
+				270D92EC0FF0E34B00E6DB56 /* lzoconf.h */,
+				270D92ED0FF0E34B00E6DB56 /* lzodefs.h */,
+				270D92EE0FF0E34B00E6DB56 /* edge.h */,
+			);
+			name = n2n;
+			path = ../n2n;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* ganesh */ = {
@@ -150,6 +201,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		270D92D80FF0E2DF00E6DB56 /* edge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270D92DF0FF0E2F200E6DB56 /* Build configuration list for PBXNativeTarget "edge" */;
+			buildPhases = (
+				270D92D60FF0E2DF00E6DB56 /* Sources */,
+				270D92D70FF0E2DF00E6DB56 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = edge;
+			productName = edge;
+			productReference = 270D92D90FF0E2DF00E6DB56 /* edge */;
+			productType = "com.apple.product-type.tool";
+		};
 		8D1107260486CEB800E47090 /* ganesh */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ganesh" */;
@@ -186,6 +253,7 @@
 			);
 			projectRoot = "";
 			targets = (
+				270D92D80FF0E2DF00E6DB56 /* edge */,
 				8D1107260486CEB800E47090 /* ganesh */,
 			);
 		};
@@ -206,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270D93070FF0E3A800E6DB56 /* edge in Resources */,
 				2708D0B30FDF14BE00E45182 /* n2n.app in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
@@ -217,6 +286,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		270D92D60FF0E2DF00E6DB56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270D92EF0FF0E34B00E6DB56 /* edge.c in Sources */,
+				270D92F00FF0E34B00E6DB56 /* minilzo.c in Sources */,
+				270D92F10FF0E34B00E6DB56 /* n2n.c in Sources */,
+				270D92F30FF0E34B00E6DB56 /* tuntap_osx.c in Sources */,
+				270D92F40FF0E34B00E6DB56 /* twofish.c in Sources */,
+				270D92F50FF0E34B00E6DB56 /* version.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,6 +330,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		270D92DB0FF0E2E100E6DB56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = edge;
+			};
+			name = Debug;
+		};
+		270D92DC0FF0E2E100E6DB56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = edge;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,6 +421,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		270D92DF0FF0E2F200E6DB56 /* Build configuration list for PBXNativeTarget "edge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270D92DB0FF0E2E100E6DB56 /* Debug */,
+				270D92DC0FF0E2E100E6DB56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ganesh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
