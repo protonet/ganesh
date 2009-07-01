@@ -36,7 +36,7 @@
     run=[[NSTask alloc] init];
     [run setLaunchPath: @"/usr/bin/open"];
     NSString *resPath = [[NSBundle mainBundle] resourcePath];
-    NSString *fullResPath = [resPath stringByAppendingPathComponent:@"n2n.app"];
+    NSString *fullResPath = [resPath stringByAppendingPathComponent:@"n2n_helper.app"];
     NSArray *arguments = [NSArray arrayWithObjects: fullResPath, nil];
     [run setArguments: arguments];
     [run launch];
