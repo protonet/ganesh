@@ -23,11 +23,6 @@
 {
 }
 
-- (void) applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-}
-
-
 /**
  * run n2n.app from resources
  */
