@@ -18,4 +18,5 @@
   NSThread *edgeThread;
 }
 - (IBAction)connect:(id)sender;
+- (void) checkAndCopyHelper:(NSBundle *)bundle;
 @end
