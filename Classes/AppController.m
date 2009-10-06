@@ -12,6 +12,25 @@
 // n2n includes
 #include "edge.h"
 
+static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authorization, const char* executablePath, AuthorizationFlags options, const char* const* arguments)
+{
+    sig_t oldSigChildHandler = signal(SIGCHLD, SIG_DFL);
+    BOOL returnValue = YES;
+
+    if (AuthorizationExecuteWithPrivileges(authorization, executablePath, options, (char* const*)arguments, NULL) == errAuthorizationSuccess)
+    {
+        int status;
+        pid_t pid = wait(&status);
+        if (pid == -1 || !WIFEXITED(status) || WEXITSTATUS(status) != 0)
+            returnValue = NO;
+    }
+    else
+        returnValue = NO;
+
+    signal(SIGCHLD, oldSigChildHandler);
+    return returnValue;
+}
+
 @implementation AppController
 
 - (IBAction)connect:(id)sender {
@@ -30,9 +49,8 @@
     NSTask *run;
     run=[[NSTask alloc] init];
     [run setLaunchPath: @"/usr/bin/open"];
-    NSString *resPath = [[NSBundle mainBundle] resourcePath];
-    NSString *fullResPath = [resPath stringByAppendingPathComponent:@"n2n.app"];
-    NSArray *arguments = [NSArray arrayWithObjects: fullResPath, nil];
+    NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app", [self appSupportPath]];
+    NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
     [run setArguments: arguments];
     [run launch];
     [run release];
@@ -47,7 +65,7 @@
     // where are the bundle files?
     NSBundle *bundle = [NSBundle mainBundle];
 
-    [self checkAndCopyHelper:bundle];
+    [self checkAndCopyHelper];
 
     // allocate and load the images into the app
     statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
@@ -83,7 +101,7 @@
     NSString *userAppSupportFolder;
     NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
 
-    /* (C) ~/Library/Application Support/applicationSupportDirectory/PlugIns
+    /* (C) ~/Library/Application Support
        The user's application support folder.  Attempt to locate the folder, but
        do not try to create one if it does not exist.  */
     err = FSFindFolder( kUserDomain, kApplicationSupportFolderType, false, &folder );
@@ -99,21 +117,109 @@
     return userAppSupportFolder;
 }
 
-- (void) checkAndCopyHelper:(NSBundle *)bundle
+- (void) checkAndCopyHelper
 {
     NSError *error;
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *srcPath = [bundle pathForResource:@"n2n" ofType:@"app"];
+    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"n2n" ofType:@"app"];
     NSString *dstPath = [NSString stringWithFormat:@"%@/n2n.app", [self appSupportPath]];
+
 
     [fileManager createDirectoryAtPath:[self appSupportPath]
            withIntermediateDirectories:NO
                             attributes:nil
                                  error:&error];
+    /*
 
     [fileManager copyItemAtPath:srcPath
                          toPath:dstPath
                           error:&error];
+
+    [fileManager changeFileAttributes:attributes
+                               atPath:dstPath
+                                error:&error];
+                                */
+    [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
+
+}
+
+- (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error
+{
+    const char* srcPath = [src fileSystemRepresentation];
+    const char* dstPath = [dst fileSystemRepresentation];
+    const char* execPath = [[NSString stringWithFormat:@"%@/Contents/MacOS/n2n", dst] fileSystemRepresentation];
+
+    AuthorizationRef auth = NULL;
+    OSStatus authStat = errAuthorizationDenied;
+    while (authStat == errAuthorizationDenied) {
+        authStat = AuthorizationCreate(NULL,
+                                       kAuthorizationEmptyEnvironment,
+                                       kAuthorizationFlagDefaults,
+                                       &auth);
+    }
+
+    BOOL res = NO;
+    if (authStat == errAuthorizationSuccess) {
+        res = YES;
+
+        char uidgid[42] = "root:wheel";
+
+        const char* executables[] = {
+            "/bin/rm",
+            "/bin/cp",
+            NULL,  // pause here and do some housekeeping before
+            // continuing
+            "/usr/sbin/chown",
+            NULL,
+            "/usr/sbin/chmod",
+            NULL   // stop here for real
+        };
+
+        // 4 is the maximum number of arguments to any command,
+        // including the NULL that signals the end of an argument
+        // list.
+        const char* const argumentLists[][4] = {
+            { "-rf", dstPath, NULL }, // delete the destination
+            { "-R", srcPath, dstPath, NULL },  // cp
+            { NULL },  // pause
+            { "-R", uidgid, dstPath, NULL },  // chown
+            { NULL },  // pause
+            { "+s", execPath, NULL },  // chmod
+            { NULL }  // stop
+        };
+
+        // Process the commands up until the first NULL
+        int commandIndex = 0;
+        for (; executables[commandIndex] != NULL; ++commandIndex) {
+            if (res)
+                res = AuthorizationExecuteWithPrivilegesAndWait(auth, executables[commandIndex], kAuthorizationFlagDefaults, argumentLists[commandIndex]);
+        }
+
+        // Now move past the NULL we found and continue executing
+        // commands from the list.
+        ++commandIndex;
+
+        for (; executables[commandIndex] != NULL; ++commandIndex) {
+            if (res)
+                res = AuthorizationExecuteWithPrivilegesAndWait(auth, executables[commandIndex], kAuthorizationFlagDefaults, argumentLists[commandIndex]);
+        }
+
+        AuthorizationFree(auth, 0);
+
+        if (!res)
+        {
+            // Something went wrong somewhere along the way, but we're not sure exactly where.
+            NSString *errorMessage = [NSString stringWithFormat:@"Authenticated file copy from %@ to %@ failed.", src, dst];
+            // if (error != NULL)
+                // *error = [NSError errorWithDomain:SUSparkleErrorDomain code:SUAuthenticationFailure userInfo:[NSDictionary dictionaryWithObject:errorMessage forKey:NSLocalizedDescriptionKey]];
+        }
+    }
+    else
+    {
+        // if (error != NULL)
+            // *error = [NSError errorWithDomain:SUSparkleErrorDomain code:SUAuthenticationFailure userInfo:[NSDictionary dictionaryWithObject:@"Couldn't get permission to authenticate." forKey:NSLocalizedDescriptionKey]];
+    }
+    return res;
 
 }
 
