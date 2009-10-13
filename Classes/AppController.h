@@ -16,6 +16,7 @@
   NSImage *statusHighlightImage;
 
   NSThread *edgeThread;
+  NSTask *n2nApp;
 }
 - (IBAction)connect:(id)sender;
 - (void) checkAndCopyHelper;

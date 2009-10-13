@@ -46,14 +46,13 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
  * run n2n.app from resources
  */
 - (void)runApp{
-    NSTask *run;
-    run=[[NSTask alloc] init];
-    [run setLaunchPath: @"/usr/bin/open"];
-    NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app", [self appSupportPath]];
+    n2nApp = [[NSTask alloc] init];
+    // [run setLaunchPath: @"/usr/bin/open"];
+    NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app/Contents/MacOS/n2n", [self appSupportPath]];
+    [n2nApp setLaunchPath:n2nPath];
     NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
-    [run setArguments: arguments];
-    [run launch];
-    [run release];
+    [n2nApp setArguments: arguments];
+    [n2nApp launch];
 }
 
 - (void) awakeFromNib
@@ -219,6 +218,13 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     }
     return res;
 
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    NSLog(@"app will terminate");
+    [n2nApp terminate];
+    [n2nApp release];
 }
 
 @end
