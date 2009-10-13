@@ -147,7 +147,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 {
     const char* srcPath = [src fileSystemRepresentation];
     const char* dstPath = [dst fileSystemRepresentation];
-    const char* execPath = [[NSString stringWithFormat:@"%@/Contents/MacOS/n2n", dst] fileSystemRepresentation];
+    const char* execPath = [[NSString stringWithFormat:@"%@/Contents/Resources/TunHelper", dst] fileSystemRepresentation];
 
     AuthorizationRef auth = NULL;
     OSStatus authStat = errAuthorizationDenied;
@@ -170,8 +170,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
             NULL,  // pause here and do some housekeeping before
             // continuing
             "/usr/sbin/chown",
-            NULL,
-            "/usr/sbin/chmod",
+            "/bin/chmod",
             NULL   // stop here for real
         };
 
@@ -183,7 +182,6 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
             { "-R", srcPath, dstPath, NULL },  // cp
             { NULL },  // pause
             { "-R", uidgid, dstPath, NULL },  // chown
-            { NULL },  // pause
             { "+s", execPath, NULL },  // chmod
             { NULL }  // stop
         };
