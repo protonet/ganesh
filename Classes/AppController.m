@@ -128,16 +128,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
            withIntermediateDirectories:NO
                             attributes:nil
                                  error:&error];
-    /*
 
-    [fileManager copyItemAtPath:srcPath
-                         toPath:dstPath
-                          error:&error];
-
-    [fileManager changeFileAttributes:attributes
-                               atPath:dstPath
-                                error:&error];
-                                */
     [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
 
 }
