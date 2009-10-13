@@ -26,6 +26,27 @@
 			remoteGlobalIDString = 8D1107320486CEB800E47090;
 			remoteInfo = n2n;
 		};
+		274DEE1710849039009F29D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27D1886D107C9870001F2B3F;
+			remoteInfo = TunHelper;
+		};
+		27FE863D108499C9007D8121 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = n2n;
+		};
+		27FE866B10849C26007D8121 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2708D0A50FDF14AF00E45182 /* n2n.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 27D1886C107C9870001F2B3F;
+			remoteInfo = TunHelper;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +120,7 @@
 		2708D0A60FDF14AF00E45182 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				274DEE1810849039009F29D4 /* TunHelper */,
 				2708D0B20FDF14AF00E45182 /* n2n.app */,
 			);
 			name = Products;
@@ -161,6 +183,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				27FE863E108499C9007D8121 /* PBXTargetDependency */,
+				27FE866C10849C26007D8121 /* PBXTargetDependency */,
 			);
 			name = ganesh;
 			productInstallPath = "$(HOME)/Applications";
@@ -199,6 +223,13 @@
 			remoteRef = 2708D0B10FDF14AF00E45182 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		274DEE1810849039009F29D4 /* TunHelper */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = TunHelper;
+			remoteRef = 274DEE1710849039009F29D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -227,6 +258,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27FE863E108499C9007D8121 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = n2n;
+			targetProxy = 27FE863D108499C9007D8121 /* PBXContainerItemProxy */;
+		};
+		27FE866C10849C26007D8121 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TunHelper;
+			targetProxy = 27FE866B10849C26007D8121 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
