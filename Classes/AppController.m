@@ -61,8 +61,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     // [run setLaunchPath: @"/usr/bin/open"];
     NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app/Contents/MacOS/n2n", [self appSupportPath]];
     [n2nApp setLaunchPath:n2nPath];
-    NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
-    [n2nApp setArguments: arguments];
+    // NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
+    // [n2nApp setArguments: arguments];
     [n2nApp launch];
 }
 
