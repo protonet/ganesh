@@ -34,12 +34,18 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 @implementation AppController
 
 - (IBAction)connect:(id)sender {
+    [statusItem setImage:statusHighlightImage];
+
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
 }
 
-- (void) disconnect
+- (IBAction)disconnect:(id)sender
 {
+    [statusItem setImage:statusImage];
+
+    [[NSDistributedNotificationCenter defaultCenter]
+        postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
 
 /**

@@ -19,5 +19,6 @@
   NSTask *n2nApp;
 }
 - (IBAction)connect:(id)sender;
+- (IBAction)disconnect:(id)sender;
 - (void) checkAndCopyHelper;
 @end
