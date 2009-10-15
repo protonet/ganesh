@@ -35,6 +35,9 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 
 - (IBAction)connect:(id)sender {
     [statusItem setImage:statusHighlightImage];
+    [[statusItem menu] removeItemAtIndex:0];
+    [[statusItem menu] insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
+
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
@@ -43,6 +46,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 - (IBAction)disconnect:(id)sender
 {
     [statusItem setImage:statusImage];
+    [[statusItem menu] removeItemAtIndex:0];
+    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
@@ -82,6 +87,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 
     // tells the nsstatusitem what menu to load
     [statusItem setMenu:statusMenu];
+    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
     // sets the tooltip for the item
     [statusItem setToolTip:@"Custom Menu Item"];
     // enable highlighting
