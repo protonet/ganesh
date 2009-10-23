@@ -21,6 +21,6 @@
 }
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
-- (IBAction)restartDaemon:(id)sender;
+- (IBAction)startDaemon:(id)sender;
 - (BOOL) checkAndCopyHelper;
 @end
