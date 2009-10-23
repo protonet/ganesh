@@ -11,5 +11,9 @@
 
 @implementation PrefsController
 
+- (void) showWindow:(id)sender
+{
+    [super showWindow:sender];
+}
 
 @end

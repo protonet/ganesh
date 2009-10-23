@@ -10,6 +10,7 @@
 
 
 @interface PrefsController : NSObject {
+    IBOutlet NSWindow *window;
 }
 
 - (IBAction) showWindow:(id)sender;
