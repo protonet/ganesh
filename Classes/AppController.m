@@ -65,7 +65,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     // [n2nApp setArguments: arguments];
     [n2nApp launch];
     if ([n2nApp isRunning]) {
-        [daemonButton setTitle:@"Restart"];
+        [daemonButton setTitle:@"Stop"];
+        [daemonButton setAction:@selector(stopDaemon:)];
     }
 }
 
@@ -233,8 +234,23 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     [n2nApp release];
 }
 
-- (void)restartDaemon:(id)sender
+- (void)startDaemon:(id)sender
 {
-    return nil;
+    [n2nApp launch];
+    if ([n2nApp isRunning]) {
+        [daemonButton setTitle:@"Stop"];
+        [daemonButton setAction:@selector(stopDaemon:)];
+    }
 }
+
+- (void) stopDaemon:(id)sender
+{
+    if ([n2nApp isRunning]) {
+        [n2nApp terminate];
+        [n2nApp waitUntilExit];
+        [daemonButton setTitle:@"Start"];
+        [daemonButton setAction:@selector(startDaemon:)];
+    }
+}
+
 @end

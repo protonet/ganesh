@@ -174,7 +174,7 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">restartDaemon:</string>
+						<string key="label">startDaemon:</string>
 						<reference key="source" ref="784367519"/>
 						<object class="NSButton" key="destination" id="805685175">
 							<nil key="NSNextResponder"/>
@@ -184,7 +184,7 @@
 							<object class="NSButtonCell" key="NSCell" id="324655631">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Restart</string>
+								<string key="NSContents">Start</string>
 								<reference key="NSSupport" ref="1064653446"/>
 								<reference key="NSControlView" ref="805685175"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -565,7 +565,7 @@ mJmZmoEiAYHuAIaGA</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>connect:</string>
 							<string>disconnect:</string>
-							<string>restartDaemon:</string>
+							<string>startDaemon:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
