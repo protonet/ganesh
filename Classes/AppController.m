@@ -64,6 +64,9 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     // NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
     // [n2nApp setArguments: arguments];
     [n2nApp launch];
+    if ([n2nApp isRunning]) {
+        [daemonButton setTitle:@"Restart"];
+    }
 }
 
 - (void) awakeFromNib
@@ -75,7 +78,9 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     // where are the bundle files?
     NSBundle *bundle = [NSBundle mainBundle];
 
-    [self checkAndCopyHelper];
+    if([self checkAndCopyHelper]){
+        [self runApp];
+    }
 
     // allocate and load the images into the app
     statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
@@ -92,8 +97,6 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     [statusItem setToolTip:@"Custom Menu Item"];
     // enable highlighting
     [statusItem setHighlightMode:YES];
-
-    [self runApp];
 }
 
 - (void) dealloc
@@ -128,7 +131,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     return userAppSupportFolder;
 }
 
-- (void) checkAndCopyHelper
+- (BOOL) checkAndCopyHelper
 {
     NSError *error;
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -141,7 +144,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
                             attributes:nil
                                  error:&error];
 
-    [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
+    return [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
 
 }
 
@@ -230,4 +233,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     [n2nApp release];
 }
 
+- (void)restartDaemon:(id)sender
+{
+    return nil;
+}
 @end

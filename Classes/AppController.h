@@ -11,6 +11,7 @@
 
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
+  IBOutlet NSButton *daemonButton;
   NSStatusItem *statusItem;
   NSImage *statusImage;
   NSImage *statusHighlightImage;
@@ -20,5 +21,6 @@
 }
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
-- (void) checkAndCopyHelper;
+- (IBAction)restartDaemon:(id)sender;
+- (BOOL) checkAndCopyHelper;
 @end
