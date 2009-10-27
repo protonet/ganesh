@@ -231,15 +231,14 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 {
     NSLog(@"app will terminate");
     [n2nApp terminate];
+    [n2nApp waitUntilExit];
     [n2nApp release];
 }
 
 - (void)startDaemon:(id)sender
 {
-    [n2nApp launch];
-    if ([n2nApp isRunning]) {
-        [daemonButton setTitle:@"Stop"];
-        [daemonButton setAction:@selector(stopDaemon:)];
+    if (n2nApp == nil){
+        [self runApp];
     }
 }
 
@@ -248,6 +247,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     if ([n2nApp isRunning]) {
         [n2nApp terminate];
         [n2nApp waitUntilExit];
+        [n2nApp release];
+        n2nApp = nil;
         [daemonButton setTitle:@"Start"];
         [daemonButton setAction:@selector(startDaemon:)];
     }
