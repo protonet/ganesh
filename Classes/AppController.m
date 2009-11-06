@@ -53,6 +53,11 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
 
+- (IBAction)showPreferences:(id)sender
+{
+    [[PrefsController sharedController] showWindow:self];
+}
+
 /**
  * run n2n.app from resources
  */

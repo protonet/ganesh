@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PrefsController;
 
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
@@ -22,5 +23,6 @@
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
 - (IBAction)startDaemon:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 - (BOOL) checkAndCopyHelper;
 @end

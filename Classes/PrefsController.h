@@ -9,10 +9,10 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface PrefsController : NSObject {
+@interface PrefsController : NSWindowController {
     IBOutlet NSWindow *window;
 }
 
-- (IBAction) showWindow:(id)sender;
++ (PrefsController*)sharedController;
 
 @end
