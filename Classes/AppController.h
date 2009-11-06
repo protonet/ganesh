@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class PrefsController;
-
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;

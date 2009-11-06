@@ -6,8 +6,10 @@
 //  Copyright 2009 Protonet.info. All rights reserved.
 //
 
-#import "AppController.h"
 #import <SecurityFoundation/SFAuthorization.h>
+
+#import "AppController.h"
+#import "PrefsController.h"
 
 // n2n includes
 #include "edge.h"
