@@ -16,25 +16,62 @@ static PrefsController *sharedPrefsController = nil;
 {
     @synchronized(self) {
         if (sharedPrefsController == nil) {
-            [[self alloc] init]; // assignment not done here
+            [[self alloc] initWithWindowNibName:@"Preferences"]; // assignment not done here
         }
     }
     return sharedPrefsController;
 
 }
 
--(id) init {
-    [super initWithWindowNibName:@"Preferences"];
++ (id)allocWithZone:(NSZone *)zone
+{
+    @synchronized(self) {
+        if (sharedPrefsController == nil) {
+            sharedPrefsController = [super allocWithZone:zone];
+            return sharedPrefsController;  // assignment and return on first allocation
+        }
+    }
+    return nil; //on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
     return self;
 }
 
+
+- (id)retain
+{
+    return self;
+}
+
+
+- (NSUInteger)retainCount
+{
+    return UINT_MAX;  //denotes an object that cannot be released
+}
+
+
+- (void)release
+{
+    //do nothing
+}
+
+
+- (id)autorelease
+
+{
+    return self;
+}
+
+
 -(IBAction) showWindow:(id)sender
 {
-    [super showWindow:self];
     [NSApp activateIgnoringOtherApps:YES];
-    [[self window] makeKeyAndOrderFront:self];
-    [[self window] center];
-    [[self window] setLevel:NSFloatingWindowLevel];
+    if (![[self window] isVisible])
+        [[self window] center];
+    [super showWindow:sender];
+
 }
 
 -(void) windowWillClose:(NSNotification *)aNotification {
