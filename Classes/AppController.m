@@ -135,6 +135,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 - (BOOL) checkAndCopyHelper
 {
     NSError *error;
+    NSDictionary *srcAttributes;
+    NSDictionary *dstAttributes;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"n2n" ofType:@"app"];
     NSString *dstPath = [NSString stringWithFormat:@"%@/n2n.app", [self appSupportPath]];
@@ -144,8 +146,15 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
            withIntermediateDirectories:NO
                             attributes:nil
                                  error:&error];
+    srcAttributes = [fileManager attributesOfItemAtPath:srcPath error:&error];
+    dstAttributes = [fileManager attributesOfItemAtPath:dstPath error:&error];
 
-    return [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
+    if ([[srcAttributes fileModificationDate] compare:[dstAttributes fileModificationDate]] == NSOrderedSame ) {
+        return YES;
+    }
+    else {
+        return [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
+    }
 
 }
 
@@ -185,7 +194,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
         // list.
         const char* const argumentLists[][4] = {
             { "-rf", dstPath, NULL }, // delete the destination
-            { "-R", srcPath, dstPath, NULL },  // cp
+            { "-R", "-p", srcPath, dstPath, NULL },  // cp
             { NULL },  // pause
             { "-R", uidgid, dstPath, NULL },  // chown
             { "+s", execPath, NULL },  // chmod
