@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
@@ -22,5 +21,6 @@
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
 - (IBAction)startDaemon:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 - (BOOL) checkAndCopyHelper;
 @end

@@ -6,8 +6,10 @@
 //  Copyright 2009 Protonet.info. All rights reserved.
 //
 
-#import "AppController.h"
 #import <SecurityFoundation/SFAuthorization.h>
+
+#import "AppController.h"
+#import "PrefsController.h"
 
 // n2n includes
 #include "edge.h"
@@ -51,6 +53,11 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
+}
+
+- (IBAction)showPreferences:(id)sender
+{
+    [[PrefsController sharedController] showWindow:self];
 }
 
 /**
@@ -240,15 +247,14 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 {
     NSLog(@"app will terminate");
     [n2nApp terminate];
+    [n2nApp waitUntilExit];
     [n2nApp release];
 }
 
 - (void)startDaemon:(id)sender
 {
-    [n2nApp launch];
-    if ([n2nApp isRunning]) {
-        [daemonButton setTitle:@"Stop"];
-        [daemonButton setAction:@selector(stopDaemon:)];
+    if (n2nApp == nil){
+        [self runApp];
     }
 }
 
@@ -257,6 +263,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     if ([n2nApp isRunning]) {
         [n2nApp terminate];
         [n2nApp waitUntilExit];
+        [n2nApp release];
+        n2nApp = nil;
         [daemonButton setTitle:@"Start"];
         [daemonButton setAction:@selector(startDaemon:)];
     }
