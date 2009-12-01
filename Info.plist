@@ -26,5 +26,10 @@
 	<string>NSApplication</string>
 	<key>LSUIElement</key>
 	<true/>
+    <key>LSMinimumSystemVersionByArchitecture</key>
+    <dict>
+        <key>x86_64</key>
+        <string>10.6.0</string>
+    </dict>
 </dict>
 </plist>

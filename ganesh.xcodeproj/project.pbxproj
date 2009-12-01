@@ -17,6 +17,8 @@
 		278036300FD71D7200D57E59 /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362E0FD71D7200D57E59 /* ptn_icon_inactive.png */; };
 		27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
 		279318D2108BC96900C7975F /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
+		27F29F5110C5B3EF0056C09C /* tap.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F29F3E10C5B3E20056C09C /* tap.kext */; };
+		27F29F5210C5B3EF0056C09C /* tun.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F29F3F10C5B3E20056C09C /* tun.kext */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -64,6 +66,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27F29F3B10C5B3D70056C09C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = tuntap;
+			dstSubfolderSpec = 7;
+			files = (
+				27F29F5110C5B3EF0056C09C /* tap.kext in CopyFiles */,
+				27F29F5210C5B3EF0056C09C /* tun.kext in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +94,8 @@
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
 		2780362E0FD71D7200D57E59 /* ptn_icon_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_inactive.png; path = images/ptn_icon_inactive.png; sourceTree = "<group>"; };
 		2793188F108BC93E00C7975F /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		27F29F3E10C5B3E20056C09C /* tap.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; name = tap.kext; path = tuntaposx/tuntap/tap.kext; sourceTree = "<group>"; };
+		27F29F3F10C5B3E20056C09C /* tun.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; name = tun.kext; path = tuntaposx/tuntap/tun.kext; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -150,6 +165,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		27F29F5010C5B3E40056C09C /* Tuntap */ = {
+			isa = PBXGroup;
+			children = (
+				27F29F3E10C5B3E20056C09C /* tap.kext */,
+				27F29F3F10C5B3E20056C09C /* tun.kext */,
+			);
+			name = Tuntap;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* ganesh */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +200,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				27F29F5010C5B3E40056C09C /* Tuntap */,
 				2780362D0FD71D7200D57E59 /* ptn_icon_active.png */,
 				2780362E0FD71D7200D57E59 /* ptn_icon_inactive.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -202,10 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ganesh" */;
 			buildPhases = (
+				27F29EE010C5B2BA0056C09C /* ShellScript */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				279318DB108BC96F00C7975F /* CopyFiles */,
+				27F29F3B10C5B3D70056C09C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -274,6 +301,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27F29EE010C5B2BA0056C09C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "BUILDDIR=tuntaposx/tuntap\ncd $BUILDDIR\n\nif [ -e built ]; then\n\texit 0\nfi\n\nmake clean\nmake\n\ntouch built";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
