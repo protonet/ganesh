@@ -10,18 +10,26 @@
 
 
 @interface Socket : NSObject {
-	IBOutlet NSTextField *inputField;
-	IBOutlet NSTextField *serverAnswerField;
-	NSInputStream *inputStream;
-	NSOutputStream *outputStream;
+	IBOutlet NSTextField * inputField;
+	IBOutlet NSTextField * serverAnswerField;
+	NSInputStream * inputStream;
+	NSOutputStream * outputStream;
 	NSMutableData * dataBuffer;
-	NSHost * host;	
+	NSHost * host;
+	
+	IBOutlet NSTableView *tableView;
+    NSMutableArray *tweetList;
+
 }
 
 - (IBAction)send:(id)sender;
 - (void)openSocket;
 - (void)openStreams;
 - (void)closeStreams;
+- (BOOL)streamsAreOk;
+- (BOOL)streamsAreOpening;
 - (void)sendText:(NSString *)string;
+- (void)addMessageToTweets:(NSString *)string;
+- (IBAction)clearMessages:(id)sender;
 
 @end
