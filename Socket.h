@@ -24,6 +24,7 @@
 	NSStatusItem *statusItem;
 }
 
+- (void)createStatusBarItem
 - (IBAction)send:(id)sender;
 - (void)openSocket;
 - (void)openStreams;

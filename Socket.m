@@ -22,6 +22,33 @@
     return self;
 }
 
+- (void)awakeFromNib
+{	
+    host = [NSHost currentHost];
+	
+	NSCalendarDate *now;
+	now = [NSCalendarDate calendarDate];
+	
+	[serverAnswerField setObjectValue:[host	name]];
+	[self openSocket];
+	
+	NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
+	
+    statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem retain];
+	
+    [statusItem setTitle: NSLocalizedString(@"Socket",@"")];
+    [statusItem setHighlightMode:YES];
+    [statusItem setMenu:menuBar];
+	
+}
+
+- (void)createStatusBarItem
+{
+	
+}
+
+// todo: rename to sendMessageAndClearInput or so
 - (void)send:(id)sender
 {	
 	[self streamsAreOk];
@@ -33,17 +60,6 @@
 {
 	[tweetList removeAllObjects];
 	[tableView reloadData];
-}
-
-- (void)awakeFromNib
-{	
-    host = [NSHost currentHost];
-
-	NSCalendarDate *now;
-	now = [NSCalendarDate calendarDate];
-	
-	[serverAnswerField setObjectValue:[host	name]];
-	[self openSocket];
 }
 
 - (void)openSocket
