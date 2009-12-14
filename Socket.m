@@ -18,6 +18,7 @@
     NSLog(@"init");
 	
 	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
+	messageCounter = 0;
 	
     return self;
 }
@@ -31,21 +32,34 @@
 	
 	[serverAnswerField setObjectValue:[host	name]];
 	[self openSocket];
-	
-	NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
-	
-    statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
-    [statusItem retain];
-	
-    [statusItem setTitle: NSLocalizedString(@"Socket",@"")];
-    [statusItem setHighlightMode:YES];
-    [statusItem setMenu:menuBar];
-	
+	[self createStatusBarItem];
 }
 
 - (void)createStatusBarItem
 {
+	NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
 	
+    statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem retain];
+    [statusItem setTitle: @"Socket"];
+    [statusItem setHighlightMode:YES];
+	
+	// create menu
+	// todo: why do I have to init this with a title if it won't display it?
+	NSMenu *menuItem = [[[NSMenu alloc] initWithTitle:@"thisisn'tdisplayed!"] autorelease];
+	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:@"reset!" action:@selector(resetStatusBarItem:) keyEquivalent:@""] autorelease];
+	[menuItem insertItem:subMenuItem atIndex:0];
+	[statusItem setMenu:menuItem];
+}
+
+- (void)updateStatusBarItem
+{
+	[statusItem setTitle: [NSString stringWithFormat:@"Socket: %i",messageCounter]];
+}
+
+- (void)resetStatusBarItem
+{
+	[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
 }
 
 // todo: rename to sendMessageAndClearInput or so
@@ -98,7 +112,8 @@
     outputStream = nil;
 }
 
-- (void)sendText:(NSString *)string {
+- (void)sendText:(NSString *)string 
+{
     NSString * stringToSend = [NSString stringWithFormat:@"%@\n", string];
     NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
     if (outputStream && [self streamsAreOk]) {
@@ -119,7 +134,8 @@
 }
 
 
-- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent {
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent 
+{
     NSInputStream * istream;
     switch(streamEvent) {
         case NSStreamEventHasBytesAvailable:;
@@ -138,6 +154,8 @@
                 NSString * string = [[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding];
 				[serverAnswerField setStringValue:string];
 				[self addMessageToTweets:string];
+				messageCounter++ ;
+				[self updateStatusBarItem];
                 [string release];
                 [dataBuffer release];
                 dataBuffer = nil;
@@ -155,7 +173,8 @@
     }
 }
 
-- (BOOL)streamsAreOk {
+- (BOOL)streamsAreOk
+{
 	if ([inputStream streamStatus] == 2 && [outputStream streamStatus] == 2) {
 		NSLog(@"streams are ok!");
 		return YES;
@@ -165,7 +184,8 @@
 	}
 }
 
-- (BOOL)streamsAreOpening {
+- (BOOL)streamsAreOpening
+{
 	if ([inputStream streamStatus] == 1 && [outputStream streamStatus] == 1) {
 		NSLog(@"streams are opening!");
 		return YES;
@@ -175,16 +195,19 @@
 	}	
 }
 
-- (int)numberOfRowsInTableView:(NSTableView *)tv {
+- (int)numberOfRowsInTableView:(NSTableView *)tv
+{
     return [tweetList count];
 }
 
-- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row {
+- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row
+{
     NSString *value = [tweetList objectAtIndex:row];
     return value;
 }
 
-- (void)addMessageToTweets:(NSString *)string {
+- (void)addMessageToTweets:(NSString *)string
+{
 	// add the message to the beginning of the message array
 	[tweetList insertObject:string atIndex:0];
 	[tableView reloadData];

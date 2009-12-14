@@ -22,9 +22,13 @@
 	
 	IBOutlet NSMenu *menuBar;
 	NSStatusItem *statusItem;
+	
+	int messageCounter;
 }
 
-- (void)createStatusBarItem
+- (void)createStatusBarItem;
+- (void)updateStatusBarItem;
+- (void)resetStatusBarItem;
 - (IBAction)send:(id)sender;
 - (void)openSocket;
 - (void)openStreams;
