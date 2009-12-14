@@ -19,7 +19,9 @@
 	
 	IBOutlet NSTableView *tableView;
     NSMutableArray *tweetList;
-
+	
+	IBOutlet NSMenu *menuBar;
+	NSStatusItem *statusItem;
 }
 
 - (IBAction)send:(id)sender;
