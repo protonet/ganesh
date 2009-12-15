@@ -24,11 +24,20 @@
 	NSStatusItem *statusItem;
 	
 	int messageCounter;
+	
+	// images for status item states
+	NSImage *statusNoVpnNoMessageImage;
+	NSImage *statusNoVpnHasMessageImage;	
+	NSImage *statusHasVpnNoMessageImage;
+	NSImage *statusHasVpnHasMessageImage;
+
 }
 
 - (void)createStatusBarItem;
+- (IBAction)pushedStatusBarItem:(id)sender;
 - (void)updateStatusBarItem;
-- (IBAction)resetStatusBarItem:(id)sender;
+- (void)resetStatusBarItem:(id)sender;
+
 - (IBAction)send:(id)sender;
 - (void)openSocket;
 - (void)openStreams;

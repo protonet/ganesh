@@ -30,6 +30,19 @@
 	NSCalendarDate *now;
 	now = [NSCalendarDate calendarDate];
 	
+    // where are the bundle files?
+    NSBundle *bundle = [NSBundle mainBundle];
+	
+	// allocate and load the images into the app
+	statusNoVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
+    statusNoVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive_message" ofType:@"png"]];	
+	
+	statusHasVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
+	statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
+
+	
+	
+	
 	[serverAnswerField setObjectValue:[host	name]];
 	[self openSocket];
 	[self createStatusBarItem];
@@ -41,21 +54,34 @@
 	
     statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
     [statusItem retain];
-    [statusItem setTitle: @"Socket"];
+	[statusItem setImage:statusNoVpnNoMessageImage];
     [statusItem setHighlightMode:YES];
-	
-	[statusItem setMenu:menuForStatusItem];
+	[statusItem setAction:@selector(pushedStatusBarItem:)];
+	[statusItem setTarget:self];
+	//[statusItem setMenu:menuForStatusItem];
+}
+
+- (IBAction)pushedStatusBarItem:(id)sender
+{
+	[self resetStatusBarItem];
+	[statusItem popUpStatusItemMenu:menuForStatusItem];
 }
 
 - (void)updateStatusBarItem
 {
-	[statusItem setTitle: [NSString stringWithFormat:@"Socket: %i",messageCounter]];
+	if (messageCounter > 0) {
+		[statusItem setImage:statusNoVpnHasMessageImage];
+	} else {
+		[statusItem setImage:statusNoVpnNoMessageImage];
+	}
+
 }
 
-- (IBAction)resetStatusBarItem:(id)sender
+- (void)resetStatusBarItem
 {
-	[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
+	//[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
 	messageCounter = 0;
+	[self updateStatusBarItem];
 }
 
 // todo: rename to sendMessageAndClearInput or so

@@ -1636,29 +1636,13 @@
 			<object class="NSCustomObject" id="931038684">
 				<string key="NSClassName">Socket</string>
 			</object>
-			<object class="NSMenu" id="73643120">
+			<object class="NSMenu" id="341306612">
 				<string key="NSTitle"/>
 				<object class="NSMutableArray" key="NSMenuItems">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSMenuItem" id="500329378">
-						<reference key="NSMenu" ref="73643120"/>
+					<object class="NSMenuItem" id="216082421">
+						<reference key="NSMenu" ref="341306612"/>
 						<string key="NSTitle">clear</string>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="35465992"/>
-						<reference key="NSMixedImage" ref="502551668"/>
-					</object>
-					<object class="NSMenuItem" id="305727581">
-						<reference key="NSMenu" ref="73643120"/>
-						<string key="NSTitle">Item 2</string>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="35465992"/>
-						<reference key="NSMixedImage" ref="502551668"/>
-					</object>
-					<object class="NSMenuItem" id="600302048">
-						<reference key="NSMenu" ref="73643120"/>
-						<string key="NSTitle">Item 3</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
@@ -2410,23 +2394,15 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">menuForStatusItem</string>
 						<reference key="source" ref="931038684"/>
-						<reference key="destination" ref="73643120"/>
+						<reference key="destination" ref="341306612"/>
 					</object>
 					<int key="connectionID">616</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="73643120"/>
-						<reference key="destination" ref="931038684"/>
-					</object>
-					<int key="connectionID">617</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">resetStatusBarItem:</string>
 						<reference key="source" ref="931038684"/>
-						<reference key="destination" ref="500329378"/>
+						<reference key="destination" ref="216082421"/>
 					</object>
 					<int key="connectionID">619</int>
 				</object>
@@ -3631,29 +3607,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">610</int>
-						<reference key="object" ref="73643120"/>
+						<reference key="object" ref="341306612"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="500329378"/>
-							<reference ref="305727581"/>
-							<reference ref="600302048"/>
+							<reference ref="216082421"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">611</int>
-						<reference key="object" ref="500329378"/>
-						<reference key="parent" ref="73643120"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">612</int>
-						<reference key="object" ref="305727581"/>
-						<reference key="parent" ref="73643120"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">613</int>
-						<reference key="object" ref="600302048"/>
-						<reference key="parent" ref="73643120"/>
+						<reference key="object" ref="216082421"/>
+						<reference key="parent" ref="341306612"/>
 					</object>
 				</object>
 			</object>
@@ -3908,8 +3872,6 @@
 					<string>610.IBEditorWindowLastContentRect</string>
 					<string>610.IBPluginDependency</string>
 					<string>611.IBPluginDependency</string>
-					<string>612.IBPluginDependency</string>
-					<string>613.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
 					<string>73.IBPluginDependency</string>
@@ -4183,9 +4145,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{329, 782}, {96, 63}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{329, 822}, {85, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4245,11 +4205,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>clearMessages:</string>
+							<string>pushedStatusBarItem:</string>
 							<string>resetStatusBarItem:</string>
 							<string>send:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
