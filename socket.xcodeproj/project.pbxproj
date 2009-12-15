@@ -11,6 +11,10 @@
 		256AC3DA0F4B6AC300CF3369 /* socketAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* socketAppDelegate.m */; };
 		6142169A10CD6A2C0057AE2D /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142169910CD6A2C0057AE2D /* Socket.m */; };
 		614217AE10D166180057AE2D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 614217AD10D166180057AE2D /* Tweet.m */; };
+		61421A7010D80F230057AE2D /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A6E10D80F230057AE2D /* ptn_icon_active.png */; };
+		61421A7110D80F230057AE2D /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A6F10D80F230057AE2D /* ptn_icon_inactive.png */; };
+		61421A7710D815E00057AE2D /* ptn_icon_active_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A7510D815E00057AE2D /* ptn_icon_active_message.png */; };
+		61421A7810D815E00057AE2D /* ptn_icon_inactive_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A7610D815E00057AE2D /* ptn_icon_inactive_message.png */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -31,6 +35,10 @@
 		6142169910CD6A2C0057AE2D /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = "<group>"; };
 		614217AC10D166180057AE2D /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		614217AD10D166180057AE2D /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		61421A6E10D80F230057AE2D /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ptn_icon_active.png; sourceTree = "<group>"; };
+		61421A6F10D80F230057AE2D /* ptn_icon_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ptn_icon_inactive.png; sourceTree = "<group>"; };
+		61421A7510D815E00057AE2D /* ptn_icon_active_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ptn_icon_active_message.png; sourceTree = "<group>"; };
+		61421A7610D815E00057AE2D /* ptn_icon_inactive_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ptn_icon_inactive_message.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* socket-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "socket-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* socket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +118,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				61421A6D10D80F230057AE2D /* images */,
 				8D1107310486CEB800E47090 /* socket-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -124,6 +133,17 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61421A6D10D80F230057AE2D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				61421A7510D815E00057AE2D /* ptn_icon_active_message.png */,
+				61421A7610D815E00057AE2D /* ptn_icon_inactive_message.png */,
+				61421A6E10D80F230057AE2D /* ptn_icon_active.png */,
+				61421A6F10D80F230057AE2D /* ptn_icon_inactive.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +191,10 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				61421A7010D80F230057AE2D /* ptn_icon_active.png in Resources */,
+				61421A7110D80F230057AE2D /* ptn_icon_inactive.png in Resources */,
+				61421A7710D815E00057AE2D /* ptn_icon_active_message.png in Resources */,
+				61421A7810D815E00057AE2D /* ptn_icon_inactive_message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

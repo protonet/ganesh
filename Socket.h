@@ -20,7 +20,7 @@
 	IBOutlet NSTableView *tableView;
     NSMutableArray *tweetList;
 	
-	IBOutlet NSMenu *menuBar;
+	IBOutlet NSMenu *menuForStatusItem;
 	NSStatusItem *statusItem;
 	
 	int messageCounter;
@@ -28,7 +28,7 @@
 
 - (void)createStatusBarItem;
 - (void)updateStatusBarItem;
-- (void)resetStatusBarItem;
+- (IBAction)resetStatusBarItem:(id)sender;
 - (IBAction)send:(id)sender;
 - (void)openSocket;
 - (void)openStreams;

@@ -44,12 +44,7 @@
     [statusItem setTitle: @"Socket"];
     [statusItem setHighlightMode:YES];
 	
-	// create menu
-	// todo: why do I have to init this with a title if it won't display it?
-	NSMenu *menuItem = [[[NSMenu alloc] initWithTitle:@"thisisn'tdisplayed!"] autorelease];
-	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:@"reset!" action:@selector(resetStatusBarItem:) keyEquivalent:@""] autorelease];
-	[menuItem insertItem:subMenuItem atIndex:0];
-	[statusItem setMenu:menuItem];
+	[statusItem setMenu:menuForStatusItem];
 }
 
 - (void)updateStatusBarItem
@@ -57,9 +52,10 @@
 	[statusItem setTitle: [NSString stringWithFormat:@"Socket: %i",messageCounter]];
 }
 
-- (void)resetStatusBarItem
+- (IBAction)resetStatusBarItem:(id)sender
 {
 	[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
+	messageCounter = 0;
 }
 
 // todo: rename to sendMessageAndClearInput or so
