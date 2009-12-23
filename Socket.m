@@ -111,6 +111,8 @@
 	host = [NSHost hostWithAddress:@"127.0.0.1"];
 	[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
 	[self openStreams];
+	// is this a good idea?
+	sleep(1);
 	if([self streamsAreOk] || [self streamsAreOpening]) {
 //		[self sendText:@"initialzing!"];
 		[self authenticateSocket];
@@ -131,10 +133,14 @@
 	// Get JSON as a NSString from NSData response
 	NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	
-	NSDictionary *token = [parser objectWithString:json_string];
+	NSDictionary *authentication_dict = [parser objectWithString:json_string];
 
 	NSLog(@"%@", json_string);
-	NSLog(@"%@", [token objectForKey:@"token"]);
+	NSLog(@"%@", [authentication_dict objectForKey:@"token"]);
+	
+	// Now send the authentication-request
+	[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
+					[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
 
 }
 
