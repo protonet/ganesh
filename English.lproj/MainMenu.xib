@@ -13,7 +13,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="610"/>
-			<integer value="598"/>
+			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1636,12 +1636,12 @@
 			<object class="NSCustomObject" id="931038684">
 				<string key="NSClassName">Socket</string>
 			</object>
-			<object class="NSMenu" id="341306612">
+			<object class="NSMenu" id="256212815">
 				<string key="NSTitle"/>
 				<object class="NSMutableArray" key="NSMenuItems">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSMenuItem" id="216082421">
-						<reference key="NSMenu" ref="341306612"/>
+					<object class="NSMenuItem" id="30837726">
+						<reference key="NSMenu" ref="256212815"/>
 						<string key="NSTitle">clear</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -2351,14 +2351,6 @@
 					<int key="connectionID">549</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">send:</string>
-						<reference key="source" ref="931038684"/>
-						<reference key="destination" ref="674976643"/>
-					</object>
-					<int key="connectionID">550</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="271243990"/>
@@ -2394,17 +2386,17 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">menuForStatusItem</string>
 						<reference key="source" ref="931038684"/>
-						<reference key="destination" ref="341306612"/>
+						<reference key="destination" ref="256212815"/>
 					</object>
 					<int key="connectionID">616</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">resetStatusBarItem:</string>
+						<string key="label">sendMessageAndClearInput:</string>
 						<reference key="source" ref="931038684"/>
-						<reference key="destination" ref="216082421"/>
+						<reference key="destination" ref="674976643"/>
 					</object>
-					<int key="connectionID">619</int>
+					<int key="connectionID">620</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3607,17 +3599,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">610</int>
-						<reference key="object" ref="341306612"/>
+						<reference key="object" ref="256212815"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="216082421"/>
+							<reference ref="30837726"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">611</int>
-						<reference key="object" ref="216082421"/>
-						<reference key="parent" ref="341306612"/>
+						<reference key="object" ref="30837726"/>
+						<reference key="parent" ref="256212815"/>
 					</object>
 				</object>
 			</object>
@@ -4192,7 +4184,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">619</int>
+			<int key="maxID">620</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4206,12 +4198,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>clearMessages:</string>
 							<string>pushedStatusBarItem:</string>
-							<string>resetStatusBarItem:</string>
-							<string>send:</string>
+							<string>sendMessageAndClearInput:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

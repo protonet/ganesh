@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface Socket : NSObject {
 	IBOutlet NSTextField * inputField;
 	IBOutlet NSTextField * serverAnswerField;
@@ -24,6 +23,7 @@
 	NSStatusItem *statusItem;
 	
 	int messageCounter;
+	BOOL socketAuthenticated;
 	
 	// images for status item states
 	NSImage *statusNoVpnNoMessageImage;
@@ -36,12 +36,16 @@
 - (void)createStatusBarItem;
 - (IBAction)pushedStatusBarItem:(id)sender;
 - (void)updateStatusBarItem;
-- (void)resetStatusBarItem:(id)sender;
+- (void)resetStatusBarItem;
+- (void)addMenuItemForTweet:(NSString *)tweet;
 
-- (IBAction)send:(id)sender;
+- (IBAction)sendMessageAndClearInput:(id)sender;
+
 - (void)openSocket;
 - (void)openStreams;
 - (void)closeStreams;
+- (void)authenticateSocket;
+
 - (BOOL)streamsAreOk;
 - (BOOL)streamsAreOpening;
 - (void)sendText:(NSString *)string;

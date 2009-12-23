@@ -7,7 +7,7 @@
 //
 
 #import "Socket.h"
-
+#import "JSON.h"
 
 @implementation Socket
 
@@ -18,7 +18,9 @@
     NSLog(@"init");
 	
 	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
+	
 	messageCounter = 0;
+	socketAuthenticated = NO;
 	
     return self;
 }
@@ -84,8 +86,14 @@
 	[self updateStatusBarItem];
 }
 
+- (void)addMenuItemForTweet:(NSString *)tweet
+{
+	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet action:nil keyEquivalent:@""] autorelease];
+	[menuForStatusItem insertItem:subMenuItem atIndex:1];
+}
+
 // todo: rename to sendMessageAndClearInput or so
-- (void)send:(id)sender
+- (IBAction)sendMessageAndClearInput:(id)sender
 {	
 	[self streamsAreOk];
     [self sendText:[NSString stringWithFormat:@"%@", [inputField stringValue]]];
@@ -104,10 +112,30 @@
 	[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
 	[self openStreams];
 	if([self streamsAreOk] || [self streamsAreOpening]) {
-		[self sendText:@"initialzing!"];
+//		[self sendText:@"initialzing!"];
+		[self authenticateSocket];
 	} else {
 		[serverAnswerField setStringValue:@"no socket available"];
 	}
+}
+
+- (void)authenticateSocket {
+	SBJsonParser *parser = [[SBJsonParser alloc] init];
+
+	// Prepare URL request to get our authentication token
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/sessions/create_token.json?login=dudemeister&password=geheim"]];
+	
+	// Perform request and get JSON back as a NSData object
+	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	
+	// Get JSON as a NSString from NSData response
+	NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+	
+	NSDictionary *token = [parser objectWithString:json_string];
+
+	NSLog(@"%@", json_string);
+	NSLog(@"%@", [token objectForKey:@"token"]);
+
 }
 
 - (void)openStreams {
@@ -177,7 +205,7 @@
 				[serverAnswerField setStringValue:string];
 				[self addMessageToTweets:string];
 				messageCounter++ ;
-				[self updateStatusBarItem];
+				[self updateStatusBarItem];					
                 [string release];
                 [dataBuffer release];
                 dataBuffer = nil;
@@ -234,6 +262,7 @@
 	[tweetList insertObject:string atIndex:0];
 	[tableView reloadData];
 	//NSLog(@"currently %@ in array", [tweetList count]);
+	[self addMenuItemForTweet:string];
 }
 
 @end
