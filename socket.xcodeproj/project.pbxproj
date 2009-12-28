@@ -78,12 +78,10 @@
 			isa = PBXGroup;
 			children = (
 				612AB78110DFED140044C96D /* JSON */,
-				614217AC10D166180057AE2D /* Tweet.h */,
-				614217AD10D166180057AE2D /* Tweet.m */,
+				61126C8510E934EE00D6CBAC /* Tweet */,
 				256AC3D80F4B6AC300CF3369 /* socketAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* socketAppDelegate.m */,
-				6142169810CD6A2C0057AE2D /* Socket.h */,
-				6142169910CD6A2C0057AE2D /* Socket.m */,
+				61126C8610E934F900D6CBAC /* Socket */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -153,6 +151,24 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61126C8510E934EE00D6CBAC /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
+				614217AC10D166180057AE2D /* Tweet.h */,
+				614217AD10D166180057AE2D /* Tweet.m */,
+			);
+			name = Tweet;
+			sourceTree = "<group>";
+		};
+		61126C8610E934F900D6CBAC /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				6142169810CD6A2C0057AE2D /* Socket.h */,
+				6142169910CD6A2C0057AE2D /* Socket.m */,
+			);
+			name = Socket;
 			sourceTree = "<group>";
 		};
 		612AB78110DFED140044C96D /* JSON */ = {

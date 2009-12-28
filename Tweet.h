@@ -10,7 +10,14 @@
 
 
 @interface Tweet : NSObject {
+	NSImage * userImage;
+	NSString  * message;
 
 }
+
+@property(readwrite, assign) NSString * message;
+@property(readwrite, assign) NSImage * userImage;
+
+- (id)initWithData:(NSMutableDictionary *)data;
 
 @end

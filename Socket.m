@@ -86,10 +86,11 @@
 	[self updateStatusBarItem];
 }
 
-- (void)addMenuItemForTweet:(NSString *)tweet
+- (void)addMenuItemForTweet:(Tweet *)tweet
 {
-	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet action:nil keyEquivalent:@""] autorelease];
-	[menuForStatusItem insertItem:subMenuItem atIndex:1];
+	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:nil keyEquivalent:@""] autorelease];
+	[subMenuItem setImage:tweet.userImage];
+	[menuForStatusItem insertItem:subMenuItem atIndex:0];
 }
 
 // todo: rename to sendMessageAndClearInput or so
@@ -264,11 +265,19 @@
 
 - (void)addMessageToTweets:(NSString *)string
 {
-	// add the message to the beginning of the message array
-	[tweetList insertObject:string atIndex:0];
-	[tableView reloadData];
-	//NSLog(@"currently %@ in array", [tweetList count]);
-	[self addMenuItemForTweet:string];
+	SBJsonParser *parser = [[SBJsonParser alloc] init];
+
+	Tweet * tweet = [[Tweet alloc] initWithData:[parser objectWithString:string]];
+	
+	if (tweet) {
+		NSLog(@"%@", tweet.message);
+		
+		// add the message to the beginning of the message array
+		[tweetList insertObject:string atIndex:0];
+		[tableView reloadData];
+		//NSLog(@"currently %@ in array", [tweetList count]);
+		[self addMenuItemForTweet:tweet];		
+	}
 }
 
 @end

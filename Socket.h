@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Tweet.h"
 
 @interface Socket : NSObject {
 	IBOutlet NSTextField * inputField;
@@ -30,14 +31,13 @@
 	NSImage *statusNoVpnHasMessageImage;	
 	NSImage *statusHasVpnNoMessageImage;
 	NSImage *statusHasVpnHasMessageImage;
-
 }
 
 - (void)createStatusBarItem;
 - (IBAction)pushedStatusBarItem:(id)sender;
 - (void)updateStatusBarItem;
 - (void)resetStatusBarItem;
-- (void)addMenuItemForTweet:(NSString *)tweet;
+- (void)addMenuItemForTweet:(Tweet *)tweet;
 
 - (IBAction)sendMessageAndClearInput:(id)sender;
 
