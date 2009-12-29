@@ -235,7 +235,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>61126EF110EA813300D6CBAC</string>
+						<string>61126EFF10EA84D600D6CBAC</string>
 						<key>history</key>
 						<array>
 							<string>61126ECF10EA7F5500D6CBAC</string>
@@ -390,7 +390,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>61126EF010EA813300D6CBAC</string>
+										<string>61126EFE10EA84D600D6CBAC</string>
 										<key>history</key>
 										<array>
 											<string>61421A7910D818010057AE2D</string>
@@ -586,7 +586,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>283803955.37010401</real>
+	<real>283804886.97930998</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -603,14 +603,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>61126EEB10EA80C700D6CBAC</string>
+		<string>61126F0010EA84D600D6CBAC</string>
 		<string>61126C8F10E9350D00D6CBAC</string>
 		<string>61126C9010E9350D00D6CBAC</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>6142168C10CD62F90057AE2D</string>
 		<string>61126ECD10EA7F5500D6CBAC</string>
 		<string>/Users/jelveh/Projekte/xcode/socket/socket.xcodeproj</string>
+		<string>6142168C10CD62F90057AE2D</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 86 1440 792 0 0 1440 878 </string>
@@ -705,7 +705,7 @@
 			<key>WindowToolGUID</key>
 			<string>6142168C10CD62F90057AE2D</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -994,7 +994,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
