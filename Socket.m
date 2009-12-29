@@ -11,8 +11,7 @@
 
 @implementation Socket
 
-- (id)init
-{
+- (id)init {
     [super init];
 	
     NSLog(@"init");
@@ -25,8 +24,7 @@
     return self;
 }
 
-- (void)awakeFromNib
-{	
+- (void)awakeFromNib {	
     host = [NSHost currentHost];
 	
 	NSCalendarDate *now;
@@ -41,17 +39,27 @@
 	
 	statusHasVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
 	statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
-
-	
-	
 	
 	[serverAnswerField setObjectValue:[host	name]];
 	[self openSocket];
 	[self createStatusBarItem];
+	
+	// periodically check socket and reopen if needed
+	[NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:YES];	
+	// check on sleep and close socket
+	NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
+    [nc addObserver:self
+           selector:@selector(applicationWillTerminate)
+               name:NSWorkspaceWillSleepNotification
+             object:nil];
+	
 }
 
-- (void)createStatusBarItem
-{
+- (void)applicationWillTerminate {
+	[self closeStreams];
+}
+
+- (void)createStatusBarItem {
 	NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
 	
     statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
@@ -60,17 +68,14 @@
     [statusItem setHighlightMode:YES];
 	[statusItem setAction:@selector(pushedStatusBarItem:)];
 	[statusItem setTarget:self];
-	//[statusItem setMenu:menuForStatusItem];
 }
 
-- (IBAction)pushedStatusBarItem:(id)sender
-{
+- (IBAction)pushedStatusBarItem:(id)sender {
 	[self resetStatusBarItem];
 	[statusItem popUpStatusItemMenu:menuForStatusItem];
 }
 
-- (void)updateStatusBarItem
-{
+- (void)updateStatusBarItem {
 	if (messageCounter > 0) {
 		[statusItem setImage:statusNoVpnHasMessageImage];
 	} else {
@@ -79,46 +84,43 @@
 
 }
 
-- (void)resetStatusBarItem
-{
+- (void)resetStatusBarItem {
 	//[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
 	messageCounter = 0;
 	[self updateStatusBarItem];
 }
 
-- (void)addMenuItemForTweet:(Tweet *)tweet
-{
+- (void)addMenuItemForTweet:(Tweet *)tweet {
 	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:nil keyEquivalent:@""] autorelease];
 	[subMenuItem setImage:tweet.userImage];
+	[subMenuItem setEnabled:YES];
 	[menuForStatusItem insertItem:subMenuItem atIndex:0];
 }
 
-// todo: rename to sendMessageAndClearInput or so
-- (IBAction)sendMessageAndClearInput:(id)sender
-{	
+- (IBAction)sendMessageAndClearInput:(id)sender {	
 	[self streamsAreOk];
     [self sendText:[NSString stringWithFormat:@"%@", [inputField stringValue]]];
 	[inputField setStringValue:@""];
 }
 
-- (IBAction)clearMessages:(id)sender
-{
+- (IBAction)clearMessages:(id)sender {
 	[tweetList removeAllObjects];
 	[tableView reloadData];
 }
 
-- (void)openSocket
-{
-	host = [NSHost hostWithAddress:@"127.0.0.1"];
-	[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
-	[self openStreams];
-	// is this a good idea?
-	sleep(1);
-	if([self streamsAreOk] || [self streamsAreOpening]) {
-//		[self sendText:@"initialzing!"];
-		[self authenticateSocket];
-	} else {
-		[serverAnswerField setStringValue:@"no socket available"];
+- (void)openSocket {
+	// only do something if stream are not OK (not open)
+	if (![self streamsAreOk]) {
+		host = [NSHost hostWithAddress:@"127.0.0.1"];
+		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
+		[self openStreams];
+		// is this a good idea?
+		sleep(1);
+		if([self streamsAreOk] || [self streamsAreOpening]) {
+			[self authenticateSocket];
+		} else {
+			[serverAnswerField setStringValue:@"no socket available"];
+		}		
 	}
 }
 
@@ -169,8 +171,7 @@
     outputStream = nil;
 }
 
-- (void)sendText:(NSString *)string 
-{
+- (void)sendText:(NSString *)string {
     NSString * stringToSend = [NSString stringWithFormat:@"%@\n", string];
     NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
     if (outputStream && [self streamsAreOk]) {
@@ -190,9 +191,7 @@
 
 }
 
-
-- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent 
-{
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent {
     NSInputStream * istream;
     switch(streamEvent) {
         case NSStreamEventHasBytesAvailable:;
@@ -211,7 +210,6 @@
                 NSString * string = [[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding];
 				[serverAnswerField setStringValue:string];
 				[self addMessageToTweets:string];
-				messageCounter++ ;
 				[self updateStatusBarItem];					
                 [string release];
                 [dataBuffer release];
@@ -230,8 +228,7 @@
     }
 }
 
-- (BOOL)streamsAreOk
-{
+- (BOOL)streamsAreOk {
 	if ([inputStream streamStatus] == 2 && [outputStream streamStatus] == 2) {
 		NSLog(@"streams are ok!");
 		return YES;
@@ -241,8 +238,7 @@
 	}
 }
 
-- (BOOL)streamsAreOpening
-{
+- (BOOL)streamsAreOpening {
 	if ([inputStream streamStatus] == 1 && [outputStream streamStatus] == 1) {
 		NSLog(@"streams are opening!");
 		return YES;
@@ -252,32 +248,33 @@
 	}	
 }
 
-- (int)numberOfRowsInTableView:(NSTableView *)tv
-{
+- (int)numberOfRowsInTableView:(NSTableView *)tv {
     return [tweetList count];
 }
 
-- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row
-{
+- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row {
     NSString *value = [tweetList objectAtIndex:row];
     return value;
 }
 
-- (void)addMessageToTweets:(NSString *)string
-{
+- (void)addMessageToTweets:(NSString *)string {
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
 
 	Tweet * tweet = [[Tweet alloc] initWithData:[parser objectWithString:string]];
 	
 	if (tweet) {
-		NSLog(@"%@", tweet.message);
-		
+		messageCounter++ ;
 		// add the message to the beginning of the message array
 		[tweetList insertObject:string atIndex:0];
 		[tableView reloadData];
 		//NSLog(@"currently %@ in array", [tweetList count]);
 		[self addMenuItemForTweet:tweet];		
 	}
+}
+
+- (void)dealloc {
+	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
+	[super dealloc];
 }
 
 @end
