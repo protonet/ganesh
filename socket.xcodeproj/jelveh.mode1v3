@@ -216,7 +216,48 @@
 		</dict>
 	</array>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>61126ECD10EA7F5500D6CBAC</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>Controller.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>61126ECE10EA7F5500D6CBAC</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>Controller.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>61126EF110EA813300D6CBAC</string>
+						<key>history</key>
+						<array>
+							<string>61126ECF10EA7F5500D6CBAC</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {937, 624}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>107 124 937 665 0 0 1440 878 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -349,7 +390,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>61126E5610EA721400D6CBAC</string>
+										<string>61126EF010EA813300D6CBAC</string>
 										<key>history</key>
 										<array>
 											<string>61421A7910D818010057AE2D</string>
@@ -359,12 +400,12 @@
 											<string>612AB75510DFDFC80044C96D</string>
 											<string>612AB75610DFDFC80044C96D</string>
 											<string>61126D8410E9416F00D6CBAC</string>
-											<string>61126DD410EA623600D6CBAC</string>
 											<string>61126E3910EA6EF400D6CBAC</string>
 											<string>61126E3A10EA6EF400D6CBAC</string>
 											<string>61126E3B10EA6EF400D6CBAC</string>
 											<string>61126E4010EA712B00D6CBAC</string>
-											<string>61126E4110EA712B00D6CBAC</string>
+											<string>61126EEE10EA813300D6CBAC</string>
+											<string>61126EEF10EA813300D6CBAC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -545,7 +586,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>283800084.66660202</real>
+	<real>283803955.37010401</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -562,12 +603,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>61126E5510EA71D800D6CBAC</string>
+		<string>61126EEB10EA80C700D6CBAC</string>
 		<string>61126C8F10E9350D00D6CBAC</string>
 		<string>61126C9010E9350D00D6CBAC</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>6142168C10CD62F90057AE2D</string>
-		<string>1C78EAAD065D492600B07095</string>
+		<string>61126ECD10EA7F5500D6CBAC</string>
 		<string>/Users/jelveh/Projekte/xcode/socket/socket.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -952,7 +994,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

@@ -59,6 +59,11 @@
 	[self closeStreams];
 }
 
+- (void)noopAction:(id)sender {
+    // nothing
+	NSLog(@"noopnoop!");
+}
+
 - (void)createStatusBarItem {
 	NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
 	
@@ -91,10 +96,13 @@
 }
 
 - (void)addMenuItemForTweet:(Tweet *)tweet {
-	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:nil keyEquivalent:@""] autorelease];
+	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:@selector(noopAction:) keyEquivalent:@""] autorelease];
 	[subMenuItem setImage:tweet.userImage];
-	[subMenuItem setEnabled:YES];
-	[menuForStatusItem insertItem:subMenuItem atIndex:0];
+	[subMenuItem setTarget:self];
+	[menuForStatusItem insertItem:subMenuItem atIndex:2];
+	if (messageCounter > 5) {
+		[menuForStatusItem removeItemAtIndex:7];
+	}
 }
 
 - (IBAction)sendMessageAndClearInput:(id)sender {	
