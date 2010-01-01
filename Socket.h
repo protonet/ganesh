@@ -10,6 +10,9 @@
 #import "Tweet.h"
 
 @interface Socket : NSObject {
+	
+	NSUserDefaults * defaults;
+	
 	IBOutlet NSTextField * inputField;
 	IBOutlet NSTextField * serverAnswerField;
 	NSInputStream * inputStream;
