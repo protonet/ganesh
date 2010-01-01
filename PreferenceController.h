@@ -8,11 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern NSString * const PTNUsernameKey;
-extern NSString * const PTNPasswordKey;
-extern NSString * const PTNServerAddressKey;
-extern NSString * const PTNServerPortKey;
-
 @interface PreferenceController : NSObject {
 	IBOutlet NSTextField * userLoginField;
 	IBOutlet NSTextField * userPasswordField;

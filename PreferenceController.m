@@ -8,11 +8,6 @@
 
 #import "PreferenceController.h"
 
-NSString * const PTNUsernameKey  = @"Username";
-NSString * const PTNPasswordKey	 = @"Password";
-NSString * const PTNServerAddressKey = @"ServerAddress";
-NSString * const PTNServerPortKey    = @"ServerPort";
-
 @implementation PreferenceController
 
 + (void)initialize
@@ -21,10 +16,10 @@ NSString * const PTNServerPortKey    = @"ServerPort";
     NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 	
     // Put defaults in the dictionary
-    [defaultValues setObject:@"dudemeister" forKey:PTNUsernameKey];
-    [defaultValues setObject:@"geheim" forKey:PTNPasswordKey];
-	[defaultValues setObject:@"localhost" forKey:PTNServerAddressKey];
-    [defaultValues setObject:@"3000" forKey:PTNServerPortKey];
+    [defaultValues setObject:@"dudemeister" forKey:@"Username"];
+    [defaultValues setObject:@"geheim" forKey:@"Password"];
+	[defaultValues setObject:@"localhost" forKey:@"ServerAddress"];
+    [defaultValues setObject:@"3000" forKey:@"ServerPort"];
 	
 	
     // Register the dictionary of defaults
@@ -35,37 +30,37 @@ NSString * const PTNServerPortKey    = @"ServerPort";
 
 - (IBAction)saveLoginAndPassword:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:userLoginField forKey:PTNUsernameKey];
-	[defaults setObject:userPasswordField forKey:PTNPasswordKey];
+	[defaults setObject:userLoginField forKey:@"Username"];
+	[defaults setObject:userPasswordField forKey:@"Password"];
 }
 
 - (IBAction)saveServerAddressAndPort:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:serverAddressField forKey:PTNServerAddressKey];
-	[defaults setObject:serverPortField forKey:PTNServerPortKey];	
+	[defaults setObject:serverAddressField forKey:@"ServerAddress"];
+	[defaults setObject:serverPortField forKey:@"ServerPort"];	
 }	
 
 - (NSString *)username {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *username = [defaults objectForKey:PTNUsernameKey];
+	NSString *username = [defaults objectForKey:@"Username"];
 	return username;
 }
 
 - (NSString *)password {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *password = [defaults objectForKey:PTNPasswordKey];
+	NSString *password = [defaults objectForKey:@"Password"];
 	return password;
 }
 
 - (NSString *)serverAddress {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *serverAddress = [defaults objectForKey:PTNServerAddressKey];
+	NSString *serverAddress = [defaults objectForKey:@"ServerAddress"];
 	return serverAddress;
 }
 
 - (NSString *)serverUrl {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *serverUrl = [NSString stringWithFormat:@"http://%@:%@", [defaults objectForKey:PTNServerAddressKey], [defaults objectForKey:PTNServerPortKey]];
+	NSString *serverUrl = [NSString stringWithFormat:@"http://%@:%@", [defaults objectForKey:@"ServerAddress"], [defaults objectForKey:@"ServerPort"]];
 	return serverUrl;
 }
 @end
