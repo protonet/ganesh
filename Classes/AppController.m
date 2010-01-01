@@ -156,7 +156,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     srcAttributes = [fileManager attributesOfItemAtPath:srcPath error:&error];
     dstAttributes = [fileManager attributesOfItemAtPath:dstPath error:&error];
 
-    if ([[srcAttributes fileModificationDate] compare:[dstAttributes fileModificationDate]] == NSOrderedSame ) {
+    if (dstAttributes != nil && [[srcAttributes fileModificationDate] compare:[dstAttributes fileModificationDate]] == NSOrderedSame ) {
         return YES;
     }
     else {
