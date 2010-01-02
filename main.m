@@ -1,9 +1,9 @@
 //
 //  main.m
-//  socket
+//  ganesh
 //
-//  Created by jelveh on 07.12.09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Created by Reza Jelveh on 6/3/09.
+//  Copyright Protonet.info 2009. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

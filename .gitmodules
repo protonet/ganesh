@@ -1,0 +1,6 @@
+[submodule "n2n"]
+	path = n2n
+	url = git://github.com/fishman/n2n.git
+[submodule "tuntaposx"]
+	path = tuntaposx
+	url = git://github.com/fishman/tuntaposx.git
