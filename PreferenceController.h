@@ -9,6 +9,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface PreferenceController : NSObject {
+	
+	NSUserDefaults * defaults;
+
 	IBOutlet NSTextField * userLoginField;
 	IBOutlet NSTextField * userPasswordField;
 	IBOutlet NSTextField * serverAddressField;

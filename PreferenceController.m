@@ -21,45 +21,39 @@
 	[defaultValues setObject:@"localhost" forKey:@"ServerAddress"];
     [defaultValues setObject:@"3000" forKey:@"ServerPort"];
 	
-	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     // Register the dictionary of defaults
-    [[NSUserDefaults standardUserDefaults]
-	 registerDefaults: defaultValues];
+    [defaults registerDefaults: defaultValues];
     NSLog(@"registered defaults: %@", defaultValues);
 }
 
 - (IBAction)saveLoginAndPassword:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:userLoginField forKey:@"Username"];
 	[defaults setObject:userPasswordField forKey:@"Password"];
 }
 
 - (IBAction)saveServerAddressAndPort:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:serverAddressField forKey:@"ServerAddress"];
 	[defaults setObject:serverPortField forKey:@"ServerPort"];	
 }	
 
 - (NSString *)username {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *username = [defaults objectForKey:@"Username"];
 	return username;
 }
 
 - (NSString *)password {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *password = [defaults objectForKey:@"Password"];
 	return password;
 }
 
 - (NSString *)serverAddress {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *serverAddress = [defaults objectForKey:@"ServerAddress"];
 	return serverAddress;
 }
 
 - (NSString *)serverUrl {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *serverUrl = [NSString stringWithFormat:@"http://%@:%@", [defaults objectForKey:@"ServerAddress"], [defaults objectForKey:@"ServerPort"]];
 	return serverUrl;
 }
