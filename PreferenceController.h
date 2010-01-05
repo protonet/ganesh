@@ -24,6 +24,7 @@
 - (NSString *)username;
 - (NSString *)password;
 - (NSString *)serverAddress;
+- (NSString *)serverPort;
 - (NSString *)serverUrl;
 
 

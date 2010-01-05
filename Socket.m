@@ -16,7 +16,7 @@
 	
     NSLog(@"init");
 	preferences = [[PreferenceController alloc] init];
-	NSLog(@"%@", [preferences username]);
+	NSLog(@"%@", [preferences serverAddress]);
 	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
 	
 	messageCounter = 0;
@@ -46,7 +46,7 @@
 	[self createStatusBarItem];
 	
 	// periodically check socket and reopen if needed
-	[NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:YES];	
+	[NSTimer scheduledTimerWithTimeInterval:(60.0f/30) target:self selector:@selector(openSocket) userInfo:nil repeats:YES];	
 	// check on sleep and close socket
 	NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
     [nc addObserver:self
@@ -102,7 +102,7 @@
 }
 
 - (void)openPtnDashboard:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://localhost:3000/"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[preferences serverUrl]]];
 }
 
 - (IBAction)sendMessageAndClearInput:(id)sender {	
@@ -119,7 +119,7 @@
 - (void)openSocket {
 	// only do something if stream are not OK (not open)
 	if (![self streamsAreOk]) {
-		host = [NSHost hostWithAddress:@"127.0.0.1"];
+		host = [NSHost hostWithAddress:[preferences serverAddress]];
 		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
 		[self openStreams];
 		// is this a good idea?
@@ -134,9 +134,10 @@
 
 - (void)authenticateSocket {
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
+	NSString *authentication_url = [NSString stringWithFormat:@"%@/sessions/create_token.json?login=%@&password=%@", [preferences serverUrl], [preferences username], [preferences password]];
 
 	// Prepare URL request to get our authentication token
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/sessions/create_token.json?login=dudemeister&password=geheim"]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authentication_url]];
 	
 	// Perform request and get JSON back as a NSData object
 	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
