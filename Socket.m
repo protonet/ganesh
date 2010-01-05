@@ -351,19 +351,19 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     CFURLRef url;
     NSString *userAppSupportFolder;
     NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
-	
+
     /* (C) ~/Library/Application Support
 	 The user's application support folder.  Attempt to locate the folder, but
 	 do not try to create one if it does not exist.  */
     err = FSFindFolder( kUserDomain, kApplicationSupportFolderType, false, &folder );
     if ( noErr == err ) {
         url = CFURLCreateFromFSRef( kCFAllocatorDefault, &folder );
-		
+
         if ( url != NULL ) {
             userAppSupportFolder = [NSString stringWithFormat:@"%@/%@",
 									[(NSURL *)url path], applicationName];
         }
-		
+
     }
     return userAppSupportFolder;
 }
