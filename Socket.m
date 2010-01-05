@@ -15,7 +15,8 @@
     [super init];
 	
     NSLog(@"init");
-	
+	preferences = [[PreferenceController alloc] init];
+	NSLog(@"%@", [preferences username]);
 	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
 	
 	messageCounter = 0;

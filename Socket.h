@@ -8,10 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Tweet.h"
+#import "PreferenceController.h"
 
 @interface Socket : NSObject {
 	
-	NSUserDefaults * defaults;
+	PreferenceController * preferences;
 	
 	IBOutlet NSTextField * inputField;
 	IBOutlet NSTextField * serverAnswerField;

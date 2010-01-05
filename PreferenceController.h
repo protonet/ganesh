@@ -10,10 +10,10 @@
 
 @interface PreferenceController : NSObject {
 	
-	NSUserDefaults * defaults;
+	NSUserDefaults * userDefaults;
 
 	IBOutlet NSTextField * userLoginField;
-	IBOutlet NSTextField * userPasswordField;
+	IBOutlet NSSecureTextField * userPasswordField;
 	IBOutlet NSTextField * serverAddressField;
 	IBOutlet NSTextField * serverPortField;
 }
