@@ -35,6 +35,7 @@
 	NSImage *statusNoVpnHasMessageImage;	
 	NSImage *statusHasVpnNoMessageImage;
 	NSImage *statusHasVpnHasMessageImage;
+	NSTask *n2nApp;
 }
 
 - (void)createStatusBarItem;
@@ -56,4 +57,15 @@
 - (void)addMessageToTweets:(NSString *)string;
 - (IBAction)clearMessages:(id)sender;
 
+
+/** ganesh stuff **/
+- (BOOL) checkAndCopyHelper;
+- (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error;
+- (void)runApp;
+- (NSString *) appSupportPath;
+- (void)startDaemon:(id)sender;
+- (void) stopDaemon:(id)sender;
+- (IBAction)connect:(id)sender;
+- (IBAction)disconnect:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 @end
