@@ -81,6 +81,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
                name:NSWorkspaceWillSleepNotification
              object:nil];
 	
+    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
 }
 
 - (void)applicationWillTerminate {
@@ -387,9 +388,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 	 */
 }
 
-/*
 - (IBAction)connect:(id)sender {
-    [statusItem setImage:statusHighlightImage];
+    [statusItem setImage:statusHasVpnNoMessageImage];
     [[statusItem menu] removeItemAtIndex:0];
     [[statusItem menu] insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
 
@@ -397,7 +397,6 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
 }
- */
 
 - (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error
 {
@@ -477,17 +476,15 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 
 }
 
-/*
 - (IBAction)disconnect:(id)sender
 {
-    [statusItem setImage:statusImage];
+    [statusItem setImage:statusNoVpnNoMessageImage];
     [[statusItem menu] removeItemAtIndex:0];
     [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
-*/
 
 
 @end
