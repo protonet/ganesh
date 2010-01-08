@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "PreferenceController.h"
 
 @interface Tweet : NSObject {
+	PreferenceController * preferences;
+
 	NSImage * userImage;
 	NSString  * message;
 

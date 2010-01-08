@@ -17,6 +17,8 @@
 {
     [super init];
 	
+	preferences = [[PreferenceController alloc] init];
+	
 //    NSLog(@"Tweet init");
 //	[self setMessage:[data objectForKey:@"message"]];
 	message = [data objectForKey:@"message"];
@@ -26,7 +28,7 @@
 	}
 	else
 	{
-		NSString * profileUrlString = [NSString stringWithFormat:@"http://localhost:3000%@", [data objectForKey:@"user_icon_url"]];
+		NSString * profileUrlString = [NSString stringWithFormat:@"%@%@", [preferences serverUrl], [data objectForKey:@"user_icon_url"]];
 		NSURL *profileUrl = [NSURL URLWithString:profileUrlString];
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:profileUrl];
 		return self;

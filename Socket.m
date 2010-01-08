@@ -46,7 +46,7 @@
 	[self createStatusBarItem];
 	
 	// periodically check socket and reopen if needed
-	[NSTimer scheduledTimerWithTimeInterval:(60.0f/30) target:self selector:@selector(openSocket) userInfo:nil repeats:YES];	
+	[NSTimer scheduledTimerWithTimeInterval:(10.0f) target:self selector:@selector(openSocket) userInfo:nil repeats:YES];	
 	// check on sleep and close socket
 	NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
     [nc addObserver:self
@@ -147,12 +147,14 @@
 	
 	NSDictionary *authentication_dict = [parser objectWithString:json_string];
 
-	NSLog(@"%@", json_string);
+//	NSLog(@"%@", requestResponse);
 	NSLog(@"%@", [authentication_dict objectForKey:@"token"]);
 	
-	// Now send the authentication-request
-	[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
-					[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
+	if([authentication_dict objectForKey:@"user_id"]) {
+		// Now send the authentication-request
+		[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
+						[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];		
+	}
 
 }
 

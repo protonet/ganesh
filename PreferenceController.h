@@ -16,6 +16,8 @@
 	IBOutlet NSSecureTextField * userPasswordField;
 	IBOutlet NSTextField * serverAddressField;
 	IBOutlet NSTextField * serverPortField;
+	IBOutlet NSTextField * serverHtaccessUserField;
+	IBOutlet NSSecureTextField * serverHtaccessPasswordField;
 }
 
 - (IBAction)saveLoginAndPassword:(id)sender;
@@ -26,6 +28,8 @@
 - (NSString *)serverAddress;
 - (NSString *)serverPort;
 - (NSString *)serverUrl;
+- (NSString *)serverHtaccessUser;
+- (NSString *)serverHtaccessPassword;
 
 
 @end

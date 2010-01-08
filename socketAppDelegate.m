@@ -7,6 +7,8 @@
 //
 
 #import "socketAppDelegate.h"
+#import "PreferenceController.h"
+
 
 @implementation socketAppDelegate
 
