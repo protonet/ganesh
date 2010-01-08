@@ -11,6 +11,13 @@
 @interface PreferenceController : NSObject {
 	
 	NSUserDefaults * userDefaults;
+	
+	NSString * username;
+	NSString * password;
+	NSString * serverAddress;
+	NSString * serverPort;
+	NSString * serverHtaccessUser;
+	NSString * serverHtaccessPassword;
 
 	IBOutlet NSTextField * userLoginField;
 	IBOutlet NSSecureTextField * userPasswordField;
@@ -18,18 +25,19 @@
 	IBOutlet NSTextField * serverPortField;
 	IBOutlet NSTextField * serverHtaccessUserField;
 	IBOutlet NSSecureTextField * serverHtaccessPasswordField;
+	
+	NSKeyValueObservingOptions optionsForObserver;
+	void * contextForObserver;
+
 }
 
-- (IBAction)saveLoginAndPassword:(id)sender;
-- (IBAction)saveServerAddressAndPort:(id)sender;
+@property(readwrite, assign) NSString * username;
+@property(readwrite, assign) NSString * password;
+@property(readwrite, assign) NSString * serverAddress;
+@property(readwrite, assign) NSString * serverPort;
+@property(readwrite, assign) NSString * serverHtaccessUser;
+@property(readwrite, assign) NSString * serverHtaccessPassword;
 
-- (NSString *)username;
-- (NSString *)password;
-- (NSString *)serverAddress;
-- (NSString *)serverPort;
 - (NSString *)serverUrl;
-- (NSString *)serverHtaccessUser;
-- (NSString *)serverHtaccessPassword;
-
 
 @end

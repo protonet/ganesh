@@ -9,24 +9,38 @@
 #import "PreferenceController.h"
 
 @implementation PreferenceController
+@synthesize username;
+@synthesize password;
+@synthesize serverAddress;
+@synthesize serverPort;
+@synthesize serverHtaccessUser;
+@synthesize serverHtaccessPassword;
 
 - (id) init
 {
 	[super init];
 	userDefaults = [NSUserDefaults standardUserDefaults];
+	username = [userDefaults objectForKey:@"username"];
+	password = [userDefaults objectForKey:@"password"];
+	serverAddress = [userDefaults objectForKey:@"serverAddress"];
+	serverPort = [userDefaults objectForKey:@"serverPort"];
+	serverHtaccessUser = [userDefaults objectForKey:@"serverHtaccessUser"];
+	serverHtaccessPassword = [userDefaults objectForKey:@"serverHtaccessPassword"];
+		
+	[self addObserver:self forKeyPath:@"username" options:optionsForObserver context:contextForObserver];
+	[self addObserver:self forKeyPath:@"password" options:optionsForObserver context:contextForObserver];
+	[self addObserver:self forKeyPath:@"serverAddress" options:optionsForObserver context:contextForObserver];
+	[self addObserver:self forKeyPath:@"serverPort" options:optionsForObserver context:contextForObserver];
+	[self addObserver:self forKeyPath:@"serverHtaccessUser" options:optionsForObserver context:contextForObserver];
+	[self addObserver:self forKeyPath:@"serverHtaccessPassword" options:optionsForObserver context:contextForObserver];
+	
 	return self;
 }
 
-- (IBAction)saveLoginAndPassword:(id)sender
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	[userDefaults setObject:[userLoginField stringValue] forKey:@"username"];
 	[userDefaults setObject:[userPasswordField stringValue] forKey:@"password"];
-	
-	NSLog(@"saving login & password");
-}
-
-- (IBAction)saveServerAddressAndPort:(id)sender
-{
 	[userDefaults setObject:[serverAddressField stringValue] forKey:@"serverAddress"];
 	[userDefaults setObject:[serverPortField stringValue] forKey:@"serverPort"];
 	NSString * htaccessUser = [serverHtaccessUserField stringValue];
@@ -39,45 +53,6 @@
 		[userDefaults setObject:[serverHtaccessUserField stringValue] forKey:@"serverHtaccessUser"];
 		[userDefaults setObject:[serverHtaccessPasswordField stringValue] forKey:@"serverHtaccessPassword"];
 	}
-
-
-	NSLog(@"saving server, port & HTACCESS data!");
-}	
-
-- (NSString *)username
-{
-	NSString *username = [userDefaults objectForKey:@"username"];
-	return username;
-}
-
-- (NSString *)password
-{
-	NSString *password = [userDefaults objectForKey:@"password"];
-	return password;
-}
-
-- (NSString *)serverAddress
-{
-	NSString *serverAddress = [userDefaults objectForKey:@"serverAddress"];
-	return serverAddress;
-}
-
-- (NSString *)serverPort
-{
-	NSString *serverPort = [userDefaults objectForKey:@"serverPort"];
-	return serverPort;
-}
-
-- (NSString *)serverHtaccessUser
-{
-	NSString * htaccessUser = [userDefaults objectForKey:@"serverHtaccessUser"];
-	return htaccessUser;
-}
-
-- (NSString *)serverHtaccessPassword
-{
-	NSString * htaccessPassword = [userDefaults objectForKey:@"serverHtaccessPassword"];
-	return htaccessPassword;
 }
 
 - (NSString *)serverUrl {
