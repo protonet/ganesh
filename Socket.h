@@ -39,7 +39,7 @@
 
 - (void)createStatusBarItem;
 - (IBAction)pushedStatusBarItem:(id)sender;
-- (void)updateStatusBarItem;
+- (void)notifyStatusBarItem;
 - (void)resetStatusBarItem;
 - (void)addMenuItemForTweet:(Tweet *)tweet;
 

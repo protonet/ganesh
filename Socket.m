@@ -76,19 +76,14 @@
 	[statusItem popUpStatusItemMenu:menuForStatusItem];
 }
 
-- (void)updateStatusBarItem {
-	if (messageCounter > 0) {
-		[statusItem setImage:statusNoVpnHasMessageImage];
-	} else {
-		[statusItem setImage:statusNoVpnNoMessageImage];
-	}
-
+- (void)notifyStatusBarItem
+{
+	[statusItem setImage:statusNoVpnHasMessageImage];
 }
 
-- (void)resetStatusBarItem {
-	//[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
-	messageCounter = 0;
-	[self updateStatusBarItem];
+- (void)resetStatusBarItem
+{
+	[statusItem setImage:statusNoVpnNoMessageImage];
 }
 
 - (void)addMenuItemForTweet:(Tweet *)tweet {
@@ -98,6 +93,7 @@
 	[menuForStatusItem insertItem:subMenuItem atIndex:2];
 	if (messageCounter > 5) {
 		[menuForStatusItem removeItemAtIndex:7];
+		messageCounter--;
 	}
 }
 
@@ -221,7 +217,6 @@
                 NSString * string = [[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding];
 				[serverAnswerField setStringValue:string];
 				[self addMessageToTweets:string];
-				[self updateStatusBarItem];					
                 [string release];
                 [dataBuffer release];
                 dataBuffer = nil;
@@ -275,6 +270,7 @@
 	
 	if (tweet) {
 		messageCounter++ ;
+		[self notifyStatusBarItem];
 		// add the message to the beginning of the message array
 		[tweetList insertObject:string atIndex:0];
 		[tableView reloadData];

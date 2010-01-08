@@ -9,20 +9,20 @@
 	};
 	256AC3D80F4B6AC300CF3369 /* socketAppDelegate.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1163, 555}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1163, 532}}";
 			sepNavSelRange = "{252, 0}";
 			sepNavVisRange = "{0, 307}";
 		};
 	};
 	256AC3D90F4B6AC300CF3369 /* socketAppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1163, 555}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1163, 532}}";
 			sepNavSelRange = "{203, 0}";
 			sepNavVisRange = "{0, 392}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = 6142167D10CD62F70057AE2D /* socket */;
 		activeTarget = 8D1107260486CEB800E47090 /* socket */;
 		addToTargets = (
@@ -513,6 +513,49 @@
 			6186BAE910F7C0D000E9427B /* PBXTextBookmark */ = 6186BAE910F7C0D000E9427B /* PBXTextBookmark */;
 			6186BAEA10F7C0D000E9427B /* PBXTextBookmark */ = 6186BAEA10F7C0D000E9427B /* PBXTextBookmark */;
 			6186BAEC10F7C0DF00E9427B /* PBXTextBookmark */ = 6186BAEC10F7C0DF00E9427B /* PBXTextBookmark */;
+			6186BAEF10F7C9F100E9427B /* PBXTextBookmark */ = 6186BAEF10F7C9F100E9427B /* PBXTextBookmark */;
+			6186BAF010F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF010F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF110F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF110F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF210F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF210F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF310F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF310F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF410F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF410F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF510F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF510F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF610F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF610F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAF710F7C9F200E9427B /* PBXTextBookmark */ = 6186BAF710F7C9F200E9427B /* PBXTextBookmark */;
+			6186BAFB10F7CA6600E9427B /* PBXTextBookmark */ = 6186BAFB10F7CA6600E9427B /* PBXTextBookmark */;
+			6186BAFC10F7CA6700E9427B /* PBXTextBookmark */ = 6186BAFC10F7CA6700E9427B /* PBXTextBookmark */;
+			6186BAFD10F7CA6700E9427B /* PBXTextBookmark */ = 6186BAFD10F7CA6700E9427B /* PBXTextBookmark */;
+			6186BAFE10F7CA6700E9427B /* PBXTextBookmark */ = 6186BAFE10F7CA6700E9427B /* PBXTextBookmark */;
+			6186BB0210F7CB2100E9427B /* PBXTextBookmark */ = 6186BB0210F7CB2100E9427B /* PBXTextBookmark */;
+			6186BB0310F7CB2100E9427B /* PBXTextBookmark */ = 6186BB0310F7CB2100E9427B /* PBXTextBookmark */;
+			6186BB0410F7CB2100E9427B /* PBXTextBookmark */ = 6186BB0410F7CB2100E9427B /* PBXTextBookmark */;
+			6186BB0510F7CB2100E9427B /* PBXTextBookmark */ = 6186BB0510F7CB2100E9427B /* PBXTextBookmark */;
+			6186BB0910F7CB7100E9427B /* PBXTextBookmark */ = 6186BB0910F7CB7100E9427B /* PBXTextBookmark */;
+			6186BB0A10F7CB7200E9427B /* PBXTextBookmark */ = 6186BB0A10F7CB7200E9427B /* PBXTextBookmark */;
+			6186BB0B10F7CB7200E9427B /* PBXTextBookmark */ = 6186BB0B10F7CB7200E9427B /* PBXTextBookmark */;
+			6186BB0F10F7CBBD00E9427B /* PBXTextBookmark */ = 6186BB0F10F7CBBD00E9427B /* PBXTextBookmark */;
+			6186BB1010F7CBBD00E9427B /* PBXTextBookmark */ = 6186BB1010F7CBBD00E9427B /* PBXTextBookmark */;
+			6186BB1410F7CC1000E9427B /* PBXTextBookmark */ = 6186BB1410F7CC1000E9427B /* PBXTextBookmark */;
+			6186BB1810F7CCC100E9427B /* PBXTextBookmark */ = 6186BB1810F7CCC100E9427B /* PBXTextBookmark */;
+			6186BB1C10F7CD0400E9427B /* PBXTextBookmark */ = 6186BB1C10F7CD0400E9427B /* PBXTextBookmark */;
+			6186BB1E10F7CD3300E9427B /* PBXTextBookmark */ = 6186BB1E10F7CD3300E9427B /* PBXTextBookmark */;
+			6186BB1F10F7CD3400E9427B /* PBXTextBookmark */ = 6186BB1F10F7CD3400E9427B /* PBXTextBookmark */;
+			6186BB2210F7CD3D00E9427B /* PBXTextBookmark */ = 6186BB2210F7CD3D00E9427B /* PBXTextBookmark */;
+			6186BB2610F7CE6100E9427B /* PBXTextBookmark */ = 6186BB2610F7CE6100E9427B /* PBXTextBookmark */;
+			6186BB2710F7CE6100E9427B /* PBXTextBookmark */ = 6186BB2710F7CE6100E9427B /* PBXTextBookmark */;
+			6186BB2810F7CE6100E9427B /* PBXTextBookmark */ = 6186BB2810F7CE6100E9427B /* PBXTextBookmark */;
+			6186BB2C10F7CE7900E9427B /* PBXTextBookmark */ = 6186BB2C10F7CE7900E9427B /* PBXTextBookmark */;
+			6186BB2D10F7CE7900E9427B /* PBXTextBookmark */ = 6186BB2D10F7CE7900E9427B /* PBXTextBookmark */;
+			6186BB3110F7CEF000E9427B /* PBXTextBookmark */ = 6186BB3110F7CEF000E9427B /* PBXTextBookmark */;
+			6186BB3210F7CEF000E9427B /* PBXTextBookmark */ = 6186BB3210F7CEF000E9427B /* PBXTextBookmark */;
+			6186BB3610F7CF0900E9427B /* PBXTextBookmark */ = 6186BB3610F7CF0900E9427B /* PBXTextBookmark */;
+			6186BB3710F7CF0900E9427B /* XCBuildMessageTextBookmark */ = 6186BB3710F7CF0900E9427B /* XCBuildMessageTextBookmark */;
+			6186BB3810F7CF0900E9427B /* PBXTextBookmark */ = 6186BB3810F7CF0900E9427B /* PBXTextBookmark */;
+			6186BB3910F7CF0900E9427B /* PBXTextBookmark */ = 6186BB3910F7CF0900E9427B /* PBXTextBookmark */;
+			6186BB3D10F7CF7F00E9427B /* PBXTextBookmark */ = 6186BB3D10F7CF7F00E9427B /* PBXTextBookmark */;
+			6186BB4110F7CFF100E9427B /* PBXTextBookmark */ = 6186BB4110F7CFF100E9427B /* PBXTextBookmark */;
+			6186BB4210F7CFF100E9427B /* PBXTextBookmark */ = 6186BB4210F7CFF100E9427B /* PBXTextBookmark */;
+			6186BB4810F7D02900E9427B /* PBXTextBookmark */ = 6186BB4810F7D02900E9427B /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6142168E10CD62F90057AE2D /* Source Control */;
 		userBuildSettings = {
@@ -604,15 +647,15 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1163, 572}}";
 			sepNavSelRange = "{770, 0}";
-			sepNavVisRange = "{0, 1139}";
+			sepNavVisRange = "{3, 1136}";
 			sepNavWindowFrame = "{{15, 152}, {937, 721}}";
 		};
 	};
 	61126F2D10EA890500D6CBAC /* PreferenceController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1163, 910}}";
-			sepNavSelRange = "{2019, 0}";
-			sepNavVisRange = "{567, 2152}";
+			sepNavIntBoundsRect = "{{0, 0}, {880, 910}}";
+			sepNavSelRange = "{2020, 0}";
+			sepNavVisRange = "{1263, 1177}";
 		};
 	};
 	61126F7310EA991200D6CBAC /* PBXTextBookmark */ = {
@@ -681,30 +724,30 @@
 	};
 	6142169810CD6A2C0057AE2D /* Socket.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1163, 793}}";
-			sepNavSelRange = "{170, 33}";
-			sepNavVisRange = "{0, 1012}";
+			sepNavIntBoundsRect = "{{0, 0}, {1163, 780}}";
+			sepNavSelRange = "{918, 19}";
+			sepNavVisRange = "{274, 1057}";
 			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
 		};
 	};
 	6142169910CD6A2C0057AE2D /* Socket.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1163, 3926}}";
-			sepNavSelRange = "{242, 52}";
-			sepNavVisRange = "{16, 1349}";
+			sepNavIntBoundsRect = "{{0, 0}, {1163, 3913}}";
+			sepNavSelRange = "{2901, 0}";
+			sepNavVisRange = "{2058, 1327}";
 			sepNavWindowFrame = "{{38, 131}, {937, 721}}";
 		};
 	};
 	614217AC10D166180057AE2D /* Tweet.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {861, 338}}";
-			sepNavSelRange = "{215, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1163, 555}}";
+			sepNavSelRange = "{183, 0}";
 			sepNavVisRange = "{0, 455}";
 		};
 	};
 	614217AD10D166180057AE2D /* Tweet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1163, 555}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1163, 532}}";
 			sepNavSelRange = "{586, 0}";
 			sepNavVisRange = "{0, 800}";
 			sepNavWindowFrame = "{{38, 131}, {937, 721}}";
@@ -1857,7 +1900,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 105";
 		rLen = 0;
-		rLoc = 3230;
+		rLoc = 3092;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 2757;
@@ -1867,7 +1910,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 105";
 		rLen = 0;
-		rLoc = 3229;
+		rLoc = 3091;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 2757;
@@ -1887,7 +1930,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 121";
 		rLen = 0;
-		rLoc = 3630;
+		rLoc = 3492;
 		rType = 0;
 		vrLen = 1376;
 		vrLoc = 2711;
@@ -1897,7 +1940,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 122";
 		rLen = 0;
-		rLoc = 3690;
+		rLoc = 3552;
 		rType = 0;
 		vrLen = 1680;
 		vrLoc = 3388;
@@ -1917,7 +1960,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 138";
 		rLen = 0;
-		rLoc = 4167;
+		rLoc = 4029;
 		rType = 0;
 		vrLen = 1738;
 		vrLoc = 3598;
@@ -1927,7 +1970,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 138";
 		rLen = 0;
-		rLoc = 4215;
+		rLoc = 4077;
 		rType = 0;
 		vrLen = 1739;
 		vrLoc = 3598;
@@ -1937,7 +1980,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 138";
 		rLen = 0;
-		rLoc = 4290;
+		rLoc = 4152;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 3598;
@@ -1947,7 +1990,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 144";
 		rLen = 0;
-		rLoc = 4606;
+		rLoc = 4468;
 		rType = 0;
 		vrLen = 1740;
 		vrLoc = 3598;
@@ -1957,7 +2000,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 155";
 		rLen = 0;
-		rLoc = 5259;
+		rLoc = 5121;
 		rType = 0;
 		vrLen = 1717;
 		vrLoc = 4027;
@@ -1967,7 +2010,7 @@
 		comments = "'PreferenceController' may not respond to '-serverPort'";
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		rLen = 1;
-		rLoc = 122;
+		rLoc = 118;
 		rType = 1;
 	};
 	6186B89E10F3BD5000E9427B /* PBXTextBookmark */ = {
@@ -1975,7 +2018,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 3102;
@@ -2015,7 +2058,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1649;
 		vrLoc = 3099;
@@ -2035,7 +2078,7 @@
 		comments = "'PreferenceController' may not respond to '-serverPort'";
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		rLen = 1;
-		rLoc = 122;
+		rLoc = 118;
 		rType = 1;
 	};
 	6186B8A710F3BD5B00E9427B /* PBXTextBookmark */ = {
@@ -2043,7 +2086,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 680;
 		vrLoc = 3388;
@@ -2073,7 +2116,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1501;
 		vrLoc = 3102;
@@ -2083,7 +2126,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3736;
+		rLoc = 3598;
 		rType = 0;
 		vrLen = 1658;
 		vrLoc = 3105;
@@ -2093,7 +2136,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 3099;
@@ -2103,7 +2146,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1548;
 		vrLoc = 3105;
@@ -2113,7 +2156,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1450;
 		vrLoc = 3099;
@@ -2133,7 +2176,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1558;
 		vrLoc = 3105;
@@ -2143,7 +2186,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1606;
 		vrLoc = 3105;
@@ -2153,7 +2196,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 3099;
@@ -2163,7 +2206,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1569;
 		vrLoc = 3143;
@@ -2173,7 +2216,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1461;
 		vrLoc = 3099;
@@ -2183,7 +2226,7 @@
 		comments = "Passing argument 2 of 'getStreamsToHost:port:inputStream:outputStream:' makes integer from pointer without a cast";
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		rLen = 1;
-		rLoc = 122;
+		rLoc = 118;
 		rType = 1;
 	};
 	6186B8C010F3BE9F00E9427B /* PBXTextBookmark */ = {
@@ -2191,7 +2234,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 711;
 		vrLoc = 3388;
@@ -2201,7 +2244,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 711;
 		vrLoc = 3388;
@@ -2211,7 +2254,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 122";
 		rLen = 0;
-		rLoc = 3690;
+		rLoc = 3552;
 		rType = 0;
 		vrLen = 1669;
 		vrLoc = 3143;
@@ -2241,7 +2284,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1566;
 		vrLoc = 3099;
@@ -2281,7 +2324,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 3231;
@@ -2291,7 +2334,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 3099;
@@ -2301,7 +2344,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 712;
 		vrLoc = 3388;
@@ -2311,7 +2354,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1653;
 		vrLoc = 222;
@@ -2341,7 +2384,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 3099;
@@ -2381,7 +2424,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 3104;
@@ -2431,7 +2474,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1428;
 		vrLoc = 2948;
@@ -2441,7 +2484,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 3104;
@@ -2451,7 +2494,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 733;
 		vrLoc = 3393;
@@ -2461,7 +2504,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 733;
 		vrLoc = 3393;
@@ -2471,7 +2514,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1395;
 		vrLoc = 3034;
@@ -2481,7 +2524,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 3104;
@@ -2491,7 +2534,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 3393;
@@ -2501,7 +2544,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 3393;
@@ -2511,7 +2554,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1363;
 		vrLoc = 3034;
@@ -2521,7 +2564,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 699;
 		vrLoc = 3393;
@@ -2531,7 +2574,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 8;
-		rLoc = 3696;
+		rLoc = 3558;
 		rType = 0;
 		vrLen = 1446;
 		vrLoc = 3107;
@@ -2541,7 +2584,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 122";
 		rLen = 0;
-		rLoc = 3662;
+		rLoc = 3524;
 		rType = 0;
 		vrLen = 1405;
 		vrLoc = 2685;
@@ -2551,7 +2594,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 122";
 		rLen = 0;
-		rLoc = 3662;
+		rLoc = 3524;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 2716;
@@ -2561,7 +2604,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 139";
 		rLen = 0;
-		rLoc = 4103;
+		rLoc = 3965;
 		rType = 0;
 		vrLen = 1787;
 		vrLoc = 3925;
@@ -2571,7 +2614,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 139";
 		rLen = 0;
-		rLoc = 4290;
+		rLoc = 4152;
 		rType = 0;
 		vrLen = 1769;
 		vrLoc = 3500;
@@ -2581,7 +2624,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1765;
 		vrLoc = 3527;
@@ -2591,7 +2634,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 124";
 		rLen = 0;
-		rLoc = 3692;
+		rLoc = 3554;
 		rType = 0;
 		vrLen = 1816;
 		vrLoc = 3549;
@@ -2601,7 +2644,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3736;
+		rLoc = 3598;
 		rType = 0;
 		vrLen = 1901;
 		vrLoc = 3632;
@@ -2611,7 +2654,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 660;
 		vrLoc = 3393;
@@ -2621,7 +2664,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3736;
+		rLoc = 3598;
 		rType = 0;
 		vrLen = 1789;
 		vrLoc = 3793;
@@ -2631,7 +2674,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3693;
+		rLoc = 3555;
 		rType = 0;
 		vrLen = 660;
 		vrLoc = 3393;
@@ -2671,7 +2714,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 123";
 		rLen = 0;
-		rLoc = 3736;
+		rLoc = 3598;
 		rType = 0;
 		vrLen = 1789;
 		vrLoc = 3793;
@@ -2681,7 +2724,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 102;
-		rLoc = 4505;
+		rLoc = 4367;
 		rType = 0;
 		vrLen = 1769;
 		vrLoc = 3815;
@@ -2701,7 +2744,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 125";
 		rLen = 0;
-		rLoc = 3838;
+		rLoc = 3700;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -2772,7 +2815,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 140";
 		rLen = 0;
-		rLoc = 4398;
+		rLoc = 4260;
 		rType = 0;
 		vrLen = 1788;
 		vrLoc = 3907;
@@ -2782,7 +2825,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 141";
 		rLen = 0;
-		rLoc = 4445;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1789;
 		vrLoc = 3907;
@@ -2792,7 +2835,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 0;
-		rLoc = 4445;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1759;
 		vrLoc = 3907;
@@ -2802,7 +2845,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 153";
 		rLen = 0;
-		rLoc = 4864;
+		rLoc = 4726;
 		rType = 0;
 		vrLen = 1762;
 		vrLoc = 3907;
@@ -2812,7 +2855,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 140";
 		rLen = 0;
-		rLoc = 4445;
+		rLoc = 4307;
 		rType = 0;
 		vrLen = 1763;
 		vrLoc = 3907;
@@ -2822,7 +2865,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 144";
 		rLen = 0;
-		rLoc = 4608;
+		rLoc = 4470;
 		rType = 0;
 		vrLen = 1832;
 		vrLoc = 3525;
@@ -2872,7 +2915,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 144";
 		rLen = 0;
-		rLoc = 4608;
+		rLoc = 4470;
 		rType = 0;
 		vrLen = 1927;
 		vrLoc = 3523;
@@ -2882,7 +2925,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 0;
-		rLoc = 4604;
+		rLoc = 4466;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 3813;
@@ -2893,7 +2936,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 142;
+		rLoc = 138;
 		rType = 1;
 	};
 	6186B98A10F6503800E9427B /* PBXTextBookmark */ = {
@@ -2901,7 +2944,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 0;
-		rLoc = 4505;
+		rLoc = 4367;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 4104;
@@ -2911,7 +2954,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 0;
-		rLoc = 4604;
+		rLoc = 4466;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 3813;
@@ -2921,7 +2964,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 0;
-		rLoc = 4505;
+		rLoc = 4367;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 4104;
@@ -2950,7 +2993,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 143";
 		rLen = 0;
-		rLoc = 4604;
+		rLoc = 4466;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 3813;
@@ -3340,7 +3383,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 153";
 		rLen = 0;
-		rLoc = 4978;
+		rLoc = 4840;
 		rType = 0;
 		vrLen = 1763;
 		vrLoc = 3601;
@@ -3400,7 +3443,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 153";
 		rLen = 0;
-		rLoc = 4978;
+		rLoc = 4840;
 		rType = 0;
 		vrLen = 1781;
 		vrLoc = 3601;
@@ -3410,7 +3453,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 156";
 		rLen = 0;
-		rLoc = 5253;
+		rLoc = 5115;
 		rType = 0;
 		vrLen = 1718;
 		vrLoc = 3693;
@@ -3430,7 +3473,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 138";
 		rLen = 0;
-		rLoc = 4291;
+		rLoc = 4153;
 		rType = 0;
 		vrLen = 1949;
 		vrLoc = 3813;
@@ -3440,7 +3483,7 @@
 		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
 		name = "Socket.m: 137";
 		rLen = 0;
-		rLoc = 4291;
+		rLoc = 4153;
 		rType = 0;
 		vrLen = 1809;
 		vrLoc = 3813;
@@ -4518,6 +4561,435 @@
 		rType = 0;
 		vrLen = 2152;
 		vrLoc = 567;
+	};
+	6186BAEF10F7C9F100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1203;
+		vrLoc = 1263;
+	};
+	6186BAF010F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 46";
+		rLen = 0;
+		rLoc = 2019;
+		rType = 0;
+		vrLen = 1639;
+		vrLoc = 0;
+	};
+	6186BAF110F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2C10EA890500D6CBAC /* PreferenceController.h */;
+		name = "PreferenceController.h: 30";
+		rLen = 0;
+		rLoc = 770;
+		rType = 0;
+		vrLen = 1098;
+		vrLoc = 41;
+	};
+	6186BAF210F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 18";
+		rLen = 52;
+		rLoc = 242;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 8432;
+	};
+	6186BAF310F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169810CD6A2C0057AE2D /* Socket.h */;
+		name = "Socket.h: 11";
+		rLen = 33;
+		rLoc = 170;
+		rType = 0;
+		vrLen = 946;
+		vrLoc = 385;
+	};
+	6186BAF410F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* socketAppDelegate.m */;
+		name = "socketAppDelegate.m: 12";
+		rLen = 0;
+		rLoc = 203;
+		rType = 0;
+		vrLen = 392;
+		vrLoc = 0;
+	};
+	6186BAF510F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* socketAppDelegate.h */;
+		name = "socketAppDelegate.h: 13";
+		rLen = 0;
+		rLoc = 252;
+		rType = 0;
+		vrLen = 307;
+		vrLoc = 0;
+	};
+	6186BAF610F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 614217AD10D166180057AE2D /* Tweet.m */;
+		name = "Tweet.m: 31";
+		rLen = 0;
+		rLoc = 586;
+		rType = 0;
+		vrLen = 800;
+		vrLoc = 0;
+	};
+	6186BAF710F7C9F200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 614217AC10D166180057AE2D /* Tweet.h */;
+		name = "Tweet.h: 10";
+		rLen = 0;
+		rLoc = 183;
+		rType = 0;
+		vrLen = 455;
+		vrLoc = 0;
+	};
+	6186BAFB10F7CA6600E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1203;
+		vrLoc = 1263;
+	};
+	6186BAFC10F7CA6700E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 614217AC10D166180057AE2D /* Tweet.h */;
+		name = "Tweet.h: 10";
+		rLen = 0;
+		rLoc = 183;
+		rType = 0;
+		vrLen = 455;
+		vrLoc = 0;
+	};
+	6186BAFD10F7CA6700E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2C10EA890500D6CBAC /* PreferenceController.h */;
+		name = "PreferenceController.h: 30";
+		rLen = 0;
+		rLoc = 770;
+		rType = 0;
+		vrLen = 1136;
+		vrLoc = 3;
+	};
+	6186BAFE10F7CA6700E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 39";
+		rLen = 1;
+		rLoc = 1511;
+		rType = 0;
+		vrLen = 1925;
+		vrLoc = 947;
+	};
+	6186BB0210F7CB2100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1203;
+		vrLoc = 1263;
+	};
+	6186BB0310F7CB2100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 61";
+		rLen = 0;
+		rLoc = 2597;
+		rType = 0;
+		vrLen = 1639;
+		vrLoc = 0;
+	};
+	6186BB0410F7CB2100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 18";
+		rLen = 52;
+		rLoc = 242;
+		rType = 0;
+		vrLen = 1051;
+		vrLoc = 8431;
+	};
+	6186BB0510F7CB2100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 18";
+		rLen = 52;
+		rLoc = 242;
+		rType = 0;
+		vrLen = 1413;
+		vrLoc = 2597;
+	};
+	6186BB0910F7CB7100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1203;
+		vrLoc = 1263;
+	};
+	6186BB0A10F7CB7200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 18";
+		rLen = 52;
+		rLoc = 242;
+		rType = 0;
+		vrLen = 1413;
+		vrLoc = 2597;
+	};
+	6186BB0B10F7CB7200E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 614217AD10D166180057AE2D /* Tweet.m */;
+		name = "Tweet.m: 31";
+		rLen = 0;
+		rLoc = 586;
+		rType = 0;
+		vrLen = 800;
+		vrLoc = 0;
+	};
+	6186BB0F10F7CBBD00E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 614217AD10D166180057AE2D /* Tweet.m */;
+		name = "Tweet.m: 31";
+		rLen = 0;
+		rLoc = 586;
+		rType = 0;
+		vrLen = 800;
+		vrLoc = 0;
+	};
+	6186BB1010F7CBBD00E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 101";
+		rLen = 0;
+		rLoc = 2964;
+		rType = 0;
+		vrLen = 1368;
+		vrLoc = 2662;
+	};
+	6186BB1410F7CC1000E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 100";
+		rLen = 0;
+		rLoc = 2901;
+		rType = 0;
+		vrLen = 1356;
+		vrLoc = 2712;
+	};
+	6186BB1810F7CCC100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 101";
+		rLen = 0;
+		rLoc = 2941;
+		rType = 0;
+		vrLen = 1356;
+		vrLoc = 2715;
+	};
+	6186BB1C10F7CD0400E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 101";
+		rLen = 0;
+		rLoc = 2941;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 2905;
+	};
+	6186BB1E10F7CD3300E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1177;
+		vrLoc = 1263;
+	};
+	6186BB1F10F7CD3400E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1177;
+		vrLoc = 1263;
+	};
+	6186BB2210F7CD3D00E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 101";
+		rLen = 0;
+		rLoc = 2941;
+		rType = 0;
+		vrLen = 1378;
+		vrLoc = 2946;
+	};
+	6186BB2610F7CE6100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169810CD6A2C0057AE2D /* Socket.h */;
+		name = "Socket.h: 11";
+		rLen = 33;
+		rLoc = 170;
+		rType = 0;
+		vrLen = 1057;
+		vrLoc = 274;
+	};
+	6186BB2710F7CE6100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 220";
+		rLen = 0;
+		rLoc = 7615;
+		rType = 0;
+		vrLen = 1591;
+		vrLoc = 6774;
+	};
+	6186BB2810F7CE6100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 97";
+		rLen = 0;
+		rLoc = 2963;
+		rType = 0;
+		vrLen = 1319;
+		vrLoc = 2388;
+	};
+	6186BB2C10F7CE7900E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 288";
+		rLen = 0;
+		rLoc = 9332;
+		rType = 0;
+		vrLen = 1069;
+		vrLoc = 8307;
+	};
+	6186BB2D10F7CE7900E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169810CD6A2C0057AE2D /* Socket.h */;
+		name = "Socket.h: 42";
+		rLen = 0;
+		rLoc = 924;
+		rType = 0;
+		vrLen = 1096;
+		vrLoc = 235;
+	};
+	6186BB3110F7CEF000E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169810CD6A2C0057AE2D /* Socket.h */;
+		name = "Socket.h: 42";
+		rLen = 19;
+		rLoc = 918;
+		rType = 0;
+		vrLen = 1057;
+		vrLoc = 274;
+	};
+	6186BB3210F7CEF000E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 274";
+		rLen = 0;
+		rLoc = 8987;
+		rType = 0;
+		vrLen = 1132;
+		vrLoc = 8237;
+	};
+	6186BB3610F7CF0900E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */;
+		name = "PreferenceController.m: 47";
+		rLen = 0;
+		rLoc = 2020;
+		rType = 0;
+		vrLen = 1177;
+		vrLoc = 1263;
+	};
+	6186BB3710F7CF0900E9427B /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Method definition for '-updateStatusBarItem' not found";
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 286;
+		rType = 1;
+	};
+	6186BB3810F7CF0900E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 288";
+		rLen = 0;
+		rLoc = 9332;
+		rType = 0;
+		vrLen = 619;
+		vrLoc = 8750;
+	};
+	6186BB3910F7CF0900E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 274";
+		rLen = 0;
+		rLoc = 8987;
+		rType = 0;
+		vrLen = 1132;
+		vrLoc = 8237;
+	};
+	6186BB3D10F7CF7F00E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 95";
+		rLen = 0;
+		rLoc = 2901;
+		rType = 0;
+		vrLen = 1327;
+		vrLoc = 2058;
+	};
+	6186BB4110F7CFF100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 287";
+		rLen = 0;
+		rLoc = 9332;
+		rType = 0;
+		vrLen = 601;
+		vrLoc = 8736;
+	};
+	6186BB4210F7CFF100E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 95";
+		rLen = 0;
+		rLoc = 2901;
+		rType = 0;
+		vrLen = 1327;
+		vrLoc = 2058;
+	};
+	6186BB4810F7D02900E9427B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6142169910CD6A2C0057AE2D /* Socket.m */;
+		name = "Socket.m: 95";
+		rLen = 0;
+		rLoc = 2901;
+		rType = 0;
+		vrLen = 1327;
+		vrLoc = 2058;
 	};
 	8D1107260486CEB800E47090 /* socket */ = {
 		activeExec = 0;
