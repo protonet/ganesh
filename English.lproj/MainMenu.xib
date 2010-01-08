@@ -1756,7 +1756,7 @@
 				<string key="NSTitle"/>
 				<object class="NSMutableArray" key="NSMenuItems">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSMenuItem" id="1040363457">
+					<object class="NSMenuItem" id="195211497">
 						<reference key="NSMenu" ref="256212815"/>
 						<string key="NSTitle">Connect...</string>
 						<string key="NSKeyEquiv"/>
@@ -2647,9 +2647,17 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">connect:</string>
 						<reference key="source" ref="931038684"/>
-						<reference key="destination" ref="1040363457"/>
+						<reference key="destination" ref="195211497"/>
 					</object>
 					<int key="connectionID">674</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="1021"/>
+						<reference key="destination" ref="931038684"/>
+					</object>
+					<int key="connectionID">675</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3777,7 +3785,7 @@
 							<reference ref="657903998"/>
 							<reference ref="218672641"/>
 							<reference ref="533401145"/>
-							<reference ref="1040363457"/>
+							<reference ref="195211497"/>
 						</object>
 						<reference key="parent" ref="595339549"/>
 						<string key="objectName">StatusBar</string>
@@ -4025,7 +4033,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">673</int>
-						<reference key="object" ref="1040363457"/>
+						<reference key="object" ref="195211497"/>
 						<reference key="parent" ref="256212815"/>
 					</object>
 				</object>
@@ -4661,7 +4669,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">674</int>
+			<int key="maxID">675</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

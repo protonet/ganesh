@@ -83,9 +83,21 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 	
 }
 
-- (void)applicationWillTerminate {
+- (void)cleanupBeforeSleep {
 	[self closeStreams];
 }
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    NSLog(@"app will terminate");
+    [n2nApp terminate];
+    [n2nApp waitUntilExit];
+    [n2nApp release];
+
+    [self cleanupBeforeSleep];
+}
+
+
 
 - (void)createStatusBarItem {
 	NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
