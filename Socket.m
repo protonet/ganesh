@@ -81,7 +81,6 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
                name:NSWorkspaceWillSleepNotification
              object:nil];
 	
-    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
 }
 
 - (void)applicationWillTerminate {
@@ -123,9 +122,9 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 	NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:@selector(openPtnDashboard:) keyEquivalent:@""] autorelease];
 	[subMenuItem setImage:tweet.userImage];
 	[subMenuItem setTarget:self];
-	[menuForStatusItem insertItem:subMenuItem atIndex:2];
+	[menuForStatusItem insertItem:subMenuItem atIndex:3];
 	if (messageCounter > 5) {
-		[menuForStatusItem removeItemAtIndex:7];
+		[menuForStatusItem removeItemAtIndex:8];
 	}
 }
 
@@ -390,8 +389,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 
 - (IBAction)connect:(id)sender {
     [statusItem setImage:statusHasVpnNoMessageImage];
-    [[statusItem menu] removeItemAtIndex:0];
-    [[statusItem menu] insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
+    [menuForStatusItem removeItemAtIndex:0];
+    [menuForStatusItem insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
 
 
     [[NSDistributedNotificationCenter defaultCenter]
@@ -479,8 +478,8 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 - (IBAction)disconnect:(id)sender
 {
     [statusItem setImage:statusNoVpnNoMessageImage];
-    [[statusItem menu] removeItemAtIndex:0];
-    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
+    [menuForStatusItem removeItemAtIndex:0];
+    [menuForStatusItem insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
