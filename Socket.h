@@ -62,9 +62,10 @@
 - (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error;
 - (void)runApp;
 - (NSString *) appSupportPath;
-- (void)startDaemon:(id)sender;
-- (void) stopDaemon:(id)sender;
+//- (void) startDaemon:(id)sender;
+//- (void) stopDaemon:(id)sender;
+//- (IBAction)showPreferences:(id)sender;
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
-- (IBAction)showPreferences:(id)sender;
+
 @end

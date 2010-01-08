@@ -443,7 +443,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
         // 4 is the maximum number of arguments to any command,
         // including the NULL that signals the end of an argument
         // list.
-        const char* const argumentLists[][4] = {
+        const char* const argumentLists[][5] = {
             { "-rf", dstPath, NULL }, // delete the destination
             { "-R", "-p", srcPath, dstPath, NULL },  // cp
             { NULL },  // pause
