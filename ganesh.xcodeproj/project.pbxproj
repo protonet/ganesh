@@ -398,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "BUILDDIR=tuntaposx/tuntap\ncd $BUILDDIR\n\nif [ -e built ]; then\n\texit 0\nfi\n\nmake clean\nmake\n\ntouch built";
+			shellScript = "BUILDDIR=tuntaposx/tuntap\ncd $BUILDDIR\n\nif [ -e built ]; then\n\texit 0\nfi\n\n# check if osx version below 5, if so\n# checkout the right version of tuntap\nif [[ `sw_vers -productVersion | cut -f 2 -d '.'` <= 5 ]]; then\n\tgit checkout 5dbbf79a57a4eb938e745322e76c442ab9fd440d\nelse\n\tgit checkout 7859e07c569b29c8e559911a7955973969ebac56\nfi\n\nmake clean\nmake\n\ntouch built";
 		};
 /* End PBXShellScriptBuildPhase section */
 
