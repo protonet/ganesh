@@ -54,9 +54,14 @@
                name:NSWorkspaceWillSleepNotification
              object:nil];
 	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(applicationWillTerminate)
+												 name:NSApplicationWillTerminateNotification object:nil];
+	
 }
 
-- (void)applicationWillTerminate {
+- (void)applicationWillTerminate
+{
 	[self closeStreams];
 }
 
@@ -143,13 +148,13 @@
 	
 	NSDictionary *authentication_dict = [parser objectWithString:json_string];
 
-//	NSLog(@"%@", requestResponse);
+    NSLog(@"%@", json_string);
 	NSLog(@"%@", [authentication_dict objectForKey:@"token"]);
 	
 	if([authentication_dict objectForKey:@"user_id"]) {
 		// Now send the authentication-request
 		[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
-						[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];		
+						[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
 	}
 
 }
@@ -176,6 +181,7 @@
     [outputStream release];
     inputStream = nil;
     outputStream = nil;
+	NSLog(@"closed sockets!");
 }
 
 - (void)sendText:(NSString *)string {
@@ -282,6 +288,7 @@
 - (void)dealloc {
 	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
 	[super dealloc];
+	
 }
 
 @end

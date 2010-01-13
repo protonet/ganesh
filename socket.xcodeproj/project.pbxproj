@@ -17,6 +17,25 @@
 		612AB79210DFED140044C96D /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78A10DFED140044C96D /* SBJsonBase.m */; };
 		612AB79310DFED140044C96D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78C10DFED140044C96D /* SBJsonParser.m */; };
 		612AB79410DFED140044C96D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78E10DFED140044C96D /* SBJsonWriter.m */; };
+		612E536B10FBACBD0098C65E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		612E536C10FBACBD0098C65E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		612E536D10FBACBD0098C65E /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A6E10D80F230057AE2D /* ptn_icon_active.png */; };
+		612E536E10FBACBD0098C65E /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A6F10D80F230057AE2D /* ptn_icon_inactive.png */; };
+		612E536F10FBACBD0098C65E /* ptn_icon_active_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A7510D815E00057AE2D /* ptn_icon_active_message.png */; };
+		612E537010FBACBD0098C65E /* ptn_icon_inactive_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A7610D815E00057AE2D /* ptn_icon_inactive_message.png */; };
+		612E537210FBACBD0098C65E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		612E537310FBACBD0098C65E /* socketAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* socketAppDelegate.m */; };
+		612E537410FBACBD0098C65E /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142169910CD6A2C0057AE2D /* Socket.m */; };
+		612E537510FBACBD0098C65E /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 614217AD10D166180057AE2D /* Tweet.m */; };
+		612E537610FBACBD0098C65E /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78410DFED140044C96D /* NSObject+SBJSON.m */; };
+		612E537710FBACBD0098C65E /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78610DFED140044C96D /* NSString+SBJSON.m */; };
+		612E537810FBACBD0098C65E /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78810DFED140044C96D /* SBJSON.m */; };
+		612E537910FBACBD0098C65E /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78A10DFED140044C96D /* SBJsonBase.m */; };
+		612E537A10FBACBD0098C65E /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78C10DFED140044C96D /* SBJsonParser.m */; };
+		612E537B10FBACBD0098C65E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 612AB78E10DFED140044C96D /* SBJsonWriter.m */; };
+		612E537C10FBACBD0098C65E /* TweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61126DCE10EA617C00D6CBAC /* TweetController.m */; };
+		612E537D10FBACBD0098C65E /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61126F2D10EA890500D6CBAC /* PreferenceController.m */; };
+		612E537F10FBACBD0098C65E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		6142169A10CD6A2C0057AE2D /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142169910CD6A2C0057AE2D /* Socket.m */; };
 		614217AE10D166180057AE2D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 614217AD10D166180057AE2D /* Tweet.m */; };
 		61421A7010D80F230057AE2D /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 61421A6E10D80F230057AE2D /* ptn_icon_active.png */; };
@@ -56,6 +75,9 @@
 		612AB78C10DFED140044C96D /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		612AB78D10DFED140044C96D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		612AB78E10DFED140044C96D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		612E531F10FBA89C0098C65E /* foo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foo-Info.plist"; sourceTree = "<group>"; };
+		612E538310FBACBD0098C65E /* socket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		612E538510FBACBD0098C65E /* socket-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "socket-Info copy.plist"; sourceTree = "<group>"; };
 		6142169810CD6A2C0057AE2D /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
 		6142169910CD6A2C0057AE2D /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = "<group>"; };
 		614217AC10D166180057AE2D /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -69,6 +91,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		612E537E10FBACBD0098C65E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				612E537F10FBACBD0098C65E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* socket.app */,
+				612E538310FBACBD0098C65E /* socket.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +158,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				612E531F10FBA89C0098C65E /* foo-Info.plist */,
 			);
 			name = socket;
 			sourceTree = "<group>";
@@ -147,6 +179,7 @@
 				8D1107310486CEB800E47090 /* socket-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				612E538510FBACBD0098C65E /* socket-Info copy.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -223,9 +256,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* socket */ = {
+		612E536910FBACBD0098C65E /* socket 10.5 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "socket" */;
+			buildConfigurationList = 612E538010FBACBD0098C65E /* Build configuration list for PBXNativeTarget "socket 10.5" */;
+			buildPhases = (
+				612E536A10FBACBD0098C65E /* Resources */,
+				612E537110FBACBD0098C65E /* Sources */,
+				612E537E10FBACBD0098C65E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "socket 10.5";
+			productInstallPath = "$(HOME)/Applications";
+			productName = socket;
+			productReference = 612E538310FBACBD0098C65E /* socket.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D1107260486CEB800E47090 /* socket 10.6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "socket 10.6" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -235,7 +286,7 @@
 			);
 			dependencies = (
 			);
-			name = socket;
+			name = "socket 10.6";
 			productInstallPath = "$(HOME)/Applications";
 			productName = socket;
 			productReference = 8D1107320486CEB800E47090 /* socket.app */;
@@ -253,12 +304,26 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* socket */,
+				8D1107260486CEB800E47090 /* socket 10.6 */,
+				612E536910FBACBD0098C65E /* socket 10.5 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		612E536A10FBACBD0098C65E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				612E536B10FBACBD0098C65E /* InfoPlist.strings in Resources */,
+				612E536C10FBACBD0098C65E /* MainMenu.xib in Resources */,
+				612E536D10FBACBD0098C65E /* ptn_icon_active.png in Resources */,
+				612E536E10FBACBD0098C65E /* ptn_icon_inactive.png in Resources */,
+				612E536F10FBACBD0098C65E /* ptn_icon_active_message.png in Resources */,
+				612E537010FBACBD0098C65E /* ptn_icon_inactive_message.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +340,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		612E537110FBACBD0098C65E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				612E537210FBACBD0098C65E /* main.m in Sources */,
+				612E537310FBACBD0098C65E /* socketAppDelegate.m in Sources */,
+				612E537410FBACBD0098C65E /* Socket.m in Sources */,
+				612E537510FBACBD0098C65E /* Tweet.m in Sources */,
+				612E537610FBACBD0098C65E /* NSObject+SBJSON.m in Sources */,
+				612E537710FBACBD0098C65E /* NSString+SBJSON.m in Sources */,
+				612E537810FBACBD0098C65E /* SBJSON.m in Sources */,
+				612E537910FBACBD0098C65E /* SBJsonBase.m in Sources */,
+				612E537A10FBACBD0098C65E /* SBJsonParser.m in Sources */,
+				612E537B10FBACBD0098C65E /* SBJsonWriter.m in Sources */,
+				612E537C10FBACBD0098C65E /* TweetController.m in Sources */,
+				612E537D10FBACBD0098C65E /* PreferenceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -316,6 +400,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		612E538110FBACBD0098C65E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = socket_Prefix.pch;
+				INFOPLIST_FILE = "socket-Info copy.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = socket;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		612E538210FBACBD0098C65E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = socket_Prefix.pch;
+				INFOPLIST_FILE = "socket-Info copy.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = socket;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,7 +493,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "socket" */ = {
+		612E538010FBACBD0098C65E /* Build configuration list for PBXNativeTarget "socket 10.5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				612E538110FBACBD0098C65E /* Debug */,
+				612E538210FBACBD0098C65E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "socket 10.6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,

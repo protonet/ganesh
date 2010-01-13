@@ -8,7 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface socketAppDelegate : NSObject <NSApplicationDelegate> {
+//http://stackoverflow.com/questions/1496788/building-for-10-5-in-xcode-3-2-on-snow-leopard-error
+#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_5)
+@interface socketAppDelegate : NSObject
+#else
+@interface socketAppDelegate : NSObject <NSApplicationDelegate>
+#endif
+{
     NSWindow *window;
 }
 
