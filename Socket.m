@@ -384,6 +384,7 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
  * run n2n.app from resources
  */
 - (void)runApp{
+    n2nApp = [[NSTask alloc] init];
 
     // [run setLaunchPath: @"/usr/bin/open"];
     NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app/Contents/MacOS/n2n", [self appSupportPath]];
