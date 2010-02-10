@@ -386,19 +386,37 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 - (void)runApp{
     n2nApp = [[NSTask alloc] init];
 
-    // [run setLaunchPath: @"/usr/bin/open"];
     NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app/Contents/MacOS/n2n", [self appSupportPath]];
     [n2nApp setLaunchPath:n2nPath];
-    // NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
-    // [n2nApp setArguments: arguments];
     [n2nApp launch];
-	/*
+    /*
     if ([n2nApp isRunning]) {
         [daemonButton setTitle:@"Stop"];
         [daemonButton setAction:@selector(stopDaemon:)];
     }
-	 */
+    */
 }
+
+- (void) stopDaemon:(id)sender
+{
+    if ([n2nApp isRunning]) {
+        [n2nApp terminate];
+        [n2nApp release];
+        n2nApp = nil;
+        /*
+        [daemonButton setTitle:@"Start"];
+        [daemonButton setAction:@selector(startDaemon:)];
+        */
+    }
+}
+
+- (void)startDaemon:(id)sender
+{
+    if (n2nApp == nil){
+        [self runApp];
+    }
+}
+
 
 - (IBAction)connect:(id)sender {
     [statusItem setImage:statusHasVpnNoMessageImage];
@@ -497,6 +515,10 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
+
+/**
+ * Socket functions and callbacks
+ */
 
 
 @end
