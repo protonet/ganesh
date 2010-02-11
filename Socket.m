@@ -23,8 +23,7 @@
 
         socketAuthenticated = NO;
 
-        NSCalendarDate *now;
-        now = [NSCalendarDate calendarDate];
+        NSCalendarDate *now = [NSCalendarDate calendarDate];
 
 
         [serverAnswerField setObjectValue:[host	name]];
@@ -48,7 +47,7 @@
 - (void)openSocket {
 	// only do something if stream are not OK (not open)
 	if (![self streamsAreOk]) {
-		host = [NSHost hostWithAddress:@"127.0.0.1"];
+		host = [NSHost hostWithName:@"localhost"];
 		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
 		[self openStreams];
 	}
@@ -128,7 +127,7 @@
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent {
     NSInputStream * istream;
     switch(streamEvent) {
-        case NSStreamEventHasBytesAvailable:
+        case NSStreamEventHasBytesAvailable:;
             uint8_t oneByte;
             int actuallyRead = 0;
             istream = (NSInputStream *)aStream;
