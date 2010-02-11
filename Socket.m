@@ -128,7 +128,7 @@
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent {
     NSInputStream * istream;
     switch(streamEvent) {
-        case NSStreamEventHasBytesAvailable:;
+        case NSStreamEventHasBytesAvailable:
             uint8_t oneByte;
             int actuallyRead = 0;
             istream = (NSInputStream *)aStream;
@@ -158,15 +158,14 @@
         case NSStreamEventOpenCompleted:
 			[self authenticateSocket];
             break;
-        case NSStreamEventNone:
         default:
             break;
     }
 }
 
 - (BOOL)streamsAreOk {
-    NSLog(@"streamstatus %d", [inputStream streamStatus]);
-	if ([inputStream streamStatus] == 2 && [outputStream streamStatus] == 2) {
+	if ([inputStream streamStatus] == NSStreamStatusOpen &&
+		[outputStream streamStatus] == NSStreamStatusOpen) {
 		NSLog(@"streams are ok!");
 		return YES;
 	} else {
@@ -176,7 +175,8 @@
 }
 
 - (BOOL)streamsAreOpening {
-	if ([inputStream streamStatus] == 1 && [outputStream streamStatus] == 1) {
+	if ([inputStream streamStatus] == NSStreamStatusOpening &&
+		[outputStream streamStatus] == NSStreamStatusOpening) {
 		NSLog(@"streams are opening!");
 		return YES;
 	} else {
