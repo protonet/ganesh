@@ -120,8 +120,6 @@
             marker += actuallyWritten;
         }
     } else {
-		// try to open the socket
-		[self openSocket];
 		[serverAnswerField setStringValue:@"trying to open socket, try again!"];
 	}
 
@@ -152,10 +150,7 @@
                 dataBuffer = nil;
             }
             break;
-        case NSStreamEventEndEncountered:;
-            [self closeStreams];
-            break;
-        case NSStreamEventHasSpaceAvailable:
+        case NSStreamEventEndEncountered:
         case NSStreamEventErrorOccurred:
             [self closeStreams];
             [NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:NO];
