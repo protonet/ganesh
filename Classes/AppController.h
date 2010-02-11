@@ -7,20 +7,44 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Tweet.h"
 
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
+
+  IBOutlet NSTableView *tableView;
+  NSMutableArray *tweetList;
+  int messageCounter;
+
   NSStatusItem *statusItem;
-  NSImage *statusImage;
-  NSImage *statusHighlightImage;
 
   NSThread *edgeThread;
+  // images for status item states
+  NSImage *statusNoVpnNoMessageImage;
+  NSImage *statusNoVpnHasMessageImage;	
+  NSImage *statusHasVpnNoMessageImage;
+  NSImage *statusHasVpnHasMessageImage;
   NSTask *n2nApp;
 }
+
++ (AppController *)sharedController;
+
+- (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error;
+- (void)runApp;
+- (NSString *) appSupportPath;
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
 - (IBAction)startDaemon:(id)sender;
 - (IBAction)showPreferences:(id)sender;
 - (BOOL) checkAndCopyHelper;
+
+- (void)createStatusBarItem;
+- (void)resetStatusBarItem;
+- (IBAction)pushedStatusBarItem:(id)sender;
+- (void)updateStatusBarItem;
+- (IBAction)clearMessages:(id)sender;
+
+- (void)addMenuItemForTweet:(Tweet *)tweet;
+- (void)addMessageToTweets:(NSString *)string;
 @end

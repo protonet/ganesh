@@ -10,6 +10,7 @@
 
 #import "AppController.h"
 #import "PrefsController.h"
+#import "JSON.h"
 
 // n2n includes
 #include "edge.h"
@@ -33,112 +34,167 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
     return returnValue;
 }
 
+static AppController *sharedAppController = nil;
+
 @implementation AppController
 
-- (IBAction)connect:(id)sender {
-    [statusItem setImage:statusHighlightImage];
-    [[statusItem menu] removeItemAtIndex:0];
-    [[statusItem menu] insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
-
-
-    [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
-}
-
-- (IBAction)disconnect:(id)sender
++ (AppController*)sharedController
 {
-    [statusItem setImage:statusImage];
-    [[statusItem menu] removeItemAtIndex:0];
-    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
-
-    [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
-}
-
-- (IBAction)showPreferences:(id)sender
-{
-    [[PrefsController sharedController] showWindow:self];
-}
-
-/**
- * run n2n.app from resources
- */
-- (void)runApp{
-    n2nApp = [[NSTask alloc] init];
-    // [run setLaunchPath: @"/usr/bin/open"];
-    NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app/Contents/MacOS/n2n", [self appSupportPath]];
-    [n2nApp setLaunchPath:n2nPath];
-    // NSArray *arguments = [NSArray arrayWithObjects: n2nPath, nil];
-    // [n2nApp setArguments: arguments];
-    [n2nApp launch];
-    if ([n2nApp isRunning]) {
-        [daemonButton setTitle:@"Stop"];
-        [daemonButton setAction:@selector(stopDaemon:)];
+    if (sharedAppController == nil) {
+        sharedAppController = [[super allocWithZone:NULL] init];
     }
+    return sharedAppController;
 }
 
-- (void) awakeFromNib
++ (id)allocWithZone:(NSZone *)zone
 {
+    return [[self sharedController] retain];
+}
 
-    // create the NSStatusBar and set its length
-    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength] retain];
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
 
-    // where are the bundle files?
-    NSBundle *bundle = [NSBundle mainBundle];
+- (id)retain
+{
+    return self;
+}
 
+- (NSUInteger)retainCount
+{
+    return NSUIntegerMax;  //denotes an object that cannot be released
+}
+
+- (void)release
+{
+    //do nothing
+}
+
+- (id)autorelease
+{
+    return self;
+}
+
+
+- (void)awakeFromNib
+{
     if([self checkAndCopyHelper]){
         [self runApp];
     }
 
+	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
+	messageCounter = 0;
+
+    // where are the bundle files?
+    NSBundle *bundle = [NSBundle mainBundle];
+
     // allocate and load the images into the app
-    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
-    statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
+    statusNoVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
+    statusNoVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive_message" ofType:@"png"]];	
 
-    // set the images in our NSStatusItem
-    [statusItem setImage:statusImage];
-    // [statusItem setAlternateImage:statusHighlightImage];
+    statusHasVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
+    statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
 
-    // tells the nsstatusitem what menu to load
-    [statusItem setMenu:statusMenu];
-    [[statusItem menu] insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
-    // sets the tooltip for the item
-    [statusItem setToolTip:@"Custom Menu Item"];
-    // enable highlighting
+	[self createStatusBarItem];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    NSLog(@"app will terminate");
+    [n2nApp terminate];
+    [n2nApp waitUntilExit];
+    [n2nApp release];
+
+}
+
+/**
+ * menubar item methods
+ */
+- (void)createStatusBarItem {
+    NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
+
+    statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem retain];
+    [statusItem setImage:statusNoVpnNoMessageImage];
     [statusItem setHighlightMode:YES];
+    [statusItem setAction:@selector(pushedStatusBarItem:)];
+    [statusItem setTarget:self];
 }
 
-- (void) dealloc
-{
-    // Release the 2 images
-    [statusImage release];
-    [statusHighlightImage release];
-    [super dealloc];
+- (IBAction)pushedStatusBarItem:(id)sender {
+    [self resetStatusBarItem];
+    [statusItem popUpStatusItemMenu:statusMenu];
 }
 
-- (NSString *) appSupportPath
-{
-    FSRef folder;
-    OSErr err = noErr;
-    CFURLRef url;
-    NSString *userAppSupportFolder;
-    NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
-
-    /* (C) ~/Library/Application Support
-       The user's application support folder.  Attempt to locate the folder, but
-       do not try to create one if it does not exist.  */
-    err = FSFindFolder( kUserDomain, kApplicationSupportFolderType, false, &folder );
-    if ( noErr == err ) {
-        url = CFURLCreateFromFSRef( kCFAllocatorDefault, &folder );
-
-        if ( url != NULL ) {
-            userAppSupportFolder = [NSString stringWithFormat:@"%@/%@",
-                                 [(NSURL *)url path], applicationName];
-        }
-
+- (void)updateStatusBarItem {
+    if (messageCounter > 0) {
+        [statusItem setImage:statusNoVpnHasMessageImage];
+    } else {
+        [statusItem setImage:statusNoVpnNoMessageImage];
     }
-    return userAppSupportFolder;
+
 }
 
+- (void)addMenuItemForTweet:(Tweet *)tweet {
+    NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:@selector(openPtnDashboard:) keyEquivalent:@""] autorelease];
+    [subMenuItem setImage:tweet.userImage];
+    [subMenuItem setTarget:self];
+    [statusMenu insertItem:subMenuItem atIndex:3];
+    if (messageCounter > 5) {
+        [statusMenu removeItemAtIndex:8];
+    }
+}
+
+- (void)openPtnDashboard:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://localhost:3000/"]];
+}
+
+- (void)resetStatusBarItem {
+	//[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
+	messageCounter = 0;
+	[self updateStatusBarItem];
+}
+
+- (IBAction)clearMessages:(id)sender {
+	[tweetList removeAllObjects];
+	[tableView reloadData];
+}
+
+- (void)addMessageToTweets:(NSString *)string {
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+
+    Tweet * tweet = [[Tweet alloc] initWithData:[parser objectWithString:string]];
+
+    if (tweet) {
+        messageCounter++ ;
+        // add the message to the beginning of the message array
+        [tweetList insertObject:string atIndex:0];
+        [tableView reloadData];
+        //NSLog(@"currently %@ in array", [tweetList count]);
+        [self addMenuItemForTweet:tweet];		
+    }
+}
+
+/**
+ * tableview delegates
+ */
+- (int)numberOfRowsInTableView:(NSTableView *)tv {
+    return [tweetList count];
+}
+
+- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row {
+    NSString *value = [tweetList objectAtIndex:row];
+    return value;
+}
+
+
+
+//*************************************************************//
+/**
+ * ganesh stuff
+ * @todo: move this code out of the socket.m
+ */
 - (BOOL) checkAndCopyHelper
 {
     NSError *error;
@@ -163,6 +219,78 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
         return [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
     }
 
+}
+
+- (NSString *) appSupportPath
+{
+    FSRef folder;
+    OSErr err = noErr;
+    CFURLRef url;
+    NSString *userAppSupportFolder;
+    NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
+
+    /* (C) ~/Library/Application Support
+	 The user's application support folder.  Attempt to locate the folder, but
+	 do not try to create one if it does not exist.  */
+    err = FSFindFolder( kUserDomain, kApplicationSupportFolderType, false, &folder );
+    if ( noErr == err ) {
+        url = CFURLCreateFromFSRef( kCFAllocatorDefault, &folder );
+
+        if ( url != NULL ) {
+            userAppSupportFolder = [NSString stringWithFormat:@"%@/%@",
+									[(NSURL *)url path], applicationName];
+        }
+
+    }
+    return userAppSupportFolder;
+}
+
+/**
+ * run n2n.app from resources
+ */
+- (void)runApp{
+    n2nApp = [[NSTask alloc] init];
+
+    NSString *n2nPath = [NSString stringWithFormat:@"%@/n2n.app/Contents/MacOS/n2n", [self appSupportPath]];
+    [n2nApp setLaunchPath:n2nPath];
+    [n2nApp launch];
+    /*
+    if ([n2nApp isRunning]) {
+        [daemonButton setTitle:@"Stop"];
+        [daemonButton setAction:@selector(stopDaemon:)];
+    }
+    */
+}
+
+- (void) stopDaemon:(id)sender
+{
+    if ([n2nApp isRunning]) {
+        [n2nApp terminate];
+        [n2nApp release];
+        n2nApp = nil;
+        /*
+        [daemonButton setTitle:@"Start"];
+        [daemonButton setAction:@selector(startDaemon:)];
+        */
+    }
+}
+
+- (void)startDaemon:(id)sender
+{
+    if (n2nApp == nil){
+        [self runApp];
+    }
+}
+
+
+- (IBAction)connect:(id)sender {
+    [statusItem setImage:statusHasVpnNoMessageImage];
+    [statusMenu removeItemAtIndex:0];
+    [statusMenu insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
+
+
+    [[NSDistributedNotificationCenter defaultCenter]
+        postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
 }
 
 - (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error
@@ -243,31 +371,15 @@ static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authoriza
 
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification
+- (IBAction)disconnect:(id)sender
 {
-    NSLog(@"app will terminate");
-    [n2nApp terminate];
-    [n2nApp waitUntilExit];
-    [n2nApp release];
+    [statusItem setImage:statusNoVpnNoMessageImage];
+    [statusMenu removeItemAtIndex:0];
+    [statusMenu insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
+
+    [[NSDistributedNotificationCenter defaultCenter]
+        postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
 
-- (void)startDaemon:(id)sender
-{
-    if (n2nApp == nil){
-        [self runApp];
-    }
-}
-
-- (void) stopDaemon:(id)sender
-{
-    if ([n2nApp isRunning]) {
-        [n2nApp terminate];
-        [n2nApp waitUntilExit];
-        [n2nApp release];
-        n2nApp = nil;
-        [daemonButton setTitle:@"Start"];
-        [daemonButton setAction:@selector(startDaemon:)];
-    }
-}
 
 @end
