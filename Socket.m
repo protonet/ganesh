@@ -17,34 +17,28 @@
 @implementation Socket
 
 - (id)init {
-    [super init];
+    if(self = [super init]){
+        NSLog(@"init socket");
+        host = [NSHost currentHost];
 
-    NSLog(@"init");
+        socketAuthenticated = NO;
 
-	socketAuthenticated = NO;
+        NSCalendarDate *now;
+        now = [NSCalendarDate calendarDate];
 
+
+        [serverAnswerField setObjectValue:[host	name]];
+        [self openSocket];
+
+        // check on sleep and close socket
+        NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
+        [nc addObserver:self
+               selector:@selector(cleanupBeforeSleep)
+                   name:NSWorkspaceWillSleepNotification
+                 object:nil];
+
+    }
     return self;
-}
-
-- (void)awakeFromNib {	
-    host = [NSHost currentHost];
-
-	NSCalendarDate *now;
-	now = [NSCalendarDate calendarDate];
-
-
-	[serverAnswerField setObjectValue:[host	name]];
-	[self openSocket];
-
-	// periodically check socket and reopen if needed
-	[NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:YES];	
-	// check on sleep and close socket
-	NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
-    [nc addObserver:self
-           selector:@selector(cleanupBeforeSleep)
-               name:NSWorkspaceWillSleepNotification
-             object:nil];
-
 }
 
 - (void)cleanupBeforeSleep {
@@ -57,13 +51,6 @@
 		host = [NSHost hostWithAddress:@"127.0.0.1"];
 		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
 		[self openStreams];
-		// is this a good idea?
-		sleep(1);
-		if([self streamsAreOk] || [self streamsAreOpening]) {
-			[self authenticateSocket];
-		} else {
-			[serverAnswerField setStringValue:@"no socket available"];
-		}		
 	}
 }
 
@@ -170,7 +157,12 @@
             break;
         case NSStreamEventHasSpaceAvailable:
         case NSStreamEventErrorOccurred:
+            [self closeStreams];
+            [NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:NO];
+            break;
         case NSStreamEventOpenCompleted:
+			[self authenticateSocket];
+            break;
         case NSStreamEventNone:
         default:
             break;
@@ -178,6 +170,7 @@
 }
 
 - (BOOL)streamsAreOk {
+    NSLog(@"streamstatus %d", [inputStream streamStatus]);
 	if ([inputStream streamStatus] == 2 && [outputStream streamStatus] == 2) {
 		NSLog(@"streams are ok!");
 		return YES;

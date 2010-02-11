@@ -11,6 +11,7 @@
 #import "AppController.h"
 #import "PrefsController.h"
 #import "JSON.h"
+#import "Socket.h"
 
 // n2n includes
 #include "edge.h"
@@ -97,6 +98,7 @@ static AppController *sharedAppController = nil;
     statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
 
 	[self createStatusBarItem];
+    Socket *socket = [[Socket alloc] init];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
