@@ -24,7 +24,7 @@
         NSCalendarDate *now = [NSCalendarDate calendarDate];
 
 
-        [serverAnswerField setObjectValue:[host	name]];
+        [serverAnswerField setObjectValue:[host name]];
         [self openSocket];
 
         // check on sleep and close socket
