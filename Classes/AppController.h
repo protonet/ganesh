@@ -45,6 +45,4 @@
 - (void)updateStatusBarItem;
 - (IBAction)clearMessages:(id)sender;
 
-- (void)addMenuItemForTweet:(Tweet *)tweet;
-- (void)addMessageToTweets:(NSString *)string;
 @end

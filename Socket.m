@@ -9,7 +9,7 @@
 
 #import "Socket.h"
 #import "JSON.h"
-#import "AppController.h"
+#import "Messages.h"
 
 // n2n includes
 #include "edge.h"
@@ -142,8 +142,7 @@
 					// We've got the carriage return at the end of the echo. Let's set the string.
                 NSString * string = [[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding];
 				[serverAnswerField setStringValue:string];
-				[[AppController sharedController] addMessageToTweets:string];
-				[[AppController sharedController] updateStatusBarItem];
+				[[Messages sharedController] addMessageToTweets:string];
                 [string release];
                 [dataBuffer release];
                 dataBuffer = nil;

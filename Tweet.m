@@ -31,6 +31,5 @@
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:profileUrl];
 		return self;
 	}	
-	
 }
 @end

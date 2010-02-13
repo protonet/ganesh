@@ -12,6 +12,7 @@
 #import "PrefsController.h"
 #import "JSON.h"
 #import "Socket.h"
+#import "Messages.h"
 
 // n2n includes
 #include "edge.h"
@@ -77,7 +78,6 @@ static AppController *sharedAppController = nil;
     return self;
 }
 
-
 - (void)awakeFromNib
 {
     if([self checkAndCopyHelper]){
@@ -100,6 +100,28 @@ static AppController *sharedAppController = nil;
 	[self createStatusBarItem];
     Socket *socket = [[Socket alloc] init];
 }
+
+
+- (void)observeMessages
+{
+    [[Messages sharedController] addObserver:self
+                                  forKeyPath:@"messages"
+                                     options:(NSKeyValueObservingOptionNew |
+                                              NSKeyValueObservingOptionOld)
+                                     context:NULL];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqual:@"messages"]) {
+        [self addMenuItemForTweet];
+    }
+}
+
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
@@ -138,13 +160,21 @@ static AppController *sharedAppController = nil;
 
 }
 
-- (void)addMenuItemForTweet:(Tweet *)tweet {
+- (NSMenuItem *)buildTweetMenuItem
+{
+    // get last tweet from messages
+    Tweet *tweet = [[Messages sharedController] first];
     NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:@selector(openPtnDashboard:) keyEquivalent:@""] autorelease];
     [subMenuItem setImage:tweet.userImage];
     [subMenuItem setTarget:self];
+	return subMenuItem;
+}
+
+- (void)addMenuItemForTweet{
+    NSMenuItem *subMenuItem = [self buildTweetMenuItem];
     [statusMenu insertItem:subMenuItem atIndex:3];
-    if (messageCounter > 5) {
-        [statusMenu removeItemAtIndex:8];
+    if (messageCounter > MAX_TWEETS) {
+        [statusMenu removeItemAtIndex:MAX_TWEETS+3];
     }
 }
 
@@ -159,24 +189,10 @@ static AppController *sharedAppController = nil;
 }
 
 - (IBAction)clearMessages:(id)sender {
-	[tweetList removeAllObjects];
+    [[Messages sharedController] clear];
 	[tableView reloadData];
 }
 
-- (void)addMessageToTweets:(NSString *)string {
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-
-    Tweet * tweet = [[Tweet alloc] initWithData:[parser objectWithString:string]];
-
-    if (tweet) {
-        messageCounter++ ;
-        // add the message to the beginning of the message array
-        [tweetList insertObject:string atIndex:0];
-        [tableView reloadData];
-        //NSLog(@"currently %@ in array", [tweetList count]);
-        [self addMenuItemForTweet:tweet];		
-    }
-}
 
 /**
  * tableview delegates
