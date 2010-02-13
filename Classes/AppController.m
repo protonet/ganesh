@@ -11,7 +11,6 @@
 #import "AppController.h"
 #import "PrefsController.h"
 #import "JSON.h"
-#import "Socket.h"
 #import "Messages.h"
 
 // n2n includes
@@ -98,8 +97,9 @@ static AppController *sharedAppController = nil;
     statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
 
 	[self createStatusBarItem];
-    Socket *socket = [[Socket alloc] init];
-
+    // TODO: does this need a dealloc socket release?
+    socket = [[Socket alloc] init];
+	
     [self observeMessages];
 }
 
@@ -110,8 +110,13 @@ static AppController *sharedAppController = nil;
                                   forKeyPath:@"messages"
                                      options:(NSKeyValueObservingOptionNew |
                                               NSKeyValueObservingOptionOld)
-                                     context:NULL];
+                                     context:nil];
 
+    [socket addObserver:self
+             forKeyPath:@"authenticated"
+                options:(NSKeyValueObservingOptionNew |
+                         NSKeyValueObservingOptionOld)
+                context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -121,6 +126,9 @@ static AppController *sharedAppController = nil;
 {
     if ([keyPath isEqual:@"messages"]) {
         [self addMenuItemForTweet];
+    }
+    else if([keyPath isEqual:@"authenticated"]){
+        [self updateStatusBarItem];
     }
 }
 
@@ -154,7 +162,7 @@ static AppController *sharedAppController = nil;
 }
 
 - (void)updateStatusBarItem {
-    if (messageCounter > 0) {
+    if(socket.authenticated){
         [statusItem setImage:statusNoVpnHasMessageImage];
     } else {
         [statusItem setImage:statusNoVpnNoMessageImage];

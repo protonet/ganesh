@@ -19,9 +19,10 @@
 	NSMutableData * dataBuffer;
 	NSHost * host;
 	
-	BOOL socketAuthenticated;
-	
+	BOOL authenticated;
 }
+
+@property(assign) BOOL authenticated;
 
 - (IBAction)sendMessageAndClearInput:(id)sender;
 

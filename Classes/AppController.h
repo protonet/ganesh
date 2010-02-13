@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Tweet.h"
+#import "Socket.h"
 
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
@@ -26,6 +27,8 @@
   NSImage *statusHasVpnNoMessageImage;
   NSImage *statusHasVpnHasMessageImage;
   NSTask *n2nApp;
+
+  Socket *socket;
 }
 
 + (AppController *)sharedController;

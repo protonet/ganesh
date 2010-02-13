@@ -15,6 +15,7 @@
 #include "edge.h"
 
 @implementation Socket
+@synthesize authenticated;
 
 - (id)init {
     if(self = [super init]){
@@ -45,7 +46,7 @@
 - (void)openSocket {
 	// only do something if stream are not OK (not open)
 	if (![self streamsAreOk]) {
-        socketAuthenticated = NO;
+        self.authenticated = NO;
 
 		host = [NSHost hostWithAddress:@"127.0.0.1"];
 		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
@@ -154,9 +155,9 @@
             break;
         case NSStreamEventHasSpaceAvailable:
             if (aStream == outputStream) {
-                if (!socketAuthenticated) {
+                if (!self.authenticated) {
                     [self authenticateSocket];
-                    socketAuthenticated = YES;
+                    self.authenticated = YES;
                 }
             }
             break;
@@ -185,7 +186,7 @@
 	} else {
 		NSLog(@"streams are NOT opening!");
 		return NO;
-	}	
+	}
 }
 
 - (void)dealloc {
