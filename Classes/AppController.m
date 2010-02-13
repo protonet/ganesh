@@ -103,6 +103,12 @@ static AppController *sharedAppController = nil;
     [self observeMessages];
 }
 
+- (void) dealloc
+{
+    [socket release];
+    [super dealloc];
+}
+
 
 - (void)observeMessages
 {
