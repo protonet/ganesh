@@ -17,7 +17,7 @@
 {
 	message = [data objectForKey:@"message"];
 
-    if (message && self = [super init]) {
+    if (message && (self = [super init])) {
 		NSString * profileUrlString = [NSString stringWithFormat:@"http://localhost:3000%@", [data objectForKey:@"user_icon_url"]];
 		NSURL *profileUrl = [NSURL URLWithString:profileUrlString];
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:profileUrl];
