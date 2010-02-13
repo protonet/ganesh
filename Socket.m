@@ -21,8 +21,6 @@
         NSLog(@"init socket");
         host = [NSHost currentHost];
 
-        socketAuthenticated = NO;
-
         NSCalendarDate *now = [NSCalendarDate calendarDate];
 
 
@@ -47,7 +45,9 @@
 - (void)openSocket {
 	// only do something if stream are not OK (not open)
 	if (![self streamsAreOk]) {
-		host = [NSHost hostWithName:@"localhost"];
+        socketAuthenticated = NO;
+
+		host = [NSHost hostWithAddress:@"127.0.0.1"];
 		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
 		[self openStreams];
 	}
@@ -148,14 +148,19 @@
                 dataBuffer = nil;
             }
             break;
-        case NSStreamEventEndEncountered:
         case NSStreamEventErrorOccurred:
             [self closeStreams];
             [NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:NO];
             break;
-        case NSStreamEventOpenCompleted:
-			[self authenticateSocket];
+        case NSStreamEventHasSpaceAvailable:
+            if (aStream == outputStream) {
+                if (!socketAuthenticated) {
+                    [self authenticateSocket];
+                    socketAuthenticated = YES;
+                }
+            }
             break;
+        case NSStreamEventEndEncountered:
         default:
             break;
     }

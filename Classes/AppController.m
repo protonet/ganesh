@@ -99,6 +99,8 @@ static AppController *sharedAppController = nil;
 
 	[self createStatusBarItem];
     Socket *socket = [[Socket alloc] init];
+
+    [self observeMessages];
 }
 
 

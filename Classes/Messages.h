@@ -18,6 +18,6 @@
 
 + (Messages*)sharedController;
 - (id)first;
-- (id)clear;
+- (void)clear;
 
 @end
