@@ -22,6 +22,9 @@
 		4D190E9C1127037500BA1A75 /* ptn_icon_inactive_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D190E9A1127037500BA1A75 /* ptn_icon_inactive_message.png */; };
 		4D190E9D1127037500BA1A75 /* ptn_icon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D190E9B1127037500BA1A75 /* ptn_icon_inactive.png */; };
 		4D190EA51127038B00BA1A75 /* ptn_icon_active_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D190EA41127038B00BA1A75 /* ptn_icon_active_message.png */; };
+		4D190FBB1128380100BA1A75 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D190FBA1128380100BA1A75 /* Sparkle.framework */; };
+		4D190FBE1128380F00BA1A75 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FBA1128380100BA1A75 /* Sparkle.framework */; };
+		4D190FF6112845F200BA1A75 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D7105F610EECB050066AC0C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */; };
 		4D7105F710EECB050066AC0C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E010EECB050066AC0C /* NSString+SBJSON.m */; };
 		4D7105F810EECB050066AC0C /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E210EECB050066AC0C /* SBJSON.m */; };
@@ -72,9 +75,11 @@
 		279318DB108BC96F00C7975F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
+			comments = "Copy Frameworks";
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4D190FBE1128380F00BA1A75 /* Sparkle.framework in CopyFiles */,
 				279318D2108BC96900C7975F /* BWToolkitFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +122,8 @@
 		4D190E9A1127037500BA1A75 /* ptn_icon_inactive_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_inactive_message.png; path = images/ptn_icon_inactive_message.png; sourceTree = "<group>"; };
 		4D190E9B1127037500BA1A75 /* ptn_icon_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_inactive.png; path = images/ptn_icon_inactive.png; sourceTree = "<group>"; };
 		4D190EA41127038B00BA1A75 /* ptn_icon_active_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active_message.png; path = images/ptn_icon_active_message.png; sourceTree = "<group>"; };
+		4D190FBA1128380100BA1A75 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = External/Sparkle.framework; sourceTree = "<group>"; };
+		4D190FF5112845F200BA1A75 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = External/Growl.framework; sourceTree = "<group>"; };
 		4D7105DC10EECB050066AC0C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		4D7105DD10EECB050066AC0C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -150,6 +157,8 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				2708D2CD0FDF1F9900E45182 /* Security.framework in Frameworks */,
 				27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */,
+				4D190FBB1128380100BA1A75 /* Sparkle.framework in Frameworks */,
+				4D190FF6112845F200BA1A75 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +185,9 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2793188F108BC93E00C7975F /* BWToolkitFramework.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				4D190FBA1128380100BA1A75 /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -226,8 +237,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				2708D1010FDF18E200E45182 /* Security.framework */,
-				2793188F108BC93E00C7975F /* BWToolkitFramework.framework */,
+				4D190FF5112845F200BA1A75 /* Growl.framework */,
 			);
 			name = ganesh;
 			sourceTree = "<group>";
@@ -260,6 +270,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2708D1010FDF18E200E45182 /* Security.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -417,6 +428,7 @@
 		4D190F6111282AA000BA1A75 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
+			comments = "Remove Headers";
 			files = (
 			);
 			inputPaths = (
