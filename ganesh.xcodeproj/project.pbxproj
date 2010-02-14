@@ -25,6 +25,7 @@
 		4D190FBB1128380100BA1A75 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D190FBA1128380100BA1A75 /* Sparkle.framework */; };
 		4D190FBE1128380F00BA1A75 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FBA1128380100BA1A75 /* Sparkle.framework */; };
 		4D190FF6112845F200BA1A75 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
+		4D1910071128489100BA1A75 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D7105F610EECB050066AC0C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */; };
 		4D7105F710EECB050066AC0C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E010EECB050066AC0C /* NSString+SBJSON.m */; };
 		4D7105F810EECB050066AC0C /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E210EECB050066AC0C /* SBJSON.m */; };
@@ -79,6 +80,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4D1910071128489100BA1A75 /* Growl.framework in CopyFiles */,
 				4D190FBE1128380F00BA1A75 /* Sparkle.framework in CopyFiles */,
 				279318D2108BC96900C7975F /* BWToolkitFramework.framework in CopyFiles */,
 			);
@@ -185,6 +187,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D190FF5112845F200BA1A75 /* Growl.framework */,
 				2793188F108BC93E00C7975F /* BWToolkitFramework.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				4D190FBA1128380100BA1A75 /* Sparkle.framework */,
@@ -237,7 +240,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				4D190FF5112845F200BA1A75 /* Growl.framework */,
 			);
 			name = ganesh;
 			sourceTree = "<group>";
