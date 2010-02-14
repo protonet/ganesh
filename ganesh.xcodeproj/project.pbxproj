@@ -328,6 +328,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				279318DB108BC96F00C7975F /* CopyFiles */,
 				27F29F3B10C5B3D70056C09C /* CopyFiles */,
+				4D190F6111282AA000BA1A75 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -412,6 +413,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "BUILDDIR=tuntaposx/tuntap\ncd $BUILDDIR\n\nif [ -e built ]; then\n\texit 0\nfi\n\n# check if osx version below 5, if so\n# checkout the right version of tuntap\nif [[ `sw_vers -productVersion | cut -f 2 -d '.'` <= 5 ]]; then\n\tgit checkout 5dbbf79a57a4eb938e745322e76c442ab9fd440d\nelse\n\tgit checkout 7859e07c569b29c8e559911a7955973969ebac56\nfi\n\nmake clean\nmake\n\ntouch built";
+		};
+		4D190F6111282AA000BA1A75 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# delete headers from frameworks\necho \"build path ${TARGET_BUILD_DIR}\"\ncd ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Contents/Frameworks \nrm -rf */Headers \nrm -rf */Versions/*/Headers \nrm -rf */Versions/*/PrivateHeaders \nrm -rf */Versions/*/Resources/*/Contents/Headers\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

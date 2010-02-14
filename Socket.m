@@ -150,6 +150,8 @@
             }
             break;
         case NSStreamEventErrorOccurred:
+        case NSStreamEventEndEncountered:
+            self.authenticated = NO;
             [self closeStreams];
             [NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:NO];
             break;
@@ -161,7 +163,6 @@
                 }
             }
             break;
-        case NSStreamEventEndEncountered:
         default:
             break;
     }
