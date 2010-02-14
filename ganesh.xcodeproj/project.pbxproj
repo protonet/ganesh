@@ -27,6 +27,7 @@
 		4D190FF6112845F200BA1A75 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D1910071128489100BA1A75 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4D19101B11284D0D00BA1A75 /* dsa_pub.pem */; };
+		4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D191022112852C200BA1A75 /* GrowlNotifier.m */; };
 		4D7105F610EECB050066AC0C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */; };
 		4D7105F710EECB050066AC0C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E010EECB050066AC0C /* NSString+SBJSON.m */; };
 		4D7105F810EECB050066AC0C /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E210EECB050066AC0C /* SBJSON.m */; };
@@ -128,6 +129,8 @@
 		4D190FBA1128380100BA1A75 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = External/Sparkle.framework; sourceTree = "<group>"; };
 		4D190FF5112845F200BA1A75 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = External/Growl.framework; sourceTree = "<group>"; };
 		4D19101B11284D0D00BA1A75 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		4D191021112852C200BA1A75 /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
+		4D191022112852C200BA1A75 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
 		4D7105DC10EECB050066AC0C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		4D7105DD10EECB050066AC0C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D191021112852C200BA1A75 /* GrowlNotifier.h */,
+				4D191022112852C200BA1A75 /* GrowlNotifier.m */,
 				4D190C4011264B0400BA1A75 /* Messages.h */,
 				4D190C4111264B0500BA1A75 /* Messages.m */,
 				4D7105F310EECB050066AC0C /* Prefences */,
@@ -466,6 +471,7 @@
 				4D7105FF10EECB050066AC0C /* Socket.m in Sources */,
 				4D71060010EECB050066AC0C /* PreferenceController.m in Sources */,
 				4D190C4211264B0500BA1A75 /* Messages.m in Sources */,
+				4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

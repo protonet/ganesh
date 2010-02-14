@@ -12,6 +12,7 @@
 #import "PrefsController.h"
 #import "JSON.h"
 #import "Messages.h"
+#import "GrowlNotifier.h"
 
 // n2n includes
 #include "edge.h"
@@ -101,6 +102,7 @@ static AppController *sharedAppController = nil;
     socket = [[Socket alloc] init];
 	
     [self observeMessages];
+
 }
 
 - (void) dealloc
@@ -132,6 +134,7 @@ static AppController *sharedAppController = nil;
 {
     if ([keyPath isEqual:@"messages"]) {
         [self addMenuItemForTweet];
+
     }
     else if([keyPath isEqual:@"authenticated"]){
         [self updateStatusBarItem];
@@ -180,6 +183,9 @@ static AppController *sharedAppController = nil;
 {
     // get last tweet from messages
     Tweet *tweet = [[Messages sharedController] first];
+    // growl notification for tweet
+    [[GrowlNotifier sharedController] showNewTweet:tweet];
+
     NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:@selector(openPtnDashboard:) keyEquivalent:@""] autorelease];
     [subMenuItem setImage:tweet.userImage];
     [subMenuItem setTarget:self];
