@@ -31,6 +31,8 @@
   Socket *socket;
 }
 
+- (IBAction)openPreferences:(id)sender;
+
 + (AppController *)sharedController;
 
 - (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error;

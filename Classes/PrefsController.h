@@ -11,8 +11,15 @@
 
 @interface PrefsController : NSWindowController {
     IBOutlet NSWindow *window;
+	IBOutlet NSView *generalPreferenceView;
+	IBOutlet NSView *networkPreferenceView;
+	
+	IBOutlet NSView *activeContentView;
 }
 
 + (PrefsController*)sharedController;
+
+- (void)toggleActivePreferenceView:(id)sender;
+- (void)setActiveView:(NSView *)view animate:(BOOL)flag;
 
 @end

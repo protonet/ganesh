@@ -8,60 +8,27 @@
 
 #import "PrefsController.h"
 
+#define WINDOW_TITLE_HEIGHT 78
+
+static NSString *GeneralToolbarItemIdentifier  = @"General";
+static NSString *NetworkToolbarItemIdentifier  = @"Network";
+
 static PrefsController *sharedPrefsController = nil;
 
 @implementation PrefsController
 
-+ (PrefsController*)sharedController
++ (PrefsController *)sharedController
 {
-    @synchronized(self) {
-        if (sharedPrefsController == nil) {
-            [[self alloc] initWithWindowNibName:@"Preferences"]; // assignment not done here
-        }
-    }
-    return sharedPrefsController;
-
+	if (!sharedPrefsController) {
+		sharedPrefsController = [[PrefsController alloc] initWithWindowNibName:@"Preferences"];
+	}
+	return sharedPrefsController;
 }
 
-+ (id)allocWithZone:(NSZone *)zone
+- (void)dealloc
 {
-    @synchronized(self) {
-        if (sharedPrefsController == nil) {
-            sharedPrefsController = [super allocWithZone:zone];
-            return sharedPrefsController;  // assignment and return on first allocation
-        }
-    }
-    return nil; //on subsequent allocation attempts return nil
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-
-- (id)retain
-{
-    return self;
-}
-
-
-- (NSUInteger)retainCount
-{
-    return UINT_MAX;  //denotes an object that cannot be released
-}
-
-
-- (void)release
-{
-    //do nothing
-}
-
-
-- (id)autorelease
-
-{
-    return self;
+    sharedPrefsController = nil;
+	[super dealloc];
 }
 
 
@@ -76,6 +43,92 @@ static PrefsController *sharedPrefsController = nil;
 
 -(void) windowWillClose:(NSNotification *)aNotification {
     // [self saveToPreferences:self];
+}
+
+- (void)awakeFromNib
+{
+	id toolbar = [[[NSToolbar alloc] initWithIdentifier:@"preferences toolbar"] autorelease];
+	[toolbar setAllowsUserCustomization:NO];
+	[toolbar setAutosavesConfiguration:NO];
+	[toolbar setSizeMode:NSToolbarSizeModeDefault];
+	[toolbar setDisplayMode:NSToolbarDisplayModeIconAndLabel];
+	[toolbar setDelegate:self];
+	[toolbar setSelectedItemIdentifier:GeneralToolbarItemIdentifier];
+	[[self window] setToolbar:toolbar];
+
+	[self setActiveView:generalPreferenceView animate:NO];
+	[[self window] setTitle:GeneralToolbarItemIdentifier];
+}
+
+- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
+{
+	return [NSArray arrayWithObjects:
+		GeneralToolbarItemIdentifier,
+		NetworkToolbarItemIdentifier,
+		nil];
+}
+
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar 
+{
+	return [NSArray arrayWithObjects:
+		GeneralToolbarItemIdentifier,
+		NetworkToolbarItemIdentifier,
+		nil];
+}
+
+- (NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar *)toolbar
+{
+	return [NSArray arrayWithObjects:
+		GeneralToolbarItemIdentifier,
+		NetworkToolbarItemIdentifier,
+		nil];
+}
+
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)identifier willBeInsertedIntoToolbar:(BOOL)willBeInserted 
+{
+	NSToolbarItem *item = [[[NSToolbarItem alloc] initWithItemIdentifier:identifier] autorelease];
+	if ([identifier isEqualToString:GeneralToolbarItemIdentifier]) {
+		[item setLabel:GeneralToolbarItemIdentifier];
+		[item setImage:[NSImage imageNamed:@"general"]];
+		[item setTarget:self];
+		[item setAction:@selector(toggleActivePreferenceView:)];
+	} else if ([identifier isEqualToString:NetworkToolbarItemIdentifier]) {
+		[item setLabel:NetworkToolbarItemIdentifier];
+		[item setImage:[NSImage imageNamed:@"network"]];
+		[item setTarget:self];
+		[item setAction:@selector(toggleActivePreferenceView:)];
+	} else
+		item = nil;
+	return item; 
+}
+
+- (void)toggleActivePreferenceView:(id)sender
+{
+	NSView *view;
+
+	if ([[sender itemIdentifier] isEqualToString:GeneralToolbarItemIdentifier])
+		view = generalPreferenceView;
+	else if ([[sender itemIdentifier] isEqualToString:NetworkToolbarItemIdentifier])
+		view = networkPreferenceView;
+
+	[self setActiveView:view animate:YES];
+	[[self window] setTitle:[sender itemIdentifier]];
+}
+
+- (void)setActiveView:(NSView *)view animate:(BOOL)flag
+{
+	// set the new frame and animate the change
+	NSRect windowFrame = [[self window] frame];
+	windowFrame.size.height = [view frame].size.height + WINDOW_TITLE_HEIGHT;
+	windowFrame.size.width = [view frame].size.width;
+	windowFrame.origin.y = NSMaxY([[self window] frame]) - ([view frame].size.height + WINDOW_TITLE_HEIGHT);
+
+	if ([[activeContentView subviews] count] != 0)
+		[[[activeContentView subviews] objectAtIndex:0] removeFromSuperview];
+	[[self window] setFrame:windowFrame display:YES animate:flag];
+
+	[activeContentView setFrame:[view frame]];
+	[activeContentView addSubview:view];
 }
 
 @end

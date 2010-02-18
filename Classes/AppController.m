@@ -111,6 +111,10 @@ static AppController *sharedAppController = nil;
     [super dealloc];
 }
 
+- (IBAction)openPreferences:(id)sender
+{
+    [[PrefsController sharedController] showWindow:nil];
+}
 
 - (void)observeMessages
 {
