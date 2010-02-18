@@ -45,6 +45,7 @@
 		4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D191022112852C200BA1A75 /* GrowlNotifier.m */; };
 		4D6650B1112D6B6E0011DA0E /* general.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6650AF112D6B6E0011DA0E /* general.png */; };
 		4D6650B2112D6B6E0011DA0E /* network.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6650B0112D6B6E0011DA0E /* network.png */; };
+		4D6650C8112D984A0011DA0E /* IPFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6650C7112D984A0011DA0E /* IPFormatter.m */; };
 		4D7105F610EECB050066AC0C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */; };
 		4D7105F710EECB050066AC0C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E010EECB050066AC0C /* NSString+SBJSON.m */; };
 		4D7105F810EECB050066AC0C /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E210EECB050066AC0C /* SBJSON.m */; };
@@ -150,6 +151,8 @@
 		4D191022112852C200BA1A75 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
 		4D6650AF112D6B6E0011DA0E /* general.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = general.png; path = images/general.png; sourceTree = "<group>"; };
 		4D6650B0112D6B6E0011DA0E /* network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = network.png; path = images/network.png; sourceTree = "<group>"; };
+		4D6650C6112D984A0011DA0E /* IPFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPFormatter.h; sourceTree = "<group>"; };
+		4D6650C7112D984A0011DA0E /* IPFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPFormatter.m; sourceTree = "<group>"; };
 		4D7105DC10EECB050066AC0C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		4D7105DD10EECB050066AC0C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		4D7105DE10EECB050066AC0C /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				2740EE4810A38FB800E11BDD /* PrefsController.m */,
 				278030D40FD6CAED00D57E59 /* AppController.h */,
 				278030D50FD6CAED00D57E59 /* AppController.m */,
+				4D6650C6112D984A0011DA0E /* IPFormatter.h */,
+				4D6650C7112D984A0011DA0E /* IPFormatter.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				4D71060010EECB050066AC0C /* PreferenceController.m in Sources */,
 				4D190C4211264B0500BA1A75 /* Messages.m in Sources */,
 				4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */,
+				4D6650C8112D984A0011DA0E /* IPFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
