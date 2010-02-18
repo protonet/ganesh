@@ -1582,6 +1582,7 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {432, 266}}</string>
 									<reference key="NSSuperview" ref="234016062"/>
+									<reference key="NSNextKeyView" ref="271243990"/>
 									<reference key="NSDocView" ref="271243990"/>
 									<reference key="NSBGColor" ref="665383073"/>
 									<int key="NScvFlags">4</int>
@@ -1608,6 +1609,7 @@
 							</object>
 							<string key="NSFrame">{{20, 126}, {434, 268}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSNextKeyView" ref="82925028"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="16989346"/>
 							<reference key="NSHScroller" ref="917176403"/>
@@ -1822,7 +1824,8 @@
 					<object class="NSMenuItem" id="30837726">
 						<reference key="NSMenu" ref="256212815"/>
 						<string key="NSTitle">Quit</string>
-						<string key="NSKeyEquiv"/>
+						<string key="NSKeyEquiv">q</string>
+						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
@@ -4453,7 +4456,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{329, 423}, {208, 133}}</string>
+					<string>{{329, 423}, {214, 133}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

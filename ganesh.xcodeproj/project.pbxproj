@@ -205,8 +205,6 @@
 				4D7105F010EECB050066AC0C /* Socket */,
 				4D7105E910EECB050066AC0C /* Tweet */,
 				4D7105DB10EECB050066AC0C /* JSON */,
-				2740EE4710A38FB800E11BDD /* PrefsController.h */,
-				2740EE4810A38FB800E11BDD /* PrefsController.m */,
 				278030D40FD6CAED00D57E59 /* AppController.h */,
 				278030D50FD6CAED00D57E59 /* AppController.m */,
 				4D6650C6112D984A0011DA0E /* IPFormatter.h */,
@@ -356,6 +354,8 @@
 		4D7105F310EECB050066AC0C /* Prefences */ = {
 			isa = PBXGroup;
 			children = (
+				2740EE4710A38FB800E11BDD /* PrefsController.h */,
+				2740EE4810A38FB800E11BDD /* PrefsController.m */,
 				4D7105F410EECB050066AC0C /* PreferenceController.h */,
 				4D7105F510EECB050066AC0C /* PreferenceController.m */,
 			);
