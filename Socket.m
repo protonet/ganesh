@@ -32,7 +32,6 @@
 
 
         [serverAnswerField setObjectValue:[host name]];
-        [self openSocket];
 
         // check on sleep and close socket
         NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
@@ -42,6 +41,7 @@
                  object:nil];
 
         [self initPreferences];
+        [self openSocket];
     }
     return self;
 }
