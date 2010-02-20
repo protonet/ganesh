@@ -331,6 +331,7 @@ static AppController *sharedAppController = nil;
     [statusItem setImage:statusHasVpnNoMessageImage];
     [statusMenu removeItemAtIndex:0];
     [statusMenu insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
+    [[statusMenu itemAtIndex:0] setTarget:self];
 
 
     [[NSDistributedNotificationCenter defaultCenter]
@@ -420,6 +421,7 @@ static AppController *sharedAppController = nil;
     [statusItem setImage:statusNoVpnNoMessageImage];
     [statusMenu removeItemAtIndex:0];
     [statusMenu insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
+    [[statusMenu itemAtIndex:0] setTarget:self];
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
