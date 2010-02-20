@@ -43,6 +43,8 @@
 		4D1910071128489100BA1A75 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4D19101B11284D0D00BA1A75 /* dsa_pub.pem */; };
 		4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D191022112852C200BA1A75 /* GrowlNotifier.m */; };
+		4D490C66113030F50044C86E /* N2NUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490C65113030F50044C86E /* N2NUserDefaultsController.m */; };
+		4D490CF711303E5B0044C86E /* N2NPreferencesDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */; };
 		4D6650B1112D6B6E0011DA0E /* general.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6650AF112D6B6E0011DA0E /* general.png */; };
 		4D6650B2112D6B6E0011DA0E /* network.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6650B0112D6B6E0011DA0E /* network.png */; };
 		4D6650C8112D984A0011DA0E /* IPFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6650C7112D984A0011DA0E /* IPFormatter.m */; };
@@ -55,7 +57,6 @@
 		4D7105FC10EECB050066AC0C /* TweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105EB10EECB050066AC0C /* TweetController.m */; };
 		4D7105FD10EECB050066AC0C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105ED10EECB050066AC0C /* Tweet.m */; };
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
-		4D71060010EECB050066AC0C /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F510EECB050066AC0C /* PreferenceController.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -149,6 +150,10 @@
 		4D19101B11284D0D00BA1A75 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		4D191021112852C200BA1A75 /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		4D191022112852C200BA1A75 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
+		4D490C64113030F50044C86E /* N2NUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NUserDefaultsController.h; sourceTree = "<group>"; };
+		4D490C65113030F50044C86E /* N2NUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NUserDefaultsController.m; sourceTree = "<group>"; };
+		4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NPreferencesDictionary.h; sourceTree = "<group>"; };
+		4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NPreferencesDictionary.m; sourceTree = "<group>"; };
 		4D6650AF112D6B6E0011DA0E /* general.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = general.png; path = images/general.png; sourceTree = "<group>"; };
 		4D6650B0112D6B6E0011DA0E /* network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = network.png; path = images/network.png; sourceTree = "<group>"; };
 		4D6650C6112D984A0011DA0E /* IPFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPFormatter.h; sourceTree = "<group>"; };
@@ -172,8 +177,6 @@
 		4D7105ED10EECB050066AC0C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = SOURCE_ROOT; };
 		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = SOURCE_ROOT; };
 		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = SOURCE_ROOT; };
-		4D7105F410EECB050066AC0C /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = SOURCE_ROOT; };
-		4D7105F510EECB050066AC0C /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ganesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ganesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,7 +204,7 @@
 				4D191022112852C200BA1A75 /* GrowlNotifier.m */,
 				4D190C4011264B0400BA1A75 /* Messages.h */,
 				4D190C4111264B0500BA1A75 /* Messages.m */,
-				4D7105F310EECB050066AC0C /* Prefences */,
+				4D7105F310EECB050066AC0C /* Preferences */,
 				4D7105F010EECB050066AC0C /* Socket */,
 				4D7105E910EECB050066AC0C /* Tweet */,
 				4D7105DB10EECB050066AC0C /* JSON */,
@@ -351,15 +354,17 @@
 			name = Socket;
 			sourceTree = "<group>";
 		};
-		4D7105F310EECB050066AC0C /* Prefences */ = {
+		4D7105F310EECB050066AC0C /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */,
+				4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */,
+				4D490C64113030F50044C86E /* N2NUserDefaultsController.h */,
+				4D490C65113030F50044C86E /* N2NUserDefaultsController.m */,
 				2740EE4710A38FB800E11BDD /* PrefsController.h */,
 				2740EE4810A38FB800E11BDD /* PrefsController.m */,
-				4D7105F410EECB050066AC0C /* PreferenceController.h */,
-				4D7105F510EECB050066AC0C /* PreferenceController.m */,
 			);
-			name = Prefences;
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,10 +516,11 @@
 				4D7105FC10EECB050066AC0C /* TweetController.m in Sources */,
 				4D7105FD10EECB050066AC0C /* Tweet.m in Sources */,
 				4D7105FF10EECB050066AC0C /* Socket.m in Sources */,
-				4D71060010EECB050066AC0C /* PreferenceController.m in Sources */,
 				4D190C4211264B0500BA1A75 /* Messages.m in Sources */,
 				4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */,
 				4D6650C8112D984A0011DA0E /* IPFormatter.m in Sources */,
+				4D490C66113030F50044C86E /* N2NUserDefaultsController.m in Sources */,
+				4D490CF711303E5B0044C86E /* N2NPreferencesDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
