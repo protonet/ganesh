@@ -58,6 +58,8 @@ static PrefsController *sharedPrefsController = nil;
 
 	[self setActiveView:generalPreferenceView animate:NO];
 	[[self window] setTitle:GeneralToolbarItemIdentifier];
+    // automatically close the preference window when inactive
+    [[self window] setHidesOnDeactivate:YES];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
