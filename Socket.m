@@ -55,7 +55,7 @@
     userName      = [defaults stringForKey:userNameKey];
     password      = [defaults stringForKey:passwordKey];
 
-    if (serverUrl == nil) serverUrl = @"http://localhost:3000";
+    if (serverUrl == nil) serverUrl = @"localhost:3000";
     if (serverAddress == nil) serverAddress = @"127.0.0.1";
     if (serverPort == nil) serverPort = [NSNumber numberWithInt:5000];
     if (userName == nil) userName = @"dudemeister";
@@ -109,7 +109,7 @@
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
 
 	// Prepare URL request to get our authentication token
-    NSString *url = [NSString stringWithFormat:@"%@/sessions/create_token.json?login=%@&password=%@",
+    NSString *url = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
              serverUrl, userName, password];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
