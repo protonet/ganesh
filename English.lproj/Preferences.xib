@@ -290,10 +290,6 @@
 				<string key="NSClassName">IPFormatter</string>
 			</object>
 			<object class="NSUserDefaultsController" id="826071835">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>serverUrl</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSNumberFormatter" id="638126783">
@@ -489,14 +485,6 @@
 						</object>
 					</object>
 					<int key="connectionID">128</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">formatter</string>
-						<reference key="source" ref="473444183"/>
-						<reference key="destination" ref="878406681"/>
-					</object>
-					<int key="connectionID">133</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
