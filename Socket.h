@@ -9,9 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface Socket : NSObject {
-	
-	NSUserDefaults * defaults;
-	
 	IBOutlet NSTextField * inputField;
 	IBOutlet NSTextField * serverAnswerField;
 	NSInputStream * inputStream;
@@ -20,6 +17,12 @@
 	NSHost * host;
 	
 	BOOL authenticated;
+
+    NSString *serverUrl;
+    NSString *serverAddress;
+    NSNumber *serverPort;
+    NSString *userName;
+    NSString *password;
 }
 
 @property(assign) BOOL authenticated;

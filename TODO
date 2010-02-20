@@ -1,1 +1,6 @@
 remove password from bindings and store it in keychain if needed
+check the format of the information that comes from the preference plist. someone could edit that and do some malicious stuff
+use an outputBuffer for the outputStream to make the socket.m fully asynchronous
+handle image loading for tweet from url. initwithcontentsofurl is not an efficient way to do it
+don't store the ipaddress as integer. we need it as string ... seriously wtf
+the observer in socket.m has much redundant code

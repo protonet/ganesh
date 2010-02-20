@@ -14,6 +14,12 @@
 // n2n includes
 #include "edge.h"
 
+#define urlKey         @"serverUrl"
+#define addressKey     @"serverAddress"
+#define portKey        @"serverPort"
+#define userNameKey    @"userName"
+#define passwordKey    @"password"
+
 @implementation Socket
 @synthesize authenticated;
 
@@ -35,8 +41,53 @@
                    name:NSWorkspaceWillSleepNotification
                  object:nil];
 
+        [self initPreferences];
     }
     return self;
+}
+
+- (void) initPreferences
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    serverUrl     = [defaults stringForKey:urlKey];
+    serverAddress = [defaults stringForKey:addressKey];
+    serverPort    = [defaults objectForKey:portKey];
+    userName      = [defaults stringForKey:userNameKey];
+    password      = [defaults stringForKey:passwordKey];
+
+    if (serverUrl == nil) serverUrl = @"http://localhost:3000";
+    if (serverAddress == nil) serverAddress = @"127.0.0.1";
+    if (serverPort == nil) serverPort = [NSNumber numberWithInt:5000];
+    if (userName == nil) userName = @"dudemeister";
+    if (password == nil) password = @"geheim";
+
+    [defaults addObserver:self forKeyPath:urlKey options:0 context:0];
+    [defaults addObserver:self forKeyPath:addressKey options:0 context:0];
+    [defaults addObserver:self forKeyPath:portKey options:0 context:0];
+    [defaults addObserver:self forKeyPath:userNameKey options:0 context:0];
+    [defaults addObserver:self forKeyPath:passwordKey options:0 context:0];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqual:urlKey]) {
+        serverUrl = [object stringForKey:urlKey];
+    }
+    else if([keyPath isEqual:addressKey]){
+        serverAddress = [object stringForKey:addressKey];
+    }
+    else if([keyPath isEqual:portKey]){
+        serverPort = [object objectForKey:portKey];
+    }
+    else if([keyPath isEqual:userNameKey]){
+        userName = [object stringForKey:userNameKey];
+    }
+    else if([keyPath isEqual:passwordKey]){
+        password = [object stringForKey:passwordKey];
+    }
 }
 
 - (void)cleanupBeforeSleep {
@@ -48,8 +99,8 @@
 	if (![self streamsAreOk]) {
         self.authenticated = NO;
 
-		host = [NSHost hostWithAddress:@"127.0.0.1"];
-		[NSStream getStreamsToHost:host port:5000 inputStream:&inputStream outputStream:&outputStream];
+		host = [NSHost hostWithAddress:serverAddress];
+		[NSStream getStreamsToHost:host port:[serverPort intValue] inputStream:&inputStream outputStream:&outputStream];
 		[self openStreams];
 	}
 }
@@ -58,7 +109,9 @@
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
 
 	// Prepare URL request to get our authentication token
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/sessions/create_token.json?login=dudemeister&password=geheim"]];
+    NSString *url = [NSString stringWithFormat:@"%@/sessions/create_token.json?login=%@&password=%@",
+             serverUrl, userName, password];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
 	// Perform request and get JSON back as a NSData object
 	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -191,6 +244,13 @@
 }
 
 - (void)dealloc {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObserver:self forKeyPath:urlKey];
+    [defaults removeObserver:self forKeyPath:addressKey];
+    [defaults removeObserver:self forKeyPath:portKey];
+    [defaults removeObserver:self forKeyPath:userNameKey];
+    [defaults removeObserver:self forKeyPath:passwordKey];
+
 	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
 	[super dealloc];
 }
