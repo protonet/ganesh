@@ -61,7 +61,7 @@ static N2NUserDefaultsController *sharedInstance = nil;
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(pluginDefaultsDidChange:)
-												 name:@"N2NPluginDefaultsDidChange"
+												 name:@"N2NDefaultsDidChange"
 											   object:nil];
 	[[NSUserDefaults standardUserDefaults] addSuiteNamed:domainKey];
 	[self setValues:[N2NPreferencesDictionary dictionaryWithDictionary:
