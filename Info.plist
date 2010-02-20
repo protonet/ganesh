@@ -33,5 +33,7 @@
 	</dict>
 	<key>SUFeedURL</key>
 	<string>http://www.flyingseagull.de/ganesh/2FMSZ3e82k1KA.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
 </dict>
 </plist>
