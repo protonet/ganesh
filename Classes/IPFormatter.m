@@ -12,30 +12,14 @@
 
 - (NSString *)stringForObjectValue:(id)obj
 {
-	unsigned int  ipNumber;
-	
-	if([obj isKindOfClass:[NSNumber class]])
+	if([obj isKindOfClass:[NSString class]])
 	{
-		ipNumber  = [obj unsignedIntValue];
+        return obj;
 	}
 	else
 	{
-		ipNumber  = [obj intValue];
+        return @"127.0.0.1";
 	}
-	
-	return [NSString stringWithFormat: @"%u.%u.%u.%u",
-			(ipNumber >> 24) & 0xFF,
-			(ipNumber >> 16) & 0xFF,
-			(ipNumber >> 8) & 0xFF,
-			ipNumber & 0xFF];
-}
-
-unsigned long ConvertPart(NSString *part)
-{
-	if(part)
-		return strtoul([part UTF8String], NULL, 0);
-	else
-		return 0;
 }
 
 - (BOOL)getObjectValue:(id *)obj forString:(NSString *)string
@@ -63,39 +47,29 @@ unsigned long ConvertPart(NSString *part)
 	switch([parts count])
 	{
 		case 0:
-			*obj  = [NSNumber numberWithUnsignedLong: 0];
+            *obj  = @"127.0.0.1";
 			return TRUE;
 			
 		case 1:
-			*obj  = [NSNumber numberWithUnsignedLong: ConvertPart([parts
-																   objectAtIndex: 0])];
+            *obj  = [NSString stringWithFormat:@"%@.0.0.1", [parts objectAtIndex: 0]];
 			return TRUE;
 			
 		case 2:
-			*obj  = [NSNumber numberWithUnsignedLong: (((ConvertPart([parts
-																	  objectAtIndex: 0]) & 0xFF) << 24) |
-													   ((ConvertPart([parts
-																	  objectAtIndex: 1]) & 0xFF) << 16))];
+            *obj  = [NSString stringWithFormat:@"%@.%@.0.1", [parts objectAtIndex: 0],
+                          [parts objectAtIndex:1]];
 			return TRUE;
 			
 		case 3:
-			*obj  = [NSNumber numberWithUnsignedLong: (((ConvertPart([parts
-																	  objectAtIndex: 0]) & 0xFF) << 24) |
-													   ((ConvertPart([parts
-																	  objectAtIndex: 1]) & 0xFF) << 16) |
-													   ((ConvertPart([parts
-																	  objectAtIndex: 2]) & 0xFF) << 8))];
+            *obj  = [NSString stringWithFormat:@"%@.%@.%@.1", [parts objectAtIndex: 0],
+                          [parts objectAtIndex:1],
+                          [parts objectAtIndex:2]];
 			return TRUE;
 			
 		case 4:
-			*obj  = [NSNumber numberWithUnsignedLong: (((ConvertPart([parts
-																	  objectAtIndex: 0]) & 0xFF) << 24) |
-													   ((ConvertPart([parts
-																	  objectAtIndex: 1]) & 0xFF) << 16) |
-													   ((ConvertPart([parts
-																	  objectAtIndex: 2]) & 0xFF) << 8) |
-													   (ConvertPart([parts
-																	 objectAtIndex: 3]) & 0xFF))];
+            *obj  = [NSString stringWithFormat:@"%@.%@.%@.%@", [parts objectAtIndex: 0],
+                          [parts objectAtIndex:1],
+                          [parts objectAtIndex:2],
+                          [parts objectAtIndex:3]];
 			return TRUE;
 			
 		default:

@@ -4,3 +4,4 @@ use an outputBuffer for the outputStream to make the socket.m fully asynchronous
 handle image loading for tweet from url. initwithcontentsofurl is not an efficient way to do it
 don't store the ipaddress as integer. we need it as string ... seriously wtf
 the observer in socket.m has much redundant code
+we store the ip adress as integer, that makes validation easier. maybe change that later
