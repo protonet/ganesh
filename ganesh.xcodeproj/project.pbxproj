@@ -57,6 +57,7 @@
 		4D7105FC10EECB050066AC0C /* TweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105EB10EECB050066AC0C /* TweetController.m */; };
 		4D7105FD10EECB050066AC0C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105ED10EECB050066AC0C /* Tweet.m */; };
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
+		4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5EE481142816600277CE6 /* PreferenceWindow.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -177,6 +178,8 @@
 		4D7105ED10EECB050066AC0C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = SOURCE_ROOT; };
 		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = SOURCE_ROOT; };
 		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = SOURCE_ROOT; };
+		4DE5EE471142816600277CE6 /* PreferenceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindow.h; sourceTree = "<group>"; };
+		4DE5EE481142816600277CE6 /* PreferenceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindow.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ganesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ganesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -363,6 +366,8 @@
 				4D490C65113030F50044C86E /* N2NUserDefaultsController.m */,
 				2740EE4710A38FB800E11BDD /* PrefsController.h */,
 				2740EE4810A38FB800E11BDD /* PrefsController.m */,
+				4DE5EE471142816600277CE6 /* PreferenceWindow.h */,
+				4DE5EE481142816600277CE6 /* PreferenceWindow.m */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 				4D6650C8112D984A0011DA0E /* IPFormatter.m in Sources */,
 				4D490C66113030F50044C86E /* N2NUserDefaultsController.m in Sources */,
 				4D490CF711303E5B0044C86E /* N2NPreferencesDictionary.m in Sources */,
+				4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
