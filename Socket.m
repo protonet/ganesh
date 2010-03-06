@@ -22,6 +22,11 @@
 
 @implementation Socket
 @synthesize authenticated;
+@synthesize serverUrl;
+@synthesize serverAddress;
+@synthesize serverPort;
+@synthesize userName;
+@synthesize password;
 
 - (id)init {
     if(self = [super init]){
@@ -49,17 +54,17 @@
 - (void) initPreferences
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    serverUrl     = [defaults stringForKey:urlKey];
-    serverAddress = [defaults stringForKey:addressKey];
-    serverPort    = [defaults objectForKey:portKey];
-    userName      = [defaults stringForKey:userNameKey];
-    password      = [defaults stringForKey:passwordKey];
+    self.serverUrl     = [defaults stringForKey:urlKey];
+    self.serverAddress = [defaults stringForKey:addressKey];
+    self.serverPort    = [defaults objectForKey:portKey];
+    self.userName      = [defaults stringForKey:userNameKey];
+    self.password      = [defaults stringForKey:passwordKey];
 
-    if (serverUrl == nil) serverUrl = @"localhost:3000";
-    if (serverAddress == nil) serverAddress = @"127.0.0.1";
-    if (serverPort == nil) serverPort = [NSNumber numberWithInt:5000];
-    if (userName == nil) userName = @"dudemeister";
-    if (password == nil) password = @"geheim";
+    if (self.serverUrl == nil) self.serverUrl = @"localhost:3000";
+    if (self.serverAddress == nil) self.serverAddress = @"127.0.0.1";
+    if (self.serverPort == nil) self.serverPort = [NSNumber numberWithInt:5000];
+    if (self.userName == nil) self.userName = @"dudemeister";
+    if (self.password == nil) self.password = @"geheim";
 
     [defaults addObserver:self forKeyPath:urlKey options:0 context:0];
     [defaults addObserver:self forKeyPath:addressKey options:0 context:0];
@@ -74,19 +79,19 @@
                        context:(void *)context
 {
     if ([keyPath isEqual:urlKey]) {
-        serverUrl = [object stringForKey:urlKey];
+        self.serverUrl = [object stringForKey:urlKey];
     }
     else if([keyPath isEqual:addressKey]){
-        serverAddress = [object stringForKey:addressKey];
+        self.serverAddress = [object stringForKey:addressKey];
     }
     else if([keyPath isEqual:portKey]){
-        serverPort = [object objectForKey:portKey];
+        self.serverPort = [object objectForKey:portKey];
     }
     else if([keyPath isEqual:userNameKey]){
-        userName = [object stringForKey:userNameKey];
+        self.userName = [object stringForKey:userNameKey];
     }
     else if([keyPath isEqual:passwordKey]){
-        password = [object stringForKey:passwordKey];
+        self.password = [object stringForKey:passwordKey];
     }
 }
 
@@ -99,8 +104,8 @@
 	if (![self streamsAreOk]) {
         self.authenticated = NO;
 
-		host = [NSHost hostWithAddress:serverAddress];
-		[NSStream getStreamsToHost:host port:[serverPort intValue] inputStream:&inputStream outputStream:&outputStream];
+		host = [NSHost hostWithAddress:self.serverAddress];
+		[NSStream getStreamsToHost:host port:[self.serverPort intValue] inputStream:&inputStream outputStream:&outputStream];
 		[self openStreams];
 	}
 }
@@ -110,7 +115,7 @@
 
 	// Prepare URL request to get our authentication token
     NSString *url = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
-             serverUrl, userName, password];
+             self.serverUrl, self.userName, self.password];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
 	// Perform request and get JSON back as a NSData object

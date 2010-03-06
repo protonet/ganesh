@@ -26,6 +26,11 @@
 }
 
 @property(assign) BOOL authenticated;
+@property(retain) NSString *serverUrl;
+@property(retain) NSString *serverAddress;
+@property(retain) NSNumber *serverPort;
+@property(retain) NSString *userName;
+@property(retain) NSString *password;
 
 - (IBAction)sendMessageAndClearInput:(id)sender;
 
