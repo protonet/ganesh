@@ -10,15 +10,19 @@
 
 
 @implementation Tweet
+@synthesize author;
 @synthesize message;
 @synthesize userImage;
 
 - (id)initWithData:(NSMutableDictionary *)data
 {
-	message = [data objectForKey:@"message"];
+    NSString *serverUrl = [[NSUserDefaults standardUserDefaults] stringForKey:@"serverUrl"];
+
+	self.message = [data objectForKey:@"message"];
 
     if (message && (self = [super init])) {
-		NSString * profileUrlString = [NSString stringWithFormat:@"http://localhost:3000%@", [data objectForKey:@"user_icon_url"]];
+        self.author = [data objectForKey:@"author"];
+		NSString * profileUrlString = [NSString stringWithFormat:@"http://%@%@", serverUrl, [data objectForKey:@"user_icon_url"]];
 		NSURL *profileUrl = [NSURL URLWithString:profileUrlString];
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:profileUrl];
         return self;

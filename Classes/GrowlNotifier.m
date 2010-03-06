@@ -73,7 +73,7 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
 - (void)showNewTweet:(Tweet*)tweet
 {
     if (tweet) {
-        [GrowlApplicationBridge notifyWithTitle:@"New Tweet"
+        [GrowlApplicationBridge notifyWithTitle:tweet.author
                                     description:tweet.message
                                notificationName:@"Tweet"
                                        iconData:[tweet.userImage TIFFRepresentation]
