@@ -101,7 +101,7 @@ static Messages *sharedMessagesController = nil;
     [messages removeAllObjects];
 }
 
-- (void)count
+- (NSUInteger)count
 {
     return self.messages.count;
 }

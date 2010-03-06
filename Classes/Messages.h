@@ -19,5 +19,6 @@
 + (Messages*)sharedController;
 - (id)first;
 - (void)clear;
+- (NSUInteger)count;
 
 @end
