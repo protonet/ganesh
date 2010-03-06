@@ -16,7 +16,6 @@
 
   IBOutlet NSTableView *tableView;
   NSMutableArray *tweetList;
-  int messageCounter;
 
   NSStatusItem *statusItem;
 

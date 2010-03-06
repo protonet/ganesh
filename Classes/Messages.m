@@ -70,7 +70,9 @@ static Messages *sharedMessagesController = nil;
 
     [messages insertObject:message atIndex:0];
     // show only the 5 most recent tweets
-    if([messages count] > MAX_TWEETS){
+    // TODO: this is a hack by allowing 6 tweets we can check if we reach the overflow
+    // in the appcontroller and delete the last element
+    if([messages count] > MAX_TWEETS + 1){
         [messages removeLastObject];
     }
 
@@ -97,5 +99,10 @@ static Messages *sharedMessagesController = nil;
 - (void)clear
 {
     [messages removeAllObjects];
+}
+
+- (void)count
+{
+    return self.messages.count;
 }
 @end

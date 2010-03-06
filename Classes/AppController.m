@@ -85,7 +85,6 @@ static AppController *sharedAppController = nil;
     }
 
 	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
-	messageCounter = 0;
 
     // where are the bundle files?
     NSBundle *bundle = [NSBundle mainBundle];
@@ -199,7 +198,7 @@ static AppController *sharedAppController = nil;
 - (void)addMenuItemForTweet{
     NSMenuItem *subMenuItem = [self buildTweetMenuItem];
     [statusMenu insertItem:subMenuItem atIndex:3];
-    if (messageCounter > MAX_TWEETS) {
+    if ([[Messages sharedController] count] > MAX_TWEETS) {
         [statusMenu removeItemAtIndex:MAX_TWEETS+3];
     }
 }
@@ -210,7 +209,6 @@ static AppController *sharedAppController = nil;
 
 - (void)resetStatusBarItem {
 	//[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
-	messageCounter = 0;
 	[self updateStatusBarItem];
 }
 
