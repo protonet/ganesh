@@ -38,6 +38,7 @@
 - (void)openStreams;
 - (void)closeStreams;
 - (void)authenticateSocket;
+- (void)initPreferences;
 
 - (BOOL)streamsAreOk;
 - (BOOL)streamsAreOpening;

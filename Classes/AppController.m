@@ -425,5 +425,9 @@ static AppController *sharedAppController = nil;
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
 
+- (IBAction)postMessage:(id)sender
+{
+    
+}
 
 @end

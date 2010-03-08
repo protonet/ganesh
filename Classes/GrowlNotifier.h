@@ -11,5 +11,7 @@
 @interface GrowlNotifier: NSObject <GrowlApplicationBridgeDelegate> {
 
 }
++ (GrowlNotifier*)sharedController;
+- (void)showNewTweet:(id)tweet;
 
 @end

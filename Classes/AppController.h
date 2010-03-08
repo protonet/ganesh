@@ -40,13 +40,15 @@
 - (IBAction)connect:(id)sender;
 - (IBAction)disconnect:(id)sender;
 - (IBAction)startDaemon:(id)sender;
-- (IBAction)showPreferences:(id)sender;
 - (BOOL) checkAndCopyHelper;
 
+- (void)observeMessages;
+- (void)addMenuItemForTweet;
 - (void)createStatusBarItem;
 - (void)resetStatusBarItem;
 - (IBAction)pushedStatusBarItem:(id)sender;
 - (void)updateStatusBarItem;
 - (IBAction)clearMessages:(id)sender;
+- (IBAction)postMessage:(id)sender;
 
 @end
