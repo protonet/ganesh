@@ -110,6 +110,18 @@
 	}
 }
 
+- (void)ping
+{
+    if (self.authenticated) {
+        [self sendText:[NSString stringWithFormat:@"{\"operation\":\"ping\"}"]];
+        [NSTimer scheduledTimerWithTimeInterval:0.5
+                                         target:self
+                                       selector:@selector(ping)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
+}
+
 - (void)authenticateSocket {
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
 
@@ -133,6 +145,12 @@
 	[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
 					[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
 
+    self.authenticated = YES;
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(ping)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 - (void)openStreams {
@@ -217,7 +235,6 @@
             if (aStream == outputStream) {
                 if (!self.authenticated) {
                     [self authenticateSocket];
-                    self.authenticated = YES;
                 }
             }
             break;
