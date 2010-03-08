@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface Socket : NSObject {
-	IBOutlet NSTextField * inputField;
 	IBOutlet NSTextField * serverAnswerField;
 	NSInputStream * inputStream;
 	NSOutputStream * outputStream;
@@ -32,8 +31,7 @@
 @property(retain) NSString *userName;
 @property(retain) NSString *password;
 
-- (IBAction)sendMessageAndClearInput:(id)sender;
-
+- (void)sendMessage:(NSString*)message;
 - (void)openSocket;
 - (void)openStreams;
 - (void)closeStreams;

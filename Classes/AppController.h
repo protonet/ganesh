@@ -13,6 +13,8 @@
 @interface AppController : NSObject {
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
+  IBOutlet NSTextField *postField;
+  IBOutlet NSWindow *postWindow;
 
   IBOutlet NSTableView *tableView;
   NSMutableArray *tweetList;
@@ -49,6 +51,7 @@
 - (IBAction)pushedStatusBarItem:(id)sender;
 - (void)updateStatusBarItem;
 - (IBAction)clearMessages:(id)sender;
+- (IBAction)showNewMessage:(id)sender;
 - (IBAction)postMessage:(id)sender;
 
 @end

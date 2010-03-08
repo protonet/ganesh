@@ -427,7 +427,16 @@ static AppController *sharedAppController = nil;
 
 - (IBAction)postMessage:(id)sender
 {
-    
+    [socket sendMessage:[postField stringValue]];
+    [postField setStringValue:@""];
+}
+
+- (IBAction)showNewMessage:(id)sender
+{
+    [NSApp activateIgnoringOtherApps:YES];
+    if (![postWindow isVisible])
+        [postWindow center];
+    [postWindow showWindow:nil];
 }
 
 @end
