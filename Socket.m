@@ -10,6 +10,7 @@
 #import "Socket.h"
 #import "JSON.h"
 #import "Messages.h"
+#import "Debug.h"
 
 // n2n includes
 #include "edge.h"
@@ -30,7 +31,7 @@
 
 - (id)init {
     if(self = [super init]){
-        NSLog(@"init socket");
+        DLog(@"init socket");
         host = [NSHost currentHost];
 
         NSCalendarDate *now = [NSCalendarDate calendarDate];
@@ -246,10 +247,10 @@
 - (BOOL)streamsAreOk {
 	if ([inputStream streamStatus] == NSStreamStatusOpen &&
 		[outputStream streamStatus] == NSStreamStatusOpen) {
-		NSLog(@"streams are ok!");
+		DLog(@"streams are ok!");
 		return YES;
 	} else {
-		NSLog(@"streams are NOT ok!");
+		DLog(@"streams are NOT ok!");
 		return NO;
 	}
 }
@@ -257,10 +258,10 @@
 - (BOOL)streamsAreOpening {
 	if ([inputStream streamStatus] == NSStreamStatusOpening &&
 		[outputStream streamStatus] == NSStreamStatusOpening) {
-		NSLog(@"streams are opening!");
+		DLog(@"streams are opening!");
 		return YES;
 	} else {
-		NSLog(@"streams are NOT opening!");
+		DLog(@"streams are NOT opening!");
 		return NO;
 	}
 }
