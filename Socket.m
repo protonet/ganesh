@@ -114,7 +114,7 @@
 {
     if (self.authenticated) {
         [self sendText:[NSString stringWithFormat:@"{\"operation\":\"ping\"}"]];
-        [NSTimer scheduledTimerWithTimeInterval:0.5
+        [NSTimer scheduledTimerWithTimeInterval:30
                                          target:self
                                        selector:@selector(ping)
                                        userInfo:nil
@@ -146,7 +146,7 @@
 					[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
 
     self.authenticated = YES;
-    [NSTimer scheduledTimerWithTimeInterval:0.5
+    [NSTimer scheduledTimerWithTimeInterval:30
                                      target:self
                                    selector:@selector(ping)
                                    userInfo:nil
