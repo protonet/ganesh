@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "Tweet.h"
 #import "Socket.h"
+#import "MGTemplateEngine.h"
 
-@interface AppController : NSObject {
+@interface AppController : NSObject <MGTemplateEngineDelegate>{
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
   IBOutlet NSTextField *postField;

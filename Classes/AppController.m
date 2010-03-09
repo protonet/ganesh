@@ -14,6 +14,9 @@
 #import "Messages.h"
 #import "GrowlNotifier.h"
 
+#import "MGTemplateEngine.h"
+#import "ICUTemplateMatcher.h"
+
 // n2n includes
 #include "edge.h"
 
@@ -195,7 +198,34 @@ static AppController *sharedAppController = nil;
 	return subMenuItem;
 }
 
+- (void)renderTemplate{
+    // Set up template engine with your chosen matcher.
+	MGTemplateEngine *engine = [MGTemplateEngine templateEngine];
+	[engine setDelegate:self];
+	[engine setMatcher:[ICUTemplateMatcher matcherWithTemplateEngine:engine]];
+	
+	// Set up any needed global variables.
+	// Global variables persist for the life of the engine, even when processing multiple templates.
+	[engine setObject:@"Hi there!" forKey:@"hello"];
+	
+	// Get path to template.
+	NSString *templatePath = [[NSBundle mainBundle] pathForResource:@"theme" ofType:@"html" inDirectory:@"/Bubbling Citrus.bbtheme"];
+	
+	// Set up some variables for this specific template.
+	
+    NSDictionary *variables = [NSDictionary dictionaryWithObjectsAndKeys: 
+							   [Messages sharedController].messages, @"tweets", 
+							   [NSDictionary dictionaryWithObjectsAndKeys:@"baz", @"bar", nil], @"foo", 
+							   nil];
+	
+	// Process the template and display the results.
+	NSString *result = [engine processTemplateInFileAtPath:templatePath withVariables:variables];
+	NSLog(@"Processed template:\r%@", result);    
+}
+
 - (void)addMenuItemForTweet{
+    [self renderTemplate];
+
     NSMenuItem *subMenuItem = [self buildTweetMenuItem];
     [statusMenu insertItem:subMenuItem atIndex:3];
     if ([[Messages sharedController] count] > MAX_TWEETS) {
@@ -438,5 +468,37 @@ static AppController *sharedAppController = nil;
         [postWindow center];
     [postWindow makeKeyAndOrderFront:nil];
 }
+
+
+// ****************************************************************
+// 
+// Methods below are all optional MGTemplateEngineDelegate methods.
+// 
+// ****************************************************************
+
+
+- (void)templateEngine:(MGTemplateEngine *)engine blockStarted:(NSDictionary *)blockInfo
+{
+	//NSLog(@"Started block %@", [blockInfo objectForKey:BLOCK_NAME_KEY]);
+}
+
+
+- (void)templateEngine:(MGTemplateEngine *)engine blockEnded:(NSDictionary *)blockInfo
+{
+	//NSLog(@"Ended block %@", [blockInfo objectForKey:BLOCK_NAME_KEY]);
+}
+
+
+- (void)templateEngineFinishedProcessingTemplate:(MGTemplateEngine *)engine
+{
+	//NSLog(@"Finished processing template.");
+}
+
+
+- (void)templateEngine:(MGTemplateEngine *)engine encounteredError:(NSError *)error isContinuing:(BOOL)continuing;
+{
+	NSLog(@"Template error: %@", error);
+}
+
 
 @end
