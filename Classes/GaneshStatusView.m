@@ -12,6 +12,7 @@
 
 @implementation GaneshStatusView
 @synthesize statusItem;
+@synthesize connected;
 @synthesize newMessage;
 
 - (id)initWithFrame:(NSRect)frame
@@ -60,7 +61,10 @@
 
 - (void)mouseUp:(NSEvent *)event
 {
-    self.newMessage = NO;
+    if(self.hasNewMessage){
+         self.newMessage = NO;
+        [self update];
+    }
     isMenuVisible = NO;
     [self setNeedsDisplay:YES];    
 }
@@ -87,6 +91,16 @@
     else {
         [self setImage:statusNoVpnNoMessageImage];
     }
+}
+
+- (void)update {
+    if(self.connected){
+        [self setConnected];
+    }
+    else {
+        [self setDisconnected];
+    }
+
 }
 
 @end

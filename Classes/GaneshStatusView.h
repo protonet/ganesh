@@ -12,6 +12,7 @@
 @interface GaneshStatusView : NSImageView {
     NSStatusItem *statusItem;
     BOOL isMenuVisible;
+    BOOL connected;
     BOOL newMessage;
 
     // images for status item states
@@ -21,6 +22,8 @@
     NSImage *statusHasVpnHasMessageImage;
 }
 @property (retain, nonatomic) NSStatusItem *statusItem;
+@property (nonatomic, assign, getter=isConnected) BOOL connected;
 @property (nonatomic, assign, getter=hasNewMessage) BOOL newMessage;
 
+- (void) update;
 @end

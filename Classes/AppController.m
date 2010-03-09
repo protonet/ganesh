@@ -90,6 +90,8 @@ static AppController *sharedAppController = nil;
 
     [self renderTemplate];
 	[self createStatusBarItem];
+    // autohide timeline window
+    [timelineWindow setHidesOnDeactivate:YES];
     // TODO: does this need a dealloc socket release?
     socket = [[Socket alloc] init];
 	
@@ -131,14 +133,15 @@ static AppController *sharedAppController = nil;
     if ([keyPath isEqual:@"messages"]) {
         [self renderTemplate];
         statusItemView.newMessage = YES;
-        [self updateStatusBarItem];
+        [statusItemView update];
         // get last tweet from messages
         Tweet *tweet = [[Messages sharedController] first];
         // growl notification for tweet
         [[GrowlNotifier sharedController] showNewTweet:tweet];
     }
     else if([keyPath isEqual:@"authenticated"]){
-        [self updateStatusBarItem];
+        statusItemView.connected = socket.authenticated;
+        [statusItemView update];
     }
 }
 
@@ -171,15 +174,6 @@ static AppController *sharedAppController = nil;
 - (IBAction)pushedStatusBarItem:(id)sender {
     [self resetStatusBarItem];
     [statusItem popUpStatusItemMenu:statusMenu];
-}
-
-- (void)updateStatusBarItem {
-    if(socket.authenticated){
-        [statusItemView setConnected];
-    } else {
-        [statusItemView setDisconnected];
-    }
-
 }
 
 - (void)renderTemplate{
