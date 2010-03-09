@@ -438,10 +438,7 @@ static AppController *sharedAppController = nil;
 - (IBAction)showTimeline:(id)sender
 {
     [NSApp activateIgnoringOtherApps:YES];
-    if (![timelineWindow isVisible])
-        [timelineWindow makeKeyAndOrderFront:nil];
-    else
-        [timelineWindow close];
+    [timelineWindow makeKeyAndOrderFront:nil];
 }
 
 
