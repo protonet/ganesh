@@ -1,0 +1,437 @@
+body {
+	background: #fff url(bg-white.jpg) repeat;
+	background-position: center;
+	margin: 0;
+	padding: 0;
+	color: rgba(0,0,0,0.65);
+	font: 11px/16px "Helvetica Neue", Sans-Serif;
+	word-spacing: 1px;
+}
+
+#page {
+}
+
+.BBSmiley {
+	margin-bottom: -3px;
+}
+
+
+/* @group Tweet */
+
+
+.Tweet {
+	background: transparent;
+	position: relative;
+	margin: 12px 10px -12px 48px;
+}
+
+.TweetTop {
+	height: 9px;
+	margin-top: 2px;
+	background: url(TweetTop.png) repeat-x;
+	margin-left: 19px;
+	margin-right: 19px;
+}
+
+.TweetTopLeft {
+	width: 19px;
+	float: left;
+	background: url(TweetTopLeft.png) no-repeat;
+	height: 9px;
+	margin-left: -16px;
+}
+
+.TweetTopRight {
+	width: 19px;
+	float: right;
+	background: url(TweetTopRight.png) no-repeat;
+	height: 9px;
+	margin-right: -19px;
+}
+
+.TweetMiddle {
+	text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+	padding-right: 7px;
+	background-repeat: repeat-y;
+	background: url(TweetMiddle.png) repeat;
+	margin-right: 15px;
+}
+
+.TweetMiddleLeft {
+	padding-right: 7px;
+	padding-left: 20px;
+	margin-left: 3px;
+	background: url(TweetMiddleLeft.png) repeat-y;
+}
+
+.TweetMiddleRight {
+	background: url(TweetMiddleRight.png) repeat-y right;
+	margin-right: -12px;
+}
+
+.TweetBottom {
+	height: 29px;
+	clear: both;
+	background: url(TweetBottom.png) repeat-x 0 bottom;
+	margin-right: 19px;
+	margin-bottom: 2px;
+	margin-left: 19px;
+}
+
+.TweetBottomLeft {
+	width: 19px;
+	float: left;
+	background: url(TweetBottomLeft.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-left: -16px;
+}
+
+.TweetBottomRight {
+	width: 19px;
+	float: right;
+	background: url(TweetBottomRight.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-right: -19px;
+}
+
+
+/* @group Self */
+
+
+.TweetSelf {
+	background: transparent;
+    position: relative;
+    margin: 12px 10px -12px 48px;
+}
+
+.TweetTopOr {
+	height: 9px;
+	margin-top: 2px;
+	background: url(TweetTopOr.png) repeat-x;
+	margin-left: 19px;
+	margin-right: 19px;
+}
+
+.TweetTopLeftOr {
+	width: 19px;
+	float: left;
+	background: url(TweetTopLeftOr.png) no-repeat;
+	height: 9px;
+	margin-left: -16px;
+}
+
+.TweetTopRightOr {
+	width: 19px;
+	float: right;
+	background: url(TweetTopRightOr.png) no-repeat;
+	height: 9px;
+	margin-right: -19px;
+}
+
+.TweetMiddleOr {
+	text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+	padding-right: 7px;
+	background-repeat: repeat-y;
+	background: url(TweetMiddle.png) repeat;
+	margin-right: 15px;
+}
+
+.TweetMiddleLeftOr {
+	padding-right: 7px;
+	padding-left: 20px;
+	margin-left: 3px;
+	background: url(TweetMiddleLeftOr.png) repeat-y;
+}
+
+.TweetMiddleRightOr {
+	background: url(TweetMiddleRightOr.png) repeat-y right;
+	margin-right: -12px;
+}
+
+.TweetBottomOr {
+	height: 29px;
+	clear: both;
+	background: url(TweetBottomOr.png) repeat-x 0 bottom;
+	margin-right: 19px;
+	margin-bottom: 2px;
+	margin-left: 19px;
+}
+
+.TweetBottomLeftOr {
+	width: 19px;
+	float: left;
+	background: url(TweetBottomLeftOr.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-left: -16px;
+}
+
+.TweetBottomRightOr {
+	width: 19px;
+	float: right;
+	background: url(TweetBottomRightOr.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-right: -19px;
+}
+
+.TweetSelf .avatar {
+	width: 32px;
+	height: 32px;
+	margin-right: 13px;
+	/*background-color: rgba(0,0,0,0.25);*/
+	margin-top: -24px;
+	margin-left: -44px;
+	padding-bottom: 13px;
+	padding-left: 10px;
+	float: left;
+	position: absolute;
+	bottom: 2px;
+}
+
+
+/* @group Reply */
+
+
+.TweetTopGr {
+	height: 9px;
+	margin-top: 2px;
+	background: url(TweetTopGr.png) repeat-x;
+	margin-left: 19px;
+	margin-right: 19px;
+}
+
+.TweetTopLeftGr {
+	width: 19px;
+	float: left;
+	background: url(TweetTopLeftGr.png) no-repeat;
+	height: 9px;
+	margin-left: -16px;
+}
+
+.TweetTopRightGr {
+	width: 19px;
+	float: right;
+	background: url(TweetTopRightGr.png) no-repeat;
+	height: 9px;
+	margin-right: -19px;
+}
+
+.TweetMiddleGr {
+	text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+	padding-right: 7px;
+	background-repeat: repeat-y;
+	background: url(TweetMiddle.png) repeat;
+	margin-right: 15px;
+}
+
+.TweetMiddleLeftGr {
+	padding-right: 7px;
+	padding-left: 20px;
+	margin-left: 3px;
+	background: url(TweetMiddleLeftGr.png) repeat-y;
+}
+
+.TweetMiddleRightGr {
+	background: url(TweetMiddleRightGr.png) repeat-y right;
+	margin-right: -12px;
+}
+
+.TweetBottomGr {
+	height: 29px;
+	clear: both;
+	background: url(TweetBottomGr.png) repeat-x 0 bottom;
+	margin-right: 19px;
+	margin-bottom: 2px;
+	margin-left: 19px;
+}
+
+.TweetBottomLeftGr {
+	width: 19px;
+	float: left;
+	background: url(TweetBottomLeftGr.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-left: -16px;
+}
+
+.TweetBottomRightGr {
+	width: 19px;
+	float: right;
+	background: url(TweetBottomRightGr.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-right: -19px;
+}
+
+.TweetResponse {
+	background: transparent;
+	position: relative;
+	margin: 12px 10px -12px 48px;
+}
+
+
+/* @end */
+
+
+.avatar {
+	width: 32px;
+	height: 32px;
+	margin-right: 13px;
+	/*background-color: rgba(0,0,0,0.25);*/
+	margin-top: -24px;
+	margin-left: -44px;
+	padding-bottom: 13px;
+	padding-left: 10px;
+	float: left;
+	position: absolute;
+	bottom: 2px;
+}
+
+.avatar img {
+	width: 32px;
+	border-style: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.content {
+	overflow: hidden;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+
+/* @group Message */
+
+
+.DM {
+	background: transparent;
+	position: relative;
+	margin: 12px 12px -12px 47px;
+}
+
+.DMTop {
+	height: 9px;
+	margin-top: 2px;
+	background: url(TweetTop.png) repeat-x;
+	margin-left: 19px;
+	margin-right: 19px;
+}
+
+.DMTopLeft {
+	width: 19px;
+	float: left;
+	background: url(TweetTopLeft.png) no-repeat;
+	height: 9px;
+	margin-left: -16px;
+}
+
+.DMTopRight {
+	width: 19px;
+	float: right;
+	background: url(TweetTopRight.png) no-repeat;
+	height: 9px;
+	margin-right: -19px;
+}
+
+.DMMiddle {
+	text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+	padding-right: 7px;
+	background-repeat: repeat-y;
+	background: url(TweetMiddle.png) repeat;
+	margin-right: 15px;
+}
+
+.DMMiddleLeft {
+	padding-right: 7px;
+	padding-left: 20px;
+	margin-left: 3px;
+	background: url(TweetMiddleLeft.png) repeat-y;
+}
+
+.DMMiddleRight {
+	background: url(TweetMiddleRight.png) repeat-y right;
+	margin-right: -12px;
+}
+
+.DMBottom {
+	height: 29px;
+	clear: both;
+	background: url(TweetBottom.png) repeat-x 0 bottom;
+	margin-right: 19px;
+	margin-bottom: 2px;
+	margin-left: 19px;
+}
+
+.DMBottomLeft {
+	width: 19px;
+	float: left;
+	background: url(TweetBottomLeft.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-left: -16px;
+}
+
+.DMBottomRight {
+	width: 19px;
+	float: right;
+	background: url(TweetBottomRight.png) no-repeat 0 bottom;
+	height: 29px;
+	margin-right: -19px;
+}
+
+
+/* @end */
+
+
+a {
+	color: rgba(0,0,0,0.65);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgba(0,0,0,0.55);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div.nicetitle {
+	background-color: #fff;
+	color: #444;
+	font: bold 12px "Helvetica Neue", Sans-Serif;
+	right: 24px;
+	padding: 4px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	// width: 25em;
+	width: auto;
+	z-index: 20;
+	// opacity: .9;
+	opacity: .85;
+	-webkit-border-radius: 4px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 3px #999;
+	box-shadow: 0px 0px 3px #333;
+	}
+
+div.nicetitle span {
+    margin: 0;
+	padding: 0 2px;
+	opacity: 1;
+	text-shadow: 0px 1px 0px white;
+}
+
+div.nicetitle span.timestamp {
+    font-size: 9px;
+    padding-top: 3px;
+	text-align: left;
+	opacity: 1;
+	text-shadow: 0px 1px 0px white;
+}
+
+div.nicetitle p span.accesskey {
+	color: #d17e62;
+	text-shadow: 0px 1px 0px white;
+}

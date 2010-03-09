@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<meta http-equiv='Content-Lanquge' content='en-us' />
+<link href='style.css' rel='stylesheet' type='text/css' />
+<title>iChat Boxes</title>
+</head>
+<body>
+<div id='page'>
+
+<div class='Tweet'>
+	<div class='avatar'><a href='#'><img src='avatar.png' alt='avatar' title='avatar' /></a></div>
+	<div class='content'>
+		<div class="options">
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					self.location=this.options[this.selectedIndex].value">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		</div>
+		<div class="informations"><a href='#'>Tweet</a> at 12:00 AM from <a href="#">Bluebird</a></div>
+		<hr class="topSeparator" />
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa. Quisque tincidunt pulvinar tortor. Duis turpis. Praesent enim augue, luctus eget, viverra non, dictum quis, quam.
+	</div>
+ </div>
+ 
+ <div class='TweetSelf'>
+	<div class='avatar'><a href='#'><img src='avatar.png' alt='avatar' title='avatar' /></a></div>
+	<div class='content'>
+		<div class="options">
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					self.location=this.options[this.selectedIndex].value">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		</div>
+		<div class="informations"><a href='#'>TweetSelf</a> at 12:00 AM from <a href="#">Bluebird</a></div>
+		<hr class="topSeparator" />
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa. Quisque tincidunt pulvinar tortor. Duis turpis. Praesent enim augue, luctus eget, viverra non, dictum quis, quam.
+	</div>
+ </div>
+
+<div class='clear'></div>
+
+ <div class='TweetResponse'>
+	<div class='avatar'><a href='#'><img src='avatar.png' alt='avatar' title='avatar' /></a></div>
+	<div class='content'>
+		<div class="options">
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					self.location=this.options[this.selectedIndex].value">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		</div>
+		<div class="informations"><a href='#'>TweetResponse</a> at 12:00 AM from <a href="#">Bluebird</a></div>
+		<hr class="topSeparator" />
+		<a href="#">@TweetSelf</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa. Quisque tincidunt pulvinar tortor. Duis turpis. Praesent enim augue, luctus eget, viverra non, dictum quis, quam.
+	</div>
+ </div>
+
+<div class='clear'></div>
+
+<div class='Tweet'>
+	<div class='avatar'><a href='#'><img src='avatar.png' alt='avatar' title='avatar' /></a></div>
+	<div class='content'>
+		<div class="options">
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					self.location=this.options[this.selectedIndex].value">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		</div>
+		<div class="informations"><a href='#'>Tweet</a> at 12:00 AM from <a href="#">Bluebird</a></div>
+		<hr class="topSeparator" />
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa. Quisque tincidunt pulvinar tortor. Duis turpis. Praesent enim augue, luctus eget, viverra non, dictum quis, quam.
+	</div>
+ </div>
+ 
+ <div class='Tweet'>
+	<div class='avatar'><a href='#'><img src='avatar.png' alt='avatar' title='avatar' /></a></div>
+	<div class='content'>
+		<div class="options">
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					self.location=this.options[this.selectedIndex].value">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		</div>
+		<div class="informations"><a href='#'>Tweet</a> at 12:00 AM from <a href="#">Bluebird</a></div>
+		<hr class="topSeparator" />
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa. Quisque tincidunt pulvinar tortor. Duis turpis. Praesent enim augue, luctus eget, viverra non, dictum quis, quam.
+	</div>
+ </div>
+
+</div>
+
+<div id='shadow'></div>
+</body>
+</html>

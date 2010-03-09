@@ -1,0 +1,125 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: 11px/16px "Lucida Grande", Sans-Serif;
+	background: #ccc url(papierBlancBG.png) top center repeat;
+	text-shadow: 0px 1px 0px white;
+}
+
+a:link, a:visited {
+	color: #555;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* @group Tweet */
+
+.Tweet {
+	padding: 25px 10px 5px 10px;
+	background: transparent url(papierBlancTearTop.png) top left repeat;
+	min-height: 48px;
+}
+
+.realName {
+	display: block;
+	font-size: 11px;
+	letter-spacing: 1px;
+	font-family: "Marker Felt";
+}
+
+.Tweet .realName { color: #666; }
+.Tweet .realName a {
+	color: #555;
+}
+
+.TweetSelf .realName { color: #85b343; }
+.TweetSelf .realName a {
+	color: #85b343;
+}
+
+.TweetResponse .realName { color: #d8bd21; }
+.TweetResponse .realName a {
+	color: #caab00;
+}
+
+.temps {
+	font-size: 9px;
+	letter-spacing: 0px;
+	float: right;
+	
+}
+
+/* @group Specifics */
+
+.TweetSelf {
+	/*background-color: #d6dde5;*/
+	margin: 0px;
+	padding: 25px 10px 5px 10px;
+	background: transparent url(papierBlancTearTopSelf.png) top left repeat;
+	min-height: 48px;
+}
+
+.TweetSelf .avatar {
+	width: 32px;
+	height: 32px;
+	margin-right: 7px;
+	float: left;
+}
+
+.TweetResponse {
+	/*background-color: #d6dde5;*/
+	margin: 0px;
+	padding: 25px 10px 5px 10px;
+	background: transparent url(papierBlancTearTopResponse.png) top left repeat;
+	/*border-bottom: 1px solid #bbb;*/
+	min-height: 48px;
+}
+
+.DM {
+	padding: 25px 10px 5px 10px;
+	background: transparent url(papierBlancTearTop.png) top left repeat;
+	min-height: 48px;
+}
+
+/* @end */
+
+/* @end */
+
+.avatar {
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
+	float: left;
+}
+
+.avatar img {
+	width: 32px;
+	border-style: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.content {
+	overflow: hidden;
+	text-shadow: 0px 1px 0px #eee;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+#shadow {
+	position: fixed;
+	width: 100%;
+	height: 22px;
+	background: transparent url(topShadow.png) top repeat-x;
+	top: 0px;
+}

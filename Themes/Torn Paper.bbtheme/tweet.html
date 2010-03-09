@@ -1,0 +1,9 @@
+<div class='{%if tweet.isOwn %}TweetSelf{%else%}{% if tweet.type == BBStatusUpdate %}Tweet{%/if%}{%if tweet.type == BBReply%}TweetResponse{%/if%}{% if tweet.type == BBDirectMessage %}DM{%/if%}{%/if%}'>
+	<div class='avatar'><a href='{{tweet.userURL}}'><img src='{{tweet.author.imageURL}}' alt='{{tweet.author.fullName}}' title='{{tweet.author.fullName}}' /></a></div>
+	<div class='content'>
+		 <div class="realName"><a href='{{tweet.userURL}}'>{{tweet.author.fullName}}</a><span class="temps"><a href="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">{{tweet.date | date_format: "h:mm a" }}</a></span></div> 
+		{{tweet.content}}
+	</div>
+ </div>
+
+<div class='clear'></div>

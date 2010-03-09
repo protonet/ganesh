@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBThemeArtist</key>
+	<string>Jonas Rask &amp; Laurent Baumann</string>
+	<key>BBArtistURL</key>
+	<string>http://lbaumann.com</string>
+	<key>BBThemeIdentifier</key>
+	<string>com.lbaumann.iChat Boxes</string>
+	<key>BBThemeName</key>
+	<string>iChat Boxes</string>
+	<key>BBMainFile</key>
+	<string>theme.html</string>
+	<key>BBThemePreviewFile</key>
+	<string>template.html</string>
+</dict>
+</plist>

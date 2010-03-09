@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBThemeArtist</key>
+	<string>Sarah Tan, Laurent Baumann</string>
+	<key>BBArtistURL</key>
+	<string>http://purrr.me</string>
+	<key>BBThemeIdentifier</key>
+	<string>me.purrr.Bubbling Citrus</string>
+	<key>BBThemeName</key>
+	<string>Bubbling Citrus</string>
+	<key>BBMainFile</key>
+	<string>theme.html</string>
+	<key>BBThemePreviewFile</key>
+	<string>template.html</string>
+</dict>
+</plist>

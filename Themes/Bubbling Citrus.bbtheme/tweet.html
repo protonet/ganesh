@@ -1,0 +1,115 @@
+{%if tweet.isOwn %}
+<div class='TweetSelf'>
+    <a href='{{tweet.userURL}}'><div class='avatar'><img src='{{tweet.author.imageURL}}' /></div></a>
+
+    <div class='TweetTopOr'>
+        <div class='TweetTopLeftOr'></div>
+        <div class='TweetTopRightOr'></div>
+    </div>
+
+    <div class='TweetMiddleLeftOr'>
+        <div class='TweetMiddleRightOr'>
+            <div class='TweetMiddleOr'>
+                <div class='content'>{{tweet.content}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='TweetBottomOr'>
+        <div class='TweetBottomLeftOr'></div>
+        <div class='TweetBottomRightOr'></div>
+    </div>
+</div>
+
+<div class='clear'></div>
+{%else%}
+
+{% if tweet.type == BBStatusUpdate %}
+<div class='Tweet'>
+    <a href='{{tweet.userURL}}' title='{{tweet.author.fullName}}'  name='at {{tweet.date | date_format: "h:mm a" }}'><div class='avatar'><img src='{{tweet.author.imageURL}}' /></div></a>
+
+    <div class='TweetTop'>
+        <div class='TweetTopLeft'></div>
+        <div class='TweetTopRight'></div>
+    </div>
+
+    <div class='TweetMiddleLeft'>
+        <div class='TweetMiddleRight'>
+            <div class='TweetMiddle'>
+                <div class='content'>{{tweet.content}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='TweetBottom'>
+        <div class='TweetBottomLeft'></div>
+        <div class='TweetBottomRight'></div>
+    </div>
+</div>
+</div>
+
+<div class='clear'></div>
+{%/if%}
+
+{%if tweet.type == BBReply%}
+<div class='TweetResponse'>
+    <a href='{{tweet.userURL}}' title='{{tweet.author.fullName}}'  name='at {{tweet.date | date_format: "h:mm a" }}'><div class='avatar'><img src='{{tweet.author.imageURL}}' /></div></a>
+
+    <div class='TweetTopGr'>
+        <div class='TweetTopLeftGr'></div>
+        <div class='TweetTopRightGr'></div>
+    </div>
+
+    <div class='TweetMiddleLeftGr'>
+        <div class='TweetMiddleRightGr'>
+            <div class='TweetMiddleGr'>
+                <div class='content'>{{tweet.content}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='TweetBottomGr'>
+        <div class='TweetBottomLeftGr'></div>
+        <div class='TweetBottomRightGr'></div>
+    </div>
+</div>
+
+<div class='clear'></div>
+{%/if%}
+
+{% if tweet.type == BBDirectMessage %}
+<div class='Tweet'>
+    <a href='{{tweet.userURL}}' title='{{tweet.author.fullName}}'  name='at {{tweet.date | date_format: "h:mm a" }}'><div class='avatar'><img src='{{tweet.author.imageURL}}' /></div></a>
+
+    <div class='TweetTop'>
+        <div class='TweetTopLeft'></div>
+        <div class='TweetTopRight'></div>
+    </div>
+
+    <div class='TweetMiddleLeft'>
+        <div class='TweetMiddleRight'>
+            <div class='TweetMiddle'>
+                <div class='content'>{{tweet.content}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='TweetBottom'>
+        <div class='TweetBottomLeft'></div>
+        <div class='TweetBottomRight'></div>
+    </div>
+</div>
+</div>
+
+<div class='clear'></div>
+{%/if%}
+
+{%/if%}

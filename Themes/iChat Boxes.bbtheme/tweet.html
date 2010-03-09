@@ -1,0 +1,35 @@
+<div class='{%if tweet.isOwn %}TweetSelf{%else%}{% if tweet.type == BBStatusUpdate %}Tweet{%/if%}{%if tweet.type == BBReply%}TweetResponse{%/if%}{% if tweet.type == BBDirectMessage %}DM{%/if%}{%/if%}'>
+	<div class='avatar'><a href='{{tweet.userURL}}'><img src='{{tweet.author.imageURL}}' alt='{{tweet.author.fullName}}' title='{{tweet.author.fullName}}' /></a></div>
+	<div class='content'>
+		<div class="options">
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					self.location=this.options[this.selectedIndex].value">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		</div>
+		<div class="informations"><a href='{{tweet.userURL}}'>{{tweet.author.username}}</a> at {{tweet.date | date_format: "h:mm a" }} from {{tweet.sourceClientLink}}</div>
+		<hr class="topSeparator" />
+		{{tweet.content}}
+		<!--<hr class="bottomSeparator" />-->
+		<!--<div class="functions"><a href="{{tweet.replyURL}}">Reply</a><a href="{{tweet.retweetURL}}">Retweet</a><a href="{{tweet.isFavorite}}">Favorite</a><a href="#">Direct Message</a></div> -->
+	</div>
+ </div>
+
+<div class='clear'></div>
