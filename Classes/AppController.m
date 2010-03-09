@@ -217,7 +217,7 @@ static AppController *sharedAppController = nil;
 /**
  * tableview delegates
  */
-- (int)numberOfRowsInTableView:(NSTableView *)tv {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
 //    return [tweetList count];
     return 0;
 }
