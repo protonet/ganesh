@@ -436,7 +436,7 @@ static AppController *sharedAppController = nil;
     [NSApp activateIgnoringOtherApps:YES];
     if (![postWindow isVisible])
         [postWindow center];
-    [postWindow showWindow:nil];
+    [postWindow makeKeyAndOrderFront:nil];
 }
 
 @end
