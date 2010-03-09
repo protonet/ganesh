@@ -88,7 +88,6 @@ static AppController *sharedAppController = nil;
         [self runApp];
     }
 
-    [self renderTemplate];
 	[self createStatusBarItem];
     // autohide timeline window
     [timelineWindow setHidesOnDeactivate:YES];
@@ -181,7 +180,7 @@ static AppController *sharedAppController = nil;
 	[engine setObject:@"Hi there!" forKey:@"hello"];
 	
 	// Get path to template.
-	NSString *templatePath = [[NSBundle mainBundle] pathForResource:@"theme" ofType:@"html" inDirectory:@"/Bubbling Citrus.bbtheme"];
+	NSString *templatePath = [[NSBundle mainBundle] pathForResource:@"theme" ofType:@"html" inDirectory:@"/Light.bbtheme"];
 	
 	// Set up some variables for this specific template.
 	
@@ -196,7 +195,7 @@ static AppController *sharedAppController = nil;
     
     //HTML Encode the Resource Path of the main bundle and change single slashes to double slashes
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-    resourcePath = [resourcePath stringByAppendingPathComponent:@"Bubbling Citrus.bbtheme"];
+    resourcePath = [resourcePath stringByAppendingPathComponent:@"Light.bbtheme"];
     resourcePath = [resourcePath stringByReplacingOccurrencesOfString:@"/" withString:@"//"];
     resourcePath = [resourcePath stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     resourcePath = [NSString stringWithFormat:@"file:/%@//",resourcePath];

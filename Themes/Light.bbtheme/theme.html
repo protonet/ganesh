@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+		<meta http-equiv='Content-Lanquge' content='en-us' />
+		<link href='style.css' rel='stylesheet' type='text/css' />
+		<title>Light 1.8</title>
+		<script type="text/javascript" src="urlHandler.js"></script>
+		<script type="text/javascript" src="relativeTime.js"></script>
+		<script type="text/javascript" src="light.js"></script>
+		<script type="text/javascript">
+			function $(el) { return document.getElementById(el); }
+			function addTweet(theTweet, shouldDisplay, nextTweet, isNew, tweetObj)
+			{
+			    if (!shouldDisplay){
+			        theTweet.style.display = 'none';
+			    }
+			    $('page').insertBefore(theTweet, nextTweet);
+			    
+			    if (!isNew){
+			    	theTweet.style.opacity = '0.9';
+			    }
+			   	replaceHttpPrefix(theTweet);
+				replaceTwitPic(theTweet);
+				replaceYouTube(theTweet);
+			    convertTime(document.getElementsByClassName('container'));
+			}
+			function removeTweet(theTweet)
+			{
+			    $('page').removeChild(theTweet);
+			}
+			function changeVisibility(theTweet, shouldDisplay)
+			{
+			    theTweet.style.display = (shouldDisplay) ? '' : 'none';
+			}
+		</script>
+	</head>
+	<body onload="Bluebird.loadTweets();">
+		<div id='page'>
+			{% for tweet in tweets %}
+<div class='container {%if tweet.isOwn %}TweetSelf{%else%}Tweet{%/if%}'>
+	<div class='avatar'><a href='javascript:;' ><img src='{{tweet.icon_url}}' /></a></div>
+	<div class='content'>
+		<div class="realName"><a href="">{{tweet.author}}</a></div>
+		<div class="actions"></div>
+		<div class="textContent">
+			{{tweet.message}}
+		</div>
+		<div class="info">{{tweet.date | date_format: "MMM d h:mm a" }}</div>
+	</div>
+ </div>			{% /for %}
+		</div>
+	</body>
+</html>

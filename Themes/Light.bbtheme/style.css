@@ -1,0 +1,204 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #444;
+	font: 11px/15px "Lucida Grande", Sans-Serif;
+	background: #dbe4e7;
+	overflow-x:hidden;
+}
+
+#page {
+	margin-top:-6px;
+	padding-top:6px;
+	width:100%;
+}
+
+a:link, a:visited {
+	color: #4e73aa;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #384a5e;
+	font-weight: bold;
+}
+.content {
+	overflow-x:hidden;
+}
+
+/* @group Tweet */
+
+/* @group DM & TweetResponse */
+.DM .realName a:link,
+.DM .realName a:visited,
+.TweetResponse .realName a:link,
+.TweetResponse .realName a:visited{
+	color:#3a596c;
+	text-shadow:0px 1px 0px #daebef;
+}
+.DM .realName .realName a:hover,
+.TweetResponse .realName a:hover {
+	color: #263f4e;
+}
+.DM:hover,
+.TweetSelf:hover,
+.TweetResponse:hover,
+.Tweet:hover {
+	border: 1px solid #9acbdf;
+}
+.DM,
+.TweetResponse {
+	color:#505c60;
+	border: 1px solid #e2fdff;
+	text-shadow: 0px 1px 0px #daebef;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1fafc), color-stop(0.3,#e7f5f8), color-stop(0.9,#e3f3f6),to(#d4e8ea));
+	-webkit-box-shadow: 0px 1px 3px #555;
+}
+
+/* @end */
+
+/* @group TweetSelf */
+
+.TweetSelf {
+	color:#667;
+	border: 1px solid #eee;
+	text-shadow: 0px 1px 0px #eee;
+	position:relative;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d5d8da), color-stop(0.3,#e4e7e9), color-stop(0.9,#e8eaec),to(#f0f3f5));
+	-webkit-box-shadow: 0px 1px 3px #999;
+}
+/* @end */
+
+.Tweet {
+	border: 1px solid #fff;
+	text-shadow: 0px 1px 0px #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), color-stop(0.3,#f3f3f3), color-stop(0.9,#efefef),to(#ddd));
+	-webkit-box-shadow: 0px 1px 3px #777;
+}
+.TweetSelf,
+.DM{
+	min-height:32px;
+}
+.Tweet,
+.TweetResponse{
+	min-height: 60px;
+}
+.Tweet,
+.TweetSelf,
+.TweetResponse,
+.DM{
+	margin: 6px 8px 6px 52px;
+	-webkit-border-radius: 6px;
+	-webkit-transition-duration: 0.5s;
+	position:relative;
+	padding: 4px 10px 6px 12px;
+}
+.realName{
+	display:block;
+	font-weight: bold;
+	margin-top:2px;
+	line-height:16px;
+}
+.info a,
+.actions a,
+.realName a:link, 
+.realName a:visited {
+	color: #555;
+	text-shadow: 0px 1px 0px white;
+}
+.info a:hover,
+.actions a:hover,
+.realName a:hover {
+	color: #222;
+}
+/* @end */
+
+.avatar {
+	width: 32px;
+	height: 32px;
+	margin-left: -54px;
+	margin-top: -2px;
+	float: left;
+	-webkit-box-reflect:below 0px url('mask_reflection.png');
+}
+
+.avatar img {
+	width: 32px;
+	border-style: none;
+	-webkit-mask-image:url('mask_avatar.png');
+}
+
+/* @group Action Buttons */
+
+.actions {
+	padding: 0px;
+	float:right;
+	position:absolute;
+	top:4px;
+	right:7px;
+	overflow:hidden;
+}
+.actionButton{
+	display:block;
+	float:right;
+	width:16px;
+	-webkit-transition-duration: 0.5s;
+	position:relative;
+	top: -16px;
+	margin-left:5px;
+}
+.actionFavorite{
+	float:right;
+	margin-left:5px;
+}
+.DM .actions a{
+	color: #52466d;	
+}
+
+.DM .actions a:hover{
+	color: #35273f;
+}
+.TweetResponse:hover .actionButton,
+.TweetSelf:hover .actionButton,
+.Tweet:hover .actionButton{
+	opacity:1;
+	top: 0;
+}
+
+
+
+/* @end */
+
+.info {
+	padding: 0px;
+	display:block;
+	font-size:9px;
+	opacity:.6;
+	margin-top:2px;
+}
+.youtubeThumb,
+.twitPicThumb{
+	display:block;
+	margin:4px;
+}
+.twitPicThumb{	
+	max-height:75px;
+	max-width:75px;
+	border:4px solid #fff;
+	-webkit-box-shadow:#555 0px 1px 3px;
+}
+.youtubeThumb{
+	max-width:200px;
+	-webkit-box-shadow:#333 0px 1px 3px;
+}
+.BBSmiley{
+	width: 16px;
+	height: 16px;
+	display:inline;
+	top:3px;
+	position:relative;
+}
+.timestamp{
+	display:none;
+}

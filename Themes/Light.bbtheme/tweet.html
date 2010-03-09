@@ -1,0 +1,29 @@
+<div class='container {%if tweet.isOwn %}TweetSelf{%else%}{% if tweet.type == BBStatusUpdate %}Tweet{%/if%}{%if tweet.type == BBReply%}TweetResponse{%/if%}{% if tweet.type == BBDirectMessage %}DM{%/if%}{%/if%}'>
+	<div class='avatar'><a href='javascript:;' {%if tweet.isOwn == false %}onclick='{%if tweet.type != BBDirectMessage%}reply("{{tweet.author.username}}","{{tweet.tweetID}}");{%else%}dm("{{tweet.author.username}}");{%/if%}')'{%/if%}><img src='{{tweet.author.imageURL}}' /></a></div>
+	<div class='content'>
+		<div class="realName"><a href="{{tweet.userURL}}">{{tweet.author.fullName}}</a></div>
+		<div class="actions"></div>
+		<div class="textContent">
+			{{tweet.content}}
+		</div>
+		<div class="info">{% if tweet.type != BBDirectMessage %}<a href="http://twitter.com/{{tweet.author.username}}/status/{{tweet.tweetID}}" class="relativeTime" rel="{{tweet.date | date_format: yyyy,M,d,H,m,s }}"></a> from {{tweet.sourceClientLink}}{%else%}{{tweet.date | date_format: "MMM d h:mm a" }}{%/if%}</div>
+	</div>
+	{% if tweet.type != BBDirectMessage %}
+	<div class="actions">
+		{%if tweet.isFavorite %}
+			<div class="actionFavorite">
+				<a href="#"><img src="button_isFavorite.png" alt=""/></a>
+		{%else%}
+			<div class="actionButton">
+				<a href="#" title="disabled"><img src="button_favorite.png" alt="Favorite" /></a>
+		{%/if%}
+		</div>
+		{%if tweet.isOwn == false%}<div class="actionButton">
+			<a href="bluebird://direct/{{tweet.author.username}}"><img src="button_dm.png" alt="DM" title="Send {{tweet.author.username}} a direct Message"/></a>
+		</div>{%/if%}
+		<div class="actionButton">
+			<a href="{{tweet.retweetURL}}"><img src="button_retweet.png" alt="Retweet" title="Retweet"/></a>
+		</div>
+	</div>
+	{%/if%}
+ </div>
