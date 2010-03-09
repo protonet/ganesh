@@ -130,13 +130,15 @@ static AppController *sharedAppController = nil;
                        context:(void *)context
 {
     if ([keyPath isEqual:@"messages"]) {
-        [self renderTemplate];
-        statusItemView.newMessage = YES;
-        [statusItemView update];
         // get last tweet from messages
         Tweet *tweet = [[Messages sharedController] first];
-        // growl notification for tweet
-        [[GrowlNotifier sharedController] showNewTweet:tweet];
+        if(!tweet.isOwn){
+            // growl notification for tweet
+            [[GrowlNotifier sharedController] showNewTweet:tweet];
+            statusItemView.newMessage = YES;
+            [statusItemView update];
+        }
+        [self renderTemplate];
     }
     else if([keyPath isEqual:@"authenticated"]){
         statusItemView.connected = socket.authenticated;

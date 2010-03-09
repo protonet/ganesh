@@ -72,7 +72,7 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
 
 - (void)showNewTweet:(Tweet*)tweet
 {
-    if (tweet && !tweet.isOwn) {
+    if (tweet) {
         [GrowlApplicationBridge notifyWithTitle:tweet.author
                                     description:tweet.message
                                notificationName:@"Tweet"
