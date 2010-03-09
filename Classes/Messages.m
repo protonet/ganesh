@@ -81,11 +81,10 @@ static Messages *sharedMessagesController = nil;
 
 - (void)addMessageToTweets:(NSString *)string {
     SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"userName"];
-
+    
     Tweet * tweet = [[Tweet alloc] initWithData:[parser objectWithString:string]];
 
-    if (tweet && ![userName isEqual:tweet.author] ) {
+    if (tweet) {
         [self push:tweet];
     }
 

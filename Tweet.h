@@ -15,6 +15,7 @@
 	NSString  * author;
     NSDate    * date;
     NSURL     * icon_url;
+    BOOL      own;
 }
 
 @property(readwrite, copy)   NSString * message;
@@ -22,6 +23,7 @@
 @property(readwrite, copy)   NSDate   * date;
 @property(readwrite, copy)   NSURL    * icon_url;
 @property(readwrite, assign) NSImage * userImage;
+@property (nonatomic, assign, getter=isOwn) BOOL own;
 
 - (id)initWithData:(NSMutableDictionary *)data;
 

@@ -10,6 +10,8 @@
 #import <WebKit/WebView.h>
 #import "Tweet.h"
 #import "Socket.h"
+#import "GaneshStatusView.h"
+
 #import "MGTemplateEngine.h"
 
 @interface AppController : NSObject <MGTemplateEngineDelegate>{
@@ -17,19 +19,15 @@
   IBOutlet NSButton *daemonButton;
   IBOutlet NSTextField *postField;
   IBOutlet NSWindow *postWindow;
+  IBOutlet NSWindow *timelineWindow;
   IBOutlet WebView *webView;
 
   IBOutlet NSTableView *tableView;
-  NSMutableArray *tweetList;
 
   NSStatusItem *statusItem;
+  GaneshStatusView *statusItemView;
 
   NSThread *edgeThread;
-  // images for status item states
-  NSImage *statusNoVpnNoMessageImage;
-  NSImage *statusNoVpnHasMessageImage;	
-  NSImage *statusHasVpnNoMessageImage;
-  NSImage *statusHasVpnHasMessageImage;
   NSTask *n2nApp;
 
   Socket *socket;
@@ -48,7 +46,6 @@
 - (BOOL) checkAndCopyHelper;
 
 - (void)observeMessages;
-- (void)addMenuItemForTweet;
 - (void)createStatusBarItem;
 - (void)resetStatusBarItem;
 - (IBAction)pushedStatusBarItem:(id)sender;

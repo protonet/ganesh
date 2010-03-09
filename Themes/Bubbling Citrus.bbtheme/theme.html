@@ -30,8 +30,35 @@ function changeVisibility(theTweet, shouldDisplay)
 <div id='page'>
 {% for tweet in tweets %}
 {{tweet.html}}
+{%if tweet.isOwn %}
+<div class='TweetSelf'>
+    <a href=''><div class='avatar'><img src='{{tweet.icon_url}}' /></div></a>
+
+    <div class='TweetTopOr'>
+        <div class='TweetTopLeftOr'></div>
+        <div class='TweetTopRightOr'></div>
+    </div>
+
+    <div class='TweetMiddleLeftOr'>
+        <div class='TweetMiddleRightOr'>
+            <div class='TweetMiddleOr'>
+                <div class='content'>{{tweet.message}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='TweetBottomOr'>
+        <div class='TweetBottomLeftOr'></div>
+        <div class='TweetBottomRightOr'></div>
+    </div>
+</div>
+
+<div class='clear'></div>
+{%else%}
 <div class='Tweet'>
-    <a href='{{tweet.icon_url}}' title='{{tweet.author}}'  name='at {{tweet.date | date_format: "h:mm a" }}'><div class='avatar'><img src='{{tweet.icon_url}}' /></div></a>
+    <a href='' title='{{tweet.author}}'  name='at {{tweet.date | date_format: "h:mm a" }}'><div class='avatar'><img src='{{tweet.icon_url}}' /></div></a>
 
     <div class='TweetTop'>
         <div class='TweetTopLeft'></div>
@@ -56,6 +83,8 @@ function changeVisibility(theTweet, shouldDisplay)
 </div>
 
 <div class='clear'></div>
+{%/if%}
+
 {% /for %}
 </div>
 

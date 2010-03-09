@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define MAX_TWEETS 5
+#define MAX_TWEETS 20
 
 @interface Messages : NSObject {
     @private NSMutableArray *messages;

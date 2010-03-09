@@ -64,6 +64,7 @@
 		274621551145D4E200ACC69E /* TweetTopRightGr.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 274620AD1145D22500ACC69E /* TweetTopRightGr.png */; };
 		274621561145D4E200ACC69E /* TweetTopRightOr.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 274620AE1145D22500ACC69E /* TweetTopRightOr.png */; };
 		274622201145DCE900ACC69E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746221F1145DCE900ACC69E /* WebKit.framework */; };
+		274622F91146615D00ACC69E /* GaneshStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 274622F81146615D00ACC69E /* GaneshStatusView.m */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
@@ -263,6 +264,9 @@
 		274620AD1145D22500ACC69E /* TweetTopRightGr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TweetTopRightGr.png; sourceTree = "<group>"; };
 		274620AE1145D22500ACC69E /* TweetTopRightOr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TweetTopRightOr.png; sourceTree = "<group>"; };
 		2746221F1145DCE900ACC69E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		274622F71146615D00ACC69E /* GaneshStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaneshStatusView.h; sourceTree = "<group>"; };
+		274622F81146615D00ACC69E /* GaneshStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaneshStatusView.m; sourceTree = "<group>"; };
+		274624C911466E4500ACC69E /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = SOURCE_ROOT; };
 		278030D40FD6CAED00D57E59 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				274624C911466E4500ACC69E /* Debug.h */,
+				274622C111465F7100ACC69E /* Menu */,
 				4D65A1651145C85200F8E737 /* MGTemplateEngine */,
 				4D191021112852C200BA1A75 /* GrowlNotifier.h */,
 				4D191022112852C200BA1A75 /* GrowlNotifier.m */,
@@ -454,6 +460,15 @@
 			);
 			name = "Bubbling Citrus.bbtheme";
 			path = "Themes/Bubbling Citrus.bbtheme";
+			sourceTree = "<group>";
+		};
+		274622C111465F7100ACC69E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				274622F71146615D00ACC69E /* GaneshStatusView.h */,
+				274622F81146615D00ACC69E /* GaneshStatusView.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		27F29F5010C5B3E40056C09C /* Tuntap */ = {
@@ -664,6 +679,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Protonet;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ganesh" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -794,6 +812,7 @@
 				4D65A1811145C85200F8E737 /* RegexKitLite.m in Sources */,
 				4D65A1831145C85200F8E737 /* NSArray_DeepMutableCopy.m in Sources */,
 				4D65A1841145C85200F8E737 /* NSDictionary_DeepMutableCopy.m in Sources */,
+				274622F91146615D00ACC69E /* GaneshStatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

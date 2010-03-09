@@ -24,8 +24,8 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="711"/>
+			<integer value="895"/>
 			<integer value="728"/>
-			<integer value="896"/>
 			<integer value="882"/>
 			<integer value="610"/>
 		</object>
@@ -75,25 +75,6 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
-					</object>
-					<object class="NSMenuItem" id="218672641">
-						<reference key="NSMenu" ref="256212815"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<string key="NSTitle">Messages</string>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="229015046"/>
-						<reference key="NSMixedImage" ref="124815836"/>
-					</object>
-					<object class="NSMenuItem" id="533401145">
-						<reference key="NSMenu" ref="256212815"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<bool key="NSIsSeparator">YES</bool>
-						<string key="NSTitle"/>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="229015046"/>
-						<reference key="NSMixedImage" ref="124815836"/>
 					</object>
 					<object class="NSMenuItem" id="657903998">
 						<reference key="NSMenu" ref="256212815"/>
@@ -731,11 +712,12 @@
 			<object class="NSWindowTemplate" id="89740304">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{157, 77}, {285, 384}}</string>
+				<string key="NSWindowRect">{{0, 0}, {285, 384}}</string>
 				<int key="NSWTFlags">1685585920</int>
-				<string key="NSWindowTitle">Window</string>
+				<string key="NSWindowTitle">Timeline</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="928181996">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -952,6 +934,14 @@
 					</object>
 					<int key="connectionID">899</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">timelineWindow</string>
+						<reference key="source" ref="247353725"/>
+						<reference key="destination" ref="89740304"/>
+					</object>
+					<int key="connectionID">900</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -992,8 +982,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="30837726"/>
 							<reference ref="657903998"/>
-							<reference ref="218672641"/>
-							<reference ref="533401145"/>
 							<reference ref="195211497"/>
 							<reference ref="336031341"/>
 							<reference ref="747411673"/>
@@ -1012,16 +1000,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">649</int>
 						<reference key="object" ref="657903998"/>
-						<reference key="parent" ref="256212815"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">650</int>
-						<reference key="object" ref="218672641"/>
-						<reference key="parent" ref="256212815"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">651</int>
-						<reference key="object" ref="533401145"/>
 						<reference key="parent" ref="256212815"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1347,6 +1325,7 @@
 							<reference ref="928181996"/>
 						</object>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Timeline</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">896</int>
@@ -1379,8 +1358,6 @@
 					<string>610.IBPluginDependency</string>
 					<string>611.IBPluginDependency</string>
 					<string>649.IBPluginDependency</string>
-					<string>650.IBPluginDependency</string>
-					<string>651.IBPluginDependency</string>
 					<string>673.IBPluginDependency</string>
 					<string>679.IBAttributePlaceholdersKey</string>
 					<string>680.IBPluginDependency</string>
@@ -1463,9 +1440,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{329, 383}, {214, 173}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{329, 413}, {214, 143}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1549,7 +1524,7 @@
 					<string>{{345, 461}, {285, 384}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{345, 461}, {285, 384}}</string>
-					<boolean value="YES"/>
+					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.apple.WebKitIBPlugin</string>
@@ -1571,7 +1546,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">899</int>
+			<int key="maxID">900</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1613,6 +1588,7 @@
 							<string>postWindow</string>
 							<string>statusMenu</string>
 							<string>tableView</string>
+							<string>timelineWindow</string>
 							<string>webView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1622,6 +1598,7 @@
 							<string>NSWindow</string>
 							<string>NSMenu</string>
 							<string>NSTableView</string>
+							<string>NSWindow</string>
 							<string>WebView</string>
 						</object>
 					</object>

@@ -13,6 +13,7 @@
 #import "JSON.h"
 #import "Messages.h"
 #import "GrowlNotifier.h"
+#import "Debug.h"
 
 #import "MGTemplateEngine.h"
 #import "ICUTemplateMatcher.h"
@@ -87,28 +88,17 @@ static AppController *sharedAppController = nil;
         [self runApp];
     }
 
-	tweetList = [[NSMutableArray alloc] initWithCapacity:10];
-
-    // where are the bundle files?
-    NSBundle *bundle = [NSBundle mainBundle];
-
-    // allocate and load the images into the app
-    statusNoVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive" ofType:@"png"]];
-    statusNoVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_inactive_message" ofType:@"png"]];	
-
-    statusHasVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
-    statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
-
+    [self renderTemplate];
 	[self createStatusBarItem];
     // TODO: does this need a dealloc socket release?
     socket = [[Socket alloc] init];
 	
     [self observeMessages];
-
 }
 
 - (void) dealloc
 {
+    [statusItemView release];
     [socket release];
     [super dealloc];
 }
@@ -139,8 +129,12 @@ static AppController *sharedAppController = nil;
                        context:(void *)context
 {
     if ([keyPath isEqual:@"messages"]) {
-        [self addMenuItemForTweet];
-
+        [self renderTemplate];
+        statusItemView.newMessage = YES;
+        // get last tweet from messages
+        Tweet *tweet = [[Messages sharedController] first];
+        // growl notification for tweet
+        [[GrowlNotifier sharedController] showNewTweet:tweet];
     }
     else if([keyPath isEqual:@"authenticated"]){
         [self updateStatusBarItem];
@@ -163,12 +157,14 @@ static AppController *sharedAppController = nil;
 - (void)createStatusBarItem {
     NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
 
-    statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+    statusItem = [systemStatusBar statusItemWithLength:22];
     [statusItem retain];
-    [statusItem setImage:statusNoVpnNoMessageImage];
+    statusItemView = [[GaneshStatusView alloc] init];
+    [statusItemView retain];
+    statusItemView.statusItem = statusItem;
+    [statusItemView setMenu:statusMenu];
+    [statusItem setView:statusItemView];
     [statusItem setHighlightMode:YES];
-    [statusItem setAction:@selector(pushedStatusBarItem:)];
-    [statusItem setTarget:self];
 }
 
 - (IBAction)pushedStatusBarItem:(id)sender {
@@ -178,24 +174,11 @@ static AppController *sharedAppController = nil;
 
 - (void)updateStatusBarItem {
     if(socket.authenticated){
-        [statusItem setImage:statusNoVpnHasMessageImage];
+        [statusItemView setConnected];
     } else {
-        [statusItem setImage:statusNoVpnNoMessageImage];
+        [statusItemView setDisconnected];
     }
 
-}
-
-- (NSMenuItem *)buildTweetMenuItem
-{
-    // get last tweet from messages
-    Tweet *tweet = [[Messages sharedController] first];
-    // growl notification for tweet
-    [[GrowlNotifier sharedController] showNewTweet:tweet];
-
-    NSMenuItem *subMenuItem = [[[NSMenuItem alloc] initWithTitle:tweet.message action:@selector(openPtnDashboard:) keyEquivalent:@""] autorelease];
-    [subMenuItem setImage:tweet.userImage];
-    [subMenuItem setTarget:self];
-	return subMenuItem;
 }
 
 - (void)renderTemplate{
@@ -220,7 +203,7 @@ static AppController *sharedAppController = nil;
 	
 	// Process the template and display the results.
 	NSString *result = [engine processTemplateInFileAtPath:templatePath withVariables:variables];
-	NSLog(@"Processed template:\r%@", result);
+	DLog(@"Processed template:\r%@", result);
     
     //HTML Encode the Resource Path of the main bundle and change single slashes to double slashes
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
@@ -230,16 +213,6 @@ static AppController *sharedAppController = nil;
     resourcePath = [NSString stringWithFormat:@"file:/%@//",resourcePath];
     NSURL *resourceUrl = [NSURL URLWithString:resourcePath];
     [[webView mainFrame] loadHTMLString:result baseURL:resourceUrl];
-}
-
-- (void)addMenuItemForTweet{
-    [self renderTemplate];
-
-    NSMenuItem *subMenuItem = [self buildTweetMenuItem];
-    [statusMenu insertItem:subMenuItem atIndex:3];
-    if ([[Messages sharedController] count] > MAX_TWEETS) {
-        [statusMenu removeItemAtIndex:MAX_TWEETS+3];
-    }
 }
 
 - (void)openPtnDashboard:(id)sender {
@@ -261,12 +234,14 @@ static AppController *sharedAppController = nil;
  * tableview delegates
  */
 - (int)numberOfRowsInTableView:(NSTableView *)tv {
-    return [tweetList count];
+//    return [tweetList count];
+    return 0;
 }
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row {
-    NSString *value = [tweetList objectAtIndex:row];
-    return value;
+//    NSString *value = [tweetList objectAtIndex:row];
+//    return value;
+    return nil;
 }
 
 
@@ -365,7 +340,7 @@ static AppController *sharedAppController = nil;
 
 
 - (IBAction)connect:(id)sender {
-    [statusItem setImage:statusHasVpnNoMessageImage];
+//    [statusItem setImage:statusHasVpnNoMessageImage];
     [statusMenu removeItemAtIndex:0];
     [statusMenu insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
     [[statusMenu itemAtIndex:0] setTarget:self];
@@ -455,7 +430,7 @@ static AppController *sharedAppController = nil;
 
 - (IBAction)disconnect:(id)sender
 {
-    [statusItem setImage:statusNoVpnNoMessageImage];
+//    [statusItem setImage:statusNoVpnNoMessageImage];
     [statusMenu removeItemAtIndex:0];
     [statusMenu insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
     [[statusMenu itemAtIndex:0] setTarget:self];
@@ -476,6 +451,15 @@ static AppController *sharedAppController = nil;
     if (![postWindow isVisible])
         [postWindow center];
     [postWindow makeKeyAndOrderFront:nil];
+}
+
+- (IBAction)showTimeline:(id)sender
+{
+    [NSApp activateIgnoringOtherApps:YES];
+    if (![timelineWindow isVisible])
+        [timelineWindow makeKeyAndOrderFront:nil];
+    else
+        [timelineWindow close];
 }
 
 
