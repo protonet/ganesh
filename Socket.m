@@ -34,9 +34,6 @@
         DLog(@"init socket");
         host = [NSHost currentHost];
 
-        NSCalendarDate *now = [NSCalendarDate calendarDate];
-
-
         [serverAnswerField setObjectValue:[host name]];
 
         // check on sleep and close socket

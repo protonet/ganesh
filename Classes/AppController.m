@@ -220,7 +220,16 @@ static AppController *sharedAppController = nil;
 	
 	// Process the template and display the results.
 	NSString *result = [engine processTemplateInFileAtPath:templatePath withVariables:variables];
-	NSLog(@"Processed template:\r%@", result);    
+	NSLog(@"Processed template:\r%@", result);
+    
+    //HTML Encode the Resource Path of the main bundle and change single slashes to double slashes
+    NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+    resourcePath = [resourcePath stringByAppendingPathComponent:@"Bubbling Citrus.bbtheme"];
+    resourcePath = [resourcePath stringByReplacingOccurrencesOfString:@"/" withString:@"//"];
+    resourcePath = [resourcePath stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    resourcePath = [NSString stringWithFormat:@"file:/%@//",resourcePath];
+    NSURL *resourceUrl = [NSURL URLWithString:resourcePath];
+    [[webView mainFrame] loadHTMLString:result baseURL:resourceUrl];
 }
 
 - (void)addMenuItemForTweet{

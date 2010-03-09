@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebView.h>
 #import "Tweet.h"
 #import "Socket.h"
 #import "MGTemplateEngine.h"
@@ -16,6 +17,7 @@
   IBOutlet NSButton *daemonButton;
   IBOutlet NSTextField *postField;
   IBOutlet NSWindow *postWindow;
+  IBOutlet WebView *webView;
 
   IBOutlet NSTableView *tableView;
   NSMutableArray *tweetList;

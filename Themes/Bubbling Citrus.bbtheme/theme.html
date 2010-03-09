@@ -30,6 +30,32 @@ function changeVisibility(theTweet, shouldDisplay)
 <div id='page'>
 {% for tweet in tweets %}
 {{tweet.html}}
+<div class='Tweet'>
+    <a href='{{tweet.icon_url}}' title='{{tweet.author}}'  name='at {{tweet.date | date_format: "h:mm a" }}'><div class='avatar'><img src='{{tweet.icon_url}}' /></div></a>
+
+    <div class='TweetTop'>
+        <div class='TweetTopLeft'></div>
+        <div class='TweetTopRight'></div>
+    </div>
+
+    <div class='TweetMiddleLeft'>
+        <div class='TweetMiddleRight'>
+            <div class='TweetMiddle'>
+                <div class='content'>{{tweet.message}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='TweetBottom'>
+        <div class='TweetBottomLeft'></div>
+        <div class='TweetBottomRight'></div>
+    </div>
+</div>
+</div>
+
+<div class='clear'></div>
 {% /for %}
 </div>
 

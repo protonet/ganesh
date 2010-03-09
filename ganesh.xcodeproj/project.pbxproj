@@ -63,6 +63,7 @@
 		274621541145D4E200ACC69E /* TweetTopRight.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 274620AC1145D22500ACC69E /* TweetTopRight.png */; };
 		274621551145D4E200ACC69E /* TweetTopRightGr.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 274620AD1145D22500ACC69E /* TweetTopRightGr.png */; };
 		274621561145D4E200ACC69E /* TweetTopRightOr.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 274620AE1145D22500ACC69E /* TweetTopRightOr.png */; };
+		274622201145DCE900ACC69E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746221F1145DCE900ACC69E /* WebKit.framework */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
@@ -261,6 +262,7 @@
 		274620AC1145D22500ACC69E /* TweetTopRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TweetTopRight.png; sourceTree = "<group>"; };
 		274620AD1145D22500ACC69E /* TweetTopRightGr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TweetTopRightGr.png; sourceTree = "<group>"; };
 		274620AE1145D22500ACC69E /* TweetTopRightOr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TweetTopRightOr.png; sourceTree = "<group>"; };
+		2746221F1145DCE900ACC69E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		278030D40FD6CAED00D57E59 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				4D190FBB1128380100BA1A75 /* Sparkle.framework in Frameworks */,
 				4D190FF6112845F200BA1A75 /* Growl.framework in Frameworks */,
 				4D65A1961145C8FF00F8E737 /* libicucore.dylib in Frameworks */,
+				274622201145DCE900ACC69E /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +513,7 @@
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 				4D65A1951145C8FF00F8E737 /* libicucore.dylib */,
+				2746221F1145DCE900ACC69E /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

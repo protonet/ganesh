@@ -11,6 +11,8 @@
 
 @implementation Tweet
 @synthesize author;
+@synthesize date;
+@synthesize icon_url;
 @synthesize message;
 @synthesize userImage;
 
@@ -21,10 +23,11 @@
 	self.message = [data objectForKey:@"message"];
 
     if (message && (self = [super init])) {
+        self.date = [NSDate date];
         self.author = [data objectForKey:@"author"];
 		NSString * profileUrlString = [NSString stringWithFormat:@"http://%@%@", serverUrl, [data objectForKey:@"user_icon_url"]];
-		NSURL *profileUrl = [NSURL URLWithString:profileUrlString];
-		userImage = [[[NSImage alloc] init] initWithContentsOfURL:profileUrl];
+        self.icon_url = [NSURL URLWithString:profileUrlString];
+		userImage = [[[NSImage alloc] init] initWithContentsOfURL:icon_url];
         return self;
     }
     else{

@@ -13,11 +13,14 @@
 	NSImage * userImage;
 	NSString  * message;
 	NSString  * author;
-
+    NSDate    * date;
+    NSURL     * icon_url;
 }
 
 @property(readwrite, copy)   NSString * message;
 @property(readwrite, copy)   NSString * author;
+@property(readwrite, copy)   NSDate   * date;
+@property(readwrite, copy)   NSURL    * icon_url;
 @property(readwrite, assign) NSImage * userImage;
 
 - (id)initWithData:(NSMutableDictionary *)data;
