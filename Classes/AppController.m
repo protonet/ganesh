@@ -152,7 +152,6 @@ static AppController *sharedAppController = nil;
     [n2nApp terminate];
     [n2nApp waitUntilExit];
     [n2nApp release];
-
 }
 
 /**
@@ -169,11 +168,6 @@ static AppController *sharedAppController = nil;
     [statusItemView setMenu:statusMenu];
     [statusItem setView:statusItemView];
     [statusItem setHighlightMode:YES];
-}
-
-- (IBAction)pushedStatusBarItem:(id)sender {
-    [self resetStatusBarItem];
-    [statusItem popUpStatusItemMenu:statusMenu];
 }
 
 - (void)renderTemplate{
@@ -212,11 +206,6 @@ static AppController *sharedAppController = nil;
 
 - (void)openPtnDashboard:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://localhost:3000/"]];
-}
-
-- (void)resetStatusBarItem {
-	//[statusItem setTitle: [NSString stringWithFormat:@"Socket"]];
-	[self updateStatusBarItem];
 }
 
 - (IBAction)clearMessages:(id)sender {

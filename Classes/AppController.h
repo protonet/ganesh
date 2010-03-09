@@ -47,9 +47,6 @@
 
 - (void)observeMessages;
 - (void)createStatusBarItem;
-- (void)resetStatusBarItem;
-- (IBAction)pushedStatusBarItem:(id)sender;
-- (void)updateStatusBarItem;
 - (IBAction)clearMessages:(id)sender;
 - (IBAction)showNewMessage:(id)sender;
 - (IBAction)postMessage:(id)sender;
