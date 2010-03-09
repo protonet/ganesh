@@ -178,10 +178,11 @@
     outputStream = nil;
 }
 
-- (IBAction)sendMessageAndClearInput:(id)sender {
-	[self streamsAreOk];
-    [self sendText:[NSString stringWithFormat:@"%@", [inputField stringValue]]];
-	[inputField setStringValue:@""];
+- (void)sendMessage:(NSString*)message {
+	if([self streamsAreOk])
+    {
+        [self sendText:[NSString stringWithFormat:@"%@", message]];
+    }
 }
 
 - (void)sendText:(NSString *)string {

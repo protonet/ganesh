@@ -17,6 +17,7 @@
 @property(readwrite, assign) NSMutableArray *messages;
 
 + (Messages*)sharedController;
+- (void)addMessageToTweets:(NSString *)string;
 - (id)first;
 - (void)clear;
 - (NSUInteger)count;
