@@ -39,17 +39,18 @@
 	<body onload="Bluebird.loadTweets();">
 		<div id='page'>
 			{% for tweet in tweets %}
-<div class='container {%if tweet.isOwn %}TweetSelf{%else%}Tweet{%/if%}'>
-	<div class='avatar'><a href='javascript:;' ><img src='{{tweet.icon_url}}' /></a></div>
-	<div class='content'>
-		<div class="realName"><a href="">{{tweet.author}}</a></div>
-		<div class="actions"></div>
-		<div class="textContent">
-			{{tweet.message}}
-		</div>
-		<div class="info">{{tweet.date | date_format: "MMM d h:mm a" }}</div>
-	</div>
- </div>			{% /for %}
+                <div class='container {%if tweet.isOwn %}TweetSelf{%else%}Tweet{%/if%}'>
+                    <div class='avatar'><a href='javascript:;' ><img src='{{tweet.icon_url}}' /></a></div>
+                    <div class='content'>
+                        <div class="realName"><a href="">{{tweet.author}}</a></div>
+                        <div class="actions"></div>
+                        <div class="textContent">
+                            {{tweet.message}}
+                        </div>
+                        <div class="info">{{tweet.date | date_format: "MMM d hh:mm" }}</div>
+                    </div>
+                </div>			
+            {% /for %}
 		</div>
 	</body>
 </html>

@@ -186,7 +186,6 @@ static AppController *sharedAppController = nil;
 	
     NSDictionary *variables = [NSDictionary dictionaryWithObjectsAndKeys: 
 							   [Messages sharedController].messages, @"tweets", 
-							   [NSDictionary dictionaryWithObjectsAndKeys:@"baz", @"bar", nil], @"foo", 
 							   nil];
 	
 	// Process the template and display the results.
