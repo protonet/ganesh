@@ -131,6 +131,7 @@ static AppController *sharedAppController = nil;
     if ([keyPath isEqual:@"messages"]) {
         [self renderTemplate];
         statusItemView.newMessage = YES;
+        [self updateStatusBarItem];
         // get last tweet from messages
         Tweet *tweet = [[Messages sharedController] first];
         // growl notification for tweet

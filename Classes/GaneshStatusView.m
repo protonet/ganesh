@@ -78,7 +78,6 @@
     else {
         [self setImage:statusHasVpnNoMessageImage];        
     }
-    [self setNeedsDisplay:YES];
 }
 
 - (void)setDisconnected {
@@ -88,7 +87,6 @@
     else {
         [self setImage:statusNoVpnNoMessageImage];
     }
-    [self setNeedsDisplay:YES];
 }
 
 @end
