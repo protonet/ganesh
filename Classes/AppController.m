@@ -91,6 +91,7 @@ static AppController *sharedAppController = nil;
 	[self createStatusBarItem];
     // autohide timeline window
     [timelineWindow setHidesOnDeactivate:YES];
+    [self renderTemplate];
     // TODO: does this need a dealloc socket release?
     socket = [[Socket alloc] init];
 	
@@ -213,20 +214,6 @@ static AppController *sharedAppController = nil;
 	[tableView reloadData];
 }
 
-
-/**
- * tableview delegates
- */
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
-//    return [tweetList count];
-    return 0;
-}
-
-- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row {
-//    NSString *value = [tweetList objectAtIndex:row];
-//    return value;
-    return nil;
-}
 
 
 

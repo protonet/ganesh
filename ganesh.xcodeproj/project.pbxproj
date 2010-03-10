@@ -74,6 +74,7 @@
 		4D65A1831145C85200F8E737 /* NSArray_DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65A17A1145C85200F8E737 /* NSArray_DeepMutableCopy.m */; };
 		4D65A1841145C85200F8E737 /* NSDictionary_DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65A17C1145C85200F8E737 /* NSDictionary_DeepMutableCopy.m */; };
 		4D65A1961145C8FF00F8E737 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D65A1951145C8FF00F8E737 /* libicucore.dylib */; };
+		4D65A2D11146F77500F8E737 /* scrollbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D65A2CD1146F75F00F8E737 /* scrollbar.png */; };
 		4D6650B1112D6B6E0011DA0E /* general.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6650AF112D6B6E0011DA0E /* general.png */; };
 		4D6650B2112D6B6E0011DA0E /* network.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6650B0112D6B6E0011DA0E /* network.png */; };
 		4D6650C8112D984A0011DA0E /* IPFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6650C7112D984A0011DA0E /* IPFormatter.m */; };
@@ -137,6 +138,7 @@
 			dstPath = Light.bbtheme;
 			dstSubfolderSpec = 7;
 			files = (
+				4D65A2D11146F77500F8E737 /* scrollbar.png in CopyFiles */,
 				27474C1211469316009DA65B /* avatar.png in CopyFiles */,
 				27474C1311469316009DA65B /* button_dm.png in CopyFiles */,
 				27474C1411469316009DA65B /* button_favorite.png in CopyFiles */,
@@ -295,6 +297,7 @@
 		4D65A17B1145C85200F8E737 /* NSDictionary_DeepMutableCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_DeepMutableCopy.h; sourceTree = "<group>"; };
 		4D65A17C1145C85200F8E737 /* NSDictionary_DeepMutableCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_DeepMutableCopy.m; sourceTree = "<group>"; };
 		4D65A1951145C8FF00F8E737 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		4D65A2CD1146F75F00F8E737 /* scrollbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollbar.png; sourceTree = "<group>"; };
 		4D6650AF112D6B6E0011DA0E /* general.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = general.png; path = images/general.png; sourceTree = "<group>"; };
 		4D6650B0112D6B6E0011DA0E /* network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = network.png; path = images/network.png; sourceTree = "<group>"; };
 		4D6650C6112D984A0011DA0E /* IPFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPFormatter.h; sourceTree = "<group>"; };
@@ -458,6 +461,7 @@
 		27474BF2114692EA009DA65B /* Light.bbtheme */ = {
 			isa = PBXGroup;
 			children = (
+				4D65A2CD1146F75F00F8E737 /* scrollbar.png */,
 				27474BF3114692EA009DA65B /* avatar.png */,
 				27474BF4114692EA009DA65B /* button_dm.png */,
 				27474BF5114692EA009DA65B /* button_favorite.png */,

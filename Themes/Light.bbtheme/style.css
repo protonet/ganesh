@@ -8,9 +8,13 @@ body {
 }
 
 #page {
+    position: fixed;
 	margin-top:-6px;
 	padding-top:6px;
 	width:100%;
+    top:6px;
+    bottom: 0px;
+    overflow:auto;
 }
 
 a:link, a:visited {
@@ -202,3 +206,6 @@ a:hover {
 .timestamp{
 	display:none;
 }
+
+::-webkit-scrollbar { width: 16px; }
+::-webkit-scrollbar-thumb:vertical { height: 30px; border-width: 8 0 8 0; -webkit-border-image: url(scrollbar.png) 8 0 8 0 stretch stretch; } 
