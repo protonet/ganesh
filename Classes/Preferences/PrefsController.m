@@ -7,6 +7,7 @@
 //
 
 #import "PrefsController.h"
+#import "PreferenceWindow.h"
 
 #define WINDOW_TITLE_HEIGHT 78
 
@@ -59,7 +60,11 @@ static PrefsController *sharedPrefsController = nil;
 	[self setActiveView:generalPreferenceView animate:NO];
 	[[self window] setTitle:GeneralToolbarItemIdentifier];
     // automatically close the preference window when inactive
-    [[self window] setHidesOnDeactivate:YES];
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(windowResignedMain:)
+               name:NSWindowDidResignMainNotification
+             object:nil];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
@@ -131,6 +136,15 @@ static PrefsController *sharedPrefsController = nil;
 
 	[activeContentView setFrame:[view frame]];
 	[activeContentView addSubview:view];
+}
+
+- (void)windowResignedMain:(NSNotification*)notif
+{
+    NSWindow* w = [notif object];
+
+    if([w isKindOfClass:[PreferenceWindow class]]){
+        [w performClose:self];
+    }
 }
 
 @end

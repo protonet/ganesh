@@ -226,7 +226,7 @@ static AppController *sharedAppController = nil;
 {
     NSWindow* w = [notif object];
 
-    if([[w title] isEqualToString:[timelineWindow title]]){
+    if([w isKindOfClass:[TimelineWindow class]]){
         [statusItemView setRead];
     }
 }

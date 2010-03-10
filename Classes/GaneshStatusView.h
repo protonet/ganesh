@@ -26,4 +26,5 @@
 @property (nonatomic, assign, getter=hasNewMessage) BOOL newMessage;
 
 - (void) update;
+- (void) setRead;
 @end
