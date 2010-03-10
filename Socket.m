@@ -42,6 +42,10 @@
                selector:@selector(cleanupBeforeSleep)
                    name:NSWorkspaceWillSleepNotification
                  object:nil];
+        [nc addObserver:self
+               selector:@selector(openSocket)
+                   name:NSWorkspaceDidWakeNotification
+                 object:nil];
 
         [self initPreferences];
         [self openSocket];
@@ -95,6 +99,7 @@
 
 - (void)cleanupBeforeSleep {
 	[self closeStreams];
+    self.authenticated = NO;
 }
 
 - (void)openSocket {
