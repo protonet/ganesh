@@ -268,6 +268,7 @@
 									</object>
 									<string key="NSFrameSize">{308, 242}</string>
 									<reference key="NSSuperview" ref="640602243"/>
+									<reference key="NSNextKeyView" ref="273975204"/>
 									<reference key="NSDocView" ref="273975204"/>
 									<object class="NSColor" key="NSBGColor">
 										<int key="NSColorSpace">4</int>
@@ -298,6 +299,7 @@
 							</object>
 							<string key="NSFrame">{{21, 127}, {308, 242}}</string>
 							<reference key="NSSuperview" ref="847863024"/>
+							<reference key="NSNextKeyView" ref="583652761"/>
 							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="689228817"/>
 							<reference key="NSHScroller" ref="412940141"/>
@@ -413,6 +415,7 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {306, 71}}</string>
 									<reference key="NSSuperview" ref="323402060"/>
+									<reference key="NSNextKeyView" ref="16584399"/>
 									<reference key="NSDocView" ref="16584399"/>
 									<reference key="NSBGColor" ref="333696978"/>
 									<object class="NSCursor" key="NSCursor">
@@ -445,6 +448,7 @@
 							</object>
 							<string key="NSFrame">{{21, 46}, {308, 73}}</string>
 							<reference key="NSSuperview" ref="847863024"/>
+							<reference key="NSNextKeyView" ref="167612599"/>
 							<int key="NSsFlags">529</int>
 							<reference key="NSVScroller" ref="733963830"/>
 							<reference key="NSHScroller" ref="747161176"/>
@@ -702,7 +706,7 @@
 						</object>
 						<object class="BWSplitView" id="318228853">
 							<reference key="NSNextResponder" ref="928181996"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">286</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="BWCustomView" id="351655143">
