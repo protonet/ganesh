@@ -90,7 +90,8 @@ static AppController *sharedAppController = nil;
 
 	[self createStatusBarItem];
     // autohide timeline window
-    [timelineWindow setHidesOnDeactivate:YES];
+    // [timelineWindow setHidesOnDeactivate:YES];
+    [timelineWindow setLevel:NSFloatingWindowLevel];
     [self renderTemplate];
     // TODO: does this need a dealloc socket release?
     socket = [[Socket alloc] init];
@@ -426,8 +427,17 @@ static AppController *sharedAppController = nil;
 
 - (IBAction)showTimeline:(id)sender
 {
-    [NSApp activateIgnoringOtherApps:YES];
-    [timelineWindow makeKeyAndOrderFront:nil];
+	//Fades in & out nicely
+	if(isTimelineVisible) {
+		[[timelineWindow animator] setAlphaValue:0.0];
+        isTimelineVisible = NO;
+	}
+	else {
+		[NSApp activateIgnoringOtherApps:YES];
+		[timelineWindow makeKeyAndOrderFront:self];
+		[[timelineWindow animator] setAlphaValue:1.0];
+        isTimelineVisible = YES;
+    }
 }
 
 

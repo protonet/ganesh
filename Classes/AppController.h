@@ -31,6 +31,8 @@
   NSTask *n2nApp;
 
   Socket *socket;
+
+  BOOL isTimelineVisible;
 }
 
 - (IBAction)openPreferences:(id)sender;
