@@ -483,6 +483,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{20, 87}, {46, 46}}</string>
 							<reference key="NSSuperview" ref="928181996"/>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						</object>
 						<object class="BWSplitView" id="318228853">
 							<reference key="NSNextResponder" ref="928181996"/>
@@ -494,13 +495,14 @@
 									<int key="NSvFlags">272</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
-										<object class="NSTextField" id="302424968">
+										<object class="NSTextField" id="632483517">
 											<reference key="NSNextResponder" ref="351655143"/>
 											<int key="NSvFlags">274</int>
 											<string key="NSFrameSize">{285, 70}</string>
 											<reference key="NSSuperview" ref="351655143"/>
+											<int key="NSViewLayerContentsRedrawPolicy">2</int>
 											<bool key="NSEnabled">YES</bool>
-											<object class="NSTextFieldCell" key="NSCell" id="861634932">
+											<object class="NSTextFieldCell" key="NSCell" id="872140388">
 												<int key="NSCellFlags">-1809711615</int>
 												<int key="NSCellFlags2">272629760</int>
 												<string key="NSContents"/>
@@ -509,7 +511,7 @@
 													<double key="NSSize">13</double>
 													<int key="NSfFlags">1044</int>
 												</object>
-												<reference key="NSControlView" ref="302424968"/>
+												<reference key="NSControlView" ref="632483517"/>
 												<bool key="NSDrawsBackground">YES</bool>
 												<object class="NSColor" key="NSBackgroundColor">
 													<int key="NSColorSpace">6</int>
@@ -528,6 +530,7 @@
 									</object>
 									<string key="NSFrameSize">{285, 70}</string>
 									<reference key="NSSuperview" ref="318228853"/>
+									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSClassName">NSView</string>
 								</object>
 								<object class="BWCustomView" id="775546949">
@@ -535,7 +538,7 @@
 									<int key="NSvFlags">272</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
-										<object class="WebView" id="307218956">
+										<object class="WebView" id="210545142">
 											<reference key="NSNextResponder" ref="775546949"/>
 											<int key="NSvFlags">274</int>
 											<object class="NSMutableSet" key="NSDragTypes">
@@ -562,6 +565,7 @@
 											<string key="NSFrameSize">{285, 269}</string>
 											<reference key="NSSuperview" ref="775546949"/>
 											<reference key="NSNextKeyView"/>
+											<int key="NSViewLayerContentsRedrawPolicy">2</int>
 											<string key="FrameName"/>
 											<string key="GroupName"/>
 											<object class="WebPreferences" key="Preferences">
@@ -588,11 +592,13 @@
 									</object>
 									<string key="NSFrame">{{0, 80}, {285, 270}}</string>
 									<reference key="NSSuperview" ref="318228853"/>
+									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSClassName">NSView</string>
 								</object>
 							</object>
 							<string key="NSFrame">{{0, 34}, {285, 350}}</string>
 							<reference key="NSSuperview" ref="928181996"/>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<int key="NSDividerStyle">3</int>
 							<reference key="BWSVColor" ref="205637207"/>
 							<bool key="BWSVColorIsEnabled">NO</bool>
@@ -630,6 +636,7 @@
 					</object>
 					<string key="NSFrameSize">{285, 384}</string>
 					<reference key="NSSuperview"/>
+					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -762,7 +769,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">webView</string>
 						<reference key="source" ref="247353725"/>
-						<reference key="destination" ref="307218956"/>
+						<reference key="destination" ref="210545142"/>
 					</object>
 					<int key="connectionID">927</int>
 				</object>
@@ -770,7 +777,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">postField</string>
 						<reference key="source" ref="247353725"/>
-						<reference key="destination" ref="302424968"/>
+						<reference key="destination" ref="632483517"/>
 					</object>
 					<int key="connectionID">928</int>
 				</object>
@@ -1093,7 +1100,7 @@
 						<reference key="object" ref="775546949"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="307218956"/>
+							<reference ref="210545142"/>
 						</object>
 						<reference key="parent" ref="318228853"/>
 					</object>
@@ -1102,28 +1109,28 @@
 						<reference key="object" ref="351655143"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="302424968"/>
+							<reference ref="632483517"/>
 						</object>
 						<reference key="parent" ref="318228853"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">923</int>
-						<reference key="object" ref="307218956"/>
+						<reference key="object" ref="210545142"/>
 						<reference key="parent" ref="775546949"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">924</int>
-						<reference key="object" ref="302424968"/>
+						<reference key="object" ref="632483517"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="861634932"/>
+							<reference ref="872140388"/>
 						</object>
 						<reference key="parent" ref="351655143"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">925</int>
-						<reference key="object" ref="861634932"/>
-						<reference key="parent" ref="302424968"/>
+						<reference key="object" ref="872140388"/>
+						<reference key="parent" ref="632483517"/>
 					</object>
 				</object>
 			</object>
@@ -1298,7 +1305,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">928</int>
+			<int key="maxID">932</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1315,12 +1322,10 @@
 							<string>disconnect:</string>
 							<string>openPreferences:</string>
 							<string>postMessage:</string>
-							<string>showNewMessage:</string>
 							<string>startDaemon:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1335,7 +1340,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>daemonButton</string>
 							<string>postField</string>
-							<string>postWindow</string>
 							<string>statusMenu</string>
 							<string>tableView</string>
 							<string>timelineWindow</string>
@@ -1345,7 +1349,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSButton</string>
 							<string>NSTextField</string>
-							<string>NSWindow</string>
 							<string>NSMenu</string>
 							<string>NSTableView</string>
 							<string>NSWindow</string>
