@@ -25,8 +25,7 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="728"/>
 			<integer value="610"/>
-			<integer value="895"/>
-			<integer value="712"/>
+			<integer value="896"/>
 			<integer value="883"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -157,7 +156,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="847863024">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -269,7 +268,6 @@
 									</object>
 									<string key="NSFrameSize">{308, 242}</string>
 									<reference key="NSSuperview" ref="640602243"/>
-									<reference key="NSNextKeyView" ref="273975204"/>
 									<reference key="NSDocView" ref="273975204"/>
 									<object class="NSColor" key="NSBGColor">
 										<int key="NSColorSpace">4</int>
@@ -300,7 +298,6 @@
 							</object>
 							<string key="NSFrame">{{21, 127}, {308, 242}}</string>
 							<reference key="NSSuperview" ref="847863024"/>
-							<reference key="NSNextKeyView" ref="583652761"/>
 							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="689228817"/>
 							<reference key="NSHScroller" ref="412940141"/>
@@ -340,29 +337,6 @@
 										<object class="NSTextView" id="16584399">
 											<reference key="NSNextResponder" ref="167612599"/>
 											<int key="NSvFlags">2322</int>
-											<object class="NSMutableSet" key="NSDragTypes">
-												<bool key="EncodedWithXMLCoder">YES</bool>
-												<object class="NSArray" key="set.sortedObjects">
-													<bool key="EncodedWithXMLCoder">YES</bool>
-													<string>Apple HTML pasteboard type</string>
-													<string>Apple PDF pasteboard type</string>
-													<string>Apple PICT pasteboard type</string>
-													<string>Apple PNG pasteboard type</string>
-													<string>Apple URL pasteboard type</string>
-													<string>CorePasteboardFlavorType 0x6D6F6F76</string>
-													<string>NSColor pasteboard type</string>
-													<string>NSFilenamesPboardType</string>
-													<string>NSStringPboardType</string>
-													<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-													<string>NeXT RTFD pasteboard type</string>
-													<string>NeXT Rich Text Format v1.0 pasteboard type</string>
-													<string>NeXT TIFF v4.0 pasteboard type</string>
-													<string>NeXT font pasteboard type</string>
-													<string>NeXT ruler pasteboard type</string>
-													<string>WebURLsWithTitlesPboardType</string>
-													<string>public.url</string>
-												</object>
-											</object>
 											<string key="NSFrameSize">{306, 14}</string>
 											<reference key="NSSuperview" ref="167612599"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="886934440">
@@ -439,7 +413,6 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {306, 71}}</string>
 									<reference key="NSSuperview" ref="323402060"/>
-									<reference key="NSNextKeyView" ref="16584399"/>
 									<reference key="NSDocView" ref="16584399"/>
 									<reference key="NSBGColor" ref="333696978"/>
 									<object class="NSCursor" key="NSCursor">
@@ -472,7 +445,6 @@
 							</object>
 							<string key="NSFrame">{{21, 46}, {308, 73}}</string>
 							<reference key="NSSuperview" ref="847863024"/>
-							<reference key="NSNextKeyView" ref="167612599"/>
 							<int key="NSsFlags">529</int>
 							<reference key="NSVScroller" ref="733963830"/>
 							<reference key="NSHScroller" ref="747161176"/>
@@ -480,7 +452,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{350, 389}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 578}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -801,7 +772,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSTextField" id="312662153">
 											<reference key="NSNextResponder" ref="775546949"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">286</int>
 											<string key="NSFrameSize">{285, 70}</string>
 											<reference key="NSSuperview" ref="775546949"/>
 											<bool key="NSEnabled">YES</bool>
