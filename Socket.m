@@ -198,7 +198,7 @@
 }
 
 - (void)sendMessage:(NSString*)message {
-	if([self streamsAreOk] && message != nil)
+	if([self streamsAreOk] && message != nil && [message length]>0)
     {
         
 //        [self sendText:[NSString stringWithFormat:@"%@", message]];
