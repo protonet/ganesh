@@ -88,6 +88,9 @@ static AppController *sharedAppController = nil;
         [self runApp];
     }
 
+    [postField setTarget:self];
+    [postField setAction:@selector(postMessage:)];
+
 	[self createStatusBarItem];
     // autohide timeline window
     // [timelineWindow setHidesOnDeactivate:YES];
@@ -422,18 +425,10 @@ static AppController *sharedAppController = nil;
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
 }
 
-- (IBAction)postMessage:(id)sender
+- (void)postMessage:(id)sender
 {
     [socket sendMessage:[postField stringValue]];
     [postField setStringValue:@""];
-}
-
-- (IBAction)showNewMessage:(id)sender
-{
-    [NSApp activateIgnoringOtherApps:YES];
-    if (![postWindow isVisible])
-        [postWindow center];
-    [postWindow makeKeyAndOrderFront:nil];
 }
 
 - (IBAction)showTimeline:(id)sender

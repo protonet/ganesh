@@ -18,7 +18,6 @@
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
   IBOutlet NSTextField *postField;
-  IBOutlet NSWindow *postWindow;
   IBOutlet NSWindow *timelineWindow;
   IBOutlet WebView *webView;
 
@@ -50,7 +49,6 @@
 - (void)observeMessages;
 - (void)createStatusBarItem;
 - (IBAction)clearMessages:(id)sender;
-- (IBAction)showNewMessage:(id)sender;
-- (IBAction)postMessage:(id)sender;
+- (void)postMessage:(id)sender;
 
 @end
