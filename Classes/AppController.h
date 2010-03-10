@@ -11,6 +11,7 @@
 #import "Tweet.h"
 #import "Socket.h"
 #import "GaneshStatusView.h"
+#import "TimelineWindow.h"
 
 #import "MGTemplateEngine.h"
 
@@ -18,7 +19,7 @@
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
   IBOutlet NSTextField *postField;
-  IBOutlet NSWindow *timelineWindow;
+  IBOutlet TimelineWindow *timelineWindow;
   IBOutlet WebView *webView;
 
   IBOutlet NSTableView *tableView;
