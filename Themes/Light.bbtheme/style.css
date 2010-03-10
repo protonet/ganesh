@@ -207,5 +207,13 @@ a:hover {
 	display:none;
 }
 
-::-webkit-scrollbar { width: 16px; }
-::-webkit-scrollbar-thumb:vertical { height: 30px; border-width: 8 0 8 0; -webkit-border-image: url(scrollbar.png) 8 0 8 0 stretch stretch; } 
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    -webkit-border-image: url(scrollbar.png) 16 0 16 0;
+    border-color: transparent;
+    border-width: 16px 0;
+    min-height: 20px;
+}
