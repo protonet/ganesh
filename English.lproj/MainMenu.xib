@@ -23,10 +23,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="883"/>
 			<integer value="728"/>
 			<integer value="610"/>
 			<integer value="896"/>
-			<integer value="883"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -706,7 +706,7 @@
 						</object>
 						<object class="BWSplitView" id="318228853">
 							<reference key="NSNextResponder" ref="928181996"/>
-							<int key="NSvFlags">286</int>
+							<int key="NSvFlags">274</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="BWCustomView" id="351655143">
@@ -776,7 +776,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSTextField" id="312662153">
 											<reference key="NSNextResponder" ref="775546949"/>
-											<int key="NSvFlags">286</int>
+											<int key="NSvFlags">274</int>
 											<string key="NSFrameSize">{285, 70}</string>
 											<reference key="NSSuperview" ref="775546949"/>
 											<bool key="NSEnabled">YES</bool>
