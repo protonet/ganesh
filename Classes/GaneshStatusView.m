@@ -61,10 +61,6 @@
 
 - (void)mouseUp:(NSEvent *)event
 {
-    if(self.hasNewMessage){
-         self.newMessage = NO;
-        [self update];
-    }
     isMenuVisible = NO;
     [self setNeedsDisplay:YES];    
 }
@@ -73,6 +69,14 @@
     [[self menu] setDelegate:self];
     [statusItem popUpStatusItemMenu:[self menu]];
     [self setNeedsDisplay:YES];
+}
+
+- (void)setRead
+{
+    if(self.hasNewMessage){
+        self.newMessage = NO;
+        [self update];
+    }
 }
 
 - (void)setConnected {

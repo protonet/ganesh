@@ -97,6 +97,10 @@ static AppController *sharedAppController = nil;
     socket = [[Socket alloc] init];
 	
     [self observeMessages];
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(windowBecameMain:)
+               name:NSWindowDidBecomeMainNotification object:nil];
 }
 
 - (void) dealloc
@@ -215,7 +219,14 @@ static AppController *sharedAppController = nil;
 	[tableView reloadData];
 }
 
+- (void)windowBecameMain:(NSNotification*)notif
+{
+    NSWindow* w = [notif object];
 
+    if([[w title] isEqualToString:[timelineWindow title]]){
+        [statusItemView setRead];
+    }
+}
 
 
 //*************************************************************//
