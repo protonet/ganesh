@@ -23,6 +23,8 @@
 
 @implementation Socket
 @synthesize authenticated;
+@synthesize authenticityToken;
+@synthesize cookies;
 @synthesize serverUrl;
 @synthesize serverAddress;
 @synthesize serverPort;
@@ -127,22 +129,37 @@
 
 - (void)authenticateSocket {
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
-
+    NSHTTPURLResponse   * response;
+    NSError             * error;
+    NSString            * url;
+    
+    url = [NSString stringWithFormat:@"http://%@", self.serverUrl];
 	// Prepare URL request to get our authentication token
-    NSString *url = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
+    NSString *authUrl = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
              self.serverUrl, self.userName, self.password];
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authUrl]];
 
 	// Perform request and get JSON back as a NSData object
-	NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSData *responseBody = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
+                                                          forURL:[NSURL URLWithString:url]];
+    
+    DLog([[response allHeaderFields] description]);
+    DLog([self.cookies description]);
+    // store cookie
 
 	// Get JSON as a NSString from NSData response
-	NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+	NSString *json_string = [[NSString alloc] initWithData:responseBody encoding:NSUTF8StringEncoding];
 
 	NSDictionary *authentication_dict = [parser objectWithString:json_string];
 
-	NSLog(@"%@", json_string);
-	NSLog(@"%@", [authentication_dict objectForKey:@"token"]);
+	DLog(@"%@", json_string);
+	DLog(@"%@", [authentication_dict objectForKey:@"token"]);
+    
+    self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
 
 	// Now send the authentication-request
 	[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
@@ -181,9 +198,41 @@
 }
 
 - (void)sendMessage:(NSString*)message {
-	if([self streamsAreOk])
+	if([self streamsAreOk] && message != nil)
     {
-        [self sendText:[NSString stringWithFormat:@"%@", message]];
+        
+//        [self sendText:[NSString stringWithFormat:@"%@", message]];
+        //tweet[message] message_channel-id=1 tweet[socket_id]=1 tweet[text_extension]=''
+        NSString *post = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%d&%@=%d&%@=%@",
+                          @"authenticity_token", [self.authenticityToken urlEncode],
+                          [@"tweet[message]" urlEncode], [message urlEncode],
+                          @"message_channel_id", 1,
+                          [@"tweet[socket_id]" urlEncode], 1,
+                          [@"tweet[text_extension]" urlEncode], @""];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        NSString *postUrl = [NSString stringWithFormat:@"http://%@/tweets", self.serverUrl];
+        NSString *url = [NSString stringWithFormat:@"http://%@/tweets", self.serverUrl];
+
+        NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+        NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies];
+        // we are just recycling the original request
+        [request setAllHTTPHeaderFields:headers];
+        
+        [request setURL:[NSURL URLWithString:postUrl]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        DLog([[request allHTTPHeaderFields] description]);
+        
+        NSData* urlData; //returndata
+        NSURLResponse *response;
+        NSError *error;
+        
+        urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        DLog(@"urlData %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
     }
 }
 
@@ -224,6 +273,7 @@
                 NSString * string = [[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding];
 				[serverAnswerField setStringValue:string];
 				[[Messages sharedController] addMessageToTweets:string];
+                // TODO: {"x_target":"socket_id","socket_id":"..."}
                 [string release];
                 [dataBuffer release];
                 dataBuffer = nil;

@@ -52,6 +52,7 @@
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
 		279318D2108BC96900C7975F /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
+		27D1DD5C1147DA8700965893 /* NSString_urlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D1DD5B1147DA8700965893 /* NSString_urlEncode.m */; };
 		27F29F5110C5B3EF0056C09C /* tap.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F29F3E10C5B3E20056C09C /* tap.kext */; };
 		27F29F5210C5B3EF0056C09C /* tun.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F29F3F10C5B3E20056C09C /* tun.kext */; };
 		4D190C4211264B0500BA1A75 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D190C4111264B0500BA1A75 /* Messages.m */; };
@@ -257,6 +258,8 @@
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
 		2793188F108BC93E00C7975F /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		27D1DD5A1147DA8700965893 /* NSString_urlEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_urlEncode.h; sourceTree = "<group>"; };
+		27D1DD5B1147DA8700965893 /* NSString_urlEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_urlEncode.m; sourceTree = "<group>"; };
 		27F29F3E10C5B3E20056C09C /* tap.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; name = tap.kext; path = tuntaposx/tuntap/tap.kext; sourceTree = "<group>"; };
 		27F29F3F10C5B3E20056C09C /* tun.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; name = tun.kext; path = tuntaposx/tuntap/tun.kext; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -367,6 +370,8 @@
 				4D6650C7112D984A0011DA0E /* IPFormatter.m */,
 				4D65A3CF11474C3D00F8E737 /* NSScroller_Tweetie.h */,
 				4D65A3D011474C3D00F8E737 /* NSScroller_Tweetie.m */,
+				27D1DD5A1147DA8700965893 /* NSString_urlEncode.h */,
+				27D1DD5B1147DA8700965893 /* NSString_urlEncode.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				4D65A1831145C85200F8E737 /* NSArray_DeepMutableCopy.m in Sources */,
 				4D65A1841145C85200F8E737 /* NSDictionary_DeepMutableCopy.m in Sources */,
 				274622F91146615D00ACC69E /* GaneshStatusView.m in Sources */,
+				27D1DD5C1147DA8700965893 /* NSString_urlEncode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -201,7 +201,7 @@ static AppController *sharedAppController = nil;
 	
 	// Process the template and display the results.
 	NSString *result = [engine processTemplateInFileAtPath:templatePath withVariables:variables];
-	DLog(@"Processed template:\r%@", result);
+	DLog(@"Processed template");
     
     //HTML Encode the Resource Path of the main bundle and change single slashes to double slashes
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];

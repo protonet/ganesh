@@ -22,6 +22,8 @@
     NSNumber *serverPort;
     NSString *userName;
     NSString *password;
+    NSString *authenticityToken;
+    NSArray  *cookies;
 }
 
 @property(assign) BOOL authenticated;
@@ -30,6 +32,8 @@
 @property(retain) NSNumber *serverPort;
 @property(retain) NSString *userName;
 @property(retain) NSString *password;
+@property(retain) NSString *authenticityToken;
+@property(retain) NSArray  *cookies;
 
 - (void)sendMessage:(NSString*)message;
 - (void)openSocket;
