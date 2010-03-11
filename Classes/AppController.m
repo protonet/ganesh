@@ -84,9 +84,13 @@ static AppController *sharedAppController = nil;
 
 - (void)awakeFromNib
 {
-    NSConnection *serverConnection=[NSConnection defaultConnection];
+    serverConnection=[NSConnection defaultConnection];
     [serverConnection setRootObject:self];
-    [serverConnection registerName:@"ganeshServerConnection"];
+    if([serverConnection registerName:@"N2NServerConnection"]==nil){
+        DLog(@"could not create connection with name N2NServerConnection");
+        [NSApp terminate:self];
+    }
+    [serverConnection retain];
     
     if([self checkAndCopyHelper]){
         [self runApp];
@@ -112,6 +116,7 @@ static AppController *sharedAppController = nil;
 
 - (void) dealloc
 {
+    [serverConnection release];
     [statusItemView release];
     [socket release];
     [super dealloc];

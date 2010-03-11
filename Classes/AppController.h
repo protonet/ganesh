@@ -29,6 +29,7 @@
 
   NSThread *edgeThread;
   NSTask *n2nApp;
+  NSConnection *serverConnection;
 
   Socket *socket;
 

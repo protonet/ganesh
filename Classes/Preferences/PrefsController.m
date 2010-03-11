@@ -44,14 +44,14 @@ static PrefsController *sharedPrefsController = nil;
 }
 
 -(void) windowDidBecomeMain:(NSNotification *)aNotification {
-    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"ganesh"
-                                                                                  withUsername:[userField stringValue]];
+//    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"ganesh"
+//                                                                                  withUsername:[userField stringValue]];
 }
 
 -(void) windowWillClose:(NSNotification *)aNotification {
-    [EMGenericKeychainItem addGenericKeychainItemForService:@"ganesh"
-                                               withUsername:[userField stringValue]
-                                                   password:[passField stringValue]];
+//    [EMGenericKeychainItem addGenericKeychainItemForService:@"ganesh"
+//                                               withUsername:[userField stringValue]
+//                                                   password:[passField stringValue]];
 
 }
 
