@@ -90,8 +90,7 @@ static AppController *sharedAppController = nil;
         DLog(@"could not create connection with name N2NServerConnection");
         [NSApp terminate:self];
     }
-    [serverConnection retain];
-    
+
     if([self checkAndCopyHelper]){
         [self runApp];
     }
@@ -116,7 +115,6 @@ static AppController *sharedAppController = nil;
 
 - (void) dealloc
 {
-    [serverConnection release];
     [statusItemView release];
     [socket release];
     [super dealloc];
