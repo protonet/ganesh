@@ -127,6 +127,15 @@
     }
 }
 
+- (void)rescheduleConnect {
+    [self closeStreams];
+    [NSTimer scheduledTimerWithTimeInterval:(60.0f/4)
+                                     target:self
+                                   selector:@selector(openSocket)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
 - (void)authenticateSocket {
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
     NSHTTPURLResponse   * response;
@@ -160,17 +169,21 @@
 	DLog(@"%@", [authentication_dict objectForKey:@"token"]);
     
     self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
+    if(self.authenticityToken == nil){
+        [self rescheduleConnect];
+    }
+    else {
+        // Now send the authentication-request
+        [self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
+                        [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
 
-	// Now send the authentication-request
-	[self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
-					[authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
-
-    self.authenticated = YES;
-    [NSTimer scheduledTimerWithTimeInterval:30
-                                     target:self
-                                   selector:@selector(ping)
-                                   userInfo:nil
-                                    repeats:NO];
+        self.authenticated = YES;
+        [NSTimer scheduledTimerWithTimeInterval:30
+                                         target:self
+                                       selector:@selector(ping)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
 }
 
 - (void)openStreams {
@@ -282,8 +295,7 @@
         case NSStreamEventErrorOccurred:
         case NSStreamEventEndEncountered:
             self.authenticated = NO;
-            [self closeStreams];
-            [NSTimer scheduledTimerWithTimeInterval:(60.0f/4) target:self selector:@selector(openSocket) userInfo:nil repeats:NO];
+            [self rescheduleConnect];
             break;
         case NSStreamEventHasSpaceAvailable:
             if (aStream == outputStream) {
