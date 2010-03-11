@@ -89,6 +89,7 @@
 		4D7105FD10EECB050066AC0C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105ED10EECB050066AC0C /* Tweet.m */; };
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
 		4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5887D114813C1005DAEB4 /* TimelineWindow.m */; };
+		4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */; };
 		4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5EE481142816600277CE6 /* PreferenceWindow.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -329,6 +330,8 @@
 		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = SOURCE_ROOT; };
 		4DA5887C114813C1005DAEB4 /* TimelineWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineWindow.h; sourceTree = "<group>"; };
 		4DA5887D114813C1005DAEB4 /* TimelineWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineWindow.m; sourceTree = "<group>"; };
+		4DA5897D1148FC7C005DAEB4 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
+		4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
 		4DE5EE471142816600277CE6 /* PreferenceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindow.h; sourceTree = "<group>"; };
 		4DE5EE481142816600277CE6 /* PreferenceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindow.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,6 +359,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4DA5897C1148FC7C005DAEB4 /* Keychain */,
 				274624C911466E4500ACC69E /* Debug.h */,
 				274622C111465F7100ACC69E /* Menu */,
 				4D65A1651145C85200F8E737 /* MGTemplateEngine */,
@@ -675,6 +679,15 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		4DA5897C1148FC7C005DAEB4 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				4DA5897D1148FC7C005DAEB4 /* EMKeychainItem.h */,
+				4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -844,6 +857,7 @@
 				274622F91146615D00ACC69E /* GaneshStatusView.m in Sources */,
 				27D1DD5C1147DA8700965893 /* NSString_urlEncode.m in Sources */,
 				4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */,
+				4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
