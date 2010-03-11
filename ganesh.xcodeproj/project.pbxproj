@@ -90,6 +90,7 @@
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
 		4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5887D114813C1005DAEB4 /* TimelineWindow.m */; };
 		4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */; };
+		4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA58AC711495816005DAEB4 /* bullet_key.png */; };
 		4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5EE481142816600277CE6 /* PreferenceWindow.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -332,6 +333,7 @@
 		4DA5887D114813C1005DAEB4 /* TimelineWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineWindow.m; sourceTree = "<group>"; };
 		4DA5897D1148FC7C005DAEB4 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
 		4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
+		4DA58AC711495816005DAEB4 /* bullet_key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet_key.png; path = images/bullet_key.png; sourceTree = "<group>"; };
 		4DE5EE471142816600277CE6 /* PreferenceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindow.h; sourceTree = "<group>"; };
 		4DE5EE481142816600277CE6 /* PreferenceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindow.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				4D19101B11284D0D00BA1A75 /* dsa_pub.pem */,
 				4D6650AF112D6B6E0011DA0E /* general.png */,
 				4D6650B0112D6B6E0011DA0E /* network.png */,
+				4DA58AC711495816005DAEB4 /* bullet_key.png */,
 				4D190E9A1127037500BA1A75 /* ptn_icon_inactive_message.png */,
 				4D190E9B1127037500BA1A75 /* ptn_icon_inactive.png */,
 				4D190EA41127038B00BA1A75 /* ptn_icon_active_message.png */,
@@ -776,6 +779,7 @@
 				4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */,
 				4D6650B1112D6B6E0011DA0E /* general.png in Resources */,
 				4D6650B2112D6B6E0011DA0E /* network.png in Resources */,
+				4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
