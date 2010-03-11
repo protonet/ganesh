@@ -13,6 +13,7 @@
 @implementation GaneshStatusView
 @synthesize statusItem;
 @synthesize connected;
+@synthesize vpn;
 @synthesize newMessage;
 
 - (id)initWithFrame:(NSRect)frame
@@ -27,18 +28,56 @@
         statusHasVpnNoMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active" ofType:@"png"]];
         statusHasVpnHasMessageImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"ptn_icon_active_message" ofType:@"png"]];
         
+        keyImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"bullet_key" ofType:@"png"]];
+        
         [super setImage: statusNoVpnNoMessageImage];
+        
+        // setup KV observers
+        [self addObserver:self
+               forKeyPath:@"connected"
+                  options:(NSKeyValueObservingOptionNew |
+                           NSKeyValueObservingOptionOld)
+                  context:nil];
+        [self addObserver:self
+               forKeyPath:@"newMessage"
+                  options:(NSKeyValueObservingOptionNew |
+                           NSKeyValueObservingOptionOld)
+                  context:nil];
+        [self addObserver:self
+               forKeyPath:@"vpn"
+                  options:(NSKeyValueObservingOptionNew |
+                           NSKeyValueObservingOptionOld)
+                  context:nil];
+        
     }
     
     return self;
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    [self update];
+}
+
 
 - (void)drawRect:(NSRect)rect {
     // Draw status bar background, highlighted if clicked
     [statusItem drawStatusBarBackgroundInRect:[self bounds]
                                 withHighlight:isMenuVisible];
     
+    NSRect bounds = NSMakeRect(0, 0, 22, 22);
+    
     [super drawRect:rect];
+    if(self.hasVpn){
+        // TODO: this might be wrong drawInRect code
+        [keyImage drawInRect:rect
+                    fromRect:bounds
+                   operation:NSCompositeSourceOver
+                    fraction:1.0];
+    }
 }
 
 - (void)menuWillOpen:(NSMenu *)menu {

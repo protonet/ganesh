@@ -151,13 +151,11 @@ static AppController *sharedAppController = nil;
             // growl notification for tweet
             [[GrowlNotifier sharedController] showNewTweet:tweet];
             statusItemView.newMessage = YES;
-            [statusItemView update];
         }
         [self renderTemplate];
     }
     else if([keyPath isEqual:@"authenticated"]){
         statusItemView.connected = socket.authenticated;
-        [statusItemView update];
     }
 }
 
@@ -332,10 +330,10 @@ static AppController *sharedAppController = nil;
 
 
 - (IBAction)connect:(id)sender {
-//    [statusItem setImage:statusHasVpnNoMessageImage];
-    [statusMenu removeItemAtIndex:0];
-    [statusMenu insertItemWithTitle:@"Disconnect..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:0];
-    [[statusMenu itemAtIndex:0] setTarget:self];
+    statusItemView.vpn = YES;
+    [statusMenu removeItemAtIndex:1];
+    [statusMenu insertItemWithTitle:@"Disconnect VPN..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:1];
+    [[statusMenu itemAtIndex:1] setTarget:self];
 
 
     [[NSDistributedNotificationCenter defaultCenter]
@@ -422,10 +420,10 @@ static AppController *sharedAppController = nil;
 
 - (IBAction)disconnect:(id)sender
 {
-//    [statusItem setImage:statusNoVpnNoMessageImage];
-    [statusMenu removeItemAtIndex:0];
-    [statusMenu insertItemWithTitle:@"Connect..." action:@selector(connect:) keyEquivalent:@"" atIndex:0];
-    [[statusMenu itemAtIndex:0] setTarget:self];
+    statusItemView.vpn = NO;
+    [statusMenu removeItemAtIndex:1];
+    [statusMenu insertItemWithTitle:@"Connect VPN..." action:@selector(connect:) keyEquivalent:@"" atIndex:1];
+    [[statusMenu itemAtIndex:1] setTarget:self];
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
