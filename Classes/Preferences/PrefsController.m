@@ -14,6 +14,7 @@
 
 static NSString *GeneralToolbarItemIdentifier  = @"General";
 static NSString *NetworkToolbarItemIdentifier  = @"Network";
+static NSString *AdvancedToolbarItemIdentifier  = @"Advanced";
 
 static PrefsController *sharedPrefsController = nil;
 
@@ -79,6 +80,7 @@ static PrefsController *sharedPrefsController = nil;
 	return [NSArray arrayWithObjects:
 		GeneralToolbarItemIdentifier,
 		NetworkToolbarItemIdentifier,
+		AdvancedToolbarItemIdentifier,
 		nil];
 }
 
@@ -87,6 +89,7 @@ static PrefsController *sharedPrefsController = nil;
 	return [NSArray arrayWithObjects:
 		GeneralToolbarItemIdentifier,
 		NetworkToolbarItemIdentifier,
+		AdvancedToolbarItemIdentifier,
 		nil];
 }
 
@@ -95,6 +98,7 @@ static PrefsController *sharedPrefsController = nil;
 	return [NSArray arrayWithObjects:
 		GeneralToolbarItemIdentifier,
 		NetworkToolbarItemIdentifier,
+		AdvancedToolbarItemIdentifier,
 		nil];
 }
 
@@ -111,6 +115,11 @@ static PrefsController *sharedPrefsController = nil;
 		[item setImage:[NSImage imageNamed:@"network"]];
 		[item setTarget:self];
 		[item setAction:@selector(toggleActivePreferenceView:)];
+	} else if ([identifier isEqualToString:AdvancedToolbarItemIdentifier]) {
+		[item setLabel:AdvancedToolbarItemIdentifier];
+		[item setImage:[NSImage imageNamed:@"advanced"]];
+		[item setTarget:self];
+		[item setAction:@selector(toggleActivePreferenceView:)];
 	} else
 		item = nil;
 	return item; 
@@ -124,6 +133,8 @@ static PrefsController *sharedPrefsController = nil;
 		view = generalPreferenceView;
 	else if ([[sender itemIdentifier] isEqualToString:NetworkToolbarItemIdentifier])
 		view = networkPreferenceView;
+	else if ([[sender itemIdentifier] isEqualToString:AdvancedToolbarItemIdentifier])
+		view = advancedPreferenceView;
 
 	[self setActiveView:view animate:YES];
 	[[self window] setTitle:[sender itemIdentifier]];
