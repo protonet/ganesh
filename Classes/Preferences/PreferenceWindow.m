@@ -20,4 +20,10 @@
     }
     return [super performKeyEquivalent:event];
 }
+
+- (void)resignMainWindow {
+    // automatically close the preference window when inactive
+    [self performClose:self];
+    [super resignMainWindow];
+}
 @end
