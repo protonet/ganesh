@@ -7,3 +7,4 @@
 - we store the ip adress as integer, that makes validation easier. maybe change that later
 - autoreconnect when changing node settings
 - observe network for changes to decide whether to connect to server or not
+- use addSubView for drawing the lock icon instead of overriding using the [vpnImage drawrRect...
