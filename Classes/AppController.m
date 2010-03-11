@@ -90,7 +90,6 @@ static AppController *sharedAppController = nil;
         DLog(@"could not create connection with name N2NServerConnection");
         [NSApp terminate:self];
     }
-
     if([self checkAndCopyHelper]){
         [self runApp];
     }
