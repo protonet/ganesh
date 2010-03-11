@@ -8,6 +8,7 @@
 
 #import "PrefsController.h"
 #import "PreferenceWindow.h"
+#import "EMKeychainItem.h"
 
 #define WINDOW_TITLE_HEIGHT 78
 
@@ -42,8 +43,20 @@ static PrefsController *sharedPrefsController = nil;
 
 }
 
+-(void) windowDidBecomeMain:(NSNotification *)aNotification {
+    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"ganesh"
+                                                                                  withUsername:[userField stringValue]];
+}
+
 -(void) windowWillClose:(NSNotification *)aNotification {
-    // [self saveToPreferences:self];
+    [EMGenericKeychainItem addGenericKeychainItemForService:@"ganesh"
+                                               withUsername:[userField stringValue]
+                                                   password:[passField stringValue]];
+
+}
+
+-(void) windowDidResignMain:(NSNotification *)aNotification {
+    [[self window] performClose:self];
 }
 
 - (void)awakeFromNib

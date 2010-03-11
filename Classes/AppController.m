@@ -84,6 +84,10 @@ static AppController *sharedAppController = nil;
 
 - (void)awakeFromNib
 {
+    NSConnection *serverConnection=[NSConnection defaultConnection];
+    [serverConnection setRootObject:self];
+    [serverConnection registerName:@"ganeshServerConnection"];
+    
     if([self checkAndCopyHelper]){
         [self runApp];
     }
@@ -98,7 +102,7 @@ static AppController *sharedAppController = nil;
     [self renderTemplate];
     // TODO: does this need a dealloc socket release?
     socket = [[Socket alloc] init];
-	
+    
     [self observeMessages];
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self

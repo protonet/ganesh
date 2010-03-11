@@ -7,6 +7,7 @@
 //
 
 #import "PreferenceWindow.h"
+#import "EMKeychainItem.h"
 
 
 @implementation PreferenceWindow
@@ -21,9 +22,4 @@
     return [super performKeyEquivalent:event];
 }
 
-- (void)resignMainWindow {
-    // automatically close the preference window when inactive
-    [self performClose:self];
-    [super resignMainWindow];
-}
 @end

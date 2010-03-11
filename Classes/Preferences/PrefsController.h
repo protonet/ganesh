@@ -13,6 +13,8 @@
     IBOutlet NSWindow *window;
 	IBOutlet NSView *generalPreferenceView;
 	IBOutlet NSView *networkPreferenceView;
+    IBOutlet NSTextField *userField;
+    IBOutlet NSTextField *passField;
 	
 	IBOutlet NSView *activeContentView;
 }
