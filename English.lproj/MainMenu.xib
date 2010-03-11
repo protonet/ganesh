@@ -23,6 +23,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="711"/>
 			<integer value="972"/>
 			<integer value="610"/>
 			<integer value="895"/>
@@ -136,7 +137,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="847863024">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -288,6 +289,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{350, 389}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 578}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -296,7 +298,7 @@
 				<string key="NSTitle">Main Menu</string>
 				<object class="NSMutableArray" key="NSMenuItems">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSMenuItem" id="818263673">
+					<object class="NSMenuItem" id="207550072">
 						<reference key="NSMenu" ref="495184352"/>
 						<string key="NSTitle">Ganesh</string>
 						<string key="NSKeyEquiv"/>
@@ -304,20 +306,20 @@
 						<reference key="NSOnImage" ref="226274212"/>
 						<reference key="NSMixedImage" ref="522193953"/>
 						<string key="NSAction">submenuAction:</string>
-						<object class="NSMenu" key="NSSubmenu" id="660581873">
+						<object class="NSMenu" key="NSSubmenu" id="972792223">
 							<string key="NSTitle">Ganesh</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMenuItem" id="417331226">
-									<reference key="NSMenu" ref="660581873"/>
+								<object class="NSMenuItem" id="535155981">
+									<reference key="NSMenu" ref="972792223"/>
 									<string key="NSTitle">About Ganesh</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="226274212"/>
 									<reference key="NSMixedImage" ref="522193953"/>
 								</object>
-								<object class="NSMenuItem" id="709044435">
-									<reference key="NSMenu" ref="660581873"/>
+								<object class="NSMenuItem" id="809410185">
+									<reference key="NSMenu" ref="972792223"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
 									<string key="NSTitle"/>
@@ -326,8 +328,8 @@
 									<reference key="NSOnImage" ref="226274212"/>
 									<reference key="NSMixedImage" ref="522193953"/>
 								</object>
-								<object class="NSMenuItem" id="35798891">
-									<reference key="NSMenu" ref="660581873"/>
+								<object class="NSMenuItem" id="1043031222">
+									<reference key="NSMenu" ref="972792223"/>
 									<string key="NSTitle">Quit Application</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
@@ -485,7 +487,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{0, 0}, {285, 384}}</string>
 				<int key="NSWTFlags">1685585920</int>
-				<string key="NSWindowTitle">Timeline</string>
+				<string key="NSWindowTitle">π ganesh</string>
 				<string key="NSWindowClass">TimelineWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -793,7 +795,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">orderFrontStandardAboutPanel:</string>
 						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="417331226"/>
+						<reference key="destination" ref="535155981"/>
 					</object>
 					<int key="connectionID">985</int>
 				</object>
@@ -801,7 +803,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">terminate:</string>
 						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="35798891"/>
+						<reference key="destination" ref="1043031222"/>
 					</object>
 					<int key="connectionID">989</int>
 				</object>
@@ -964,7 +966,7 @@
 							<reference ref="136297252"/>
 							<reference ref="1018337924"/>
 							<reference ref="809265301"/>
-							<reference ref="818263673"/>
+							<reference ref="207550072"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1147,38 +1149,38 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">971</int>
-						<reference key="object" ref="818263673"/>
+						<reference key="object" ref="207550072"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="660581873"/>
+							<reference ref="972792223"/>
 						</object>
 						<reference key="parent" ref="495184352"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">972</int>
-						<reference key="object" ref="660581873"/>
+						<reference key="object" ref="972792223"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="417331226"/>
-							<reference ref="709044435"/>
-							<reference ref="35798891"/>
+							<reference ref="535155981"/>
+							<reference ref="809410185"/>
+							<reference ref="1043031222"/>
 						</object>
-						<reference key="parent" ref="818263673"/>
+						<reference key="parent" ref="207550072"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">973</int>
-						<reference key="object" ref="417331226"/>
-						<reference key="parent" ref="660581873"/>
+						<reference key="object" ref="535155981"/>
+						<reference key="parent" ref="972792223"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">978</int>
-						<reference key="object" ref="709044435"/>
-						<reference key="parent" ref="660581873"/>
+						<reference key="object" ref="809410185"/>
+						<reference key="parent" ref="972792223"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">983</int>
-						<reference key="object" ref="35798891"/>
-						<reference key="parent" ref="660581873"/>
+						<reference key="object" ref="1043031222"/>
+						<reference key="parent" ref="972792223"/>
 					</object>
 				</object>
 			</object>
@@ -1279,9 +1281,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{345, 170}, {350, 389}}</string>
+					<string>{{294, 170}, {350, 389}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{345, 170}, {350, 389}}</string>
+					<string>{{294, 170}, {350, 389}}</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.brandonwalkin.BWToolkit</string>
