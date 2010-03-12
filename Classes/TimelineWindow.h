@@ -11,8 +11,10 @@
 
 @interface TimelineWindow : NSWindow {
     BOOL isOpen;
+    BOOL isFloating;
 }
 
 - (void)toggle;
+- (void)shouldFloat:(BOOL)enableFloating;
 
 @end

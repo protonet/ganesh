@@ -11,6 +11,40 @@
 
 @implementation TimelineWindow
 
+- (id)initWithContentRect:(NSRect)contentRect
+                styleMask:(unsigned int)styleMask
+                  backing:(NSBackingStoreType)backingType
+                    defer:(BOOL)flag
+{
+    if(self = [super initWithContentRect:contentRect styleMask:styleMask backing:backingType defer:flag]){
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        isFloating               = [defaults boolForKey:@"enableFloating"];
+        [self shouldFloat:isFloating];
+
+        [defaults addObserver:self forKeyPath:@"enableFloating" options:0 context:0];
+    }
+    return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if([keyPath isEqual:@"enableFloating"]){
+        isFloating = [[NSUserDefaults standardUserDefaults] boolForKey:@"enableFloating"];
+        [self shouldFloat:isFloating];
+    }
+}
+
+- (void)resignMainWindow
+{
+    if (!isFloating) {
+        [self performClose:self];
+    }
+    [super resignMainWindow];
+}
+
 - (BOOL)performKeyEquivalent:(NSEvent *)event {
     if (([event modifierFlags] & NSDeviceIndependentModifierFlagsMask) == NSCommandKeyMask) {
         if ([[event charactersIgnoringModifiers] isEqualToString:@"w"]) {
@@ -47,4 +81,13 @@
     }
 }
 
+- (void)shouldFloat:(BOOL)enableFloating
+{
+    if(enableFloating){
+        [self setLevel:NSFloatingWindowLevel];
+    }
+    else {
+        [self setLevel:NSNormalWindowLevel];
+    }
+}
 @end

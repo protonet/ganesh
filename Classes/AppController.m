@@ -82,8 +82,19 @@ static AppController *sharedAppController = nil;
     return self;
 }
 
+- (void) initDefaults
+{
+    NSString *path;
+    NSDictionary *dict;
+    path = [[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"];
+    dict = [NSDictionary dictionaryWithContentsOfFile:path];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
+}
+
 - (void)awakeFromNib
 {
+    [self initDefaults];
+
     serverConnection=[NSConnection defaultConnection];
     [serverConnection setRootObject:self];
     if(![serverConnection registerName:@"N2NServerConnection"]){
@@ -97,14 +108,11 @@ static AppController *sharedAppController = nil;
     [postField setTarget:self];
     [postField setAction:@selector(postMessage:)];
 
-	[self createStatusBarItem];
-    // autohide timeline window
-    // [timelineWindow setHidesOnDeactivate:YES];
-    [timelineWindow setLevel:NSFloatingWindowLevel];
+    [self createStatusBarItem];
     [self renderTemplate];
     // TODO: does this need a dealloc socket release?
     socket = [[Socket alloc] init];
-    
+
     [self observeMessages];
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self

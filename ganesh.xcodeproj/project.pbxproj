@@ -52,6 +52,7 @@
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
 		279318D2108BC96900C7975F /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
+		27B17F6E114A765200D523DD /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27B17F6D114A765200D523DD /* Defaults.plist */; };
 		27D1DD5C1147DA8700965893 /* NSString_urlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D1DD5B1147DA8700965893 /* NSString_urlEncode.m */; };
 		27F29F5110C5B3EF0056C09C /* tap.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F29F3E10C5B3E20056C09C /* tap.kext */; };
 		27F29F5210C5B3EF0056C09C /* tun.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F29F3F10C5B3E20056C09C /* tun.kext */; };
@@ -259,6 +260,7 @@
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
 		2793188F108BC93E00C7975F /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		27B17F6D114A765200D523DD /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		27D1DD5A1147DA8700965893 /* NSString_urlEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_urlEncode.h; sourceTree = "<group>"; };
 		27D1DD5B1147DA8700965893 /* NSString_urlEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_urlEncode.m; sourceTree = "<group>"; };
 		27F29F3E10C5B3E20056C09C /* tap.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; name = tap.kext; path = tuntaposx/tuntap/tap.kext; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				2780362D0FD71D7200D57E59 /* ptn_icon_active.png */,
 				27F29F5010C5B3E40056C09C /* Tuntap */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				27B17F6D114A765200D523DD /* Defaults.plist */,
 				2740EE3310A38F0800E11BDD /* Preferences.xib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -772,6 +775,7 @@
 				4D190EA51127038B00BA1A75 /* ptn_icon_active_message.png in Resources */,
 				4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */,
 				4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */,
+				27B17F6E114A765200D523DD /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

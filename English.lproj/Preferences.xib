@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="13"/>
 			<integer value="14"/>
+			<integer value="13"/>
 			<integer value="221"/>
 			<integer value="35"/>
 		</object>
@@ -393,8 +393,9 @@
 			<object class="NSUserDefaultsController" id="826071835">
 				<object class="NSMutableArray" key="NSDeclaredKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>disableFloating</string>
+					<string>enableFloating</string>
 					<string>enableGrowl</string>
-					<string>disableGrowl</string>
 				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
@@ -483,7 +484,7 @@
 						<object class="NSButtonCell" key="NSCell" id="245237942">
 							<int key="NSCellFlags">-2080244224</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Disable growl notifications</string>
+							<string key="NSContents">Enable growl notifications</string>
 							<reference key="NSSupport" ref="45045991"/>
 							<reference key="NSControlView" ref="283183313"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -503,14 +504,14 @@
 					</object>
 					<object class="NSButton" id="913065804">
 						<reference key="NSNextResponder" ref="536867999"/>
-						<int key="NSvFlags">-2147483380</int>
+						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{34, 33}, {198, 18}}</string>
 						<reference key="NSSuperview" ref="536867999"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="738994248">
 							<int key="NSCellFlags">-2080244224</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Timeline should stay on top</string>
+							<string key="NSContents">Always stay on top</string>
 							<reference key="NSSupport" ref="45045991"/>
 							<reference key="NSControlView" ref="913065804"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -858,23 +859,43 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.disableGrowl</string>
+						<string key="label">value: values.enableFloating</string>
+						<reference key="source" ref="913065804"/>
+						<reference key="destination" ref="826071835"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="913065804"/>
+							<reference key="NSDestination" ref="826071835"/>
+							<string key="NSLabel">value: values.enableFloating</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.enableFloating</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<integer value="1" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">237</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.enableGrowl</string>
 						<reference key="source" ref="283183313"/>
 						<reference key="destination" ref="826071835"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="283183313"/>
 							<reference key="NSDestination" ref="826071835"/>
-							<string key="NSLabel">value: values.disableGrowl</string>
+							<string key="NSLabel">value: values.enableGrowl</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.disableGrowl</string>
+							<string key="NSKeyPath">values.enableGrowl</string>
 							<object class="NSDictionary" key="NSOptions">
 								<string key="NS.key.0">NSNullPlaceholder</string>
-								<integer value="0" key="NS.object.0"/>
+								<integer value="1" key="NS.object.0"/>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">231</int>
+					<int key="connectionID">238</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1379,7 +1400,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">231</int>
+			<int key="maxID">238</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

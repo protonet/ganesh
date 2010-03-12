@@ -69,9 +69,9 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
 
         // watch for changes in growl pref pane
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        disableGrowl     = [defaults boolForKey:@"disableGrowl"];
+        enableGrowl     = [defaults boolForKey:@"enableGrowl"];
 
-        [defaults addObserver:self forKeyPath:@"disableGrowl" options:0 context:0];
+        [defaults addObserver:self forKeyPath:@"enableGrowl" options:0 context:0];
     }
     return self;
 }
@@ -81,15 +81,15 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqual:@"disableGrowl"]) {
-        disableGrowl = [object boolForKey:@"disableGrowl"];
+    if ([keyPath isEqual:@"enableGrowl"]) {
+        enableGrowl = [object boolForKey:@"enableGrowl"];
     }
 }
 
 
 - (void)showNewTweet:(Tweet*)tweet
 {
-    if (!disableGrowl && tweet) {
+    if (enableGrowl && tweet) {
         [GrowlApplicationBridge notifyWithTitle:tweet.author
                                     description:tweet.message
                                notificationName:@"Tweet"

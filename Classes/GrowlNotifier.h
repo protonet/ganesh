@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface GrowlNotifier: NSObject <GrowlApplicationBridgeDelegate> {
-    BOOL disableGrowl;
+    BOOL enableGrowl;
 }
 
 + (GrowlNotifier*)sharedController;
