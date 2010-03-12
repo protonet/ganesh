@@ -107,17 +107,17 @@ static PrefsController *sharedPrefsController = nil;
 	NSToolbarItem *item = [[[NSToolbarItem alloc] initWithItemIdentifier:identifier] autorelease];
 	if ([identifier isEqualToString:GeneralToolbarItemIdentifier]) {
 		[item setLabel:GeneralToolbarItemIdentifier];
-		[item setImage:[NSImage imageNamed:@"general"]];
+		[item setImage:[NSImage imageNamed:@"NSBonjour"]];
 		[item setTarget:self];
 		[item setAction:@selector(toggleActivePreferenceView:)];
 	} else if ([identifier isEqualToString:NetworkToolbarItemIdentifier]) {
 		[item setLabel:NetworkToolbarItemIdentifier];
-		[item setImage:[NSImage imageNamed:@"network"]];
+		[item setImage:[NSImage imageNamed:@"NSNetwork"]];
 		[item setTarget:self];
 		[item setAction:@selector(toggleActivePreferenceView:)];
 	} else if ([identifier isEqualToString:AdvancedToolbarItemIdentifier]) {
 		[item setLabel:AdvancedToolbarItemIdentifier];
-		[item setImage:[NSImage imageNamed:@"advanced"]];
+		[item setImage:[NSImage imageNamed:@"NSAdvanced"]];
 		[item setTarget:self];
 		[item setAction:@selector(toggleActivePreferenceView:)];
 	} else
