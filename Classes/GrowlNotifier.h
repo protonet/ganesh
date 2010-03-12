@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface GrowlNotifier: NSObject <GrowlApplicationBridgeDelegate> {
-
+    BOOL disableGrowl;
 }
+
 + (GrowlNotifier*)sharedController;
 - (void)showNewTweet:(id)tweet;
 

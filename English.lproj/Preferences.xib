@@ -12,10 +12,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="14"/>
 			<integer value="13"/>
-			<integer value="35"/>
+			<integer value="14"/>
 			<integer value="221"/>
+			<integer value="35"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -391,6 +391,11 @@
 				<string key="NSClassName">IPFormatter</string>
 			</object>
 			<object class="NSUserDefaultsController" id="826071835">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>enableGrowl</string>
+					<string>disableGrowl</string>
+				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSNumberFormatter" id="638126783">
@@ -472,13 +477,13 @@
 					<object class="NSButton" id="283183313">
 						<reference key="NSNextResponder" ref="536867999"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{34, 35}, {198, 18}}</string>
+						<string key="NSFrame">{{34, 75}, {198, 18}}</string>
 						<reference key="NSSuperview" ref="536867999"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="245237942">
 							<int key="NSCellFlags">-2080244224</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Enable growl notifications</string>
+							<string key="NSContents">Disable growl notifications</string>
 							<reference key="NSSupport" ref="45045991"/>
 							<reference key="NSControlView" ref="283183313"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -498,8 +503,8 @@
 					</object>
 					<object class="NSButton" id="913065804">
 						<reference key="NSNextResponder" ref="536867999"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{34, 79}, {198, 18}}</string>
+						<int key="NSvFlags">-2147483380</int>
+						<string key="NSFrame">{{34, 33}, {198, 18}}</string>
 						<reference key="NSSuperview" ref="536867999"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="738994248">
@@ -851,6 +856,26 @@
 					</object>
 					<int key="connectionID">226</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.disableGrowl</string>
+						<reference key="source" ref="283183313"/>
+						<reference key="destination" ref="826071835"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="283183313"/>
+							<reference key="NSDestination" ref="826071835"/>
+							<string key="NSLabel">value: values.disableGrowl</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.disableGrowl</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">231</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1171,8 +1196,8 @@
 						<reference key="object" ref="536867999"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="913065804"/>
 							<reference ref="283183313"/>
+							<reference ref="913065804"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Advanced</string>
@@ -1311,7 +1336,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{242, 382}, {295, 131}}</string>
+					<string>{{534, 376}, {295, 131}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1354,7 +1379,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">226</int>
+			<int key="maxID">231</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
