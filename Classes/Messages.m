@@ -57,7 +57,13 @@ static Messages *sharedMessagesController = nil;
 - (id)init
 {
     if (self = [super init]) {
-        self.messages = [[NSMutableArray alloc] init];
+        NSString *tweetPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tweets"];
+
+        // try to initialize messages from cache directory
+        self.messages = [[NSMutableArray alloc] initWithContentsOfFile:tweetPath];
+        if (self.messages == nil) {
+            self.messages = [[NSMutableArray alloc] init];
+        }
     }
 
     return self;

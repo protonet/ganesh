@@ -174,6 +174,12 @@ static AppController *sharedAppController = nil;
     [n2nApp terminate];
     [n2nApp waitUntilExit];
     [n2nApp release];
+
+    Messages *msg = [Messages sharedController];
+    if([msg count] > 0){
+        NSString *tweetPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tweets"];
+        [msg.messages writeToFile:tweetPath atomically:YES];
+    }
 }
 
 /**
