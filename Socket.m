@@ -12,6 +12,8 @@
 #import "Messages.h"
 #import "Debug.h"
 
+#import "NSString_urlEncode.h"
+
 // n2n includes
 #include "edge.h"
 
@@ -137,54 +139,15 @@
 }
 
 - (void)authenticateSocket {
-	SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSHTTPURLResponse   * response;
-    NSError             * error;
-    NSString            * url;
-    
-    url = [NSString stringWithFormat:@"http://%@", self.serverUrl];
-	// Prepare URL request to get our authentication token
     NSString *authUrl = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
-             self.serverUrl, self.userName, self.password];
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authUrl]];
-
-	// Perform request and get JSON back as a NSData object
-	NSData *responseBody = [NSURLConnection sendSynchronousRequest:request
-                                                 returningResponse:&response
-                                                             error:&error];
-    
-    self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
-                                                          forURL:[NSURL URLWithString:url]];
-    
-    DLog([[response allHeaderFields] description]);
-    DLog([self.cookies description]);
-    // store cookie
-
-	// Get JSON as a NSString from NSData response
-	NSString *json_string = [[NSString alloc] initWithData:responseBody encoding:NSUTF8StringEncoding];
-
-	NSDictionary *authentication_dict = [parser objectWithString:json_string];
-
-	DLog(@"%@", json_string);
-	DLog(@"%@", [authentication_dict objectForKey:@"token"]);
-    
-    self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
-    if(self.authenticityToken == nil){
-        [self rescheduleConnect];
-    }
-    else {
-        // Now send the authentication-request
-        [self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
-                        [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
-
-        self.authenticated = YES;
-        [NSTimer scheduledTimerWithTimeInterval:30
-                                         target:self
-                                       selector:@selector(ping)
-                                       userInfo:nil
-                                        repeats:NO];
-    }
+                         self.serverUrl, self.userName, self.password];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authUrl]
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                         timeoutInterval:60];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
+
+
 
 - (void)openStreams {
     [inputStream retain];
@@ -345,8 +308,63 @@
 
 
 /**
- * Socket functions and callbacks
+ * Asynchronous callbacks
  */
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response {
+    responseData = [[NSMutableData alloc] init];
+
+    NSString *url = [NSString stringWithFormat:@"http://%@", self.serverUrl];
+
+    // store cookie
+    self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
+                                                          forURL:[NSURL URLWithString:url]];
+    
+    DLog([[response allHeaderFields] description]);
+    DLog([self.cookies description]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [responseData release];
+    [connection release];
+    // Show error message
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+
+    // Get JSON as a NSString from NSData response
+	NSString *json_string = [[NSString alloc] initWithData:responseData
+                                                  encoding:NSUTF8StringEncoding];
+
+	NSDictionary *authentication_dict = [parser objectWithString:json_string];
+
+	DLog(@"%@", json_string);
+	DLog(@"%@", [authentication_dict objectForKey:@"token"]);
+
+    self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
+    if(self.authenticityToken == nil){
+        [self rescheduleConnect];
+    }
+    else {
+        // Now send the authentication-request
+        [self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
+                        [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
+
+        self.authenticated = YES;
+        [NSTimer scheduledTimerWithTimeInterval:30
+                                         target:self
+                                       selector:@selector(ping)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
+
+    [responseData release];
+    [connection release];
+}
 
 
 @end

@@ -12,7 +12,8 @@
 	IBOutlet NSTextField * serverAnswerField;
 	NSInputStream * inputStream;
 	NSOutputStream * outputStream;
-	NSMutableData * dataBuffer;
+    NSMutableData * dataBuffer;
+    NSMutableData * responseData;
 	NSHost * host;
 	
 	BOOL authenticated;
