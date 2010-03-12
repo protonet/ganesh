@@ -189,7 +189,6 @@
         
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         NSString *postUrl = [NSString stringWithFormat:@"http://%@/tweets", self.serverUrl];
-        NSString *url = [NSString stringWithFormat:@"http://%@/tweets", self.serverUrl];
 
         NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
         NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies];
