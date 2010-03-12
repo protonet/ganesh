@@ -86,7 +86,7 @@ static AppController *sharedAppController = nil;
 {
     serverConnection=[NSConnection defaultConnection];
     [serverConnection setRootObject:self];
-    if([serverConnection registerName:@"N2NServerConnection"]==nil){
+    if(![serverConnection registerName:@"N2NServerConnection"]){
         DLog(@"could not create connection with name N2NServerConnection");
         [NSApp terminate:self];
     }
