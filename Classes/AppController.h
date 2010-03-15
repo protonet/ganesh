@@ -53,4 +53,6 @@
 - (IBAction)clearMessages:(id)sender;
 - (void)postMessage:(id)sender;
 
+- (void)installHotkey:(NSInteger)code withFlags:(NSUInteger)flags;
+
 @end

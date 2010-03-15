@@ -22,9 +22,9 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="221"/>
-			<integer value="14"/>
 			<integer value="13"/>
 			<integer value="35"/>
+			<integer value="14"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -354,7 +354,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="737368514">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Authentication/Messaging Server</string>
+							<string key="NSContents">Authentication/API Server</string>
 							<reference key="NSSupport" ref="202112792"/>
 							<reference key="NSControlView" ref="442068860"/>
 							<reference key="NSBackgroundColor" ref="916823463"/>
@@ -1096,22 +1096,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.toggleTimeline</string>
-						<reference key="source" ref="730386476"/>
-						<reference key="destination" ref="826071835"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="730386476"/>
-							<reference key="NSDestination" ref="826071835"/>
-							<string key="NSLabel">value: values.toggleTimeline</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.toggleTimeline</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">259</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.serverUrl</string>
 						<reference key="source" ref="473444183"/>
 						<reference key="destination" ref="826071835"/>
@@ -1129,6 +1113,22 @@
 						</object>
 					</object>
 					<int key="connectionID">269</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="730386476"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">274</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">shortcutControl</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="730386476"/>
+					</object>
+					<int key="connectionID">275</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1837,7 +1837,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">273</int>
+			<int key="maxID">275</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1896,6 +1896,7 @@
 							<string>generalPreferenceView</string>
 							<string>networkPreferenceView</string>
 							<string>passField</string>
+							<string>shortcutControl</string>
 							<string>userField</string>
 							<string>window</string>
 						</object>
@@ -1906,6 +1907,7 @@
 							<string>NSView</string>
 							<string>NSView</string>
 							<string>NSTextField</string>
+							<string>SRRecorderControl</string>
 							<string>NSTextField</string>
 							<string>NSWindow</string>
 						</object>

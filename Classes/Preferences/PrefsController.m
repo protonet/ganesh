@@ -10,6 +10,10 @@
 #import "PreferenceWindow.h"
 #import "EMKeychainItem.h"
 
+#import "AppController.h"
+
+#import "Debug.h"
+
 #define WINDOW_TITLE_HEIGHT 78
 
 static NSString *GeneralToolbarItemIdentifier  = @"General";
@@ -73,6 +77,14 @@ static PrefsController *sharedPrefsController = nil;
 
 	[self setActiveView:generalPreferenceView animate:NO];
 	[[self window] setTitle:GeneralToolbarItemIdentifier];
+
+    // initialize shortcutrecorder control
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSInteger  code  = [defaults integerForKey:@"toggleTimelineKeycode"];
+    NSUInteger flags = [defaults integerForKey:@"toggleTimelineKeyflags"];
+
+    [shortcutControl setKeyCombo:SRMakeKeyCombo(code, [shortcutControl carbonToCocoaFlags:flags])];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
@@ -84,7 +96,7 @@ static PrefsController *sharedPrefsController = nil;
 		nil];
 }
 
-- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar 
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
 {
 	return [NSArray arrayWithObjects:
 		GeneralToolbarItemIdentifier,
@@ -102,7 +114,7 @@ static PrefsController *sharedPrefsController = nil;
 		nil];
 }
 
-- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)identifier willBeInsertedIntoToolbar:(BOOL)willBeInserted 
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)identifier willBeInsertedIntoToolbar:(BOOL)willBeInserted
 {
 	NSToolbarItem *item = [[[NSToolbarItem alloc] initWithItemIdentifier:identifier] autorelease];
 	if ([identifier isEqualToString:GeneralToolbarItemIdentifier]) {
@@ -122,7 +134,7 @@ static PrefsController *sharedPrefsController = nil;
 		[item setAction:@selector(toggleActivePreferenceView:)];
 	} else
 		item = nil;
-	return item; 
+	return item;
 }
 
 - (void)toggleActivePreferenceView:(id)sender
@@ -154,6 +166,19 @@ static PrefsController *sharedPrefsController = nil;
 
 	[activeContentView setFrame:[view frame]];
 	[activeContentView addSubview:view];
+}
+
+- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo
+{
+    NSInteger  code  = newKeyCombo.code;
+    NSUInteger flags = [aRecorder cocoaToCarbonFlags:newKeyCombo.flags];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    [defaults setInteger:code forKey:@"toggleTimelineKeycode"];
+    [defaults setInteger:flags forKey:@"toggleTimelineKeyflags"];
+
+    [[AppController sharedController] installHotkey:code withFlags:flags];
 }
 
 @end

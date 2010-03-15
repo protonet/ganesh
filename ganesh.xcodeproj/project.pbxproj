@@ -87,6 +87,7 @@
 		4D7105FC10EECB050066AC0C /* TweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105EB10EECB050066AC0C /* TweetController.m */; };
 		4D7105FD10EECB050066AC0C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105ED10EECB050066AC0C /* Tweet.m */; };
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
+		4D906D51114E6C0100A6B353 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D50114E6C0100A6B353 /* Carbon.framework */; };
 		4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5887D114813C1005DAEB4 /* TimelineWindow.m */; };
 		4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */; };
 		4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA58AC711495816005DAEB4 /* bullet_key.png */; };
@@ -131,42 +132,42 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 939837800DA42965007F53F3 /* ShortcutRecorder.framework */;
+			remoteGlobalIDString = 939837800DA42965007F53F3;
 			remoteInfo = "ShortcutRecorder.framework - with embedded ibplugin";
 		};
 		4DA9E7E7114E57F900EDE9A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 939838A50DA4300F007F53F3 /* ShortcutRecorder.ibplugin */;
+			remoteGlobalIDString = 939838A50DA4300F007F53F3;
 			remoteInfo = "ShortcutRecorder.ibplugin - for embedding in framework";
 		};
 		4DA9E7E9114E57F900EDE9A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 93983B220DA43C4E007F53F3 /* ShortcutRecorder.app */;
+			remoteGlobalIDString = 93983B220DA43C4E007F53F3;
 			remoteInfo = ShortcutRecorderFramework_Tester;
 		};
 		4DA9E7EB114E57F900EDE9A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 342E00CF109CCBF5009AD8CA /* ShortcutRecorder.ibplugin */;
+			remoteGlobalIDString = 342E00CF109CCBF5009AD8CA;
 			remoteInfo = "ShortcutRecorder.ibplugin - standalone";
 		};
 		4DA9E7ED114E57F900EDE9A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 342E0104109CCC36009AD8CA /* ShortcutRecorder.framework */;
+			remoteGlobalIDString = 342E0104109CCC36009AD8CA;
 			remoteInfo = "ShortcutRecorder.framework - for embedding in ibplugin";
 		};
 		4DA9E815114E588400EDE9A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 342E00EB109CCC36009AD8CA /* ShortcutRecorder.framework - for embedding in ibplugin */;
+			remoteGlobalIDString = 342E00EB109CCC36009AD8CA;
 			remoteInfo = "ShortcutRecorder.framework - for embedding in ibplugin";
 		};
 		4DE5EF5D1142F52F00277CE6 /* PBXContainerItemProxy */ = {
@@ -372,6 +373,7 @@
 		4D7105ED10EECB050066AC0C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = SOURCE_ROOT; };
 		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = SOURCE_ROOT; };
 		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = SOURCE_ROOT; };
+		4D906D50114E6C0100A6B353 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		4DA5887C114813C1005DAEB4 /* TimelineWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineWindow.h; sourceTree = "<group>"; };
 		4DA5887D114813C1005DAEB4 /* TimelineWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineWindow.m; sourceTree = "<group>"; };
 		4DA5897D1148FC7C005DAEB4 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				4D190FF6112845F200BA1A75 /* Growl.framework in Frameworks */,
 				4D65A1961145C8FF00F8E737 /* libicucore.dylib in Frameworks */,
 				274622201145DCE900ACC69E /* WebKit.framework in Frameworks */,
+				4D906D51114E6C0100A6B353 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +613,7 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 				4D65A1951145C8FF00F8E737 /* libicucore.dylib */,
 				2746221F1145DCE900ACC69E /* WebKit.framework */,
+				4D906D50114E6C0100A6B353 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1051,6 +1055,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ganesh_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"External/shortcutrecorder/**",
+					n2n,
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = ganesh;

@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <SRRecorderControl.h>
 
 @interface PrefsController : NSWindowController {
     IBOutlet NSWindow *window;
@@ -16,6 +16,7 @@
 	IBOutlet NSView *advancedPreferenceView;
     IBOutlet NSTextField *userField;
     IBOutlet NSTextField *passField;
+    IBOutlet SRRecorderControl *shortcutControl;
 	
 	IBOutlet NSView *activeContentView;
 }

@@ -21,6 +21,16 @@
 // n2n includes
 #include "edge.h"
 
+static EventHotKeyRef gMyHotKeyRef;
+
+OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent,
+                         void *userData)
+{
+    [[AppController sharedController] showTimeline:nil];
+    return noErr;
+}
+
+
 static BOOL AuthorizationExecuteWithPrivilegesAndWait(AuthorizationRef authorization, const char* executablePath, AuthorizationFlags options, const char* const* arguments)
 {
     sig_t oldSigChildHandler = signal(SIGCHLD, SIG_DFL);
@@ -105,8 +115,48 @@ static AppController *sharedAppController = nil;
     [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
 
+- (void)installHotkey:(NSInteger)code withFlags:(NSUInteger)flags
+{
+    //Register the Hotkeys
+    EventHotKeyID gMyHotKeyID;
+
+    gMyHotKeyID.signature='htk1';
+    gMyHotKeyID.id=1;
+
+    if (gMyHotKeyRef) {
+        UnregisterEventHotKey(gMyHotKeyRef);
+        gMyHotKeyRef = nil;
+    }
+    RegisterEventHotKey(code, flags, gMyHotKeyID,
+                        GetApplicationEventTarget(), 0, &gMyHotKeyRef);
+
+}
+
+
+- (void)initializeHotkeys
+{
+    // initialize hotkeyref to nil just in case
+    gMyHotKeyRef = nil;
+    // register hotkey event handler
+    EventTypeSpec eventType;
+    eventType.eventClass=kEventClassKeyboard;
+    eventType.eventKind=kEventHotKeyPressed;
+
+    InstallApplicationEventHandler(&MyHotKeyHandler,1,&eventType,NULL,NULL);
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSInteger  code  = [defaults integerForKey:@"toggleTimelineKeycode"];
+    NSUInteger flags = [defaults integerForKey:@"toggleTimelineKeyflags"];
+
+    if(code && flags){
+        [self installHotkey:code withFlags:flags];
+    }
+}
 - (void)awakeFromNib
 {
+    [self initializeHotkeys];
+
     [self initDefaults];
 
     serverConnection=[NSConnection defaultConnection];
