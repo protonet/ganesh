@@ -82,6 +82,20 @@ static AppController *sharedAppController = nil;
     return self;
 }
 
+- (NSString *)appSupportPath{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] :NSTemporaryDirectory();
+    NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
+    return [basePath stringByAppendingPathComponent:applicationName];
+}
+
+- (NSString *)cachePath{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] :NSTemporaryDirectory();
+    NSString *bundleId = [[NSBundle mainBundle] bundleIdentifier];
+    return [basePath stringByAppendingPathComponent:bundleId];
+}
+
 - (void) initDefaults
 {
     NSString *path;
@@ -101,6 +115,7 @@ static AppController *sharedAppController = nil;
         DLog(@"could not create connection with name N2NServerConnection");
         [NSApp terminate:self];
     }
+
     if([self checkAndCopyHelper]){
         [self runApp];
     }
@@ -177,7 +192,7 @@ static AppController *sharedAppController = nil;
 
     Messages *msg = [Messages sharedController];
     if([msg count] > 0){
-        NSString *tweetPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tweets"];
+        NSString *tweetPath = [[self cachePath] stringByAppendingPathComponent:@"tweets"];
         [msg.messages writeToFile:tweetPath atomically:YES];
     }
 }
@@ -279,30 +294,6 @@ static AppController *sharedAppController = nil;
         return [self copyPathWithforcedAuthentication:srcPath toPath:dstPath error:&error];
     }
 
-}
-
-- (NSString *) appSupportPath
-{
-    FSRef folder;
-    OSErr err = noErr;
-    CFURLRef url;
-    NSString *userAppSupportFolder;
-    NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
-
-    /* (C) ~/Library/Application Support
-	 The user's application support folder.  Attempt to locate the folder, but
-	 do not try to create one if it does not exist.  */
-    err = FSFindFolder( kUserDomain, kApplicationSupportFolderType, false, &folder );
-    if ( noErr == err ) {
-        url = CFURLCreateFromFSRef( kCFAllocatorDefault, &folder );
-
-        if ( url != NULL ) {
-            userAppSupportFolder = [NSString stringWithFormat:@"%@/%@",
-									[(NSURL *)url path], applicationName];
-        }
-
-    }
-    return userAppSupportFolder;
 }
 
 /**
