@@ -35,5 +35,16 @@
 	<string>http://www.flyingseagull.de/ganesh/2FMSZ3e82k1KA.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Protonet Ganesh</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ganesh</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
