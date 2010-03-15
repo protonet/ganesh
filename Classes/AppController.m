@@ -526,5 +526,4 @@ static AppController *sharedAppController = nil;
 	NSLog(@"Template error: %@", error);
 }
 
-
 @end
