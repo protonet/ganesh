@@ -6,6 +6,30 @@
       <description>Most recent changes with links to updates.</description>
       <language>en</language>
       <item>
+	      <title>Version 0.1.20</title>
+	      <sparkle:releaseNotesLink>http://www.flyingseagull.de/ganesh/release-notes.html#version-0.1.20</sparkle:releaseNotesLink>
+	      <pubDate>Wed, 17 Mar 2010 12:41:56 +0100</pubDate>
+	      <enclosure
+		      url="http://www.flyingseagull.de/ganesh/ganesh 0.1.20.zip"
+		      sparkle:version="0.1.20"
+		      type="application/octet-stream"
+		      length="1391005"
+		      sparkle:dsaSignature="MCwCFAuXbpvS0eyFok/Ju3C77aYdbioCAhRZ6HPEaRR21M8G7sEcN6BhoEkz6Q=="
+		      />
+      </item>
+      <item>
+	      <title>Version 0.1.19</title>
+	      <sparkle:releaseNotesLink>http://www.flyingseagull.de/ganesh/release-notes.html#version-0.1.19</sparkle:releaseNotesLink>
+	      <pubDate>Tue, 16 Mar 2010 00:25:43 +0100</pubDate>
+	      <enclosure
+		      url="http://www.flyingseagull.de/ganesh/ganesh 0.1.19.zip"
+		      sparkle:version="0.1.19"
+		      type="application/octet-stream"
+		      length="1390984"
+		      sparkle:dsaSignature="MC0CFAmD7XJnZGQLNUVHd/xywceUy7GNAhUAi0l19BpTrNCiP58MUDpTNN0+WWY="
+		      />
+      </item>
+      <item>
           <title>Version 0.1.18</title>
           <sparkle:releaseNotesLink>http://www.flyingseagull.de/ganesh/release-notes.html#version-0.1.18</sparkle:releaseNotesLink>
           <pubDate>Fri, 12 Mar 2010 14:41:33 +0100</pubDate>

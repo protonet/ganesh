@@ -84,7 +84,9 @@ static PrefsController *sharedPrefsController = nil;
     NSInteger  code  = [defaults integerForKey:@"toggleTimelineKeycode"];
     NSUInteger flags = [defaults integerForKey:@"toggleTimelineKeyflags"];
 
-    [shortcutControl setKeyCombo:SRMakeKeyCombo(code, [shortcutControl carbonToCocoaFlags:flags])];
+    if(code && flags){
+        [shortcutControl setKeyCombo:SRMakeKeyCombo(code, [shortcutControl carbonToCocoaFlags:flags])];
+    }
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
