@@ -16,6 +16,7 @@
     NSDate    * date;
     NSURL     * icon_url;
     BOOL      own;
+    BOOL      response;
 }
 
 @property(readwrite, copy)   NSString * message;
@@ -24,6 +25,7 @@
 @property(readwrite, copy)   NSURL    * icon_url;
 @property(readwrite, assign) NSImage * userImage;
 @property (nonatomic, assign, getter=isOwn) BOOL own;
+@property (nonatomic, assign, getter=isResponse) BOOL response;
 
 - (id)initWithData:(NSMutableDictionary *)data;
 

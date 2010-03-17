@@ -370,10 +370,10 @@
 		4D7105E610EECB050066AC0C /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		4D7105E710EECB050066AC0C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		4D7105E810EECB050066AC0C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		4D7105EC10EECB050066AC0C /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = SOURCE_ROOT; };
-		4D7105ED10EECB050066AC0C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = SOURCE_ROOT; };
-		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = SOURCE_ROOT; };
-		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = SOURCE_ROOT; };
+		4D7105EC10EECB050066AC0C /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		4D7105ED10EECB050066AC0C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
+		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = "<group>"; };
 		4D906D50114E6C0100A6B353 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		4DA5887C114813C1005DAEB4 /* TimelineWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineWindow.h; sourceTree = "<group>"; };
 		4DA5887D114813C1005DAEB4 /* TimelineWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineWindow.m; sourceTree = "<group>"; };
@@ -714,7 +714,7 @@
 				4D7105EC10EECB050066AC0C /* Tweet.h */,
 				4D7105ED10EECB050066AC0C /* Tweet.m */,
 			);
-			name = Tweet;
+			path = Tweet;
 			sourceTree = "<group>";
 		};
 		4D7105F010EECB050066AC0C /* Socket */ = {
@@ -723,7 +723,7 @@
 				4D7105F110EECB050066AC0C /* Socket.h */,
 				4D7105F210EECB050066AC0C /* Socket.m */,
 			);
-			name = Socket;
+			path = Socket;
 			sourceTree = "<group>";
 		};
 		4D7105F310EECB050066AC0C /* Preferences */ = {

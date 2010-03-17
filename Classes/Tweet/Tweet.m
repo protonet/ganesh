@@ -14,6 +14,7 @@
 @synthesize date;
 @synthesize icon_url;
 @synthesize own;
+@synthesize response;
 @synthesize message;
 @synthesize userImage;
 
@@ -27,7 +28,16 @@
         self.date = [NSDate date];
         self.author = [data objectForKey:@"author"];
         self.own =  [userName isEqualToString:self.author];
-        
+
+        NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", self.author]];
+
+        if (range.location != NSNotFound) {
+            self.response = YES;
+        }
+        else {
+            self.response = NO;
+        }
+
 		NSString * profileUrlString = [NSString stringWithFormat:@"http://%@%@", serverUrl, [data objectForKey:@"user_icon_url"]];
         self.icon_url = [NSURL URLWithString:profileUrlString];
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:icon_url];
