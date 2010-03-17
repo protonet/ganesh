@@ -18,7 +18,7 @@
 @interface AppController : NSObject <MGTemplateEngineDelegate>{
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
-  IBOutlet NSTextField *postField;
+  IBOutlet NSTextView *postField;
   IBOutlet TimelineWindow *timelineWindow;
   IBOutlet WebView *webView;
 

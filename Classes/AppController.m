@@ -173,6 +173,7 @@ static AppController *sharedAppController = nil;
     }
 
     [postField setDelegate:self];
+    [postField setTextContainerInset:NSMakeSize(8,20)];
 
     [self createStatusBarItem];
     [self renderTemplate];
@@ -487,8 +488,8 @@ static AppController *sharedAppController = nil;
 
 - (void)postMessage:(id)sender
 {
-    [socket sendMessage:[postField stringValue]];
-    [postField setStringValue:@""];
+    [socket sendMessage:[postField string]];
+    [postField setString:@""];
 }
 
 - (IBAction)showTimeline:(id)sender
@@ -514,9 +515,10 @@ static AppController *sharedAppController = nil;
         [url replaceOccurrencesOfString:@"ganesh://" withString:@"" options:0 range: NSMakeRange(0,[url length])];
         if([url hasPrefix:@"direct/"]){
             [url replaceOccurrencesOfString:@"direct/" withString:@"@" options:0 range: NSMakeRange(0,[url length])];
-            [postField selectText:self];
-            [postField setStringValue:url];
-            [[postField currentEditor] setSelectedRange:NSMakeRange([[postField stringValue] length], 0)];
+            [timelineWindow makeFirstResponder:postField];
+            [postField setString:@""];
+            [postField insertText:url];
+            [postField insertText:@" "];
         }
     }
 }
@@ -553,25 +555,17 @@ static AppController *sharedAppController = nil;
 }
 
 // post field delegate
-- (BOOL)control:(NSControl*)control textView:(NSTextView*)textView doCommandBySelector:(SEL)commandSelector
+- (BOOL)textView:(NSTextView *)inTextView doCommandBySelector:(SEL)inSelector
 {
-    BOOL result = NO;
-
-    if (commandSelector == @selector(insertNewline:))
-    {
+    if (inSelector == @selector(insertTab:)){
+        return YES;
+    }
+    if (inSelector == @selector(insertNewline:)){
         [self postMessage:nil];
-        result = YES;
-    }
-    else if (commandSelector == @selector(insertTab:))
-    {
-        // tab action:
-        // nothing yet
-        result = YES;
+        return YES;
     }
 
-    return result;
+    return NO;
 }
-
-
 
 @end
