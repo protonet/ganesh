@@ -174,6 +174,12 @@ static AppController *sharedAppController = nil;
 
     [postField setDelegate:self];
     [postField setTextContainerInset:NSMakeSize(8,20)];
+    NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+
+    [attributes setObject:[NSFont fontWithName:@"Monaco" size:12]
+                   forKey:NSFontAttributeName];
+
+    [postField setTypingAttributes:attributes];
 
     [self createStatusBarItem];
     [self renderTemplate];
