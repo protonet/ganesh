@@ -7,7 +7,7 @@
 //
 
 #import "Tweet.h"
-
+#import "GTMNSString+HTML.h"
 
 @implementation Tweet
 @synthesize author;
@@ -22,9 +22,8 @@
     NSString *serverUrl = [[NSUserDefaults standardUserDefaults] stringForKey:@"serverUrl"];
     NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"userName"];
 
-	self.message = [data objectForKey:@"message"];
-
-    if (message && (self = [super init])) {
+    if ([data objectForKey:@"message"] && (self = [super init])) {
+        self.message = 	[[data objectForKey:@"message"] gtm_stringByEscapingForHTML];
         self.date = [NSDate date];
         self.author = [data objectForKey:@"author"];
         self.own =  [userName isEqualToString:self.author];

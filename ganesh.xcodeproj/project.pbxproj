@@ -48,6 +48,7 @@
 		27474C2111469316009DA65B /* twitpic_sample.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27474C02114692EA009DA65B /* twitpic_sample.jpg */; };
 		27474C2211469316009DA65B /* urlHandler.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27474C03114692EA009DA65B /* urlHandler.js */; };
 		27474C2311469316009DA65B /* youtube_sample.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27474C04114692EA009DA65B /* youtube_sample.jpg */; };
+		275E419B1151510A004B02D5 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E419A1151510A004B02D5 /* GTMNSString+HTML.m */; };
 		278030D60FD6CAED00D57E59 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278030D50FD6CAED00D57E59 /* AppController.m */; };
 		2780362F0FD71D7200D57E59 /* ptn_icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 2780362D0FD71D7200D57E59 /* ptn_icon_active.png */; };
 		27931890108BC93E00C7975F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2793188F108BC93E00C7975F /* BWToolkitFramework.framework */; };
@@ -301,6 +302,9 @@
 		27474C02114692EA009DA65B /* twitpic_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twitpic_sample.jpg; sourceTree = "<group>"; };
 		27474C03114692EA009DA65B /* urlHandler.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = urlHandler.js; sourceTree = "<group>"; };
 		27474C04114692EA009DA65B /* youtube_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = youtube_sample.jpg; sourceTree = "<group>"; };
+		275E41991151510A004B02D5 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		275E419A1151510A004B02D5 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		275E419E1151523E004B02D5 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		278030D40FD6CAED00D57E59 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		278030D50FD6CAED00D57E59 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		2780362D0FD71D7200D57E59 /* ptn_icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ptn_icon_active.png; path = images/ptn_icon_active.png; sourceTree = "<group>"; };
@@ -406,6 +410,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				275E4193115150F3004B02D5 /* GoogleToolbox */,
 				4DA5897C1148FC7C005DAEB4 /* Keychain */,
 				274624C911466E4500ACC69E /* Debug.h */,
 				274622C111465F7100ACC69E /* Menu */,
@@ -549,6 +554,16 @@
 			);
 			name = Light.bbtheme;
 			path = Themes/Light.bbtheme;
+			sourceTree = "<group>";
+		};
+		275E4193115150F3004B02D5 /* GoogleToolbox */ = {
+			isa = PBXGroup;
+			children = (
+				275E419E1151523E004B02D5 /* GTMDefines.h */,
+				275E41991151510A004B02D5 /* GTMNSString+HTML.h */,
+				275E419A1151510A004B02D5 /* GTMNSString+HTML.m */,
+			);
+			path = GoogleToolbox;
 			sourceTree = "<group>";
 		};
 		27F29F5010C5B3E40056C09C /* Tuntap */ = {
@@ -957,6 +972,7 @@
 				27D1DD5C1147DA8700965893 /* NSString_urlEncode.m in Sources */,
 				4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */,
 				4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */,
+				275E419B1151510A004B02D5 /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
