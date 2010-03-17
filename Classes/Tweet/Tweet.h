@@ -8,11 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface Tweet : NSObject {
 	NSImage * userImage;
 	NSString  * message;
 	NSString  * author;
+    NSInteger tweet_id;
     NSDate    * date;
     NSURL     * icon_url;
     BOOL      own;
@@ -26,6 +26,7 @@
 @property(readwrite, assign) NSImage * userImage;
 @property (nonatomic, assign, getter=isOwn) BOOL own;
 @property (nonatomic, assign, getter=isResponse) BOOL response;
+@property(nonatomic, assign) NSInteger tweet_id;
 
 - (id)initWithData:(NSMutableDictionary *)data;
 

@@ -9,6 +9,8 @@
 #import "Tweet.h"
 #import "GTMNSString+HTML.h"
 
+#import "Debug.h"
+
 @implementation Tweet
 @synthesize author;
 @synthesize date;
@@ -17,6 +19,7 @@
 @synthesize response;
 @synthesize message;
 @synthesize userImage;
+@synthesize tweet_id;
 
 - (id)initWithData:(NSMutableDictionary *)data
 {
@@ -24,10 +27,11 @@
     NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"userName"];
 
     if ([data objectForKey:@"message"] && (self = [super init])) {
-        self.message = 	[[data objectForKey:@"message"] gtm_stringByEscapingForHTML];
-        self.date = [NSDate date];
-        self.author = [data objectForKey:@"author"];
-        self.own =  [userName isEqualToString:self.author];
+        self.message  = [[data objectForKey:@"message"] gtm_stringByEscapingForHTML];
+        self.date     = [NSDate date];
+        self.author   = [data objectForKey:@"author"];
+        self.own      = [userName isEqualToString:self.author];
+        self.tweet_id = [data integerForKey:@"id"];
 
         NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", userName]];
 

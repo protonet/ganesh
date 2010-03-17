@@ -94,6 +94,7 @@
 		4DA9E814114E587800EDE9A9 /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4DA9E7EE114E57F900EDE9A9 /* ShortcutRecorder.framework */; };
 		4DA9E834114E595000EDE9A9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA9E7EE114E57F900EDE9A9 /* ShortcutRecorder.framework */; };
 		4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5EE481142816600277CE6 /* PreferenceWindow.m */; };
+		4DF5FCA91151959000DC5BC9 /* LIFOStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -383,6 +384,8 @@
 		4DA9E7D9114E57F800EDE9A9 /* ShortcutRecorder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShortcutRecorder.xcodeproj; path = External/shortcutrecorder/ShortcutRecorder.xcodeproj; sourceTree = "<group>"; };
 		4DE5EE471142816600277CE6 /* PreferenceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindow.h; sourceTree = "<group>"; };
 		4DE5EE481142816600277CE6 /* PreferenceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindow.m; sourceTree = "<group>"; };
+		4DF5FCA71151958F00DC5BC9 /* LIFOStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFOStack.h; sourceTree = "<group>"; };
+		4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIFOStack.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ganesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ganesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -410,6 +413,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4DF5FCA71151958F00DC5BC9 /* LIFOStack.h */,
+				4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */,
 				275E4193115150F3004B02D5 /* GoogleToolbox */,
 				4DA5897C1148FC7C005DAEB4 /* Keychain */,
 				274622C111465F7100ACC69E /* Menu */,
@@ -973,6 +978,7 @@
 				4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */,
 				4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */,
 				275E419B1151510A004B02D5 /* GTMNSString+HTML.m in Sources */,
+				4DF5FCA91151959000DC5BC9 /* LIFOStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
