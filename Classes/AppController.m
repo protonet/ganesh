@@ -159,6 +159,8 @@ static AppController *sharedAppController = nil;
 
     [self initDefaults];
 
+    [self registerURLHandler];
+
     serverConnection=[NSConnection defaultConnection];
     [serverConnection setRootObject:self];
     if(![serverConnection registerName:@"N2NServerConnection"]){
@@ -493,6 +495,30 @@ static AppController *sharedAppController = nil;
 - (IBAction)showTimeline:(id)sender
 {
     [timelineWindow toggle];
+}
+
+- (void)registerURLHandler
+{
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self
+                                                       andSelector:@selector(getUrl:withReplyEvent:)
+                                                     forEventClass:kInternetEventClass
+                                                        andEventID:kAEGetURL];
+}
+
+- (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent
+{
+    NSMutableString *url = [[[[event paramDescriptorForKeyword:keyDirectObject] stringValue] mutableCopy] autorelease];
+    // now you can create an NSURL and grab the necessary parts
+    [url replaceOccurrencesOfString:@"%20" withString:@" " options:0 range: NSMakeRange(0,[url length])];
+
+    if([url hasPrefix:@"ganesh"]){
+        [url replaceOccurrencesOfString:@"ganesh://" withString:@"" options:0 range: NSMakeRange(0,[url length])];
+        if([url hasPrefix:@"direct/"]){
+            [url replaceOccurrencesOfString:@"direct/" withString:@"@" options:0 range: NSMakeRange(0,[url length])];
+            [postField setStringValue:url];
+            [timelineWindow makeFirstResponder:postField];
+        }
+    }
 }
 
 

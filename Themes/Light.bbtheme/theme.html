@@ -39,18 +39,28 @@
 	<body onload="Bluebird.loadTweets();">
 		<div id='page'>
 			{% for tweet in tweets %}
-                <div class='container {%if tweet.isOwn %}TweetSelf{%else%}Tweet{%/if%}'>
-                    <div class='avatar'><a href='javascript:;' ><img src='{{tweet.icon_url}}' /></a></div>
-                    <div class='content'>
-                        <div class="realName"><a href="">{{tweet.author}}</a></div>
-                        <div class="actions"></div>
-                        <div class="textContent">
-                            {{tweet.message}}
-                        </div>
-                        <div class="info">{{tweet.date | date_format: "MMM d HH:mm" }}</div>
-                    </div>
-                </div>			
-            {% /for %}
+			<div class='container {%if tweet.isOwn %}TweetSelf{%else%}{% if tweet.isResponse %}TweetResponse{%else%}Tweet{%/if%}{%/if%}'>
+				<div class='avatar'><a href='javascript:;' ><img src='{{tweet.icon_url}}' /></a></div>
+				<div class='content'>
+					<div class="realName"><a href="">{{tweet.author}}</a></div>
+					<div class="actions"></div>
+					<div class="textContent">
+						{{tweet.message}}
+					</div>
+					<div class="info">{{tweet.date | date_format: "MMM d HH:mm" }}</div>
+				</div>
+				<div class="actions">
+					{%if tweet.isOwn == false%}
+					<div class="actionButton">
+						<a href="ganesh://direct/{{tweet.author}}"><img src="button_dm.png" alt="DM" title="Reply to {{tweet.author}}"/></a>
+					</div>
+					{%/if%}
+					<div class="actionButton">
+						<a href="{{tweet.tweetURL}}"><img src="button_retweet.png" alt="Preview" title="Preview tweet"/></a>
+					</div>
+				</div>
+			</div>
+			{% /for %}
 		</div>
 	</body>
 </html>

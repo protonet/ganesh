@@ -29,7 +29,7 @@
         self.author = [data objectForKey:@"author"];
         self.own =  [userName isEqualToString:self.author];
 
-        NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", self.author]];
+        NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", userName]];
 
         if (range.location != NSNotFound) {
             self.response = YES;
