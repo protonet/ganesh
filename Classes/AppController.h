@@ -12,6 +12,7 @@
 #import "Socket.h"
 #import "GaneshStatusView.h"
 #import "TimelineWindow.h"
+#import "LIFOStack.h"
 
 #import "MGTemplateEngine.h"
 
@@ -30,6 +31,7 @@
   NSThread *edgeThread;
   NSTask *n2nApp;
   NSConnection *serverConnection;
+  LIFOStack *inputStack;
 
   Socket *socket;
 

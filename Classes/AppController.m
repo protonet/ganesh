@@ -13,6 +13,8 @@
 #import "JSON.h"
 #import "Messages.h"
 #import "GrowlNotifier.h"
+#import "LIFOStack.h"
+
 #import "Debug.h"
 
 #import "MGTemplateEngine.h"
@@ -153,6 +155,7 @@ static AppController *sharedAppController = nil;
         [self installHotkey:code withFlags:flags];
     }
 }
+
 - (void)awakeFromNib
 {
     [self initializeHotkeys];
@@ -160,6 +163,10 @@ static AppController *sharedAppController = nil;
     [self initDefaults];
 
     [self registerURLHandler];
+
+    // Init input stack
+    inputStack = [[LIFOStack alloc] init];
+    [inputStack retain];
 
     serverConnection=[NSConnection defaultConnection];
     [serverConnection setRootObject:self];
@@ -195,6 +202,7 @@ static AppController *sharedAppController = nil;
 
 - (void) dealloc
 {
+    [inputStack release];
     [statusItemView release];
     [socket release];
     [super dealloc];
@@ -566,8 +574,18 @@ static AppController *sharedAppController = nil;
     if (inSelector == @selector(insertTab:)){
         return YES;
     }
-    if (inSelector == @selector(insertNewline:)){
+    else if (inSelector == @selector(insertNewline:)){
+        [inputStack push:[inTextView string]];
         [self postMessage:nil];
+        return YES;
+    }
+    // command history for later
+    else if (inSelector == @selector(moveUp:)){
+        NSString *controlString = [inputStack pop];
+        if (controlString != nil){
+            [postField setString:@""];
+            [postField insertText:controlString];
+        }
         return YES;
     }
 
