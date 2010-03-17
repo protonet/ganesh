@@ -6,6 +6,18 @@
       <description>Most recent changes with links to updates.</description>
       <language>en</language>
       <item>
+	      <title>Version 0.1.22</title>
+	      <sparkle:releaseNotesLink>http://www.flyingseagull.de/ganesh/release-notes.html#version-0.1.22</sparkle:releaseNotesLink>
+	      <pubDate>Wed, 17 Mar 2010 20:51:48 +0100</pubDate>
+	      <enclosure
+		      url="http://www.flyingseagull.de/ganesh/ganesh 0.1.22.zip"
+		      sparkle:version="0.1.22"
+		      type="application/octet-stream"
+		      length="1408814"
+		      sparkle:dsaSignature="MCwCFFiU7CAXoXzoW9GkzRmcjAFWk0lsAhQgnn4yZ+gFZgBE8qpbNiQY7lIyLQ=="
+		      />
+      </item>
+      <item>
 	      <title>Version 0.1.21</title>
 	      <sparkle:releaseNotesLink>http://www.flyingseagull.de/ganesh/release-notes.html#version-0.1.21</sparkle:releaseNotesLink>
 	      <pubDate>Wed, 17 Mar 2010 20:27:16 +0100</pubDate>
@@ -13,8 +25,8 @@
 		      url="http://www.flyingseagull.de/ganesh/ganesh 0.1.21.zip"
 		      sparkle:version="0.1.21"
 		      type="application/octet-stream"
-		      length="1408409"
-		      sparkle:dsaSignature="MC0CFQCYIYRy1bPUDmZBKJ2aSzzQ8r+KigIUG5NHEhUNvAUcQoB9BL6X/9YWVA8="
+		      length="1408418"
+		      sparkle:dsaSignature="MCwCFA+60I2AzRwIgscPsTC692Tu6/xhAhQPkHQ8YVPzmx4F1aZ0qj/XBlK70g=="
 		      />
       </item>
       <item>

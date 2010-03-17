@@ -330,7 +330,7 @@
 		4D191022112852C200BA1A75 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
 		4D490C64113030F50044C86E /* N2NUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NUserDefaultsController.h; sourceTree = "<group>"; };
 		4D490C65113030F50044C86E /* N2NUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NUserDefaultsController.m; sourceTree = "<group>"; };
-		4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NPreferencesDictionary.h; sourceTree = "<group>"; };
+		4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2NPreferencesDictionary.h; path = Preferences/N2NPreferencesDictionary.h; sourceTree = "<group>"; };
 		4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NPreferencesDictionary.m; sourceTree = "<group>"; };
 		4D65A1661145C85200F8E737 /* MGTemplateEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTemplateEngine.h; sourceTree = "<group>"; };
 		4D65A1671145C85200F8E737 /* MGTemplateEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTemplateEngine.m; sourceTree = "<group>"; };
@@ -412,17 +412,18 @@
 			children = (
 				275E4193115150F3004B02D5 /* GoogleToolbox */,
 				4DA5897C1148FC7C005DAEB4 /* Keychain */,
-				274624C911466E4500ACC69E /* Debug.h */,
 				274622C111465F7100ACC69E /* Menu */,
 				4D65A1651145C85200F8E737 /* MGTemplateEngine */,
-				4D191021112852C200BA1A75 /* GrowlNotifier.h */,
-				4D191022112852C200BA1A75 /* GrowlNotifier.m */,
-				4D190C4011264B0400BA1A75 /* Messages.h */,
-				4D190C4111264B0500BA1A75 /* Messages.m */,
 				4D7105F310EECB050066AC0C /* Preferences */,
 				4D7105F010EECB050066AC0C /* Socket */,
 				4D7105E910EECB050066AC0C /* Tweet */,
 				4D7105DB10EECB050066AC0C /* JSON */,
+				274624C911466E4500ACC69E /* Debug.h */,
+				4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */,
+				4D191021112852C200BA1A75 /* GrowlNotifier.h */,
+				4D191022112852C200BA1A75 /* GrowlNotifier.m */,
+				4D190C4011264B0400BA1A75 /* Messages.h */,
+				4D190C4111264B0500BA1A75 /* Messages.m */,
 				278030D40FD6CAED00D57E59 /* AppController.h */,
 				278030D50FD6CAED00D57E59 /* AppController.m */,
 				4D6650C6112D984A0011DA0E /* IPFormatter.h */,
@@ -729,7 +730,6 @@
 		4D7105F310EECB050066AC0C /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */,
 				4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */,
 				4D490C64113030F50044C86E /* N2NUserDefaultsController.h */,
 				4D490C65113030F50044C86E /* N2NUserDefaultsController.m */,

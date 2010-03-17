@@ -172,8 +172,7 @@ static AppController *sharedAppController = nil;
         [self runApp];
     }
 
-    [postField setTarget:self];
-    [postField setAction:@selector(postMessage:)];
+    [postField setDelegate:self];
 
     [self createStatusBarItem];
     [self renderTemplate];
@@ -515,8 +514,9 @@ static AppController *sharedAppController = nil;
         [url replaceOccurrencesOfString:@"ganesh://" withString:@"" options:0 range: NSMakeRange(0,[url length])];
         if([url hasPrefix:@"direct/"]){
             [url replaceOccurrencesOfString:@"direct/" withString:@"@" options:0 range: NSMakeRange(0,[url length])];
+            [postField selectText:self];
             [postField setStringValue:url];
-            [timelineWindow makeFirstResponder:postField];
+            [[postField currentEditor] setSelectedRange:NSMakeRange([[postField stringValue] length], 0)];
         }
     }
 }
@@ -551,5 +551,27 @@ static AppController *sharedAppController = nil;
 {
 	NSLog(@"Template error: %@", error);
 }
+
+// post field delegate
+- (BOOL)control:(NSControl*)control textView:(NSTextView*)textView doCommandBySelector:(SEL)commandSelector
+{
+    BOOL result = NO;
+
+    if (commandSelector == @selector(insertNewline:))
+    {
+        [self postMessage:nil];
+        result = YES;
+    }
+    else if (commandSelector == @selector(insertTab:))
+    {
+        // tab action:
+        // nothing yet
+        result = YES;
+    }
+
+    return result;
+}
+
+
 
 @end
