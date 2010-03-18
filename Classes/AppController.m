@@ -603,7 +603,14 @@ static AppController *sharedAppController = nil;
     }
     // command history for later
     else if (inSelector == @selector(moveUp:)){
-        NSString *controlString = [inputStack pop];
+        NSString *controlString = [inputStack previous];
+        if (controlString != nil){
+            [inTextView setString:controlString];
+        }
+        return YES;
+    }
+    else if (inSelector == @selector(moveDown:)){
+        NSString *controlString = [inputStack next];
         if (controlString != nil){
             [inTextView setString:controlString];
         }

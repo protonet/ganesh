@@ -20,6 +20,7 @@
 		
 		size = 15;
 		currentSize = 0;
+        currentPos = 0;
 	}
 	return self;
 }
@@ -46,10 +47,14 @@
 
 - (void)push:(id)newObject
 {	
-	if(currentSize < size)
+    currentPos = 0;
+	if(currentSize < size){
 		currentSize++;
-	else
-		[queue removeObjectAtIndex:0];
+    }
+	else{
+		[[queue objectAtIndex:currentSize] release];
+		[queue removeObjectAtIndex:currentSize];
+    }
 	
 	[queue addObject:[newObject copy]];
 }
@@ -66,6 +71,21 @@
 		[queue removeObjectAtIndex:currentSize];
 	}
 	return object;
+}
+
+- (id)previous{
+    if(currentPos < currentSize){
+        currentPos++;
+    }
+
+    return [queue objectAtIndex:currentSize-currentPos];
+}
+
+- (id)next{
+    if(currentPos > 0){
+        currentPos--;
+    }
+    return [queue objectAtIndex:currentSize-currentPos];
 }
 
 - (BOOL)hasItems

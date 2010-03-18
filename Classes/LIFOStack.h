@@ -13,10 +13,14 @@
 	NSMutableArray * queue;
 	unsigned int size;
 	unsigned int currentSize;
+    // currentPos counts from the last position in the stack
+    unsigned int currentPos;
 }
 
 - (void)push:(id)anArgument;
 - (id)pop;
 - (BOOL)hasItems;
+- (id)previous;
+- (id)next;
 
 @end
