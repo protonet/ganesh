@@ -87,7 +87,7 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
         enableGrowl = [object boolForKey:@"enableGrowl"];
     }
     else if ([keyPath isEqual:@"onlyGrowlOnResponse"]) {
-        enableGrowl = [object boolForKey:@"onlyGrowlOnResponse"];
+        onlyGrowlOnResponse = [object boolForKey:@"onlyGrowlOnResponse"];
     }
 }
 
