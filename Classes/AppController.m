@@ -180,10 +180,10 @@ static AppController *sharedAppController = nil;
     }
 
     [postField setDelegate:self];
-    [postField setTextContainerInset:NSMakeSize(8,20)];
+    [postField setTextContainerInset:NSMakeSize(5,8)];
     NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
 
-    [attributes setObject:[NSFont fontWithName:@"Monaco" size:12]
+    [attributes setObject:[NSFont fontWithName:@"Helvetica" size:12]
                    forKey:NSFontAttributeName];
 
     [postField setTypingAttributes:attributes];
@@ -241,7 +241,7 @@ static AppController *sharedAppController = nil;
             [[GrowlNotifier sharedController] showNewTweet:tweet];
             statusItemView.newMessage = YES;
         }
-        [self renderTemplate];
+        [self addTweet:tweet];
     }
     else if([keyPath isEqual:@"authenticated"]){
         statusItemView.connected = socket.authenticated;
@@ -301,7 +301,6 @@ static AppController *sharedAppController = nil;
 	// Process the template and display the results.
 	NSString *result = [engine processTemplateInFileAtPath:templatePath withVariables:variables];
 	DLog(@"Processed template");
-    
     //HTML Encode the Resource Path of the main bundle and change single slashes to double slashes
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
     resourcePath = [resourcePath stringByAppendingPathComponent:@"Light.bbtheme"];
@@ -310,6 +309,29 @@ static AppController *sharedAppController = nil;
     resourcePath = [NSString stringWithFormat:@"file:/%@//",resourcePath];
     NSURL *resourceUrl = [NSURL URLWithString:resourcePath];
     [[webView mainFrame] loadHTMLString:result baseURL:resourceUrl];
+}
+
+- (void)addTweet:(Tweet*)tweet{
+    // Set up template engine with your chosen matcher.
+	MGTemplateEngine *engine = [MGTemplateEngine templateEngine];
+	[engine setDelegate:self];
+	[engine setMatcher:[ICUTemplateMatcher matcherWithTemplateEngine:engine]];
+
+	// Get path to template.
+	NSString *templatePath = [[NSBundle mainBundle] pathForResource:@"tweet"
+                                                             ofType:@"html"
+                                                        inDirectory:@"/Light.bbtheme"];
+
+	// Set up some variables for this specific template.
+
+    NSDictionary *variables = [NSDictionary dictionaryWithObjectsAndKeys: tweet, @"tweet", nil];
+
+	// Process the template and display the results.
+	NSString *result = [engine processTemplateInFileAtPath:templatePath withVariables:variables];
+	DLog(@"Processed template");
+
+    [[webView windowScriptObject] callWebScriptMethod:@"addTweet"
+                                        withArguments:[NSArray arrayWithObjects:result,nil]];
 }
 
 - (void)openPtnDashboard:(id)sender {

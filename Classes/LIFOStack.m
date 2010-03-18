@@ -62,7 +62,7 @@
 	{
 		currentSize--;
 		object = [queue objectAtIndex:currentSize];
-        [object release];
+        [object autorelease];
 		[queue removeObjectAtIndex:currentSize];
 	}
 	return object;

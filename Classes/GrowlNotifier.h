@@ -10,6 +10,7 @@
 
 @interface GrowlNotifier: NSObject <GrowlApplicationBridgeDelegate> {
     BOOL enableGrowl;
+    BOOL onlyGrowlOnResponse;
 }
 
 + (GrowlNotifier*)sharedController;

@@ -23,8 +23,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="902"/>
 			<integer value="712"/>
-			<integer value="1006"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -247,6 +247,7 @@
 									</object>
 									<string key="NSFrameSize">{308, 242}</string>
 									<reference key="NSSuperview" ref="640602243"/>
+									<reference key="NSNextKeyView" ref="273975204"/>
 									<reference key="NSDocView" ref="273975204"/>
 									<object class="NSColor" key="NSBGColor">
 										<int key="NSColorSpace">4</int>
@@ -277,6 +278,7 @@
 							</object>
 							<string key="NSFrame">{{21, 127}, {308, 242}}</string>
 							<reference key="NSSuperview" ref="847863024"/>
+							<reference key="NSNextKeyView" ref="583652761"/>
 							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="689228817"/>
 							<reference key="NSHScroller" ref="412940141"/>
@@ -523,7 +525,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSScrollView" id="40607753">
 											<reference key="NSNextResponder" ref="351655143"/>
-											<int key="NSvFlags">256</int>
+											<int key="NSvFlags">274</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSClipView" id="363575907">
@@ -557,7 +559,7 @@
 																	<string>public.url</string>
 																</object>
 															</object>
-															<string key="NSFrameSize">{285, 70}</string>
+															<string key="NSFrameSize">{285, 14}</string>
 															<reference key="NSSuperview" ref="363575907"/>
 															<object class="NSTextContainer" key="NSTextContainer" id="403814035">
 																<object class="NSLayoutManager" key="NSLayoutManager">
@@ -631,8 +633,8 @@
 																<nil key="NSDefaultParagraphStyle"/>
 															</object>
 															<int key="NSTVFlags">6</int>
-															<string key="NSMaxSize">{463, 1e+07}</string>
-															<string key="NSMinize">{223, 70}</string>
+															<string key="NSMaxSize">{570, 1e+07}</string>
+															<string key="NSMinize">{223, 0}</string>
 															<nil key="NSDelegate"/>
 														</object>
 													</object>
@@ -713,6 +715,7 @@
 											</object>
 											<string key="NSFrameSize">{285, 277}</string>
 											<reference key="NSSuperview" ref="775546949"/>
+											<reference key="NSNextKeyView"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
 											<string key="FrameName"/>
 											<string key="GroupName"/>

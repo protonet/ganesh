@@ -69,9 +69,11 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
 
         // watch for changes in growl pref pane
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        enableGrowl     = [defaults boolForKey:@"enableGrowl"];
+        enableGrowl         = [defaults boolForKey:@"enableGrowl"];
+        onlyGrowlOnResponse = [defaults boolForKey:@"onlyGrowlOnResponse"];
 
         [defaults addObserver:self forKeyPath:@"enableGrowl" options:0 context:0];
+        [defaults addObserver:self forKeyPath:@"onlyGrowlOnResponse" options:0 context:0];
     }
     return self;
 }
@@ -84,12 +86,23 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
     if ([keyPath isEqual:@"enableGrowl"]) {
         enableGrowl = [object boolForKey:@"enableGrowl"];
     }
+    else if ([keyPath isEqual:@"onlyGrowlOnResponse"]) {
+        enableGrowl = [object boolForKey:@"onlyGrowlOnResponse"];
+    }
 }
 
 
 - (void)showNewTweet:(Tweet*)tweet
 {
-    if (enableGrowl && tweet) {
+    BOOL showTweet = NO;
+
+    if(tweet){
+        // if onlyGrowlOnResponse is set check if the tweet is a response otherwise decide 
+        // based on enabelGrowl setting
+        showTweet = onlyGrowlOnResponse ? tweet.isResponse : enableGrowl;
+    }
+
+    if (showTweet) {
         [GrowlApplicationBridge notifyWithTitle:tweet.author
                                     description:tweet.message
                                notificationName:@"Tweet"
@@ -98,7 +111,6 @@ static GrowlNotifier *sharedGrowlNotifier = nil;
                                        isSticky:FALSE
                                    clickContext:nil];
     }
-
 }
 
 @end
