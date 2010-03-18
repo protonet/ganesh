@@ -583,8 +583,7 @@ static AppController *sharedAppController = nil;
     else if (inSelector == @selector(moveUp:)){
         NSString *controlString = [inputStack pop];
         if (controlString != nil){
-            [postField setString:@""];
-            [postField insertText:controlString];
+            [inTextView setString:controlString];
         }
         return YES;
     }

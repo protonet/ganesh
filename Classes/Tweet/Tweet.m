@@ -31,7 +31,7 @@
         self.date     = [NSDate date];
         self.author   = [data objectForKey:@"author"];
         self.own      = [userName isEqualToString:self.author];
-        self.tweet_id = [data integerForKey:@"id"];
+        self.tweet_id = [data objectForKey:@"id"];
 
         NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", userName]];
 

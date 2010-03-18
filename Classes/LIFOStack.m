@@ -51,8 +51,7 @@
 	else
 		[queue removeObjectAtIndex:0];
 	
-	[newObject retain];
-	[queue addObject:newObject];
+	[queue addObject:[newObject copy]];
 }
 
 - (id)pop
@@ -63,6 +62,7 @@
 	{
 		currentSize--;
 		object = [queue objectAtIndex:currentSize];
+        [object release];
 		[queue removeObjectAtIndex:currentSize];
 	}
 	return object;
