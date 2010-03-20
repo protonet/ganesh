@@ -13,7 +13,7 @@
 	NSInputStream * inputStream;
 	NSOutputStream * outputStream;
     NSMutableData * dataBuffer;
-    NSMutableData * responseData;
+
 	NSHost * host;
 	
 	BOOL authenticated;

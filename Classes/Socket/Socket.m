@@ -11,6 +11,7 @@
 #import "JSON.h"
 #import "Messages.h"
 #import "Debug.h"
+#import "M3EncapsulatedURLConnection.h"
 
 #import "NSString_urlEncode.h"
 
@@ -22,6 +23,10 @@
 #define portKey        @"serverPort"
 #define userNameKey    @"userName"
 #define passwordKey    @"password"
+
+#define kHTTPSuccess               200
+#define kHTTPNotFound              404
+#define kHTTPInternalServerError   500
 
 @implementation Socket
 @synthesize authenticated;
@@ -144,10 +149,26 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authUrl]
                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                          timeoutInterval:60];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
+    [[M3EncapsulatedURLConnection alloc] initWithRequest:request
+                                                delegate:self
+                                           andIdentifier:@"authenticate"
+                                             contextInfo:nil];
 }
 
+- (void)listChannels {
+    NSString *url = [NSString stringWithFormat:@"http://%@/channels/list.json?token=%@",
+                     self.serverUrl, self.authenticityToken];
 
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                         timeoutInterval:60];
+
+    [[M3EncapsulatedURLConnection alloc] initWithRequest:request
+                                                delegate:self
+                                           andIdentifier:@"authenticate"
+                                             contextInfo:nil];
+}
 
 - (void)openStreams {
     [inputStream retain];
@@ -310,9 +331,7 @@
 /**
  * Asynchronous callbacks
  */
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response {
-    responseData = [[NSMutableData alloc] init];
-
+- (void)processResponseHeaders:(NSHTTPURLResponse *)response {
     NSString *url = [NSString stringWithFormat:@"http://%@", self.serverUrl];
 
     // store cookie
@@ -322,48 +341,52 @@
     DLog([self.cookies description]);
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [responseData release];
-    [connection release];
-    // Show error message
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+- (void)connection:(M3EncapsulatedURLConnection*)connection returnedWithResponse:(int)responseNo andData:(NSData*)responseData{
     SBJsonParser *parser = [[SBJsonParser alloc] init];
 
     // Get JSON as a NSString from NSData response
 	NSString *json_string = [[NSString alloc] initWithData:responseData
                                                   encoding:NSUTF8StringEncoding];
 
-	NSDictionary *authentication_dict = [parser objectWithString:json_string];
+    if([[connection identifier] isEqualToString:@"authenticate"]){
+        NSDictionary *authentication_dict = [parser objectWithString:json_string];
 
-	DLog(@"%@", json_string);
-	DLog(@"%@", [authentication_dict objectForKey:@"token"]);
+        DLog(@"%@", json_string);
+        DLog(@"%@", [authentication_dict objectForKey:@"token"]);
 
-    self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
-    if(self.authenticityToken == nil){
-        [self rescheduleConnect];
-    }
-    else {
-        // Now send the authentication-request
-        [self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
+        self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
+        if(self.authenticityToken == nil){
+            [self rescheduleConnect];
+        }
+        else {
+            // Now send the authentication-request
+            [self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
                         [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
 
-        self.authenticated = YES;
-        [NSTimer scheduledTimerWithTimeInterval:30
-                                         target:self
-                                       selector:@selector(ping)
-                                       userInfo:nil
-                                        repeats:NO];
+            self.authenticated = YES;
+            [self listChannels];
+            [NSTimer scheduledTimerWithTimeInterval:30
+                                             target:self
+                                           selector:@selector(ping)
+                                           userInfo:nil
+                                            repeats:NO];
+        }
+    }
+    else if([connection identifier:@"list_channels"]){
+        DLog(@"list channels %@", json_string);
+        if(responseNo == kHTTPSuccess){
+            NSDictionary *dict = [parser objectWithString:json_string];
+
+            DLog([dict description]);
+        }
     }
 
     [responseData release];
     [connection release];
 }
 
+- (void)connection:(M3EncapsulatedURLConnection*)connection returnedWithError:(NSError *)error{
+    [connection release];
+}
 
 @end
