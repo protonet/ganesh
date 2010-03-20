@@ -168,7 +168,7 @@
 
     [[M3EncapsulatedURLConnection alloc] initWithRequest:request
                                                 delegate:self
-                                           andIdentifier:@"authenticate"
+                                           andIdentifier:@"list_channels"
                                              contextInfo:nil];
 }
 
@@ -229,8 +229,10 @@
         NSURLResponse *response;
         NSError *error;
         
-        urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        DLog(@"urlData %@", [[[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding] autorelease]);
+        [[M3EncapsulatedURLConnection alloc] initWithRequest:request
+                                                    delegate:self
+                                               andIdentifier:@"send_message"
+                                                 contextInfo:nil];
     }
 }
 
@@ -346,11 +348,11 @@
 }
 
 - (void)connection:(M3EncapsulatedURLConnection*)connection returnedWithResponse:(int)responseNo andData:(NSData*)responseData{
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    SBJsonParser *parser = [[[SBJsonParser alloc] init] autorelease];
 
     // Get JSON as a NSString from NSData response
-	NSString *json_string = [[NSString alloc] initWithData:responseData
-                                                  encoding:NSUTF8StringEncoding];
+	NSString *json_string = [[[NSString alloc] initWithData:responseData
+                                                   encoding:NSUTF8StringEncoding] autorelease];
 
     if([[connection identifier] isEqualToString:@"authenticate"]){
         NSDictionary *authentication_dict = [parser objectWithString:json_string];
@@ -376,7 +378,7 @@
                                             repeats:NO];
         }
     }
-    else if([connection identifier:@"list_channels"]){
+    else if([[connection identifier] isEqualToString:@"list_channels"] || [[connection identifier] isEqualToString:@"send_message"]){
         DLog(@"list channels %@", json_string);
         if(responseNo == kHTTPSuccess){
             NSDictionary *dict = [parser objectWithString:json_string];
@@ -385,8 +387,6 @@
         }
     }
 
-    [parser release];
-    [json_string release];
     [connection release];
 }
 
