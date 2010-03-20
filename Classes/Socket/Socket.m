@@ -318,8 +318,7 @@
     // store cookie
     self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
                                                           forURL:[NSURL URLWithString:url]];
-    
-    DLog([[response allHeaderFields] description]);
+
     DLog([self.cookies description]);
 }
 

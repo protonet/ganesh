@@ -215,5 +215,5 @@ a:hover {
     -webkit-border-image: url(scrollbar.png) 16 0 16 0;
     border-color: transparent;
     border-width: 16px 0;
-    min-height: 20px;
+    min-height: 32px;
 }
