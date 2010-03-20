@@ -71,6 +71,10 @@
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // allow the caller to store coookie
+    if ([delegate respondsToSelector:@selector(processResponseHeaders:)]) {
+		[delegate processResponseHeaders:response];
+	}
 	responseNo = [(NSHTTPURLResponse *)response statusCode];
 }
 
