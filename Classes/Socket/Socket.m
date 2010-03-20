@@ -146,6 +146,8 @@
 - (void)authenticateSocket {
     NSString *authUrl = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
                          self.serverUrl, self.userName, self.password];
+
+    self.cookies = nil;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authUrl]
                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                          timeoutInterval:60];
@@ -334,11 +336,13 @@
 - (void)processResponseHeaders:(NSHTTPURLResponse *)response {
     NSString *url = [NSString stringWithFormat:@"http://%@", self.serverUrl];
 
-    // store cookie
-    self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
-                                                          forURL:[NSURL URLWithString:url]];
+    // store cookie if not set
+    if(self.cookies == nil){
+        self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
+                                                              forURL:[NSURL URLWithString:url]];
 
-    DLog([self.cookies description]);
+        DLog([self.cookies description]);
+    }
 }
 
 - (void)connection:(M3EncapsulatedURLConnection*)connection returnedWithResponse:(int)responseNo andData:(NSData*)responseData{
