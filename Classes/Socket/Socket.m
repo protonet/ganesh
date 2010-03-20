@@ -228,7 +228,7 @@
         NSError *error;
         
         urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        DLog(@"urlData %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
+        DLog(@"urlData %@", [[[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding] autorelease]);
     }
 }
 
@@ -381,7 +381,8 @@
         }
     }
 
-    [responseData release];
+    [parser release];
+    [json_string release];
     [connection release];
 }
 
