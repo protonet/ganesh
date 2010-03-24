@@ -52,8 +52,8 @@
 		currentSize++;
     }
 	else{
-		[[queue objectAtIndex:currentSize] release];
-		[queue removeObjectAtIndex:currentSize];
+		[[queue objectAtIndex:currentSize-1] release];
+		[queue removeObjectAtIndex:currentSize-1];
     }
 	
 	[queue addObject:[newObject copy]];
