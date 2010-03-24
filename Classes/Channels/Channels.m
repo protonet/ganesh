@@ -7,7 +7,7 @@
 //
 
 #import "Channels.h"
-
+#import "NSString_truncate.h"
 
 @implementation Channels
 
@@ -43,15 +43,15 @@
 {
     switch(rowIndex){
         case 0:
-            [aCell setAttributedTitle:@"Default"];
+            [aCell setAttributedTitle:[@"Default" stringWithTruncatingToLength:13]];
             break;
 
         case 1:
-            [aCell setAttributedTitle:@"Chuck Norris..."];
+            [aCell setAttributedTitle:[@"Chuck Norris aotuahs oeuh sh" stringWithTruncatingToLength:13]];
             break;
 
         case 2:
-            [aCell setAttributedTitle:@"Biene Maja"];
+            [aCell setAttributedTitle:[@"homebase blablabla" stringWithTruncatingToLength:13]];
             break;
 
     }

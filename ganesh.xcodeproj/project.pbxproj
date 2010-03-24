@@ -67,6 +67,7 @@
 		4D1910071128489100BA1A75 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4D19101B11284D0D00BA1A75 /* dsa_pub.pem */; };
 		4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D191022112852C200BA1A75 /* GrowlNotifier.m */; };
+		4D423250115AD89900C59718 /* NSString_truncate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D42324F115AD89900C59718 /* NSString_truncate.m */; };
 		4D490C66113030F50044C86E /* N2NUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490C65113030F50044C86E /* N2NUserDefaultsController.m */; };
 		4D490CF711303E5B0044C86E /* N2NPreferencesDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */; };
 		4D65A17D1145C85200F8E737 /* MGTemplateEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65A1671145C85200F8E737 /* MGTemplateEngine.m */; };
@@ -335,6 +336,8 @@
 		4D19101B11284D0D00BA1A75 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		4D191021112852C200BA1A75 /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		4D191022112852C200BA1A75 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
+		4D42324E115AD89900C59718 /* NSString_truncate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_truncate.h; sourceTree = "<group>"; };
+		4D42324F115AD89900C59718 /* NSString_truncate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_truncate.m; sourceTree = "<group>"; };
 		4D490C64113030F50044C86E /* N2NUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NUserDefaultsController.h; sourceTree = "<group>"; };
 		4D490C65113030F50044C86E /* N2NUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NUserDefaultsController.m; sourceTree = "<group>"; };
 		4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NPreferencesDictionary.h; sourceTree = "<group>"; };
@@ -457,6 +460,8 @@
 				27D1DD5B1147DA8700965893 /* NSString_urlEncode.m */,
 				4DA5887C114813C1005DAEB4 /* TimelineWindow.h */,
 				4DA5887D114813C1005DAEB4 /* TimelineWindow.m */,
+				4D42324E115AD89900C59718 /* NSString_truncate.h */,
+				4D42324F115AD89900C59718 /* NSString_truncate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1029,6 +1034,7 @@
 				4DA1932D115A7EAD00F3E872 /* RoundButtonCell.m in Sources */,
 				4DA19338115A805D00F3E872 /* Channels.m in Sources */,
 				4DA193D3115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m in Sources */,
+				4D423250115AD89900C59718 /* NSString_truncate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
