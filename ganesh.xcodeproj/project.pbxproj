@@ -88,6 +88,11 @@
 		4D7105FD10EECB050066AC0C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105ED10EECB050066AC0C /* Tweet.m */; };
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
 		4D906D51114E6C0100A6B353 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D50114E6C0100A6B353 /* Carbon.framework */; };
+		4DA19266115A514700F3E872 /* release-notes.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DA19265115A514700F3E872 /* release-notes.html */; };
+		4DA1932C115A7EAD00F3E872 /* NSColor_hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA19329115A7EAD00F3E872 /* NSColor_hex.m */; };
+		4DA1932D115A7EAD00F3E872 /* RoundButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA1932B115A7EAD00F3E872 /* RoundButtonCell.m */; };
+		4DA19338115A805D00F3E872 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA19337115A805D00F3E872 /* Channels.m */; };
+		4DA193D3115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA193D2115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m */; };
 		4DA5887E114813C1005DAEB4 /* TimelineWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5887D114813C1005DAEB4 /* TimelineWindow.m */; };
 		4DA5897F1148FC7C005DAEB4 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5897E1148FC7C005DAEB4 /* EMKeychainItem.m */; };
 		4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA58AC711495816005DAEB4 /* bullet_key.png */; };
@@ -377,6 +382,15 @@
 		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
 		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = "<group>"; };
 		4D906D50114E6C0100A6B353 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		4DA19265115A514700F3E872 /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "release-notes.html"; sourceTree = "<group>"; };
+		4DA19328115A7EAD00F3E872 /* NSColor_hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSColor_hex.h; sourceTree = "<group>"; };
+		4DA19329115A7EAD00F3E872 /* NSColor_hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSColor_hex.m; sourceTree = "<group>"; };
+		4DA1932A115A7EAD00F3E872 /* RoundButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButtonCell.h; sourceTree = "<group>"; };
+		4DA1932B115A7EAD00F3E872 /* RoundButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButtonCell.m; sourceTree = "<group>"; };
+		4DA19336115A805D00F3E872 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
+		4DA19337115A805D00F3E872 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
+		4DA193D1115A8A9E00F3E872 /* NSBezierPath_RoundedRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBezierPath_RoundedRect.h; sourceTree = "<group>"; };
+		4DA193D2115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPath_RoundedRect.m; sourceTree = "<group>"; };
 		4DA5887C114813C1005DAEB4 /* TimelineWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineWindow.h; sourceTree = "<group>"; };
 		4DA5887D114813C1005DAEB4 /* TimelineWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineWindow.m; sourceTree = "<group>"; };
 		4DA5897D1148FC7C005DAEB4 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
@@ -416,6 +430,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4DA19327115A7EAD00F3E872 /* Channels */,
 				4DDDDF5511553A5E00CD9E89 /* M3 */,
 				4DF5FCA71151958F00DC5BC9 /* LIFOStack.h */,
 				4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */,
@@ -608,6 +623,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DA19265115A514700F3E872 /* release-notes.html */,
 				27474BF2114692EA009DA65B /* Light.bbtheme */,
 				2746208B1145D22500ACC69E /* Bubbling Citrus.bbtheme */,
 				4D19101B11284D0D00BA1A75 /* dsa_pub.pem */,
@@ -748,6 +764,21 @@
 				4DE5EE481142816600277CE6 /* PreferenceWindow.m */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		4DA19327115A7EAD00F3E872 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				4DA19328115A7EAD00F3E872 /* NSColor_hex.h */,
+				4DA19329115A7EAD00F3E872 /* NSColor_hex.m */,
+				4DA1932A115A7EAD00F3E872 /* RoundButtonCell.h */,
+				4DA1932B115A7EAD00F3E872 /* RoundButtonCell.m */,
+				4DA19336115A805D00F3E872 /* Channels.h */,
+				4DA19337115A805D00F3E872 /* Channels.m */,
+				4DA193D1115A8A9E00F3E872 /* NSBezierPath_RoundedRect.h */,
+				4DA193D2115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m */,
+			);
+			path = Channels;
 			sourceTree = "<group>";
 		};
 		4DA5897C1148FC7C005DAEB4 /* Keychain */ = {
@@ -909,6 +940,7 @@
 				4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */,
 				4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */,
 				27B17F6E114A765200D523DD /* Defaults.plist in Resources */,
+				4DA19266115A514700F3E872 /* release-notes.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,6 +1025,10 @@
 				275E419B1151510A004B02D5 /* GTMNSString+HTML.m in Sources */,
 				4DF5FCA91151959000DC5BC9 /* LIFOStack.m in Sources */,
 				4DDDDF5811553A7900CD9E89 /* M3EncapsulatedURLConnection.m in Sources */,
+				4DA1932C115A7EAD00F3E872 /* NSColor_hex.m in Sources */,
+				4DA1932D115A7EAD00F3E872 /* RoundButtonCell.m in Sources */,
+				4DA19338115A805D00F3E872 /* Channels.m in Sources */,
+				4DA193D3115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
