@@ -25,6 +25,7 @@
     // [bgPath fill];
 
     if(isActive){
+        // drawing the triangle on the side
         bgPath = [NSBezierPath bezierPath];
         [[NSColor colorWithHexColorString:@"dbe4e7"] set];
         [bgPath moveToPoint:NSMakePoint(NSMaxX(bgRect)+5, NSMidY(bgRect))];
@@ -45,7 +46,7 @@
 
     if(isActive){
         [txtShadow setShadowColor: [NSColor
-           colorWithCalibratedRed: 1.0 green: 1.0 blue: 0.0 alpha: 0.5]];
+           colorWithCalibratedRed: 1.0 green: 1.0 blue: 0.0 alpha: 0.9]];
         [txtShadow setShadowOffset: NSMakeSize(0.5, -0.5)];
         [txtShadow setShadowBlurRadius: 1.0];
     }
