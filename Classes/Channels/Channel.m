@@ -10,5 +10,25 @@
 
 
 @implementation Channel
+@synthesize channelId;
+@synthesize name;
+@synthesize description;
+
+- (id)initWithData:(NSMutableDictionary *)data
+{
+    if ([data objectForKey:@"message"] && (self = [super init])) {
+        return self;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (void)dealloc
+{
+    self.name        = nil;
+    self.description = nil;
+    [super dealloc];
+}
 
 @end

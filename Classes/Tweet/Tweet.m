@@ -54,6 +54,10 @@
 
 - (void)dealloc
 {
+    self.message  = nil;
+    self.date     = nil;
+    self.author   = nil;
+    self.icon_url = nil;
     [userImage release];
     [super dealloc];
 }
