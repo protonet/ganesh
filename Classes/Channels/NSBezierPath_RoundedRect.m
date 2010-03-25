@@ -12,7 +12,7 @@
 
 + (NSBezierPath *)bezierPathWithRoundedRect:(NSRect)rect cornerRadius:(float)radius{
     NSBezierPath *result = [NSBezierPath bezierPath];
-    [result appendBezierPathWithRoundedRect:rect cornerRadius:radius active:isActive];
+    [result appendBezierPathWithRoundedRect:rect cornerRadius:radius];
     return result;
 }
 
