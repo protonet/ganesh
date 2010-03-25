@@ -13,6 +13,7 @@
 // row height 35
 
 @implementation RoundButtonCell
+
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
     // Construct rounded rect path
@@ -37,13 +38,23 @@
     // [super drawWithFrame:cellFrame inView:controlView];
 }
 
-- (NSMutableAttributedString *)setAttributedTitle:(NSString *)title
+- (NSMutableAttributedString *)setAttributedTitle:(NSString *)title active:(BOOL)isActive
 {
     NSColor *txtColor = [NSColor colorWithHexColorString:@"dbe4e7"];
+    NSShadow *txtShadow = [[[NSShadow alloc] init] autorelease];
+
+    if(isActive){
+        [txtShadow setShadowColor: [NSColor
+           colorWithCalibratedRed: 1.0 green: 1.0 blue: 0.0 alpha: 0.5]];
+        [txtShadow setShadowOffset: NSMakeSize(0.5, -0.5)];
+        [txtShadow setShadowBlurRadius: 1.0];
+    }
+
     NSFont *txtFont = [NSFont boldSystemFontOfSize:12];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:txtFont,
-                 NSFontAttributeName, txtColor,
-                 NSForegroundColorAttributeName, nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:txtFont, NSFontAttributeName,
+                 txtColor, NSForegroundColorAttributeName,
+                 txtShadow, NSShadowAttributeName,
+                 nil];
     NSAttributedString *atted = [[[NSAttributedString alloc] initWithString:title
                                                                  attributes:dict] autorelease];
     [super setAttributedTitle:atted];
