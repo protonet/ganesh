@@ -10,5 +10,8 @@
 
 
 @interface Channels : NSObject {
+    IBOutlet NSTableView *tableView;
+
+    int selectedRow;
 }
 @end

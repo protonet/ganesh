@@ -23,7 +23,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1033"/>
+			<integer value="1024"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -631,7 +631,7 @@
 																<nil key="NSDefaultParagraphStyle"/>
 															</object>
 															<int key="NSTVFlags">6</int>
-															<string key="NSMaxSize">{890, 1e+07}</string>
+															<string key="NSMaxSize">{950, 1e+07}</string>
 															<string key="NSMinize">{223, 0}</string>
 															<nil key="NSDelegate"/>
 														</object>
@@ -731,15 +731,21 @@
 																		<int key="NSCellFlags">67239424</int>
 																		<int key="NSCellFlags2">33554432</int>
 																		<string key="NSContents">Chuck Norris...</string>
-																		<object class="NSFont" key="NSSupport" id="68919009">
+																		<object class="NSFont" key="NSSupport">
 																			<string key="NSName">LucidaGrande</string>
 																			<double key="NSSize">13</double>
 																			<int key="NSfFlags">1044</int>
 																		</object>
 																		<reference key="NSControlView" ref="615611789"/>
-																		<int key="NSButtonFlags">-2043264769</int>
+																		<int key="NSButtonFlags">1211912703</int>
 																		<int key="NSButtonFlags2">2</int>
-																		<reference key="NSAlternateImage" ref="68919009"/>
+																		<object class="NSCustomResource" key="NSNormalImage">
+																			<string key="NSClassName">NSImage</string>
+																			<string key="NSResourceName">NSSwitch</string>
+																		</object>
+																		<object class="NSButtonImageSource" key="NSAlternateImage">
+																			<string key="NSImageName">NSSwitch</string>
+																		</object>
 																		<string key="NSAlternateContents">Blablablabla...</string>
 																		<string key="NSKeyEquivalent"/>
 																		<int key="NSPeriodicDelay">200</int>
@@ -1096,6 +1102,14 @@
 						<reference key="destination" ref="726412732"/>
 					</object>
 					<int key="connectionID">1040</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">tableView</string>
+						<reference key="source" ref="726412732"/>
+						<reference key="destination" ref="615611789"/>
+					</object>
+					<int key="connectionID">1041</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1751,7 +1765,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1040</int>
+			<int key="maxID">1041</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1809,6 +1823,10 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">Channels</string>
 					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">tableView</string>
+						<string key="NS.object.0">NSTableView</string>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/Channels/Channels.h</string>

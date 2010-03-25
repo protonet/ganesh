@@ -11,19 +11,10 @@
 
 @implementation Channels
 
-- (id)init
+- (void)awakeFromNib
 {
-    if (self = [super init])
-    {
-    }
-    return self;
+    selectedRow = 0;
 }
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 
 // tableView datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
@@ -33,7 +24,7 @@
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-    if (rowIndex == 0)
+    if (rowIndex == selectedRow)
         return [NSNumber numberWithInt:NSOnState];
     return [NSNumber numberWithInt:NSOffState];
 }
@@ -41,21 +32,29 @@
 // tableView delegates
 - (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
+    BOOL isActive = (rowIndex == selectedRow);
+
     switch(rowIndex){
         case 0:
-            [aCell setAttributedTitle:[@"Default" stringWithTruncatingToLength:13]];
+            [aCell setAttributedTitle:[@"Default" stringWithTruncatingToLength:13] active:isActive];
             break;
 
         case 1:
-            [aCell setAttributedTitle:[@"Chuck Norris aotuahs oeuh sh" stringWithTruncatingToLength:13]];
+            [aCell setAttributedTitle:[@"Chuck Norris aotuahs oeuh sh" stringWithTruncatingToLength:13] active:isActive];
             break;
 
         case 2:
-            [aCell setAttributedTitle:[@"homebase blablabla" stringWithTruncatingToLength:13]];
+            [aCell setAttributedTitle:[@"homebase blablabla" stringWithTruncatingToLength:13] active:isActive];
             break;
 
     }
 }
 
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
+{
+    selectedRow = rowIndex;
+    [aTableView reloadData];
+    return NO;
+}
 
 @end
