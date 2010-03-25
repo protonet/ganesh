@@ -921,7 +921,7 @@
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSCustomObject" id="726412732">
-				<string key="NSClassName">Channels</string>
+				<string key="NSClassName">ChannelsController</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1821,7 +1821,7 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">Channels</string>
+					<string key="className">ChannelsController</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">tableView</string>
@@ -1829,7 +1829,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Channels/Channels.h</string>
+						<string key="minorKey">Classes/Channels/ChannelsController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

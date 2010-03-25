@@ -1,20 +1,20 @@
 //
-//  Channels.m
+//  ChannelsController.m
 //  ganesh
 //
 //  Created by Reza Jelveh on 24.03.10.
 //  Copyright 2010 Protonet. All rights reserved.
 //
 
-#import "Channels.h"
+#import "ChannelsController.h"
 #import "NSString_truncate.h"
 
-static Channels *sharedChannelController = nil;
+static ChannelsController *sharedChannelController = nil;
 
-@implementation Channels
+@implementation ChannelsController
 @synthesize channels;
 
-+ (Channels*)sharedController
++ (ChannelsController*)sharedController
 {
     if (sharedChannelController == nil) {
         sharedChannelController = [[super allocWithZone:NULL] init];

@@ -1,5 +1,5 @@
 //
-//  Channels.h
+//  ChannelsController.h
 //  ganesh
 //
 //  Created by Reza Jelveh on 24.03.10.
@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface Channels : NSObject {
+@interface ChannelsController : NSObject {
     IBOutlet NSTableView *tableView;
 
     @private NSMutableArray *channels;
@@ -18,6 +18,6 @@
 }
 
 @property(readwrite, assign) NSMutableArray *channels;
-+ (Channels*)sharedController;
++ (ChannelsController*)sharedController;
 
 @end
