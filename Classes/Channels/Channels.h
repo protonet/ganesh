@@ -12,6 +12,12 @@
 @interface Channels : NSObject {
     IBOutlet NSTableView *tableView;
 
+    @private NSMutableArray *channels;
+
     int selectedRow;
 }
+
+@property(readwrite, assign) NSMutableArray *channels;
++ (Channels*)sharedController;
+
 @end

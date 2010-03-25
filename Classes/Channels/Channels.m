@@ -9,11 +9,76 @@
 #import "Channels.h"
 #import "NSString_truncate.h"
 
+static Channels *sharedChannelController = nil;
+
 @implementation Channels
+@synthesize channels;
+
++ (Channels*)sharedController
+{
+    if (sharedChannelController == nil) {
+        sharedChannelController = [[super allocWithZone:NULL] init];
+    }
+    return sharedChannelController;
+}
+
++ (id)allocWithZone:(NSZone *)zone
+{
+    return [[self sharedController] retain];
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain
+{
+    return self;
+}
+
+- (NSUInteger)retainCount
+{
+    return NSUIntegerMax;  //denotes an object that cannot be released
+}
+
+- (void)release
+{
+    //do nothing
+}
+
+- (id)autorelease
+{
+    return self;
+}
+
+- (id)init
+{
+    if (self = [super init]) {
+        self.channels = [[NSMutableArray alloc] init];
+    }
+
+    return self;
+}
+
 
 - (void)awakeFromNib
 {
     selectedRow = 0;
+}
+
+- (void)selectNextChannel
+{
+    if(++selectedRow == 3)
+        selectedRow = 0;
+    [tableView reloadData];
+}
+
+- (void)selectPreviousChannel
+{
+    if(selectedRow-- <= 0)
+        selectedRow = 3-1;
+    [tableView reloadData];
 }
 
 // tableView datasource

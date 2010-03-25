@@ -7,7 +7,7 @@
 //
 
 #import "TimelineWindow.h"
-
+#import "Channels.h"
 
 @implementation TimelineWindow
 
@@ -49,6 +49,16 @@
     if (([event modifierFlags] & NSDeviceIndependentModifierFlagsMask) == NSCommandKeyMask) {
         if ([[event charactersIgnoringModifiers] isEqualToString:@"w"]) {
             [self performClose:self];
+            return YES;
+        }
+    }
+    else if (([event modifierFlags] & NSDeviceIndependentModifierFlagsMask) == NSControlKeyMask) {
+        if ([[event charactersIgnoringModifiers] isEqualToString:@"n"]) {
+            [[Channels sharedController] selectNextChannel];
+            return YES;
+        }
+        else if ([[event charactersIgnoringModifiers] isEqualToString:@"p"]) {
+            [[Channels sharedController] selectPreviousChannel];
             return YES;
         }
     }
