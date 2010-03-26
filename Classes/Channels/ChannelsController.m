@@ -101,6 +101,10 @@ static ChannelsController *sharedChannelController = nil;
 {
     if(++selectedRow == [channels count])
         selectedRow = 0;
+
+    // set channel to the specified channel id
+    [[AppController sharedController] setChannel:[self selectedChannelId]];
+
     [tableView reloadData];
 }
 
@@ -108,6 +112,10 @@ static ChannelsController *sharedChannelController = nil;
 {
     if(selectedRow-- <= 0)
         selectedRow = [channels count]-1;
+
+    // set channel to the specified channel id
+    [[AppController sharedController] setChannel:[self selectedChannelId]];
+
     [tableView reloadData];
 }
 

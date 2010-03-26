@@ -10,3 +10,4 @@
 - use addSubView for drawing the lock icon instead of overriding using the [vpnImage drawrRect...
 - check for wellformedness of cache file when initializing the messages object. don't allow people to do malicious stuff aye
 - do some sanity checks when setting the contents of tweets
+- more sanity checks. bad channel info can lead to problems
