@@ -10,18 +10,32 @@
 		<script type="text/javascript" src="relativeTime.js"></script>
 		<script type="text/javascript" src="light.js"></script>
 		<script type="text/javascript">
+                    currentChannel = 1;
 			function $(el) { return document.getElementById(el); }
-			function addTweet(tweet)
+                        function createChannelIfNE(channelId){
+                            if (!$('channel_'+channelId)){
+                                channel = document.createElement("div");
+                                channel.id = 'channel_' + channelId;
+                                $('page').appendChild(channel);
+                            }
+                        }
+			function addTweet(tweet, channelId)
 			{
 			    var shouldDisplay = true;
 			    var isNew = true;
-			    var theTweet  = $('page').firstElementChild;
 			    var nextTweet = document.createElement("div");
+                            createChannelIfNE(channelId);
+			    var theTweet  = $('channel_'+channelId).firstElementChild;
 			    nextTweet.innerHTML = tweet;
 			    if (!shouldDisplay){
 			        theTweet.style.display = 'none';
 			    }
-			    $('page').insertBefore(nextTweet, theTweet);
+                            if(theTweet){
+                                $('page').insertBefore(nextTweet, theTweet);
+                            }
+                            else{
+                                $('channel_'+channelId).appendChild(nextTweet);
+                            }
 
 			    if (!isNew){
 			    	theTweet.style.opacity = '0.9';
@@ -39,11 +53,20 @@
 			{
 			    theTweet.style.display = (shouldDisplay) ? '' : 'none';
 			}
+                        function setChannel(channelId)
+                        {
+                            createChannelIfNE(channelId);
+                            if(channelId != currentChannel){
+                                $('channel_'+currentChannel).style.display = 'none';
+                                $('channel_'+channelId).style.display = '';
+                                currentChannel = channelId;
+                            }
+                        }
 		</script>
 	</head>
 	<body onload="Bluebird.loadTweets();">
 		<div id='page'>
-			<div></div>
+			<div  id="channel_1">
 			{% for tweet in tweets %}
 			<div class='container {%if tweet.isOwn %}TweetSelf{%else%}{% if tweet.isResponse %}TweetResponse{%else%}Tweet{%/if%}{%/if%}'>
 				<div class='avatar'><a href='javascript:;' ><img src='{{tweet.icon_url}}' /></a></div>
@@ -67,6 +90,7 @@
 				</div>
 			</div>
 			{% /for %}
+                        </div>
 		</div>
 	</body>
 </html>

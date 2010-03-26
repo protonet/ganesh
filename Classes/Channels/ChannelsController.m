@@ -126,8 +126,11 @@ static ChannelsController *sharedChannelController = nil;
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
+    Channel *channel = [self.channels objectAtIndex:rowIndex];
     selectedRow = rowIndex;
     [aTableView reloadData];
+    // set channel to the specified channel id
+    [[AppController sharedController] setChannel:channel.channel_id];
     return NO;
 }
 

@@ -334,6 +334,11 @@ static AppController *sharedAppController = nil;
                                         withArguments:[NSArray arrayWithObjects:result,nil]];
 }
 
+- (void)setChannel:(NSInteger)channelId{
+    [[webView windowScriptObject] callWebScriptMethod:@"setChannel"
+                                        withArguments:[NSArray arrayWithObjects:[NSNumber numberWithInteger:channelId],nil]];
+}
+
 - (void)openPtnDashboard:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://localhost:3000/"]];
 }
