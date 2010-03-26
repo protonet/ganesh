@@ -19,11 +19,11 @@
     BOOL      response;
 }
 
-@property(readwrite, copy)   NSString * message;
-@property(readwrite, copy)   NSString * author;
-@property(readwrite, copy)   NSDate   * date;
-@property(readwrite, copy)   NSURL    * icon_url;
-@property(readwrite, assign) NSImage * userImage;
+@property(retain)   NSString * message;
+@property(retain)   NSString * author;
+@property(retain)   NSDate   * date;
+@property(retain)   NSURL    * icon_url;
+@property(assign) NSImage * userImage;
 @property (nonatomic, assign, getter=isOwn) BOOL own;
 @property (nonatomic, assign, getter=isResponse) BOOL response;
 @property(nonatomic, assign) NSInteger tweet_id;
