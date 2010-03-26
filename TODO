@@ -11,3 +11,6 @@
 - check for wellformedness of cache file when initializing the messages object. don't allow people to do malicious stuff aye
 - do some sanity checks when setting the contents of tweets
 - more sanity checks. bad channel info can lead to problems
+- do some performance optimizations to the webview. we can't have infinite amounts of meeps in the same webview. that would totally kill us performance wise.
+    - does it make more sense to have as many webviews as we have channels
+      or should we keep it as it is now.

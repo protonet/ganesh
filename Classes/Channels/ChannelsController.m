@@ -55,16 +55,21 @@ static ChannelsController *sharedChannelController = nil;
     return self;
 }
 
+- (Channel*)createDefaultChannel
+{
+    Channel *defaultChannel = [[Channel alloc] init];
+    defaultChannel.name = @"default channel";
+    defaultChannel.description = @"this thing exists because something went wrong acquiring the channel list";
+    defaultChannel.channel_id = [NSNumber numberWithInt:1];
+    return defaultChannel;
+}
+
+
 - (id)init
 {
     if (self = [super init]) {
         self.channels = [[NSMutableArray alloc] init];
-        Channel *defaultChannel = [[Channel alloc] init];
-        defaultChannel.name = @"hombase";
-        defaultChannel.description = @"your homebase";
-        defaultChannel.channel_id = [NSNumber numberWithInt:1];
-        [self.channels addObject:defaultChannel];
-
+        [self.channels addObject:[self createDefaultChannel]];
         selectedRow = 0;
     }
 
