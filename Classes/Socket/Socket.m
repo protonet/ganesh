@@ -160,8 +160,8 @@
 }
 
 - (void)listChannels {
-    NSString *url = [NSString stringWithFormat:@"http://%@/channels/list.json?token=%@",
-                     self.serverUrl, self.authenticityToken];
+    NSString *url = [NSString stringWithFormat:@"http://%@/users/list_channels.json",
+                     self.serverUrl];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
