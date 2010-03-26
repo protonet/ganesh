@@ -331,7 +331,7 @@ static AppController *sharedAppController = nil;
 	DLog(@"Processed template");
 
     [[webView windowScriptObject] callWebScriptMethod:@"addTweet"
-                                        withArguments:[NSArray arrayWithObjects:result,nil]];
+                                        withArguments:[NSArray arrayWithObjects:result,[NSNumber numberWithInteger:tweet.channel_id],nil]];
 }
 
 - (void)setChannel:(NSInteger)channelId{

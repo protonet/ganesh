@@ -20,6 +20,7 @@
 @synthesize message;
 @synthesize userImage;
 @synthesize tweet_id;
+@synthesize channel_id;
 
 - (id)initWithData:(NSMutableDictionary *)data
 {
@@ -32,6 +33,7 @@
         self.author   = [data objectForKey:@"author"];
         self.own      = [userName isEqualToString:self.author];
         self.tweet_id = [data objectForKey:@"id"];
+        self.channel_id = [data objectForKey:@"channel_id"];
 
         NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", userName]];
 
