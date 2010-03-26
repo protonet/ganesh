@@ -142,7 +142,7 @@ static ChannelsController *sharedChannelController = nil;
 {
     BOOL isActive = (rowIndex == selectedRow);
 
-    [aCell setAttributedTitle:[[[channels objectAtIndex:rowIndex] description] stringWithTruncatingToLength:13] active:isActive];
+    [aCell setAttributedTitle:[[[channels objectAtIndex:rowIndex] name] stringWithTruncatingToLength:13] active:isActive];
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
