@@ -59,6 +59,13 @@ static ChannelsController *sharedChannelController = nil;
 {
     if (self = [super init]) {
         self.channels = [[NSMutableArray alloc] init];
+        Channel *defaultChannel = [[Channel alloc] init];
+        defaultChannel.name = @"hombase";
+        defaultChannel.description = @"your homebase";
+        defaultChannel.channel_id = [NSNumber numberWithInt:1];
+        [self.channels addObject:defaultChannel];
+
+        selectedRow = 0;
     }
 
     return self;
@@ -72,6 +79,7 @@ static ChannelsController *sharedChannelController = nil;
         NSDictionary *channelData;
         Channel *thisChannel;
 
+        [self.channels removeAllObjects];
         while (channelData = [myArrayEnumerator nextObject])
         {
             thisChannel = [[Channel alloc] initWithData:channelData];
@@ -84,17 +92,14 @@ static ChannelsController *sharedChannelController = nil;
     [tableView reloadData];
 }
 
-
-- (void)awakeFromNib
+- (id)selectedChannelId
 {
-    selectedRow = 0;
-}
+    if([self.channels count]){
+        Channel *channel = [self.channels objectAtIndex:selectedRow];
 
-- (int)selectedChannelId
-{
-    Channel *channel = [self.channels objectAtIndex:selectedRow];
-
-    return channel.channel_id;
+        return channel.channel_id;
+    }
+    return nil;
 }
 
 - (void)selectNextChannel
