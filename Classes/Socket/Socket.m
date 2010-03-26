@@ -200,13 +200,16 @@
 - (void)sendMessage:(NSString*)message {
 	if([self streamsAreOk] && message != nil && [message length]>0)
     {
-        
+        NSNumber *channel_id = [[ChannelsController sharedController] selectedChannelId];
+        if(!channel_id){
+            channel_id = [NSNumber numberWithInt:1];
+        }
 //        [self sendText:[NSString stringWithFormat:@"%@", message]];
         //tweet[message] message_channel-id=1 tweet[socket_id]=1 tweet[text_extension]=''
         NSString *post = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%d&%@=%d&%@=%@",
                           @"authenticity_token", [self.authenticityToken urlEncode],
                           [@"tweet[message]" urlEncode], [message urlEncode],
-                          @"message_channel_id", 1,
+                          @"message_channel_id", [channel_id intValue],
                           [@"tweet[socket_id]" urlEncode], 1,
                           [@"tweet[text_extension]" urlEncode], @""];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];

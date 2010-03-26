@@ -8,6 +8,7 @@
 
 #import "ChannelsController.h"
 #import "NSString_truncate.h"
+#import "AppController.h"
 
 #import "Channel.h"
 
@@ -70,7 +71,7 @@ static ChannelsController *sharedChannelController = nil;
         NSEnumerator *myArrayEnumerator = [myChannels objectEnumerator];
         NSDictionary *channelData;
         Channel *thisChannel;
-        
+
         while (channelData = [myArrayEnumerator nextObject])
         {
             thisChannel = [[Channel alloc] initWithData:channelData];
@@ -79,7 +80,7 @@ static ChannelsController *sharedChannelController = nil;
             }
         }
     }
-    
+
     [tableView reloadData];
 }
 
@@ -87,6 +88,13 @@ static ChannelsController *sharedChannelController = nil;
 - (void)awakeFromNib
 {
     selectedRow = 0;
+}
+
+- (int)selectedChannelId
+{
+    Channel *channel = [self.channels objectAtIndex:selectedRow];
+
+    return channel.channel_id;
 }
 
 - (void)selectNextChannel
@@ -126,11 +134,10 @@ static ChannelsController *sharedChannelController = nil;
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
-    Channel *channel = [self.channels objectAtIndex:rowIndex];
     selectedRow = rowIndex;
     [aTableView reloadData];
     // set channel to the specified channel id
-    [[AppController sharedController] setChannel:channel.channel_id];
+    [[AppController sharedController] setChannel:[self selectedChannelId]];
     return NO;
 }
 

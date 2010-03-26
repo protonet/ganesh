@@ -16,6 +16,7 @@
                             if (!$('channel_'+channelId)){
                                 channel = document.createElement("div");
                                 channel.id = 'channel_' + channelId;
+                                channel.style.display = 'none';
                                 $('page').appendChild(channel);
                             }
                         }
@@ -31,7 +32,7 @@
 			        theTweet.style.display = 'none';
 			    }
                             if(theTweet){
-                                $('page').insertBefore(nextTweet, theTweet);
+                                $('channel_'+channelId).insertBefore(nextTweet, theTweet);
                             }
                             else{
                                 $('channel_'+channelId).appendChild(nextTweet);

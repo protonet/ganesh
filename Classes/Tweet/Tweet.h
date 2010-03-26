@@ -12,8 +12,8 @@
 	NSImage * userImage;
 	NSString  * message;
 	NSString  * author;
-    NSInteger tweet_id;
-    NSInteger channel_id;
+    NSNumber  * tweet_id;
+    NSNumber  * channel_id;
     NSDate    * date;
     NSURL     * icon_url;
     BOOL      own;
@@ -27,8 +27,8 @@
 @property(assign) NSImage * userImage;
 @property (nonatomic, assign, getter=isOwn) BOOL own;
 @property (nonatomic, assign, getter=isResponse) BOOL response;
-@property(nonatomic, assign) NSInteger tweet_id;
-@property(nonatomic, assign) NSInteger channel_id;
+@property(retain) NSNumber *tweet_id;
+@property(retain) NSNumber *channel_id;
 
 - (id)initWithData:(NSMutableDictionary *)data;
 

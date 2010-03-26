@@ -20,4 +20,5 @@
 @property(readwrite, assign) NSMutableArray *channels;
 + (ChannelsController*)sharedController;
 
+
 @end
