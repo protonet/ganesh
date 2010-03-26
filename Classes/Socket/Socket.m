@@ -10,6 +10,7 @@
 #import "Socket.h"
 #import "JSON.h"
 #import "Messages.h"
+#import "ChannelsController.h"
 #import "Debug.h"
 #import "M3EncapsulatedURLConnection.h"
 
@@ -378,13 +379,15 @@
                                             repeats:NO];
         }
     }
-    else if([[connection identifier] isEqualToString:@"list_channels"] || [[connection identifier] isEqualToString:@"send_message"]){
+    else if([[connection identifier] isEqualToString:@"list_channels"]){
         DLog(@"list channels %@", json_string);
         if(responseNo == kHTTPSuccess){
             NSDictionary *dict = [parser objectWithString:json_string];
 
-            DLog([dict description]);
+            [[ChannelsController sharedController] addChannels:dict];
         }
+    }
+    else if([[connection identifier] isEqualToString:@"send_message"]){
     }
 
     [connection release];

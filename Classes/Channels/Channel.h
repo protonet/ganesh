@@ -10,7 +10,12 @@
 
 
 @interface Channel : NSObject {
-
+    NSInteger channel_id;
+	NSString  *name;
+	NSString  *description;
 }
+@property(nonatomic, assign) NSInteger channel_id;
+@property(retain)   NSString *name;
+@property(retain)   NSString *description;
 
 @end

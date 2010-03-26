@@ -9,6 +9,8 @@
 #import "ChannelsController.h"
 #import "NSString_truncate.h"
 
+#import "Channel.h"
+
 static ChannelsController *sharedChannelController = nil;
 
 @implementation ChannelsController
@@ -61,6 +63,26 @@ static ChannelsController *sharedChannelController = nil;
     return self;
 }
 
+- (void)addChannels:(id)obj
+{
+    NSArray *myChannels = [obj objectForKey:@"channels"];
+    if (myChannels) {
+        NSEnumerator *myArrayEnumerator = [myChannels objectEnumerator];
+        NSDictionary *channelData;
+        Channel *thisChannel;
+        
+        while (channelData = [myArrayEnumerator nextObject])
+        {
+            thisChannel = [[Channel alloc] initWithData:channelData];
+            if(thisChannel){
+                [self.channels addObject:thisChannel];
+            }
+        }
+    }
+    
+    [tableView reloadData];
+}
+
 
 - (void)awakeFromNib
 {
@@ -69,7 +91,7 @@ static ChannelsController *sharedChannelController = nil;
 
 - (void)selectNextChannel
 {
-    if(++selectedRow == 3)
+    if(++selectedRow == [channels count])
         selectedRow = 0;
     [tableView reloadData];
 }
@@ -77,14 +99,14 @@ static ChannelsController *sharedChannelController = nil;
 - (void)selectPreviousChannel
 {
     if(selectedRow-- <= 0)
-        selectedRow = 3-1;
+        selectedRow = [channels count]-1;
     [tableView reloadData];
 }
 
 // tableView datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-    return 3;
+    return [channels count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
@@ -99,20 +121,7 @@ static ChannelsController *sharedChannelController = nil;
 {
     BOOL isActive = (rowIndex == selectedRow);
 
-    switch(rowIndex){
-        case 0:
-            [aCell setAttributedTitle:[@"Default" stringWithTruncatingToLength:13] active:isActive];
-            break;
-
-        case 1:
-            [aCell setAttributedTitle:[@"Chuck Norris aotuahs oeuh sh" stringWithTruncatingToLength:13] active:isActive];
-            break;
-
-        case 2:
-            [aCell setAttributedTitle:[@"homebase blablabla" stringWithTruncatingToLength:13] active:isActive];
-            break;
-
-    }
+    [aCell setAttributedTitle:[[[channels objectAtIndex:rowIndex] description] stringWithTruncatingToLength:13] active:isActive];
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex

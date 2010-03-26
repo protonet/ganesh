@@ -10,13 +10,16 @@
 
 
 @implementation Channel
-@synthesize channelId;
+@synthesize channel_id;
 @synthesize name;
 @synthesize description;
 
 - (id)initWithData:(NSMutableDictionary *)data
 {
-    if ([data objectForKey:@"message"] && (self = [super init])) {
+    if ([data objectForKey:@"id"] && (self = [super init])) {
+        self.channel_id  = [data objectForKey:@"id"];
+        self.name        = [data objectForKey:@"name"];
+        self.description = [data objectForKey:@"description"];
         return self;
     }
     else{
