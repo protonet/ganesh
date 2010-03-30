@@ -4,3 +4,6 @@
 [submodule "tuntaposx"]
 	path = tuntaposx
 	url = git://github.com/fishman/tuntaposx.git
+[submodule "External/cocoaoniguruma"]
+	path = External/cocoaoniguruma
+	url = git://github.com/psychs/cocoaoniguruma.git
