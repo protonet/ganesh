@@ -8,7 +8,7 @@
 #import <SecurityFoundation/SFAuthorization.h>
 
 #import "Socket.h"
-#import "JSON.h"
+#import "NSString+SBJSON.h"
 #import "Messages.h"
 #import "ChannelsController.h"
 #import "Debug.h"
@@ -352,16 +352,14 @@
 }
 
 - (void)connection:(M3EncapsulatedURLConnection*)connection returnedWithResponse:(int)responseNo andData:(NSData*)responseData{
-    SBJsonParser *parser = [[[SBJsonParser alloc] init] autorelease];
-
     // Get JSON as a NSString from NSData response
-	NSString *json_string = [[[NSString alloc] initWithData:responseData
-                                                   encoding:NSUTF8StringEncoding] autorelease];
+	NSString *response = [[[NSString alloc] initWithData:responseData
+                                                encoding:NSUTF8StringEncoding] autorelease];
 
     if([[connection identifier] isEqualToString:@"authenticate"]){
-        NSDictionary *authentication_dict = [parser objectWithString:json_string];
+        NSDictionary *authentication_dict = [response JSONValue];
 
-        DLog(@"%@", json_string);
+        DLog(@"%@", response);
         DLog(@"%@", [authentication_dict objectForKey:@"token"]);
 
         self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
@@ -383,11 +381,9 @@
         }
     }
     else if([[connection identifier] isEqualToString:@"list_channels"]){
-        DLog(@"list channels %@", json_string);
+        DLog(@"list channels %@", response);
         if(responseNo == kHTTPSuccess){
-            NSDictionary *dict = [parser objectWithString:json_string];
-
-            [[ChannelsController sharedController] addChannels:dict];
+            [[ChannelsController sharedController] addChannels:[response JSONValue]];
         }
     }
     else if([[connection identifier] isEqualToString:@"send_message"]){

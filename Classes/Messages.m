@@ -8,7 +8,7 @@
 
 #import "Messages.h"
 #import "Tweet.h"
-#import "JSON.h"
+#import "NSString+SBJSON.h"
 
 
 static Messages *sharedMessagesController = nil;
@@ -86,15 +86,11 @@ static Messages *sharedMessagesController = nil;
 }
 
 - (void)addMessageToTweets:(NSString *)string {
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    
-    Tweet * tweet = [[Tweet alloc] initWithData:[parser objectWithString:string]];
+    Tweet * tweet = [[Tweet alloc] initWithData:[string JSONValue]];
 
     if (tweet) {
         [self push:tweet];
     }
-
-    [parser release];
 }
 
 - (id)first
