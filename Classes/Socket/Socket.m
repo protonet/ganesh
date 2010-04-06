@@ -274,12 +274,11 @@
             }
             if (oneByte == '\n' || oneByte == '\0') {
 					// We've got the carriage return at the end of the echo. Let's set the string.
-                NSString * string = [[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding];
+                NSString * string = [[[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding] autorelease];
 				[serverAnswerField setStringValue:string];
-                DLog(string);
+                DLog("%@", string); /* avoid crash if string is nil */
 				[[Messages sharedController] addMessageToTweets:string];
                 // TODO: {"x_target":"socket_id","socket_id":"..."}
-                [string release];
                 [dataBuffer release];
                 dataBuffer = nil;
             }
