@@ -14,3 +14,4 @@
 - do some performance optimizations to the webview. we can't have infinite amounts of meeps in the same webview. that would totally kill us performance wise.
     - does it make more sense to have as many webviews as we have channels
       or should we keep it as it is now.
+- add socks proxy support so i can use ganesh from university network
