@@ -276,7 +276,7 @@
 					// We've got the carriage return at the end of the echo. Let's set the string.
                 NSString * string = [[[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding] autorelease];
 				[serverAnswerField setStringValue:string];
-                DLog("%@", string); /* avoid crash if string is nil */
+                DLog(@"%@", string);
 				[[Messages sharedController] addMessageToTweets:string];
                 // TODO: {"x_target":"socket_id","socket_id":"..."}
                 [dataBuffer release];
