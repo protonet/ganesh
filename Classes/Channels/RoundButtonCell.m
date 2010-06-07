@@ -32,11 +32,13 @@
         [bgPath fill];
     }
 
-    NSRect stuffRect = NSMakeRect(5, 0, 10, 10);
-    bgPath = [NSBezierPath bezierPathWithRoundedRect:stuffRect cornerRadius:2.0 active:isActive];
-    [[NSColor greyColor] set];
+    NSRect stuffRect = NSInsetRect(cellFrame, 5, 8);
+    stuffRect.size.width = 25;
+    bgPath = [NSBezierPath bezierPathWithRoundedRect:stuffRect cornerRadius:9.0];
+    [[NSColor grayColor] set];
     [bgPath fill];
 
+    bgRect.origin.x += 25;
     [super drawTitle:[self attributedTitle] withFrame:bgRect inView:controlView];
     // [super drawWithFrame:cellFrame inView:controlView];
 }
