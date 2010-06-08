@@ -3,7 +3,7 @@
  File: Reachability.h
  Abstract: Basic demonstration of how to use the SystemConfiguration Reachablity APIs.
  
- Version: 2.0
+ Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple Inc.
  ("Apple") in consideration of your agreement to the following terms, and your
@@ -41,7 +41,7 @@
  CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR OTHERWISE, EVEN IF
  APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2009 Apple Inc. All Rights Reserved.
+ Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
 */
 
@@ -51,8 +51,7 @@
 
 typedef enum {
 	NotReachable = 0,
-	ReachableViaWiFi,
-	ReachableViaWWAN
+	IsReachable,
 } NetworkStatus;
 #define kReachabilityChangedNotification @"kNetworkReachabilityChangedNotification"
 
@@ -62,27 +61,15 @@ typedef enum {
 	SCNetworkReachabilityRef reachabilityRef;
 }
 
-//reachabilityWithHostName- Use to check the reachability of a particular host name. 
-+ (Reachability*) reachabilityWithHostName: (NSString*) hostName;
-
-//reachabilityWithAddress- Use to check the reachability of a particular IP address. 
-+ (Reachability*) reachabilityWithAddress: (const struct sockaddr_in*) hostAddress;
-
 //reachabilityForInternetConnection- checks whether the default route is available.  
 //  Should be used by applications that do not connect to a particular host
 + (Reachability*) reachabilityForInternetConnection;
 
-//reachabilityForLocalWiFi- checks whether a local wifi connection is available.
-+ (Reachability*) reachabilityForLocalWiFi;
-
 //Start listening for reachability notifications on the current run loop
-- (BOOL) startNotifer;
-- (void) stopNotifer;
+- (BOOL) startNotifier;
+- (void) stopNotifier;
 
 - (NetworkStatus) currentReachabilityStatus;
-//WWAN may be available, but not active until a connection has been established.
-//WiFi may require a connection for VPN on Demand.
-- (BOOL) connectionRequired;
 @end
 
 

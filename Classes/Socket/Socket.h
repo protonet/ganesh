@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class Reachability;
 @interface Socket : NSObject {
 	IBOutlet NSTextField * serverAnswerField;
 	NSInputStream * inputStream;
@@ -25,6 +26,8 @@
     NSString *password;
     NSString *authenticityToken;
     NSArray  *cookies;
+
+    Reachability* internetReach;
 }
 
 @property(assign) BOOL authenticated;
