@@ -20,6 +20,9 @@
     NSRect bgRect = NSInsetRect(cellFrame, 10, 5);
     BOOL isActive = ([self intValue] == NSOnState) ? YES :NO;
     NSBezierPath *bgPath;
+    // = [NSBezierPath bezierPathWithRoundedRect:bgRect cornerRadius:7.0 active:isActive];
+    // [[NSColor colorWithHexColorString:@"dbe4e7"] set];
+    // [bgPath fill];
 
     if(isActive){
         // drawing the triangle on the side
@@ -31,11 +34,6 @@
         [bgPath closePath];
         [bgPath fill];
     }
-
-    NSRect stuffRect = NSMakeRect(5, 0, 10, 10);
-    bgPath = [NSBezierPath bezierPathWithRoundedRect:stuffRect cornerRadius:2.0 active:isActive];
-    [[NSColor greyColor] set];
-    [bgPath fill];
 
     [super drawTitle:[self attributedTitle] withFrame:bgRect inView:controlView];
     // [super drawWithFrame:cellFrame inView:controlView];
