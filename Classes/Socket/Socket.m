@@ -13,6 +13,7 @@
 #import "ChannelsController.h"
 #import "Debug.h"
 #import "M3EncapsulatedURLConnection.h"
+#import "Reachability.h"
 
 #import "NSString_urlEncode.h"
 
@@ -39,6 +40,33 @@
 @synthesize userName;
 @synthesize password;
 
+//Called by Reachability whenever status changes.
+- (void) reachabilityChanged: (NSNotification* )note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    if([curReach currentReachabilityStatus] == NotReachable){
+        [self cleanupBeforeSleep];
+    }
+    else {
+        [self openSocket];
+    }
+
+}
+
+- (void)initReachability
+{
+    // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the
+    // method "reachabilityChanged" will be called. 
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
+
+    internetReach = [[Reachability reachabilityForInternetConnection] retain];
+	[internetReach startNotifier];
+    if ([internetReach currentReachabilityStatus] == IsReachable) {
+        [self openSocket];
+    }
+}
+
 - (id)init {
     if(self = [super init]){
         DLog(@"init socket");
@@ -58,7 +86,9 @@
                  object:nil];
 
         [self initPreferences];
-        [self openSocket];
+
+        [self initReachability];
+
     }
     return self;
 }
@@ -114,7 +144,8 @@
 
 - (void)openSocket {
 	// only do something if stream are not OK (not open)
-	if (![self streamsAreOk]) {
+    // or we have reachability
+	if (![self streamsAreOk] && [internetReach currentReachabilityStatus] == IsReachable) {
         self.authenticated = NO;
 
 		host = [NSHost hostWithAddress:self.serverAddress];

@@ -71,6 +71,8 @@
 		4D4232F5115BD8FC00C59718 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4232F4115BD8FC00C59718 /* Channel.m */; };
 		4D490C66113030F50044C86E /* N2NUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490C65113030F50044C86E /* N2NUserDefaultsController.m */; };
 		4D490CF711303E5B0044C86E /* N2NPreferencesDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */; };
+		4D5E67C811BE7E330004CA1F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E67C711BE7E330004CA1F /* Reachability.m */; };
+		4D5E698611BE7F240004CA1F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5E698511BE7F240004CA1F /* SystemConfiguration.framework */; };
 		4D65A17D1145C85200F8E737 /* MGTemplateEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65A1671145C85200F8E737 /* MGTemplateEngine.m */; };
 		4D65A17E1145C85200F8E737 /* MGTemplateStandardMarkers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65A16B1145C85200F8E737 /* MGTemplateStandardMarkers.m */; };
 		4D65A17F1145C85200F8E737 /* MGTemplateStandardFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D65A16D1145C85200F8E737 /* MGTemplateStandardFilters.m */; };
@@ -345,6 +347,9 @@
 		4D490C65113030F50044C86E /* N2NUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NUserDefaultsController.m; sourceTree = "<group>"; };
 		4D490CF511303E5B0044C86E /* N2NPreferencesDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = N2NPreferencesDictionary.h; sourceTree = "<group>"; };
 		4D490CF611303E5B0044C86E /* N2NPreferencesDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = N2NPreferencesDictionary.m; sourceTree = "<group>"; };
+		4D5E67C611BE7E330004CA1F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4D5E67C711BE7E330004CA1F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4D5E698511BE7F240004CA1F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D65A1661145C85200F8E737 /* MGTemplateEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTemplateEngine.h; sourceTree = "<group>"; };
 		4D65A1671145C85200F8E737 /* MGTemplateEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTemplateEngine.m; sourceTree = "<group>"; };
 		4D65A1681145C85200F8E737 /* MGTemplateMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTemplateMarker.h; sourceTree = "<group>"; };
@@ -427,6 +432,7 @@
 				4D65A1961145C8FF00F8E737 /* libicucore.dylib in Frameworks */,
 				274622201145DCE900ACC69E /* WebKit.framework in Frameworks */,
 				4D906D51114E6C0100A6B353 /* Carbon.framework in Frameworks */,
+				4D5E698611BE7F240004CA1F /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +454,7 @@
 				4D7105F010EECB050066AC0C /* Socket */,
 				4D7105E910EECB050066AC0C /* Tweet */,
 				4D7105DB10EECB050066AC0C /* JSON */,
+				4D5E67C511BE7E330004CA1F /* Reachability */,
 				274624C911466E4500ACC69E /* Debug.h */,
 				4D191021112852C200BA1A75 /* GrowlNotifier.h */,
 				4D191022112852C200BA1A75 /* GrowlNotifier.m */,
@@ -486,6 +493,7 @@
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				4D5E698511BE7F240004CA1F /* SystemConfiguration.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -661,6 +669,15 @@
 				4D906D50114E6C0100A6B353 /* Carbon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D5E67C511BE7E330004CA1F /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				4D5E67C611BE7E330004CA1F /* Reachability.h */,
+				4D5E67C711BE7E330004CA1F /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		4D65A1651145C85200F8E737 /* MGTemplateEngine */ = {
@@ -1041,6 +1058,7 @@
 				4DA193D3115A8A9E00F3E872 /* NSBezierPath_RoundedRect.m in Sources */,
 				4D423250115AD89900C59718 /* NSString_truncate.m in Sources */,
 				4D4232F5115BD8FC00C59718 /* Channel.m in Sources */,
+				4D5E67C811BE7E330004CA1F /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
