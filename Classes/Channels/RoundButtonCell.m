@@ -49,8 +49,10 @@
     NSShadow *txtShadow = [[[NSShadow alloc] init] autorelease];
 
     if(isActive){
-        [txtShadow setShadowColor: [NSColor
-           colorWithCalibratedRed: 1.0 green: 1.0 blue: 0.0 alpha: 0.9]];
+        [txtShadow setShadowColor: [NSColor colorWithCalibratedRed:1.0
+                            green: 1.0
+                             blue: 0.0
+                            alpha: 0.9]];
         [txtShadow setShadowOffset: NSMakeSize(0.5, -0.5)];
         [txtShadow setShadowBlurRadius: 1.0];
     }
@@ -83,26 +85,26 @@
     int midXon = NSMidX(cellFrame);
     int maxXon = NSMaxX(cellFrame);
     float radius = 7.0;
-    
+
     // Bottom edge and bottom-right curve
     [bgPath moveToPoint:NSMakePoint(midX, minY)];
-    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(maxXon, minY) 
-                                     toPoint:NSMakePoint(maxXon, midY) 
+    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(maxXon, minY)
+                                     toPoint:NSMakePoint(maxXon, midY)
                                       radius:radius];
-    
+
     // Right edge and top-right curve
-    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(maxX, maxY) 
-                                     toPoint:NSMakePoint(midX, maxY) 
+    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(maxX, maxY)
+                                     toPoint:NSMakePoint(midX, maxY)
                                       radius:radius];
-    
+
     // Top edge and top-left curve
-    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(minX, maxY) 
-                                     toPoint:NSMakePoint(minX, midY) 
+    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(minX, maxY)
+                                     toPoint:NSMakePoint(minX, midY)
                                       radius:radius];
-    
+
     // Left edge and bottom-left curve
-    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(minX, minY) 
-                                     toPoint:NSMakePoint(midX, minY) 
+    [bgPath appendBezierPathWithArcFromPoint:NSMakePoint(minX, minY)
+                                     toPoint:NSMakePoint(midX, minY)
                                       radius:radius];
     [bgPath closePath];
 #endif
