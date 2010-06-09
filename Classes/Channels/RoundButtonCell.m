@@ -11,8 +11,28 @@
 #import "NSBezierPath_RoundedRect.h"
 
 // row height 35
+#define kChannelBadgeWidth 30
 
 @implementation RoundButtonCell
+
+- (NSAttributedString *)attributedObjectCountValue
+{
+    NSMutableAttributedString *attrStr;
+    NSFontManager *fm = [NSFontManager sharedFontManager];
+    NSNumberFormatter *nf = [[[NSNumberFormatter alloc] init] autorelease];
+    [nf setLocalizesFormat:YES];
+    [nf setFormat:@"0"];
+    [nf setHasThousandSeparators:YES];
+    NSString *contents = [nf stringFromNumber:[NSNumber numberWithInt:5]];
+    attrStr = [[[NSMutableAttributedString alloc] initWithString:contents] autorelease];
+    NSRange range = NSMakeRange(0, [contents length]);
+
+    // Add font attribute
+    [attrStr addAttribute:NSFontAttributeName value:[fm convertFont:[NSFont fontWithName:@"Helvetica" size:11.0] toHaveTrait:NSBoldFontMask] range:range];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:[[NSColor whiteColor] colorWithAlphaComponent:0.85] range:range];
+
+    return attrStr;
+}
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
@@ -32,13 +52,25 @@
         [bgPath fill];
     }
 
-    NSRect stuffRect = NSInsetRect(cellFrame, 5, 8);
-    stuffRect.size.width = 25;
-    bgPath = [NSBezierPath bezierPathWithRoundedRect:stuffRect cornerRadius:9.0];
-    [[NSColor grayColor] set];
+#if 1
+    NSRect myRect = NSInsetRect(cellFrame, 5, 8);
+    myRect.size.width = kChannelBadgeWidth;
+    bgPath = [NSBezierPath bezierPathWithRoundedRect:myRect cornerRadius:9.0];
+    [[NSColor colorWithCalibratedWhite:0.3 alpha:0.6] set];
     [bgPath fill];
 
-    bgRect.origin.x += 25;
+    // draw attributed string centered in area
+    NSRect counterStringRect;
+    NSAttributedString *counterString = [self attributedObjectCountValue];
+    counterStringRect.size = [counterString size];
+    counterStringRect.origin.x = myRect.origin.x + ((myRect.size.width - counterStringRect.size.width) / 2.0) + 0.25;
+    counterStringRect.origin.y = myRect.origin.y + ((myRect.size.height - counterStringRect.size.height) / 2.0) + 0.5;
+    [counterString drawInRect:counterStringRect];
+
+
+    bgRect.origin.x += kChannelBadgeWidth;
+    bgRect.size.width -= kChannelBadgeWidth;
+#endif
     [super drawTitle:[self attributedTitle] withFrame:bgRect inView:controlView];
     // [super drawWithFrame:cellFrame inView:controlView];
 }
