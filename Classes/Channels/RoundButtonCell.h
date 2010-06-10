@@ -10,7 +10,8 @@
 
 
 @interface RoundButtonCell : NSButtonCell {
-
+    int counter;
 }
+@property(assign) int counter;
 
 @end
