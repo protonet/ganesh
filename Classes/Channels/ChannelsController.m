@@ -11,6 +11,7 @@
 #import "AppController.h"
 
 #import "Channel.h"
+#import "RoundButtonCell.h"
 
 static ChannelsController *sharedChannelController = nil;
 
@@ -53,6 +54,32 @@ static ChannelsController *sharedChannelController = nil;
 - (id)autorelease
 {
     return self;
+}
+
+/* TODO: rename */
+- (void)incNewMessageCounterForChannel:(NSNumber*)channel_id {
+    [self setNewMessageCounter:1 forChannel:channel_id];
+}
+
+- (void)setNewMessageCounter:(int)counter forChannel:(NSNumber*)channel_id{
+    NSEnumerator *myArrayEnumerator = [self.channels objectEnumerator];
+    Channel *thisChannel;
+    int i=0;
+
+    while (thisChannel = [myArrayEnumerator nextObject])
+    {
+        if([thisChannel.channel_id isEqualToNumber:channel_id]){
+            if(counter != 0 && i != selectedRow){
+                thisChannel.newCounter = thisChannel.newCounter + 1;
+            }
+            else{
+                thisChannel.newCounter = 0;
+            }
+            [tableView reloadData];
+            break;
+        }
+        i++;
+    }
 }
 
 - (Channel*)createDefaultChannel
@@ -143,9 +170,16 @@ static ChannelsController *sharedChannelController = nil;
 }
 
 // tableView delegates
-- (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
+- (void)tableView:(NSTableView *)aTableView willDisplayCell:(RoundButtonCell *)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     BOOL isActive = (rowIndex == selectedRow);
+    if (isActive) {
+        aCell.counter = 0;
+        [[channels objectAtIndex:rowIndex] setNewCounter:0];
+    }
+    else {
+        aCell.counter = [[channels objectAtIndex:rowIndex] newCounter];
+    }
 
     [aCell setAttributedTitle:[[[channels objectAtIndex:rowIndex] name] stringWithTruncatingToLength:13] active:isActive];
 }

@@ -13,6 +13,7 @@
 @synthesize channel_id;
 @synthesize name;
 @synthesize description;
+@synthesize newCounter;
 
 - (id)initWithData:(NSMutableDictionary *)data
 {
@@ -20,6 +21,7 @@
         self.channel_id  = [data objectForKey:@"id"];
         self.name        = [data objectForKey:@"name"];
         self.description = [data objectForKey:@"description"];
+        self.newCounter  = 0;
         return self;
     }
     else{

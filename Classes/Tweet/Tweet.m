@@ -8,6 +8,7 @@
 
 #import "Tweet.h"
 #import "GTMNSString+HTML.h"
+#import "ChannelsController.h"
 
 #import "Debug.h"
 
@@ -34,6 +35,7 @@
         self.own      = [userName isEqualToString:self.author];
         self.tweet_id = [data objectForKey:@"id"];
         self.channel_id = [data objectForKey:@"channel_id"];
+        [[ChannelsController sharedController] incNewMessageCounterForChannel:self.channel_id];
 
         NSRange range = [self.message rangeOfString:[NSString stringWithFormat:@"@%@", userName]];
 

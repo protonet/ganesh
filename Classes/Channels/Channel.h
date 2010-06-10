@@ -13,9 +13,11 @@
     NSNumber  *channel_id;
 	NSString  *name;
 	NSString  *description;
+    int       newCounter; /*new message counter*/
 }
 @property(retain)   NSNumber *channel_id;
 @property(retain)   NSString *name;
 @property(retain)   NSString *description;
+@property(assign)   int      newCounter;
 
 @end
