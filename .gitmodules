@@ -7,3 +7,6 @@
 [submodule "External/cocoaoniguruma"]
 	path = External/cocoaoniguruma
 	url = git://github.com/psychs/cocoaoniguruma.git
+[submodule "External/cocoaasyncsocket"]
+	path = External/cocoaasyncsocket
+	url = git://github.com/fishman/cocoaasyncsocket.git

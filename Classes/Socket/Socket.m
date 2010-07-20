@@ -14,6 +14,7 @@
 #import "Debug.h"
 #import "M3EncapsulatedURLConnection.h"
 #import "Reachability.h"
+#import "AsyncSocket.h"
 
 #import "NSString_urlEncode.h"
 
@@ -39,6 +40,12 @@
 @synthesize serverPort;
 @synthesize userName;
 @synthesize password;
+
+#define PING_MSG     0
+#define AUTH_MSG     1
+#define RABBIT_MSG   2
+
+#define READ_TIMEOUT 15.0
 
 //Called by Reachability whenever status changes.
 - (void) reachabilityChanged: (NSNotification* )note
@@ -73,6 +80,8 @@
         host = [NSHost currentHost];
 
         [serverAnswerField setObjectValue:[host name]];
+
+		asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
 
         // check on sleep and close socket
         NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
@@ -148,21 +157,20 @@
 	if (![self streamsAreOk] && [internetReach currentReachabilityStatus] == IsReachable) {
         self.authenticated = NO;
 
-		host = [NSHost hostWithAddress:self.serverAddress];
-		[NSStream getStreamsToHost:host port:[self.serverPort intValue] inputStream:&inputStream outputStream:&outputStream];
-		[self openStreams];
+        NSError *err = nil;
+        if(![asyncSocket connectToHost:self.serverAddress onPort:[self.serverPort intValue] error:&err])
+        {
+            NSLog(@"Error: %@", err);
+        }
 	}
 }
 
 - (void)ping
 {
     if (self.authenticated) {
-        [self sendText:[NSString stringWithFormat:@"{\"operation\":\"ping\"}"]];
-        [NSTimer scheduledTimerWithTimeInterval:30
-                                         target:self
-                                       selector:@selector(ping)
-                                       userInfo:nil
-                                        repeats:NO];
+        NSString *ping = [NSString stringWithFormat:@"{\"operation\":\"ping\"}"];
+        NSData *pingData = [ping dataUsingEncoding:NSUTF8StringEncoding];
+        [asyncSocket writeData:pingData withTimeout:-1 tag:PING_MSG];
     }
 }
 
@@ -202,30 +210,6 @@
                                                 delegate:self
                                            andIdentifier:@"list_channels"
                                              contextInfo:nil];
-}
-
-- (void)openStreams {
-    [inputStream retain];
-    [outputStream retain];
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [inputStream open];
-    [outputStream open];
-}
-
-- (void)closeStreams {
-    [inputStream close];
-    [outputStream close];
-    [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [inputStream setDelegate:nil];
-    [outputStream setDelegate:nil];
-    [inputStream release];
-    [outputStream release];
-    inputStream = nil;
-    outputStream = nil;
 }
 
 - (void)sendMessage:(NSString*)message {
@@ -271,86 +255,14 @@
     }
 }
 
-- (void)sendText:(NSString *)string {
-    NSString * stringToSend = [NSString stringWithFormat:@"%@\n", string];
-    NSData * dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
-    if (outputStream && [self streamsAreOk]) {
-        int remainingToWrite = [dataToSend length];
-        void * marker = (void *)[dataToSend bytes];
-        while (0 < remainingToWrite) {
-            int actuallyWritten = 0;
-            actuallyWritten = [outputStream write:marker maxLength:remainingToWrite];
-            remainingToWrite -= actuallyWritten;
-            marker += actuallyWritten;
-        }
-    } else {
-		[serverAnswerField setStringValue:@"trying to open socket, try again!"];
-	}
-
-}
-
-- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)streamEvent {
-    NSInputStream * istream;
-    switch(streamEvent) {
-        case NSStreamEventHasBytesAvailable:;
-            uint8_t oneByte;
-            int actuallyRead = 0;
-            istream = (NSInputStream *)aStream;
-            if (!dataBuffer) {
-                dataBuffer = [[NSMutableData alloc] initWithCapacity:2048];
-            }
-            actuallyRead = [istream read:&oneByte maxLength:1];
-            if (actuallyRead == 1) {
-                [dataBuffer appendBytes:&oneByte length:1];
-            }
-            if (oneByte == '\n' || oneByte == '\0') {
-					// We've got the carriage return at the end of the echo. Let's set the string.
-                NSString * string = [[[NSString alloc] initWithData:dataBuffer encoding:NSUTF8StringEncoding] autorelease];
-				[serverAnswerField setStringValue:string];
-                DLog(@"%@", string);
-				[[Messages sharedController] addMessageToTweets:string];
-                // TODO: {"x_target":"socket_id","socket_id":"..."}
-                [dataBuffer release];
-                dataBuffer = nil;
-            }
-            break;
-        case NSStreamEventErrorOccurred:
-        case NSStreamEventEndEncountered:
-            self.authenticated = NO;
-            [self rescheduleConnect];
-            break;
-        case NSStreamEventHasSpaceAvailable:
-            if (aStream == outputStream) {
-                if (!self.authenticated) {
-                    [self authenticateSocket];
-                }
-            }
-            break;
-        default:
-            break;
-    }
-}
-
 - (BOOL)streamsAreOk {
-	if ([inputStream streamStatus] == NSStreamStatusOpen &&
-		[outputStream streamStatus] == NSStreamStatusOpen) {
-		DLog(@"streams are ok!");
-		return YES;
-	} else {
-		DLog(@"streams are NOT ok!");
-		return NO;
-	}
-}
-
-- (BOOL)streamsAreOpening {
-	if ([inputStream streamStatus] == NSStreamStatusOpening &&
-		[outputStream streamStatus] == NSStreamStatusOpening) {
-		DLog(@"streams are opening!");
-		return YES;
-	} else {
-		DLog(@"streams are NOT opening!");
-		return NO;
-	}
+    if ([asyncSocket isConnected]) {
+        DLog(@"streams are ok!");
+        return YES;
+    } else {
+        DLog(@"streams are NOT ok!");
+        return NO;
+    }
 }
 
 - (void)dealloc {
@@ -398,8 +310,10 @@
         }
         else {
             // Now send the authentication-request
-            [self sendText:[NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
-                        [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]]];
+            NSString *auth = [NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
+                      [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]];
+            NSData *authData = [auth dataUsingEncoding:NSUTF8StringEncoding];
+            [asyncSocket writeData:authData withTimeout:-1 tag:AUTH_MSG];
 
             self.authenticated = YES;
             [self listChannels];
@@ -424,6 +338,43 @@
 
 - (void)connection:(M3EncapsulatedURLConnection*)connection returnedWithError:(NSError *)error{
     [connection release];
+}
+
+- (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
+{
+    if(tag == PING_MSG)
+    {
+        [NSTimer scheduledTimerWithTimeInterval:30
+                                         target:self
+                                       selector:@selector(ping)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
+    else if(tag == AUTH_MSG)
+    {
+        [sock readDataToData:[AsyncSocket ZeroData] withTimeout:-1 tag:0];
+    }
+}
+
+- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    NSString * string = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+    DLog(@"%@", string);
+    [[Messages sharedController] addMessageToTweets:string];
+    // TODO: {"x_target":"socket_id","socket_id":"..."}
+    [sock readDataToData:[AsyncSocket ZeroData] withTimeout:-1 tag:0];
+}
+
+- (void)onSocketDidDisconnect:(AsyncSocket *)sock
+{
+    self.authenticated = NO;
+}
+
+- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
+{
+    if (!self.authenticated) {
+        [self authenticateSocket];
+    }
 }
 
 @end

@@ -9,15 +9,15 @@
 #import <Cocoa/Cocoa.h>
 
 @class Reachability;
+@class AsyncSocket;
 @interface Socket : NSObject {
-	IBOutlet NSTextField * serverAnswerField;
-	NSInputStream * inputStream;
-	NSOutputStream * outputStream;
+    IBOutlet NSTextField * serverAnswerField;
+    AsyncSocket *asyncSocket;
     NSMutableData * dataBuffer;
 
-	NSHost * host;
-	
-	BOOL authenticated;
+    NSHost * host;
+
+    BOOL authenticated;
 
     NSString *serverUrl;
     NSString *serverAddress;
@@ -47,7 +47,6 @@
 - (void)initPreferences;
 
 - (BOOL)streamsAreOk;
-- (BOOL)streamsAreOpening;
 - (void)sendText:(NSString *)string;
 
 
