@@ -23,7 +23,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1024"/>
+			<integer value="903"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -668,7 +668,7 @@
 													<double key="NSPercent">0.94565218687057495</double>
 												</object>
 											</object>
-											<string key="NSFrame">{{0, 2}, {475, 72}}</string>
+											<string key="NSFrame">{{0, 1}, {475, 72}}</string>
 											<reference key="NSSuperview" ref="351655143"/>
 											<reference key="NSNextKeyView" ref="363575907"/>
 											<int key="NSsFlags">0</int>
@@ -841,7 +841,7 @@
 													<string>public.url-name</string>
 												</object>
 											</object>
-											<string key="NSFrame">{{120, 0}, {355, 277}}</string>
+											<string key="NSFrame">{{120, 0}, {355, 278}}</string>
 											<reference key="NSSuperview" ref="775546949"/>
 											<reference key="NSNextKeyView"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
