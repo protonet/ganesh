@@ -10,3 +10,6 @@
 [submodule "External/cocoaasyncsocket"]
 	path = External/cocoaasyncsocket
 	url = git://github.com/fishman/cocoaasyncsocket.git
+[submodule "External/three20"]
+	path = External/three20
+	url = git://github.com/facebook/three20.git
