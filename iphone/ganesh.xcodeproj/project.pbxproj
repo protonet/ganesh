@@ -13,6 +13,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		4DA6FF8711FF4BDA0095C41E /* GaneshFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */; };
+		4DA6FFA011FF4CEA0095C41E /* Atlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FF9F11FF4CEA0095C41E /* Atlas.m */; };
+		4DA6FFA511FF4D130095C41E /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA6FEB011FF46880095C41E /* libThree20.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,10 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ganesh_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ganesh_Prefix.pch; sourceTree = "<group>"; };
 		4DA6FEA711FF46880095C41E /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../External/three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
+		4DA6FF8511FF4BDA0095C41E /* GaneshFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaneshFeedViewController.h; sourceTree = "<group>"; };
+		4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaneshFeedViewController.m; sourceTree = "<group>"; };
+		4DA6FF9E11FF4CEA0095C41E /* Atlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atlas.h; sourceTree = "<group>"; };
+		4DA6FF9F11FF4CEA0095C41E /* Atlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Atlas.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ganesh-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ganesh-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA6FFA511FF4D130095C41E /* libThree20.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -70,8 +78,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4DA6FF9E11FF4CEA0095C41E /* Atlas.h */,
+				4DA6FF9F11FF4CEA0095C41E /* Atlas.m */,
 				1D3623240D0F684500981E51 /* ganeshAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ganeshAppDelegate.m */,
+				4DA6FF8511FF4BDA0095C41E /* GaneshFeedViewController.h */,
+				4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -213,6 +225,8 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* ganeshAppDelegate.m in Sources */,
+				4DA6FF8711FF4BDA0095C41E /* GaneshFeedViewController.m in Sources */,
+				4DA6FFA011FF4CEA0095C41E /* Atlas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +275,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../External/three20/**";
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1.2;
 			};
@@ -274,6 +289,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../External/three20/**";
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1.2;
 			};
