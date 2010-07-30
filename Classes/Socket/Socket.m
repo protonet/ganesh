@@ -368,6 +368,9 @@
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock
 {
     self.authenticated = NO;
+    if ([internetReach currentReachabilityStatus] == IsReachable) {
+        [self rescheduleConnect];
+    }
 }
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
