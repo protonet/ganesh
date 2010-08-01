@@ -5,7 +5,11 @@
 //  Created by jelveh on 07.12.09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
+#if !(TARGET_OS_IPHONE)
 #import <SecurityFoundation/SFAuthorization.h>
+// n2n includes
+#include "edge.h"
+#endif
 
 #import "Socket.h"
 #import "NSString+SBJSON.h"
@@ -17,9 +21,6 @@
 #import "AsyncSocket.h"
 
 #import "NSString_urlEncode.h"
-
-// n2n includes
-#include "edge.h"
 
 #define urlKey         @"serverUrl"
 #define addressKey     @"serverAddress"
@@ -77,12 +78,10 @@
 - (id)init {
     if(self = [super init]){
         DLog(@"init socket");
-        host = [NSHost currentHost];
-
-        [serverAnswerField setObjectValue:[host name]];
-
+        
 		asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
 
+#if !(TARGET_OS_IPHONE)
         // check on sleep and close socket
         NSNotificationCenter *nc = [[NSWorkspace sharedWorkspace] notificationCenter];
         [nc addObserver:self
@@ -93,6 +92,7 @@
                selector:@selector(openSocket)
                    name:NSWorkspaceDidWakeNotification
                  object:nil];
+#endif
 
         [self initPreferences];
 
@@ -147,7 +147,6 @@
 }
 
 - (void)cleanupBeforeSleep {
-	[self closeStreams];
     self.authenticated = NO;
 }
 
@@ -175,7 +174,6 @@
 }
 
 - (void)rescheduleConnect {
-    [self closeStreams];
     [NSTimer scheduledTimerWithTimeInterval:(60.0f/4)
                                      target:self
                                    selector:@selector(openSocket)
@@ -273,7 +271,9 @@
     [defaults removeObserver:self forKeyPath:userNameKey];
     [defaults removeObserver:self forKeyPath:passwordKey];
 
+#if !(TARGET_OS_IPHONE)
 	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
+#endif
 	[super dealloc];
 }
 

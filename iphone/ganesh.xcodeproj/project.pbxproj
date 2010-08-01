@@ -12,10 +12,25 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		4D448F6F1200B2E000F1085E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D448F6E1200B2E000F1085E /* QuartzCore.framework */; };
-		4D448FBF1200BB6400F1085E /* ProtonetDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D448FBE1200BB6400F1085E /* ProtonetDataSource.m */; };
-		4D448FCD1200BD6200F1085E /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D448FCC1200BD6200F1085E /* Messages.m */; };
+		4D3F51341205D92800CE67DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3F51331205D92800CE67DA /* QuartzCore.framework */; };
+		4D3F513C1205D94300CE67DA /* ProtonetDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F513A1205D94300CE67DA /* ProtonetDataSource.m */; };
+		4D3F51591205DBE600CE67DA /* ChannelsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51581205DBE600CE67DA /* ChannelsController.m */; };
+		4D3F516C1205E03C00CE67DA /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F516B1205E03C00CE67DA /* Messages.m */; };
+		4D3F51781205E0C400CE67DA /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51771205E0C400CE67DA /* Tweet.m */; };
+		4D3F51811205E12E00CE67DA /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51801205E12E00CE67DA /* GTMNSString+HTML.m */; };
+		4D3F51921205E1B900CE67DA /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51871205E1B900CE67DA /* NSObject+SBJSON.m */; };
+		4D3F51931205E1B900CE67DA /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51891205E1B900CE67DA /* NSString+SBJSON.m */; };
+		4D3F51941205E1B900CE67DA /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F518B1205E1B900CE67DA /* SBJSON.m */; };
+		4D3F51951205E1B900CE67DA /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F518D1205E1B900CE67DA /* SBJsonBase.m */; };
+		4D3F51961205E1B900CE67DA /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F518F1205E1B900CE67DA /* SBJsonParser.m */; };
+		4D3F51971205E1B900CE67DA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51911205E1B900CE67DA /* SBJsonWriter.m */; };
+		4D3F51BB1205E41200CE67DA /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51BA1205E41200CE67DA /* Socket.m */; };
+		4D3F51C11205E42F00CE67DA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51C01205E42E00CE67DA /* Reachability.m */; };
+		4D3F51C71205E44100CE67DA /* M3EncapsulatedURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51C61205E44100CE67DA /* M3EncapsulatedURLConnection.m */; };
+		4D3F51D71205E4EB00CE67DA /* NSString_urlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51D61205E4EB00CE67DA /* NSString_urlEncode.m */; };
+		4D3F51DE1205E53900CE67DA /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51DD1205E53900CE67DA /* AsyncSocket.m */; };
+		4D3F51E61205E5B500CE67DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3F51E51205E5B500CE67DA /* SystemConfiguration.framework */; };
+		4D3F51EA1205E5CC00CE67DA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3F51E91205E5CC00CE67DA /* CFNetwork.framework */; };
 		4DA6FF8711FF4BDA0095C41E /* GaneshFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */; };
 		4DA6FFA011FF4CEA0095C41E /* Atlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FF9F11FF4CEA0095C41E /* Atlas.m */; };
 		4DA6FFA511FF4D130095C41E /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA6FEB011FF46880095C41E /* libThree20.a */; };
@@ -52,14 +67,46 @@
 		1D6058910D05DD3D006BFB54 /* ganesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ganesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ganesh_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ganesh_Prefix.pch; sourceTree = "<group>"; };
-		4D448F6E1200B2E000F1085E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4D448FBD1200BB6400F1085E /* ProtonetDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtonetDataSource.h; sourceTree = "<group>"; };
-		4D448FBE1200BB6400F1085E /* ProtonetDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtonetDataSource.m; sourceTree = "<group>"; };
-		4D448FCB1200BD6200F1085E /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
-		4D448FCC1200BD6200F1085E /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
+		4D3F51331205D92800CE67DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4D3F51391205D94300CE67DA /* ProtonetDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtonetDataSource.h; sourceTree = "<group>"; };
+		4D3F513A1205D94300CE67DA /* ProtonetDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtonetDataSource.m; sourceTree = "<group>"; };
+		4D3F51571205DBE600CE67DA /* ChannelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelsController.h; sourceTree = "<group>"; };
+		4D3F51581205DBE600CE67DA /* ChannelsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelsController.m; sourceTree = "<group>"; };
+		4D3F516A1205E03C00CE67DA /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
+		4D3F516B1205E03C00CE67DA /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
+		4D3F51761205E0C400CE67DA /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		4D3F51771205E0C400CE67DA /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		4D3F517E1205E12E00CE67DA /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		4D3F517F1205E12E00CE67DA /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		4D3F51801205E12E00CE67DA /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		4D3F51851205E1B900CE67DA /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		4D3F51861205E1B900CE67DA /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		4D3F51871205E1B900CE67DA /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		4D3F51881205E1B900CE67DA /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		4D3F51891205E1B900CE67DA /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		4D3F518A1205E1B900CE67DA /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		4D3F518B1205E1B900CE67DA /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		4D3F518C1205E1B900CE67DA /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		4D3F518D1205E1B900CE67DA /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		4D3F518E1205E1B900CE67DA /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		4D3F518F1205E1B900CE67DA /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		4D3F51901205E1B900CE67DA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		4D3F51911205E1B900CE67DA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		4D3F519A1205E1D400CE67DA /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Debug.h; path = ../Debug.h; sourceTree = SOURCE_ROOT; };
+		4D3F51B91205E41200CE67DA /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
+		4D3F51BA1205E41200CE67DA /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = "<group>"; };
+		4D3F51BF1205E42E00CE67DA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4D3F51C01205E42E00CE67DA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4D3F51C51205E44100CE67DA /* M3EncapsulatedURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M3EncapsulatedURLConnection.h; sourceTree = "<group>"; };
+		4D3F51C61205E44100CE67DA /* M3EncapsulatedURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M3EncapsulatedURLConnection.m; sourceTree = "<group>"; };
+		4D3F51D51205E4EB00CE67DA /* NSString_urlEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_urlEncode.h; sourceTree = "<group>"; };
+		4D3F51D61205E4EB00CE67DA /* NSString_urlEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_urlEncode.m; sourceTree = "<group>"; };
+		4D3F51DC1205E53900CE67DA /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = ../External/cocoaasyncsocket/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
+		4D3F51DD1205E53900CE67DA /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = ../External/cocoaasyncsocket/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
+		4D3F51E51205E5B500CE67DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4D3F51E91205E5CC00CE67DA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4DA6FEA711FF46880095C41E /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../External/three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4DA6FF8511FF4BDA0095C41E /* GaneshFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaneshFeedViewController.h; sourceTree = "<group>"; };
 		4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaneshFeedViewController.m; sourceTree = "<group>"; };
@@ -77,7 +124,9 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
-				4D448F6F1200B2E000F1085E /* QuartzCore.framework in Frameworks */,
+				4D3F51341205D92800CE67DA /* QuartzCore.framework in Frameworks */,
+				4D3F51E61205E5B500CE67DA /* SystemConfiguration.framework in Frameworks */,
+				4D3F51EA1205E5CC00CE67DA /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,16 +136,16 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D3F51571205DBE600CE67DA /* ChannelsController.h */,
+				4D3F51581205DBE600CE67DA /* ChannelsController.m */,
+				4D3F51391205D94300CE67DA /* ProtonetDataSource.h */,
+				4D3F513A1205D94300CE67DA /* ProtonetDataSource.m */,
 				4DA6FF9E11FF4CEA0095C41E /* Atlas.h */,
 				4DA6FF9F11FF4CEA0095C41E /* Atlas.m */,
 				1D3623240D0F684500981E51 /* ganeshAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ganeshAppDelegate.m */,
 				4DA6FF8511FF4BDA0095C41E /* GaneshFeedViewController.h */,
 				4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */,
-				4D448FCB1200BD6200F1085E /* Messages.h */,
-				4D448FCC1200BD6200F1085E /* Messages.m */,
-				4D448FBD1200BB6400F1085E /* ProtonetDataSource.h */,
-				4D448FBE1200BB6400F1085E /* ProtonetDataSource.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -112,12 +161,15 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				4D3F519A1205E1D400CE67DA /* Debug.h */,
+				4D3F51DC1205E53900CE67DA /* AsyncSocket.h */,
+				4D3F51DD1205E53900CE67DA /* AsyncSocket.m */,
+				4D3F51671205DF9F00CE67DA /* Classes */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				4D448F6E1200B2E000F1085E /* QuartzCore.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -134,7 +186,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* ganesh-Info.plist */,
 			);
 			name = Resources;
@@ -143,12 +194,100 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D3F51E51205E5B500CE67DA /* SystemConfiguration.framework */,
 				4DA6FEA711FF46880095C41E /* Three20.xcodeproj */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				4D3F51331205D92800CE67DA /* QuartzCore.framework */,
+				4D3F51E91205E5CC00CE67DA /* CFNetwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D3F51671205DF9F00CE67DA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F51D51205E4EB00CE67DA /* NSString_urlEncode.h */,
+				4D3F51D61205E4EB00CE67DA /* NSString_urlEncode.m */,
+				4D3F51C41205E44100CE67DA /* M3 */,
+				4D3F51BE1205E42E00CE67DA /* Reachability */,
+				4D3F51B81205E41200CE67DA /* Socket */,
+				4D3F51841205E1B900CE67DA /* JSON */,
+				4D3F517D1205E12E00CE67DA /* GoogleToolbox */,
+				4D3F516F1205E07900CE67DA /* Tweet */,
+				4D3F516A1205E03C00CE67DA /* Messages.h */,
+				4D3F516B1205E03C00CE67DA /* Messages.m */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		4D3F516F1205E07900CE67DA /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F51761205E0C400CE67DA /* Tweet.h */,
+				4D3F51771205E0C400CE67DA /* Tweet.m */,
+			);
+			path = Tweet;
+			sourceTree = "<group>";
+		};
+		4D3F517D1205E12E00CE67DA /* GoogleToolbox */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F517E1205E12E00CE67DA /* GTMDefines.h */,
+				4D3F517F1205E12E00CE67DA /* GTMNSString+HTML.h */,
+				4D3F51801205E12E00CE67DA /* GTMNSString+HTML.m */,
+			);
+			path = GoogleToolbox;
+			sourceTree = "<group>";
+		};
+		4D3F51841205E1B900CE67DA /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F51851205E1B900CE67DA /* JSON.h */,
+				4D3F51861205E1B900CE67DA /* NSObject+SBJSON.h */,
+				4D3F51871205E1B900CE67DA /* NSObject+SBJSON.m */,
+				4D3F51881205E1B900CE67DA /* NSString+SBJSON.h */,
+				4D3F51891205E1B900CE67DA /* NSString+SBJSON.m */,
+				4D3F518A1205E1B900CE67DA /* SBJSON.h */,
+				4D3F518B1205E1B900CE67DA /* SBJSON.m */,
+				4D3F518C1205E1B900CE67DA /* SBJsonBase.h */,
+				4D3F518D1205E1B900CE67DA /* SBJsonBase.m */,
+				4D3F518E1205E1B900CE67DA /* SBJsonParser.h */,
+				4D3F518F1205E1B900CE67DA /* SBJsonParser.m */,
+				4D3F51901205E1B900CE67DA /* SBJsonWriter.h */,
+				4D3F51911205E1B900CE67DA /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			path = ../JSON;
+			sourceTree = SOURCE_ROOT;
+		};
+		4D3F51B81205E41200CE67DA /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F51B91205E41200CE67DA /* Socket.h */,
+				4D3F51BA1205E41200CE67DA /* Socket.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		4D3F51BE1205E42E00CE67DA /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F51BF1205E42E00CE67DA /* Reachability.h */,
+				4D3F51C01205E42E00CE67DA /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		4D3F51C41205E44100CE67DA /* M3 */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F51C51205E44100CE67DA /* M3EncapsulatedURLConnection.h */,
+				4D3F51C61205E44100CE67DA /* M3EncapsulatedURLConnection.m */,
+			);
+			path = M3;
 			sourceTree = "<group>";
 		};
 		4DA6FEA811FF46880095C41E /* Products */ = {
@@ -226,7 +365,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,8 +379,22 @@
 				1D3623260D0F684500981E51 /* ganeshAppDelegate.m in Sources */,
 				4DA6FF8711FF4BDA0095C41E /* GaneshFeedViewController.m in Sources */,
 				4DA6FFA011FF4CEA0095C41E /* Atlas.m in Sources */,
-				4D448FBF1200BB6400F1085E /* ProtonetDataSource.m in Sources */,
-				4D448FCD1200BD6200F1085E /* Messages.m in Sources */,
+				4D3F513C1205D94300CE67DA /* ProtonetDataSource.m in Sources */,
+				4D3F51591205DBE600CE67DA /* ChannelsController.m in Sources */,
+				4D3F516C1205E03C00CE67DA /* Messages.m in Sources */,
+				4D3F51781205E0C400CE67DA /* Tweet.m in Sources */,
+				4D3F51811205E12E00CE67DA /* GTMNSString+HTML.m in Sources */,
+				4D3F51921205E1B900CE67DA /* NSObject+SBJSON.m in Sources */,
+				4D3F51931205E1B900CE67DA /* NSString+SBJSON.m in Sources */,
+				4D3F51941205E1B900CE67DA /* SBJSON.m in Sources */,
+				4D3F51951205E1B900CE67DA /* SBJsonBase.m in Sources */,
+				4D3F51961205E1B900CE67DA /* SBJsonParser.m in Sources */,
+				4D3F51971205E1B900CE67DA /* SBJsonWriter.m in Sources */,
+				4D3F51BB1205E41200CE67DA /* Socket.m in Sources */,
+				4D3F51C11205E42F00CE67DA /* Reachability.m in Sources */,
+				4D3F51C71205E44100CE67DA /* M3EncapsulatedURLConnection.m in Sources */,
+				4D3F51D71205E4EB00CE67DA /* NSString_urlEncode.m in Sources */,
+				4D3F51DE1205E53900CE67DA /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +444,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../External/three20/**";
+				OTHER_CFLAGS = "-DDEBUG=1";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",

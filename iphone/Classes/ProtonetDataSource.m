@@ -8,7 +8,7 @@
 
 #import "ProtonetDataSource.h"
 #import "Messages.h"
-
+#import "Tweet.h"
 
 @implementation ProtonetDataSource
 
@@ -41,9 +41,12 @@
 - (void)tableViewDidLoadModel:(UITableView*)tableView {
   NSMutableArray* items = [[NSMutableArray alloc] init];
 
-    TTStyledText* styledText = [TTStyledText textFromXHTML:@"hello world" lineBreaks:YES URLs:YES];
+  for (Tweet* tweet in [_meepModel messages]) {
+    TTStyledText* styledText = [TTStyledText textFromXHTML:tweet.message lineBreaks:YES URLs:YES];
+
     TTDASSERT(nil != styledText);
     [items addObject:[TTTableStyledTextItem itemWithText:styledText]];
+  }
 
   self.items = items;
   TT_RELEASE_SAFELY(items);

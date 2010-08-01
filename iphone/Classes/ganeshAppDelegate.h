@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ganeshAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
 }
-
-@property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end
 

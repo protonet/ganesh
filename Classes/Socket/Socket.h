@@ -6,12 +6,9 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 @class Reachability;
 @class AsyncSocket;
 @interface Socket : NSObject {
-    IBOutlet NSTextField * serverAnswerField;
     AsyncSocket *asyncSocket;
     NSMutableData * dataBuffer;
 

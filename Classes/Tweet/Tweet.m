@@ -19,7 +19,9 @@
 @synthesize own;
 @synthesize response;
 @synthesize message;
+#if !(TARGET_OS_IPHONE)
 @synthesize userImage;
+#endif
 @synthesize tweet_id;
 @synthesize channel_id;
 
@@ -45,10 +47,11 @@
         else {
             self.response = NO;
         }
-
+#if !(TARGET_OS_IPHONE)
 		NSString * profileUrlString = [NSString stringWithFormat:@"http://%@%@", serverUrl, [data objectForKey:@"user_icon_url"]];
         self.icon_url = [NSURL URLWithString:profileUrlString];
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:icon_url];
+#endif
         return self;
     }
     else{
@@ -62,7 +65,9 @@
     self.date     = nil;
     self.author   = nil;
     self.icon_url = nil;
+#if !(TARGET_OS_IPHONE)
     [userImage release];
+#endif
     [super dealloc];
 }
 @end

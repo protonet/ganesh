@@ -5,12 +5,15 @@
 //  Created by Reza Jelveh on 12.02.10.
 //  Copyright 2010 Flying Seagull. All rights reserved.
 //
-
-#import <Cocoa/Cocoa.h>
+#include "TargetConditionals.h"
 
 #define MAX_TWEETS 30
 
+#if !(TARGET_OS_IPHONE)
 @interface Messages : NSObject {
+#else
+@interface Messages : TTModel {
+#endif
     @private NSMutableArray *messages;
 }
 

@@ -29,8 +29,6 @@
  
  *****************************************************************/
 
-#import <Cocoa/Cocoa.h>
-
 /**
  @class M3EncapsulatedURLConnection
  @discussion This class wraps around NSURLConnection providing extra functionality that greatly improves

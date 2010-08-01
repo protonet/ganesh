@@ -9,7 +9,7 @@
 #import "Messages.h"
 #import "Tweet.h"
 #import "NSString+SBJSON.h"
-
+#import "Debug.h"
 
 static Messages *sharedMessagesController = nil;
 
@@ -90,6 +90,9 @@ static Messages *sharedMessagesController = nil;
 
     if (tweet) {
         [self push:tweet];
+#if TARGET_OS_IPHONE
+        [super didChange];
+#endif
     }
 }
 
@@ -107,4 +110,6 @@ static Messages *sharedMessagesController = nil;
 {
     return self.messages.count;
 }
+
+
 @end

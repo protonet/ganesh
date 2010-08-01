@@ -8,10 +8,9 @@
 
 #import "ganeshAppDelegate.h"
 #import "GaneshFeedViewController.h"
+#import "Socket.h"
 
-@implementation ganeshAppDelegate
-
-@synthesize window;
+@implementation AppDelegate
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
@@ -26,6 +25,8 @@
     if (![navigator restoreViewControllers]) {
         [navigator openURLAction:[TTURLAction actionWithURLPath:kAppRootURLPath]];
     }
+    
+    [[Socket alloc] init];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

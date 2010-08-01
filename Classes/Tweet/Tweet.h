@@ -6,10 +6,12 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#include "TargetConditionals.h"
 
 @interface Tweet : NSObject {
+#if !(TARGET_OS_IPHONE)
 	NSImage * userImage;
+#endif
 	NSString  * message;
 	NSString  * author;
     NSNumber  * tweet_id;
@@ -24,7 +26,9 @@
 @property(retain)   NSString * author;
 @property(retain)   NSDate   * date;
 @property(retain)   NSURL    * icon_url;
+#if !(TARGET_OS_IPHONE)
 @property(assign) NSImage * userImage;
+#endif
 @property (nonatomic, assign, getter=isOwn) BOOL own;
 @property (nonatomic, assign, getter=isResponse) BOOL response;
 @property(retain) NSNumber *tweet_id;
