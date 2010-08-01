@@ -7,23 +7,37 @@
 //
 
 #import "ganeshAppDelegate.h"
+#import "GaneshFeedViewController.h"
 
 @implementation ganeshAppDelegate
 
 @synthesize window;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+    TTNavigator* navigator = [TTNavigator navigator];
+    navigator.persistenceMode = TTNavigatorPersistenceModeNone;
 
-    // Override point for customization after application launch
-    [window makeKeyAndVisible];
+    TTURLMap* map = navigator.URLMap;
+
+    [map from:@"*" toViewController:[TTWebController class]];
+    [map from:kAppRootURLPath toViewController:[GaneshFeedViewController class]];
+
+    if (![navigator restoreViewControllers]) {
+        [navigator openURLAction:[TTURLAction actionWithURLPath:kAppRootURLPath]];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)navigator:(TTNavigator*)navigator shouldOpenURL:(NSURL*)URL {
+  return YES;
 }
 
 
-- (void)dealloc {
-    [window release];
-    [super dealloc];
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)URL {
+  [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:URL.absoluteString]];
+  return YES;
 }
-
 
 @end
