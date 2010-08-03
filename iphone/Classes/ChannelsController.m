@@ -60,4 +60,9 @@ static ChannelsController *sharedChannelController = nil;
 {
 }
 
+- (NSNumber*)selectedChannelId
+{
+    return [NSNumber numberWithInt:1];
+}
+
 @end

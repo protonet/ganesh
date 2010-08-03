@@ -31,6 +31,8 @@
 		4D3F51DE1205E53900CE67DA /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F51DD1205E53900CE67DA /* AsyncSocket.m */; };
 		4D3F51E61205E5B500CE67DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3F51E51205E5B500CE67DA /* SystemConfiguration.framework */; };
 		4D3F51EA1205E5CC00CE67DA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3F51E91205E5CC00CE67DA /* CFNetwork.framework */; };
+		4D63D04E120710BB00EE317C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D63D04D120710BB00EE317C /* Settings.bundle */; };
+		4D63D1CB12081BDE00EE317C /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D63D1CA12081BDE00EE317C /* Three20.bundle */; };
 		4DA6FF8711FF4BDA0095C41E /* GaneshFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */; };
 		4DA6FFA011FF4CEA0095C41E /* Atlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FF9F11FF4CEA0095C41E /* Atlas.m */; };
 		4DA6FFA511FF4D130095C41E /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA6FEB011FF46880095C41E /* libThree20.a */; };
@@ -107,6 +109,8 @@
 		4D3F51DD1205E53900CE67DA /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = ../External/cocoaasyncsocket/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		4D3F51E51205E5B500CE67DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D3F51E91205E5CC00CE67DA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4D63D04D120710BB00EE317C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4D63D1CA12081BDE00EE317C /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = ../External/three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
 		4DA6FEA711FF46880095C41E /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../External/three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4DA6FF8511FF4BDA0095C41E /* GaneshFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaneshFeedViewController.h; sourceTree = "<group>"; };
 		4DA6FF8611FF4BDA0095C41E /* GaneshFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaneshFeedViewController.m; sourceTree = "<group>"; };
@@ -186,7 +190,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D63D1CA12081BDE00EE317C /* Three20.bundle */,
 				8D1107310486CEB800E47090 /* ganesh-Info.plist */,
+				4D63D04D120710BB00EE317C /* Settings.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -365,6 +371,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D63D04E120710BB00EE317C /* Settings.bundle in Resources */,
+				4D63D1CB12081BDE00EE317C /* Three20.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

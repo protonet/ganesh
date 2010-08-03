@@ -25,8 +25,6 @@
     if (![navigator restoreViewControllers]) {
         [navigator openURLAction:[TTURLAction actionWithURLPath:kAppRootURLPath]];
     }
-    
-    [[Socket alloc] init];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -42,8 +42,11 @@
   NSMutableArray* items = [[NSMutableArray alloc] init];
 
   for (Tweet* tweet in [_meepModel messages]) {
-    TTStyledText* styledText = [TTStyledText textFromXHTML:tweet.message lineBreaks:YES URLs:YES];
-
+      TTStyledText* styledText = [TTStyledText textFromXHTML:
+                                  [NSString stringWithFormat:@"%@\n<b>%@</b>",
+                                    tweet.message,
+                                    tweet.author] 
+                                        lineBreaks:YES URLs:YES];
     TTDASSERT(nil != styledText);
     [items addObject:[TTTableStyledTextItem itemWithText:styledText]];
   }

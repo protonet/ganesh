@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Socket;
 
-
-@interface GaneshFeedViewController : TTTableViewController {
-
+@interface GaneshFeedViewController : TTTableViewController <UITextFieldDelegate> {
+    Socket *socket;
 }
 
 @end
