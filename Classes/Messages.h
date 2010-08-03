@@ -12,6 +12,8 @@
 #if !(TARGET_OS_IPHONE)
 @interface Messages : NSObject {
 #else
+#include "AudioToolbox/AudioToolbox.h"
+
 @interface Messages : TTModel {
 #endif
     @private NSMutableArray *messages;

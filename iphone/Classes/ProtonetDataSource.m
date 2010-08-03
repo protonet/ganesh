@@ -43,9 +43,10 @@
 
   for (Tweet* tweet in [_meepModel messages]) {
       TTStyledText* styledText = [TTStyledText textFromXHTML:
-                                  [NSString stringWithFormat:@"%@\n<b>%@</b>",
+                                  [NSString stringWithFormat:@"%@\n<b>%@ @ %@</b>",
                                     tweet.message,
-                                    tweet.author] 
+                                    tweet.author,
+                                    [tweet.date formatRelativeTime]]
                                         lineBreaks:YES URLs:YES];
     TTDASSERT(nil != styledText);
     [items addObject:[TTTableStyledTextItem itemWithText:styledText]];

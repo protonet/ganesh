@@ -91,6 +91,7 @@ static Messages *sharedMessagesController = nil;
     if (tweet) {
         [self push:tweet];
 #if TARGET_OS_IPHONE
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [super didChange];
 #endif
     }
