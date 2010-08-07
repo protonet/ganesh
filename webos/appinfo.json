@@ -1,0 +1,9 @@
+{
+	"id": "com.protonet.ganesh",
+	"version": "0.0.1",
+	"vendor": "Protonet.info",
+	"type": "web",
+	"main": "index.html",
+	"title": "Protonet Ganesh",
+	"icon": "icon.png"
+}
