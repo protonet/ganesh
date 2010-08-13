@@ -182,7 +182,7 @@
 }
 
 - (void)authenticateSocket {
-    NSString *authUrl = [NSString stringWithFormat:@"http://%@/sessions/create_token.json?login=%@&password=%@",
+    NSString *authUrl = [NSString stringWithFormat:@"%@/sessions/create_token.json?login=%@&password=%@",
                          self.serverUrl, self.userName, self.password];
 
     self.cookies = nil;
@@ -197,7 +197,7 @@
 }
 
 - (void)listChannels {
-    NSString *url = [NSString stringWithFormat:@"http://%@/users/list_channels.json",
+    NSString *url = [NSString stringWithFormat:@"%@/users/list_channels.json",
                      self.serverUrl];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
@@ -228,7 +228,7 @@
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-        NSString *postUrl = [NSString stringWithFormat:@"http://%@/tweets", self.serverUrl];
+        NSString *postUrl = [NSString stringWithFormat:@"%@/tweets", self.serverUrl];
 
         NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
         NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies];
@@ -282,12 +282,10 @@
  * Asynchronous callbacks
  */
 - (void)processResponseHeaders:(NSHTTPURLResponse *)response {
-    NSString *url = [NSString stringWithFormat:@"http://%@", self.serverUrl];
-
     // store cookie if not set
     if(self.cookies == nil){
         self.cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields]
-                                                              forURL:[NSURL URLWithString:url]];
+                                                              forURL:[NSURL URLWithString:self.serverUrl]];
 
         DLog([self.cookies description]);
     }

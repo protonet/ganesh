@@ -7,6 +7,6 @@
 	<key>enableFloating</key>
 	<true/>
 	<key>serverUrl</key>
-	<string>protonet.xing.com</string>
+        <string>http://protonet.xing.com</string>
 </dict>
 </plist>
