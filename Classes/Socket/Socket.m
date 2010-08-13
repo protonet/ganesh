@@ -211,45 +211,50 @@
 }
 
 - (void)sendMessage:(NSString*)message {
-	if([self streamsAreOk] && message != nil && [message length]>0)
+	if(message != nil && [message length]>0)
     {
-        NSNumber *channel_id = [[ChannelsController sharedController] selectedChannelId];
-        if(!channel_id){
-            channel_id = [NSNumber numberWithInt:1];
-        }
-//        [self sendText:[NSString stringWithFormat:@"%@", message]];
-        //tweet[message] message_channel-id=1 tweet[socket_id]=1 tweet[text_extension]=''
-        NSString *post = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%d&%@=%d&%@=%@",
-                          @"authenticity_token", [self.authenticityToken urlEncode],
-                          [@"tweet[message]" urlEncode], [message urlEncode],
-                          @"message_channel_id", [channel_id intValue],
-                          [@"tweet[socket_id]" urlEncode], 1,
-                          [@"tweet[text_extension]" urlEncode], @""];
-        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        
-        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-        NSString *postUrl = [NSString stringWithFormat:@"%@/tweets", self.serverUrl];
+        if([self streamsAreOk]){
+            NSNumber *channel_id = [[ChannelsController sharedController] selectedChannelId];
+            if(!channel_id){
+                channel_id = [NSNumber numberWithInt:1];
+            }
+            //        [self sendText:[NSString stringWithFormat:@"%@", message]];
+            //tweet[message] message_channel-id=1 tweet[socket_id]=1 tweet[text_extension]=''
+            NSString *post = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%d&%@=%d&%@=%@",
+                     @"authenticity_token", [self.authenticityToken urlEncode],
+                     [@"tweet[message]" urlEncode], [message urlEncode],
+                     @"message_channel_id", [channel_id intValue],
+                     [@"tweet[socket_id]" urlEncode], 1,
+                     [@"tweet[text_extension]" urlEncode], @""];
+            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 
-        NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-        NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies];
-        // we are just recycling the original request
-        [request setAllHTTPHeaderFields:headers];
-        
-        [request setURL:[NSURL URLWithString:postUrl]];
-        [request setHTTPMethod:@"POST"];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:postData];
-        DLog([[request allHTTPHeaderFields] description]);
-        
-        NSData* urlData; //returndata
-        NSURLResponse *response;
-        NSError *error;
-        
-        [[M3EncapsulatedURLConnection alloc] initWithRequest:request
-                                                    delegate:self
-                                               andIdentifier:@"send_message"
-                                                 contextInfo:nil];
+            NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+            NSString *postUrl = [NSString stringWithFormat:@"%@/tweets", self.serverUrl];
+
+            NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+            NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies];
+            // we are just recycling the original request
+            [request setAllHTTPHeaderFields:headers];
+
+            [request setURL:[NSURL URLWithString:postUrl]];
+            [request setHTTPMethod:@"POST"];
+            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:postData];
+            DLog([[request allHTTPHeaderFields] description]);
+
+            NSData* urlData; //returndata
+            NSURLResponse *response;
+            NSError *error;
+
+            [[M3EncapsulatedURLConnection alloc] initWithRequest:request
+                                                        delegate:self
+                                                   andIdentifier:@"send_message"
+                                                     contextInfo:nil];
+        }
+        else if ([internetReach currentReachabilityStatus] == IsReachable){
+            [self openSocket];
+        }
     }
 }
 
