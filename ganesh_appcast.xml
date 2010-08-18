@@ -487,3 +487,16 @@
       </item>
   </channel>
 </rss>
+   <title>Version 0.0.2</title>
+	      <sparkle:releaseNotesLink>http://www.flyingseagull.de/ganesh/release-notes.html#version-0.0.2</sparkle:releaseNotesLink>
+	      <pubDate>Sat, 06 Mar 2010 17:49:54 +0100</pubDate>
+	      <enclosure
+		      url="http://www.flyingseagull.de/ganesh//ganesh 0.0.2.zip"
+		      sparkle:version="0.0.2"
+		      type="application/octet-stream"
+		      length="1087809"
+		      sparkle:dsaSignature="MCwCFCxvcTavGD6jqUOTd0PDtlKUYQaQAhQ8RW2kfBQ/m31MmVfC1VJxKZ6sEQ=="
+		      />
+      </item>
+  </channel>
+</rss>
