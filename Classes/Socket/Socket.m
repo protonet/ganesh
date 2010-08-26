@@ -218,8 +218,6 @@
             if(!channel_id){
                 channel_id = [NSNumber numberWithInt:1];
             }
-            //        [self sendText:[NSString stringWithFormat:@"%@", message]];
-            //tweet[message] message_channel-id=1 tweet[socket_id]=1 tweet[text_extension]=''
             NSString *post = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%d&%@=%d&%@=%@",
                      @"authenticity_token", [self.authenticityToken urlEncode],
                      [@"tweet[message]" urlEncode], [message urlEncode],
