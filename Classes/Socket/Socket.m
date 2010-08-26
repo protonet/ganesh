@@ -243,10 +243,6 @@
             [request setHTTPBody:postData];
             DLog([[request allHTTPHeaderFields] description]);
 
-            NSData* urlData; //returndata
-            NSURLResponse *response;
-            NSError *error;
-
             [[M3EncapsulatedURLConnection alloc] initWithRequest:request
                                                         delegate:self
                                                    andIdentifier:@"send_message"
