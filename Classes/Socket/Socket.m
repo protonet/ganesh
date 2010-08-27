@@ -15,6 +15,7 @@
 #import "NSString+SBJSON.h"
 #import "Messages.h"
 #import "ChannelsController.h"
+#import "Channel.h"
 #import "Debug.h"
 #import "M3EncapsulatedURLConnection.h"
 #import "Reachability.h"

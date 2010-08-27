@@ -11,11 +11,13 @@
 
 @interface Channel : NSObject {
     NSNumber  *channel_id;
+	NSString  *uuid;
 	NSString  *name;
 	NSString  *description;
     int       newCounter; /*new message counter*/
 }
 @property(retain)   NSNumber *channel_id;
+@property(retain)   NSString *uuid;
 @property(retain)   NSString *name;
 @property(retain)   NSString *description;
 @property(assign)   int      newCounter;

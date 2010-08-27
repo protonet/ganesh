@@ -11,6 +11,7 @@
 
 @implementation Channel
 @synthesize channel_id;
+@synthesize uuid;
 @synthesize name;
 @synthesize description;
 @synthesize newCounter;
@@ -19,6 +20,7 @@
 {
     if ([data objectForKey:@"id"] && (self = [super init])) {
         self.channel_id  = [data objectForKey:@"id"];
+        self.uuid        = [data objectForKey:@"uuid"];
         self.name        = [data objectForKey:@"name"];
         self.description = [data objectForKey:@"description"];
         self.newCounter  = 0;

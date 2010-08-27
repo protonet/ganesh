@@ -47,7 +47,7 @@
     if (!json)
         NSLog(@"-JSONRepresentation failed. Error trace is: %@", [jsonWriter errorTrace]);
     [jsonWriter release];
-    return json;
+    return [NSString stringWithFormat:@"%@\0", json];
 }
 
 @end
