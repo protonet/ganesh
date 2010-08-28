@@ -168,8 +168,8 @@
 - (void)ping
 {
     if (self.authenticated) {
-        NSString *ping = [NSString stringWithFormat:@"{\"operation\":\"ping\"}"];
-        NSData *pingData = [ping dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *ping = [NSDictionary dictionaryWithObjectsAndKeys:@"ping", @"operation", nil];
+        NSData *pingData = [[ping JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
         [asyncSocket writeData:pingData withTimeout:-1 tag:PING_MSG];
     }
 }
@@ -215,37 +215,17 @@
 	if(message != nil && [message length]>0)
     {
         if([self streamsAreOk]){
-            NSNumber *channel_id = [[ChannelsController sharedController] selectedChannelId];
-            if(!channel_id){
-                channel_id = [NSNumber numberWithInt:1];
-            }
-            NSString *post = [NSString stringWithFormat:@"%@=%@&%@=%@&%@=%d&%@=%d&%@=%@",
-                     @"authenticity_token", [self.authenticityToken urlEncode],
-                     [@"tweet[message]" urlEncode], [message urlEncode],
-                     @"message_channel_id", [channel_id intValue],
-                     [@"tweet[socket_id]" urlEncode], 1,
-                     [@"tweet[text_extension]" urlEncode], @""];
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            NSString *channel_uuid = [[ChannelsController sharedController] selectedChannelUuid];
+            if(!channel_uuid) return;
 
-            NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-            NSString *postUrl = [NSString stringWithFormat:@"%@/tweets", self.serverUrl];
+            NSDictionary *tweet = [NSDictionary dictionaryWithObjectsAndKeys:@"tweet", @"operation",
+                         message, @"message",
+                         @"", @"text_extension",
+                         channel_uuid, @"channel_uuid",nil];
 
-            NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-            NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies];
-            // we are just recycling the original request
-            [request setAllHTTPHeaderFields:headers];
-
-            [request setURL:[NSURL URLWithString:postUrl]];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
-            DLog([[request allHTTPHeaderFields] description]);
-
-            [[M3EncapsulatedURLConnection alloc] initWithRequest:request
-                                                        delegate:self
-                                                   andIdentifier:@"send_message"
-                                                     contextInfo:nil];
+            DLog(@"%@", [tweet JSONRepresentation]);
+            NSData *sockData = [[tweet JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
+            [asyncSocket writeData:sockData withTimeout:-1 tag:0];
         }
         else if ([internetReach currentReachabilityStatus] == IsReachable){
             [self openSocket];
@@ -308,9 +288,13 @@
         }
         else {
             // Now send the authentication-request
-            NSString *auth = [NSString stringWithFormat:@"{\"operation\":\"authenticate\", \"payload\":{\"user_id\": %@, \"token\": \"%@\"}}",
-                      [authentication_dict objectForKey:@"user_id"], [authentication_dict objectForKey:@"token"]];
-            NSData *authData = [auth dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *payload = [NSDictionary dictionaryWithObjectsAndKeys:[authentication_dict objectForKey:@"user_id"], @"user_id",
+                                             [authentication_dict objectForKey:@"token"], @"token", nil];
+            NSDictionary *auth = [NSDictionary dictionaryWithObjectsAndKeys:@"authenticate", @"operation",
+                         payload, @"payload",nil];
+
+            DLog([auth JSONRepresentation]);
+            NSData *authData = [[auth JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
             [asyncSocket writeData:authData withTimeout:-1 tag:AUTH_MSG];
 
             self.authenticated = YES;

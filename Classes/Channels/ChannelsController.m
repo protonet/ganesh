@@ -134,6 +134,16 @@ static ChannelsController *sharedChannelController = nil;
     return nil;
 }
 
+- (id)selectedChannelUuid
+{
+    if([self.channels count]){
+        Channel *channel = [self.channels objectAtIndex:selectedRow];
+
+        return channel.uuid;
+    }
+    return nil;
+}
+
 - (void)selectNextChannel
 {
     if(++selectedRow == [channels count])
