@@ -2,9 +2,11 @@
 //  Socket.m
 //  Socket
 //
-//  Created by jelveh on 07.12.09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
-//
+//  Created by Ali Jelveh on 07.12.09.
+//  Copyright 2009-2010 Reza Jelveh
+//  Copyright 2009-2010 Ali Jelveh
+//  All rights reserved.
+
 #if !(TARGET_OS_IPHONE)
 #import <SecurityFoundation/SFAuthorization.h>
 // n2n includes
