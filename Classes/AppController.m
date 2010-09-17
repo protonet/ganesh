@@ -197,6 +197,17 @@ static AppController *sharedAppController = nil;
     [nc addObserver:self
            selector:@selector(windowBecameMain:)
                name:NSWindowDidBecomeMainNotification object:nil];
+
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(edgeConnected:)
+                                                            name:N2N_CONNECTED
+                                                          object:nil];
+
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(edgeDisconnected:)
+                                                            name:N2N_DISCONNECTED
+                                                          object:nil];
+
 }
 
 - (void) dealloc
@@ -427,15 +438,35 @@ static AppController *sharedAppController = nil;
 
 
 - (IBAction)connect:(id)sender {
+    [statusMenu removeItemAtIndex:1];
+    [statusMenu insertItemWithTitle:@"Connecting..." action:nil keyEquivalent:@"" atIndex:1];
+    [[statusMenu itemAtIndex:1] setTarget:self];
+
+    [[NSDistributedNotificationCenter defaultCenter]
+        postNotification:[NSNotification notificationWithName:N2N_CONNECT object:nil]];
+}
+
+- (void) edgeConnected:(NSNotification *)notification
+{
     statusItemView.vpn = YES;
+
     [statusMenu removeItemAtIndex:1];
     [statusMenu insertItemWithTitle:@"Disconnect VPN..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:1];
     [[statusMenu itemAtIndex:1] setTarget:self];
 
+    DLog(@"create thread and try to connect");
 
-    [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:@"N2NEdgeConnect" object:nil]];
 }
+
+- (void) edgeDisconnected:(NSNotification *)notification
+{
+    statusItemView.vpn = NO;
+
+    [statusMenu removeItemAtIndex:1];
+    [statusMenu insertItemWithTitle:@"Connect VPN..." action:@selector(connect:) keyEquivalent:@"" atIndex:1];
+    [[statusMenu itemAtIndex:1] setTarget:self];
+}
+
 
 - (BOOL) copyPathWithforcedAuthentication:(NSString *)src toPath:(NSString *)dst error:(NSError **)error
 {
@@ -517,13 +548,12 @@ static AppController *sharedAppController = nil;
 
 - (IBAction)disconnect:(id)sender
 {
-    statusItemView.vpn = NO;
     [statusMenu removeItemAtIndex:1];
-    [statusMenu insertItemWithTitle:@"Connect VPN..." action:@selector(connect:) keyEquivalent:@"" atIndex:1];
+    [statusMenu insertItemWithTitle:@"Disconnecting..." action:nil keyEquivalent:@"" atIndex:1];
     [[statusMenu itemAtIndex:1] setTarget:self];
 
     [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:@"N2NEdgeDisconnect" object:nil]];
+        postNotification:[NSNotification notificationWithName:N2N_DISCONNECT object:nil]];
 }
 
 - (void)postMessage:(id)sender
