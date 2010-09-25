@@ -67,6 +67,8 @@
 		4D1910071128489100BA1A75 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D190FF5112845F200BA1A75 /* Growl.framework */; };
 		4D19101C11284D0D00BA1A75 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4D19101B11284D0D00BA1A75 /* dsa_pub.pem */; };
 		4D191023112852C300BA1A75 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D191022112852C200BA1A75 /* GrowlNotifier.m */; };
+		4D237593123FEC460097662F /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D237592123FEC460097662F /* Network.m */; };
+		4D2375981240C4490097662F /* NetworksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2375971240C4490097662F /* NetworksController.m */; };
 		4D423250115AD89900C59718 /* NSString_truncate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D42324F115AD89900C59718 /* NSString_truncate.m */; };
 		4D4232F5115BD8FC00C59718 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4232F4115BD8FC00C59718 /* Channel.m */; };
 		4D490C66113030F50044C86E /* N2NUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D490C65113030F50044C86E /* N2NUserDefaultsController.m */; };
@@ -105,6 +107,7 @@
 		4DDDDF5811553A7900CD9E89 /* M3EncapsulatedURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDDF5711553A7900CD9E89 /* M3EncapsulatedURLConnection.m */; };
 		4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5EE481142816600277CE6 /* PreferenceWindow.m */; };
 		4DE6170E11EDAD9B004C8D52 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6170D11EDAD9B004C8D52 /* AsyncSocket.m */; };
+		4DF0812E1235A50900484D0C /* NetworksDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF0812D1235A50900484D0C /* NetworksDataSource.m */; };
 		4DF5FCA91151959000DC5BC9 /* LIFOStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -340,6 +343,10 @@
 		4D19101B11284D0D00BA1A75 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		4D191021112852C200BA1A75 /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		4D191022112852C200BA1A75 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
+		4D237591123FEC460097662F /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		4D237592123FEC460097662F /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		4D2375961240C4490097662F /* NetworksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworksController.h; sourceTree = "<group>"; };
+		4D2375971240C4490097662F /* NetworksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworksController.m; sourceTree = "<group>"; };
 		4D42324E115AD89900C59718 /* NSString_truncate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_truncate.h; sourceTree = "<group>"; };
 		4D42324F115AD89900C59718 /* NSString_truncate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_truncate.m; sourceTree = "<group>"; };
 		4D4232F3115BD8FC00C59718 /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
@@ -415,6 +422,8 @@
 		4DE5EE481142816600277CE6 /* PreferenceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindow.m; sourceTree = "<group>"; };
 		4DE6170C11EDAD9B004C8D52 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = External/cocoaasyncsocket/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		4DE6170D11EDAD9B004C8D52 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = External/cocoaasyncsocket/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
+		4DF0812C1235A50900484D0C /* NetworksDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworksDataSource.h; sourceTree = "<group>"; };
+		4DF0812D1235A50900484D0C /* NetworksDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworksDataSource.m; sourceTree = "<group>"; };
 		4DF5FCA71151958F00DC5BC9 /* LIFOStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFOStack.h; sourceTree = "<group>"; };
 		4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIFOStack.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -445,6 +454,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D23758C123FEC180097662F /* Networks */,
 				4DA19327115A7EAD00F3E872 /* Channels */,
 				4DDDDF5511553A5E00CD9E89 /* M3 */,
 				4DF5FCA71151958F00DC5BC9 /* LIFOStack.h */,
@@ -672,6 +682,19 @@
 				4D906D50114E6C0100A6B353 /* Carbon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D23758C123FEC180097662F /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				4DF0812C1235A50900484D0C /* NetworksDataSource.h */,
+				4DF0812D1235A50900484D0C /* NetworksDataSource.m */,
+				4D237591123FEC460097662F /* Network.h */,
+				4D237592123FEC460097662F /* Network.m */,
+				4D2375961240C4490097662F /* NetworksController.h */,
+				4D2375971240C4490097662F /* NetworksController.m */,
+			);
+			path = Networks;
 			sourceTree = "<group>";
 		};
 		4D5E67C511BE7E330004CA1F /* Reachability */ = {
@@ -1065,6 +1088,9 @@
 				4D4232F5115BD8FC00C59718 /* Channel.m in Sources */,
 				4D5E67C811BE7E330004CA1F /* Reachability.m in Sources */,
 				4DE6170E11EDAD9B004C8D52 /* AsyncSocket.m in Sources */,
+				4DF0812E1235A50900484D0C /* NetworksDataSource.m in Sources */,
+				4D237593123FEC460097662F /* Network.m in Sources */,
+				4D2375981240C4490097662F /* NetworksController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

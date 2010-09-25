@@ -144,6 +144,14 @@ static N2NUserDefaultsController *sharedInstance = nil;
 	return valueToReturn;
 }
 
+- (NSArray *)dictionaryForKey:(NSString *)defaultName;
+{
+	id value = [[self values] objectForKey:defaultName];
+	id valueToReturn = nil;
+	if ([[value className] isEqualToString:@"NSCFDictionary"]) valueToReturn = value;
+	return valueToReturn;
+}
+
 - (void)removeObjectForKey:(NSString *)defaultName;
 {
 	[[self values] removeObjectForKey:defaultName];

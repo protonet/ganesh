@@ -19,6 +19,8 @@
 #import "MGTemplateEngine.h"
 #import "ICUTemplateMatcher.h"
 
+#import "N2NUserDefaultsController.h"
+
 // n2n includes
 #include "edge.h"
 
@@ -287,6 +289,17 @@ static AppController *sharedAppController = nil;
     [statusItemView setMenu:statusMenu];
     [statusItem setView:statusItemView];
     [statusItem setHighlightMode:YES];
+
+    NSArray *networks = [[N2NUserDefaultsController standardUserDefaults] objectForKey:@"networks"];
+    int i = 1;
+    for(NSDictionary *network in networks){
+        [statusMenu insertItemWithTitle:[NSString stringWithFormat:@"Connect %@", [network objectForKey:@"supernode"]]
+                                 action:@selector(connect:)
+                          keyEquivalent:@""
+                                atIndex:i];
+        [[statusMenu itemAtIndex:i] setTag:i];
+        i++;
+    }
 }
 
 - (void)renderTemplate{
@@ -438,33 +451,34 @@ static AppController *sharedAppController = nil;
 
 
 - (IBAction)connect:(id)sender {
-    [statusMenu removeItemAtIndex:1];
-    [statusMenu insertItemWithTitle:@"Connecting..." action:nil keyEquivalent:@"" atIndex:1];
-    [[statusMenu itemAtIndex:1] setTarget:self];
+    // TODO: some type checking for sender tag would be apropriate
+    [statusMenu removeItemAtIndex:[sender tag]];
+    [statusMenu insertItemWithTitle:@"Connecting..." action:nil keyEquivalent:@"" atIndex:[sender tag]];
+    [[statusMenu itemAtIndex:[sender tag]] setTarget:self];
 
     [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:N2N_CONNECT object:nil]];
+        postNotification:[NSNotification notificationWithName:N2N_CONNECT object:[[NSNumber numberWithInt:[sender tag]-1] stringValue]]];
 }
 
 - (void) edgeConnected:(NSNotification *)notification
 {
     statusItemView.vpn = YES;
 
-    [statusMenu removeItemAtIndex:1];
-    [statusMenu insertItemWithTitle:@"Disconnect VPN..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:1];
-    [[statusMenu itemAtIndex:1] setTarget:self];
-
-    DLog(@"create thread and try to connect");
+    [statusMenu removeItemAtIndex:[[notification object] intValue]];
+    [statusMenu insertItemWithTitle:@"Disconnect VPN..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:[[notification object] intValue]];
+    [[statusMenu itemAtIndex:[[notification object] intValue]] setTarget:self];
 
 }
 
 - (void) edgeDisconnected:(NSNotification *)notification
 {
+    int i = [[notification object] intValue] + 1;
+
     statusItemView.vpn = NO;
 
-    [statusMenu removeItemAtIndex:1];
-    [statusMenu insertItemWithTitle:@"Connect VPN..." action:@selector(connect:) keyEquivalent:@"" atIndex:1];
-    [[statusMenu itemAtIndex:1] setTarget:self];
+    [statusMenu removeItemAtIndex:i];
+    [statusMenu insertItemWithTitle:@"Connect VPN..." action:@selector(connect:) keyEquivalent:@"" atIndex:i];
+    [[statusMenu itemAtIndex:i] setTarget:self];
 }
 
 
@@ -548,12 +562,12 @@ static AppController *sharedAppController = nil;
 
 - (IBAction)disconnect:(id)sender
 {
-    [statusMenu removeItemAtIndex:1];
-    [statusMenu insertItemWithTitle:@"Disconnecting..." action:nil keyEquivalent:@"" atIndex:1];
-    [[statusMenu itemAtIndex:1] setTarget:self];
+    [statusMenu removeItemAtIndex:[sender tag]];
+    [statusMenu insertItemWithTitle:@"Disconnecting..." action:nil keyEquivalent:@"" atIndex:[sender tag]];
+    [[statusMenu itemAtIndex:[sender tag]] setTarget:self];
 
     [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:N2N_DISCONNECT object:nil]];
+        postNotification:[NSNotification notificationWithName:N2N_DISCONNECT object:[[NSNumber numberWithInt:[sender tag]] stringValue]]];
 }
 
 - (void)postMessage:(id)sender
