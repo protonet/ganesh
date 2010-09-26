@@ -455,30 +455,45 @@ static AppController *sharedAppController = nil;
     [statusMenu removeItemAtIndex:[sender tag]];
     [statusMenu insertItemWithTitle:@"Connecting..." action:nil keyEquivalent:@"" atIndex:[sender tag]];
     [[statusMenu itemAtIndex:[sender tag]] setTarget:self];
+    [[statusMenu itemAtIndex:[sender tag]] setTag:[sender tag]];
 
     [[NSDistributedNotificationCenter defaultCenter]
         postNotification:[NSNotification notificationWithName:N2N_CONNECT object:[[NSNumber numberWithInt:[sender tag]-1] stringValue]]];
+}
+
+- (IBAction)disconnect:(id)sender
+{
+    [statusMenu removeItemAtIndex:[sender tag]];
+    [statusMenu insertItemWithTitle:@"Disconnecting..." action:nil keyEquivalent:@"" atIndex:[sender tag]];
+    [[statusMenu itemAtIndex:[sender tag]] setTarget:self];
+    [[statusMenu itemAtIndex:[sender tag]] setTag:[sender tag]];
+    
+    [[NSDistributedNotificationCenter defaultCenter]
+     postNotification:[NSNotification notificationWithName:N2N_DISCONNECT object:[[NSNumber numberWithInt:[sender tag]-1] stringValue]]];
 }
 
 - (void) edgeConnected:(NSNotification *)notification
 {
     statusItemView.vpn = YES;
 
-    [statusMenu removeItemAtIndex:[[notification object] intValue]];
-    [statusMenu insertItemWithTitle:@"Disconnect VPN..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:[[notification object] intValue]];
-    [[statusMenu itemAtIndex:[[notification object] intValue]] setTarget:self];
-
+    int i = [[notification object] intValue]+1;
+    
+    [statusMenu removeItemAtIndex:i];
+    [statusMenu insertItemWithTitle:@"Disconnect VPN..." action:@selector(disconnect:) keyEquivalent:@"" atIndex:i];
+    [[statusMenu itemAtIndex:i] setTarget:self];
+    [[statusMenu itemAtIndex:i] setTag:i];
 }
 
 - (void) edgeDisconnected:(NSNotification *)notification
 {
-    int i = [[notification object] intValue] + 1;
-
     statusItemView.vpn = NO;
 
+    int i = [[notification object] intValue] + 1;
+    
     [statusMenu removeItemAtIndex:i];
     [statusMenu insertItemWithTitle:@"Connect VPN..." action:@selector(connect:) keyEquivalent:@"" atIndex:i];
     [[statusMenu itemAtIndex:i] setTarget:self];
+    [[statusMenu itemAtIndex:i] setTag:i];
 }
 
 
@@ -558,16 +573,6 @@ static AppController *sharedAppController = nil;
     }
     return res;
 
-}
-
-- (IBAction)disconnect:(id)sender
-{
-    [statusMenu removeItemAtIndex:[sender tag]];
-    [statusMenu insertItemWithTitle:@"Disconnecting..." action:nil keyEquivalent:@"" atIndex:[sender tag]];
-    [[statusMenu itemAtIndex:[sender tag]] setTarget:self];
-
-    [[NSDistributedNotificationCenter defaultCenter]
-        postNotification:[NSNotification notificationWithName:N2N_DISCONNECT object:[[NSNumber numberWithInt:[sender tag]] stringValue]]];
 }
 
 - (void)postMessage:(id)sender
