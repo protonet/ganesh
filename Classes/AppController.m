@@ -13,6 +13,7 @@
 #import "Messages.h"
 #import "GrowlNotifier.h"
 #import "LIFOStack.h"
+#import "BonjourClientController.h"
 
 #import "Debug.h"
 
@@ -210,6 +211,7 @@ static AppController *sharedAppController = nil;
                                                             name:N2N_DISCONNECTED
                                                           object:nil];
 
+    bonjourClient = [[BonjourClientController alloc] init];
 }
 
 - (void) dealloc
@@ -217,6 +219,7 @@ static AppController *sharedAppController = nil;
     [inputStack release];
     [statusItemView release];
     [socket release];
+    [bonjourClient release];
     [super dealloc];
 }
 

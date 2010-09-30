@@ -11,16 +11,11 @@
 
 
 @interface BonjourClientController : NSObject {
-    BOOL isConnected;
     NSNetServiceBrowser *browser;
-    NSNetService *connectedService;
-    NSMutableArray *services;
-    IBOutlet NSArrayController *servicesController;
+    NSNetService *service;
 }
 
 @property (readwrite, retain) NSNetServiceBrowser *browser;
-@property (readwrite, retain) NSMutableArray *services;
-@property (readwrite, assign) BOOL isConnected;
-@property (readwrite, retain) NSNetService *connectedService;
+@property (readwrite, retain) NSNetService *service;
 
 @end

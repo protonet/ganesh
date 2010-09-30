@@ -16,6 +16,8 @@
 
 #import "MGTemplateEngine.h"
 
+@class BonjourClientController;
+
 @interface AppController : NSObject <MGTemplateEngineDelegate>{
   IBOutlet NSMenu *statusMenu;
   IBOutlet NSButton *daemonButton;
@@ -34,6 +36,7 @@
   LIFOStack *inputStack;
 
   Socket *socket;
+  BonjourClientController *bonjourClient;
 
   BOOL isTimelineVisible;
 }

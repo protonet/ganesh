@@ -108,6 +108,7 @@
 		4DE5EE491142816600277CE6 /* PreferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5EE481142816600277CE6 /* PreferenceWindow.m */; };
 		4DE6170E11EDAD9B004C8D52 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6170D11EDAD9B004C8D52 /* AsyncSocket.m */; };
 		4DF0812E1235A50900484D0C /* NetworksDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF0812D1235A50900484D0C /* NetworksDataSource.m */; };
+		4DF0C7541251C85F0076529E /* BonjourClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF0C7531251C85F0076529E /* BonjourClientController.m */; };
 		4DF5FCA91151959000DC5BC9 /* LIFOStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -424,6 +425,8 @@
 		4DE6170D11EDAD9B004C8D52 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = External/cocoaasyncsocket/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		4DF0812C1235A50900484D0C /* NetworksDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworksDataSource.h; sourceTree = "<group>"; };
 		4DF0812D1235A50900484D0C /* NetworksDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworksDataSource.m; sourceTree = "<group>"; };
+		4DF0C7521251C85F0076529E /* BonjourClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourClientController.h; sourceTree = "<group>"; };
+		4DF0C7531251C85F0076529E /* BonjourClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourClientController.m; sourceTree = "<group>"; };
 		4DF5FCA71151958F00DC5BC9 /* LIFOStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIFOStack.h; sourceTree = "<group>"; };
 		4DF5FCA81151958F00DC5BC9 /* LIFOStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIFOStack.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -454,6 +457,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4DF0C7511251C84F0076529E /* Bonjour */,
 				4D23758C123FEC180097662F /* Networks */,
 				4DA19327115A7EAD00F3E872 /* Channels */,
 				4DDDDF5511553A5E00CD9E89 /* M3 */,
@@ -866,6 +870,15 @@
 			path = M3;
 			sourceTree = "<group>";
 		};
+		4DF0C7511251C84F0076529E /* Bonjour */ = {
+			isa = PBXGroup;
+			children = (
+				4DF0C7521251C85F0076529E /* BonjourClientController.h */,
+				4DF0C7531251C85F0076529E /* BonjourClientController.m */,
+			);
+			path = Bonjour;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1091,6 +1104,7 @@
 				4DF0812E1235A50900484D0C /* NetworksDataSource.m in Sources */,
 				4D237593123FEC460097662F /* Network.m in Sources */,
 				4D2375981240C4490097662F /* NetworksController.m in Sources */,
+				4DF0C7541251C85F0076529E /* BonjourClientController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
