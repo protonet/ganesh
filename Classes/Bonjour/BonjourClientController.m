@@ -14,6 +14,7 @@
 
 @synthesize browser;
 @synthesize service;
+@synthesize isInRange;
 
 -(void)search {
     [self.browser searchForServicesOfType:@"_protonet._tcp." inDomain:@""];

@@ -147,6 +147,14 @@
     else if([keyPath isEqual:passwordKey]){
         self.password = [object stringForKey:passwordKey];
     }
+
+    if([self streamsAreOk]){
+        // when we close it should reschedule the connect automatically
+        [asyncSocket close];
+    }
+    else{
+        [self openSocket];
+    }
 }
 
 - (void)cleanupBeforeSleep {

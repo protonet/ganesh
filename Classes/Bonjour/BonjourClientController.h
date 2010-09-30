@@ -13,9 +13,12 @@
 @interface BonjourClientController : NSObject {
     NSNetServiceBrowser *browser;
     NSNetService *service;
+
+    BOOL isInRange;
 }
 
 @property (readwrite, retain) NSNetServiceBrowser *browser;
 @property (readwrite, retain) NSNetService *service;
+@property (readwrite, assign) BOOL isInRange;
 
 @end
