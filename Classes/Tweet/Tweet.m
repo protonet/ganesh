@@ -48,7 +48,7 @@
             self.response = NO;
         }
 #if !(TARGET_OS_IPHONE)
-		NSString * profileUrlString = [NSString stringWithFormat:@"%@%@", serverUrl, [data objectForKey:@"user_icon_url"]];
+		NSString * profileUrlString = [NSString stringWithFormat:@"%@%@", serverUrl, [data objectForKey:@"avatar"]];
         self.icon_url = [NSURL URLWithString:profileUrlString];
 		userImage = [[[NSImage alloc] init] initWithContentsOfURL:icon_url];
 #endif
