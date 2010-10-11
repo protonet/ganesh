@@ -10,11 +10,13 @@
 
 
 @interface Network : NSObject {
+    NSString *description;
     NSString *supernode;
     NSString *community;
     NSString *key;
 }
 
+@property(retain)   NSString *description;
 @property(retain)   NSString *supernode;
 @property(retain)   NSString *community;
 @property(retain)   NSString *key;

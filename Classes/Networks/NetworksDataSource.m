@@ -22,7 +22,7 @@
             self.networks = [nets mutableCopy];
         }
         else{
-            self.networks = [[[NSMutableArray alloc] init] autorelease];
+            self.networks = [NSMutableArray array];
         }
     }
     return self;
@@ -44,7 +44,10 @@
                             row:(int)row
 {
     NSDictionary *network = [self.networks objectAtIndex:row];
-    if([[tableColumn identifier] isEqualToString:@"supernode"]){
+    if([[tableColumn identifier] isEqualToString:@"description"]){
+        return [network objectForKey:@"description"];
+    }
+    else if([[tableColumn identifier] isEqualToString:@"supernode"]){
         return [network objectForKey:@"supernode"];
     }
     else if([[tableColumn identifier] isEqualToString:@"community"]){
@@ -57,7 +60,8 @@
 
 - (void)addNetwork:(Network *)network
 {
-    NSDictionary *networkDictionary = [NSDictionary dictionaryWithObjectsAndKeys:network.supernode, @"supernode",
+    NSDictionary *networkDictionary = [NSDictionary dictionaryWithObjectsAndKeys:network.description, @"description",
+                 network.supernode, @"supernode",
                  network.community, @"community",
                  network.key, @"key", nil];
 
@@ -71,6 +75,12 @@
     [self.networks removeObjectAtIndex:networkId];
     [[N2NUserDefaultsController standardUserDefaults] setObject:self.networks
                                                          forKey:@"networks"];
+}
+
+- (void)clearNetworks
+{
+    self.networks = [NSMutableArray array];
+    [[N2NUserDefaultsController standardUserDefaults] removeObjectForKey:@"networks"];
 }
 
 @end

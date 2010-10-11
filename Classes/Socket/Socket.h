@@ -8,6 +8,7 @@
 
 @class Reachability;
 @class AsyncSocket;
+@class NetworksDataSource;
 @interface Socket : NSObject {
     AsyncSocket *asyncSocket;
     NSMutableData * dataBuffer;
@@ -25,6 +26,7 @@
     NSArray  *cookies;
 
     Reachability* internetReach;
+    NetworksDataSource *networksDataSource;
 }
 
 @property(assign) BOOL authenticated;

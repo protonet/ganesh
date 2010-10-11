@@ -23,6 +23,9 @@
 #import "Reachability.h"
 #import "AsyncSocket.h"
 
+#import "NetworksDataSource.h"
+#import "Network.h"
+
 #import "NSString_urlEncode.h"
 
 #define urlKey         @"serverUrl"
@@ -34,6 +37,9 @@
 #define kHTTPSuccess               200
 #define kHTTPNotFound              404
 #define kHTTPInternalServerError   500
+
+
+BOOL gotVpn = false;
 
 @implementation Socket
 @synthesize authenticated;
@@ -83,6 +89,8 @@
         DLog(@"init socket");
         
 		asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
+
+        networksDataSource = [[NetworksDataSource alloc] init];
 
 #if !(TARGET_OS_IPHONE)
         // check on sleep and close socket
@@ -221,6 +229,19 @@
                                              contextInfo:nil];
 }
 
+- (void)getVpn {
+    NSString *url = [NSString stringWithFormat:@"%@/preferences/get_vpn.json", self.serverUrl];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                         timeoutInterval:60];
+
+    [[M3EncapsulatedURLConnection alloc] initWithRequest:request
+                                                delegate:self
+                                           andIdentifier:@"get_vpn"
+                                             contextInfo:nil];
+}
+
 - (void)sendMessage:(NSString*)message {
 	if(message != nil && [message length]>0)
     {
@@ -260,6 +281,7 @@
     [defaults removeObserver:self forKeyPath:portKey];
     [defaults removeObserver:self forKeyPath:userNameKey];
     [defaults removeObserver:self forKeyPath:passwordKey];
+    [networksDataSource release];
 
 #if !(TARGET_OS_IPHONE)
 	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
@@ -309,6 +331,7 @@
 
             self.authenticated = YES;
             [self listChannels];
+            [self getVpn];
             [NSTimer scheduledTimerWithTimeInterval:30
                                              target:self
                                            selector:@selector(ping)
@@ -323,6 +346,16 @@
         }
     }
     else if([[connection identifier] isEqualToString:@"send_message"]){
+    }
+    else if([[connection identifier] isEqualToString:@"get_vpn"]){
+        DLog(@"get vpn %@", response);
+        if(responseNo == kHTTPSuccess){
+            Network *network = [[Network alloc] initWithJSON:response andDescription:@"Test vpn"];
+            if(network != nil){
+                [networksDataSource clearNetworks];
+                [networksDataSource addNetwork:network];
+            }
+        }
     }
 
     [connection release];

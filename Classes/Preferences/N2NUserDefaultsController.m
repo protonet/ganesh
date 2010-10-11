@@ -104,6 +104,8 @@ static N2NUserDefaultsController *sharedInstance = nil;
 {
 	[[NSUserDefaults standardUserDefaults] setPersistentDomain:userDefaultsDict
 													   forName:domainKey];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"N2NDefaultsDidSaveChanges"
+                                                        object:nil];
 }
 
 - (id)objectForKey:(NSString *)defaultName;

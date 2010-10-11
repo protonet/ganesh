@@ -39,9 +39,11 @@
   BonjourClientController *bonjourClient;
 
   BOOL isTimelineVisible;
+  int cur_networks;
 }
 
 - (IBAction)openPreferences:(id)sender;
+- (IBAction)getVpn:(id)sender;
 
 + (AppController *)sharedController;
 

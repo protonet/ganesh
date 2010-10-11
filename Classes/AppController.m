@@ -160,6 +160,8 @@ static AppController *sharedAppController = nil;
 
 - (void)awakeFromNib
 {
+    cur_networks = 0;
+
     [self initializeHotkeys];
 
     [self initDefaults];
@@ -241,6 +243,11 @@ static AppController *sharedAppController = nil;
                 options:(NSKeyValueObservingOptionNew |
                          NSKeyValueObservingOptionOld)
                 context:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(n2nDidChange:)
+                                                 name:@"N2NDefaultsDidSaveChanges"
+                                               object:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -263,6 +270,25 @@ static AppController *sharedAppController = nil;
     }
 }
 
+- (void)n2nDidChange:(NSNotification *)aNotification
+{
+    if(cur_networks > 0){
+        for(int i = 1; i <= cur_networks; i++){
+            [statusMenu removeItemAtIndex:i];
+        }
+        cur_networks = 0;
+    }
+
+    NSArray *networks = [[N2NUserDefaultsController standardUserDefaults] objectForKey:@"networks"];
+    for(NSDictionary *network in networks){
+        cur_networks++;
+        [statusMenu insertItemWithTitle:[NSString stringWithFormat:@"Connect %@", [network objectForKey:@"description"]]
+                                 action:@selector(connect:)
+                          keyEquivalent:@""
+                                atIndex:cur_networks];
+        [[statusMenu itemAtIndex:cur_networks] setTag:cur_networks];
+    }
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
@@ -293,16 +319,7 @@ static AppController *sharedAppController = nil;
     [statusItem setView:statusItemView];
     [statusItem setHighlightMode:YES];
 
-    NSArray *networks = [[N2NUserDefaultsController standardUserDefaults] objectForKey:@"networks"];
-    int i = 1;
-    for(NSDictionary *network in networks){
-        [statusMenu insertItemWithTitle:[NSString stringWithFormat:@"Connect %@", [network objectForKey:@"supernode"]]
-                                 action:@selector(connect:)
-                          keyEquivalent:@""
-                                atIndex:i];
-        [[statusMenu itemAtIndex:i] setTag:i];
-        i++;
-    }
+    [self n2nDidChange:nil];
 }
 
 - (void)renderTemplate{
@@ -674,6 +691,11 @@ static AppController *sharedAppController = nil;
     }
 
     return NO;
+}
+
+- (IBAction)getVpn:(id)sender
+{
+    [socket getVpn];
 }
 
 @end

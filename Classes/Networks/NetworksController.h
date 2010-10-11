@@ -13,6 +13,7 @@
 @interface NetworksController : NSObject {
     IBOutlet NSWindow    *addNetworkSheet;
     IBOutlet NSWindow    *preferenceWindow;
+    IBOutlet NSTextField *descriptionInput;
     IBOutlet NSTextField *supernodeInput;
     IBOutlet NSTextField *communityInput;
     IBOutlet NSTextField *keyInput;

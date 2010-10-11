@@ -65,16 +65,19 @@
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
     if (returnCode == NSAlertDefaultReturn) {
+        NSString *description;
         NSString *supernode;
         NSString *community;
         NSString *key;
         Network  *network;
 
+        description = [descriptionInput stringValue];
         supernode = [supernodeInput stringValue];
         community = [communityInput stringValue];
         key       = [keyInput stringValue];
-        if([supernode length] > 0 && [community length] > 0 && [key length] > 0){
+        if([description length] > 0 && [supernode length] > 0 && [community length] > 0 && [key length] > 0){
             network = [[Network alloc] init];
+            network.description = description;
             network.supernode = supernode;
             network.community = community;
             network.key       = key;
