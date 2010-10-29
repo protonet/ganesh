@@ -350,7 +350,7 @@ BOOL gotVpn = false;
     else if([[connection identifier] isEqualToString:@"get_vpn"]){
         DLog(@"get vpn %@", response);
         if(responseNo == kHTTPSuccess){
-            Network *network = [[Network alloc] initWithJSON:response andDescription:@"Test vpn"];
+            Network *network = [[Network alloc] initWithJSON:response];
             if(network != nil){
                 [networksDataSource clearNetworks];
                 [networksDataSource addNetwork:network];

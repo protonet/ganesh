@@ -16,15 +16,16 @@
 @synthesize community;
 @synthesize key;
 
-- (id)initWithJSON:(NSString *)message andDescription:(NSString *)description
+- (id)initWithJSON:(NSString *)message
 {
     NSDictionary *network = [message JSONValue];
 
-    if([network objectForKey:@"community"] != nil &&
+    if([network objectForKey:@"description"] != nil &&
+       [network objectForKey:@"community"] != nil &&
        [network objectForKey:@"key"] != nil){
 
         if (self = [super init]) {
-            self.description = description;
+            self.description = [network objectForKey:@"description"];
             self.supernode   = @"team.protonet.info:1099";
             self.community   = [network objectForKey:@"community"];
             self.key         = [network objectForKey:@"key"];

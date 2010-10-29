@@ -8,6 +8,8 @@
 //
 
 #import "BonjourClientController.h"
+#import "LoginController.h"
+#import "Debug.h"
 
 
 @implementation BonjourClientController
@@ -39,10 +41,21 @@
 #pragma mark Net Service Browser Delegate Methods
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didFindService:(NSNetService *)aService moreComing:(BOOL)more {
     self.service = aService;
+    self.service.delegate = self;
+    [self.service resolveWithTimeout:10];
 }
 
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didRemoveService:(NSNetService *)aService moreComing:(BOOL)more {
     self.service = aService;
 }
+
+- (void)netServiceDidResolveAddress:(NSNetService *)sender {
+    [[LoginController sharedController] showNodeFoundWindow];
+}
+
+- (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict {
+    DLog(@"Couldn't resolve protonet node");
+}
+
 
 @end
