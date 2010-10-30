@@ -87,10 +87,18 @@ static LoginController *sharedLoginController = nil;
     [defaults setObject:self.hostName forKey:@"serverAddress"];
     DLog(@"set node settings clicked");
     [nodeFoundWindow orderOut:sender];
-    [self showLoginWindow];
 }
 
 - (void) setLoginSettings:(id)sender {
+    DLog(@"set login settings clicked");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSString *login    = [loginField stringValue];
+    NSString *password = [passwordField stringValue];
+
+    [defaults setObject:login    forKey:@"userName"];
+    [defaults setObject:password forKey:@"password"];
+    [loginWindow orderOut:sender];
 }
 
 

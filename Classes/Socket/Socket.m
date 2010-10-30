@@ -22,6 +22,7 @@
 #import "M3EncapsulatedURLConnection.h"
 #import "Reachability.h"
 #import "AsyncSocket.h"
+#import "LoginController.h"
 
 #import "NetworksDataSource.h"
 #import "Network.h"
@@ -319,7 +320,7 @@ BOOL gotVpn = false;
 
         self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
         if(self.authenticityToken == nil){
-            [self rescheduleConnect];
+            [[LoginController sharedController] showLoginWindow];
         }
         else {
             // Now send the authentication-request
