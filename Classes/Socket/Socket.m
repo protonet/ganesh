@@ -123,7 +123,7 @@ BOOL gotVpn = false;
     self.password      = [defaults stringForKey:passwordKey];
 
     if (self.serverUrl == nil) self.serverUrl = @"localhost:3000";
-    if (self.serverAddress == nil) self.serverAddress = @"127.0.0.1";
+    if (self.serverAddress == nil) self.serverAddress = @"localhost";
     if (self.serverPort == nil) self.serverPort = [NSNumber numberWithInt:5000];
     if (self.userName == nil) self.userName = @"dudemeister";
     if (self.password == nil) self.password = @"geheim";

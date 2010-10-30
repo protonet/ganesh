@@ -13,6 +13,7 @@
 static LoginController *sharedLoginController = nil;
 
 @implementation LoginController
+@synthesize hostName;
 
 + (LoginController*)sharedController
 {
@@ -52,7 +53,6 @@ static LoginController *sharedLoginController = nil;
     return self;
 }
 
-
 - (void) showLoginWindow{
     [NSApp activateIgnoringOtherApps:YES];
     if (![loginWindow isVisible])
@@ -61,7 +61,9 @@ static LoginController *sharedLoginController = nil;
     [loginWindow setLevel:NSFloatingWindowLevel];
 }
 
-- (void) showNodeFoundWindow{
+- (void) showNodeFoundWindow:(NSString *)hostName{
+    self.hostName = hostName;
+
     [NSApp activateIgnoringOtherApps:YES];
     if (![nodeFoundWindow isVisible])
         [nodeFoundWindow center];
@@ -79,7 +81,13 @@ static LoginController *sharedLoginController = nil;
 }
 
 - (void) setNodeSettings:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    [defaults setObject: [NSString stringWithFormat:@"http://%@", hostName] forKey:@"serverUrl"];
+    [defaults setObject:self.hostName forKey:@"serverAddress"];
     DLog(@"set node settings clicked");
+    [nodeFoundWindow orderOut:sender];
+    [self showLoginWindow];
 }
 
 - (void) setLoginSettings:(id)sender {

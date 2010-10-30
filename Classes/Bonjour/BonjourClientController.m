@@ -50,7 +50,7 @@
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender {
-    [[LoginController sharedController] showNodeFoundWindow];
+    [[LoginController sharedController] showNodeFoundWindow:[self.service hostName]];
 }
 
 - (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict {

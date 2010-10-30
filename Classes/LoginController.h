@@ -12,7 +12,13 @@
 @interface LoginController : NSObject {
     IBOutlet NSWindow *loginWindow;
     IBOutlet NSWindow *nodeFoundWindow;
+
+    NSString *hostName;
 }
+
+@property(copy) NSString *hostName;
+
+- (void) showNodeFoundWindow:(NSString *)hostName;
 
 - (IBAction) cancel:(id)sender;
 - (IBAction) setNodeSettings:(id)sender;
