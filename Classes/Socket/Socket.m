@@ -50,6 +50,8 @@ BOOL gotVpn = false;
 @synthesize serverPort;
 @synthesize userName;
 @synthesize password;
+@synthesize reconnTimer;
+@synthesize pingTimer;
 
 #define PING_MSG     0
 #define AUTH_MSG     1
@@ -66,7 +68,7 @@ BOOL gotVpn = false;
         [self cleanupBeforeSleep];
     }
     else {
-        [self openSocket];
+        [self rescheduleConnect];
     }
 
 }
@@ -80,7 +82,7 @@ BOOL gotVpn = false;
     internetReach = [[Reachability reachabilityForInternetConnection] retain];
 	[internetReach startNotifier];
     if ([internetReach currentReachabilityStatus] == IsReachable) {
-        [self openSocket];
+        [self rescheduleConnect];
     }
 }
 
@@ -161,7 +163,7 @@ BOOL gotVpn = false;
         [asyncSocket close];
     }
     else{
-        [self openSocket];
+        [self rescheduleConnect];
     }
 }
 
@@ -193,11 +195,12 @@ BOOL gotVpn = false;
 }
 
 - (void)rescheduleConnect {
-    [NSTimer scheduledTimerWithTimeInterval:(60.0f/4)
-                                     target:self
-                                   selector:@selector(openSocket)
-                                   userInfo:nil
-                                    repeats:NO];
+    [self.reconnTimer invalidate];
+    self.reconnTimer = [NSTimer scheduledTimerWithTimeInterval:5
+                                                   target:self
+                                                 selector:@selector(openSocket)
+                                                 userInfo:nil
+                                                  repeats:NO];
 }
 
 - (void)authenticateSocket {
@@ -332,11 +335,11 @@ BOOL gotVpn = false;
             self.authenticated = YES;
             [self listChannels];
             [self getVpn];
-            [NSTimer scheduledTimerWithTimeInterval:30
-                                             target:self
-                                           selector:@selector(ping)
-                                           userInfo:nil
-                                            repeats:NO];
+            self.pingTimer = [NSTimer scheduledTimerWithTimeInterval:30
+                                                              target:self
+                                                            selector:@selector(ping)
+                                                            userInfo:nil
+                                                             repeats:YES];
         }
     }
     else if([[connection identifier] isEqualToString:@"list_channels"]){
@@ -367,15 +370,7 @@ BOOL gotVpn = false;
 
 - (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
 {
-    if(tag == PING_MSG)
-    {
-        [NSTimer scheduledTimerWithTimeInterval:30
-                                         target:self
-                                       selector:@selector(ping)
-                                       userInfo:nil
-                                        repeats:NO];
-    }
-    else if(tag == AUTH_MSG)
+    if(tag == AUTH_MSG)
     {
         [sock readDataToData:[AsyncSocket ZeroData] withTimeout:-1 tag:0];
     }
@@ -393,6 +388,8 @@ BOOL gotVpn = false;
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock
 {
     self.authenticated = NO;
+    [self.pingTimer invalidate];
+    self.pingTimer = nil;
     if ([internetReach currentReachabilityStatus] == IsReachable) {
         [self rescheduleConnect];
     }

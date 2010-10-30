@@ -25,6 +25,9 @@
     NSString *authenticityToken;
     NSArray  *cookies;
 
+    NSTimer  *reconnTimer;
+    NSTimer  *pingTimer;
+
     Reachability* internetReach;
     NetworksDataSource *networksDataSource;
 }
@@ -37,6 +40,8 @@
 @property(retain) NSString *password;
 @property(retain) NSString *authenticityToken;
 @property(retain) NSArray  *cookies;
+@property(retain) NSTimer  *reconnTimer;
+@property(retain) NSTimer  *pingTimer;
 
 - (void)sendMessage:(NSString*)message;
 - (void)openSocket;
