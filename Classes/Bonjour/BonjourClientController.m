@@ -50,7 +50,11 @@
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender {
-    [[LoginController sharedController] showNodeFoundWindow:[self.service hostName]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // only show the new network found dialog if it's not the same as our current one
+    if (![[defaults stringForKey:@"serverAddress"] isEqualToString:[self.service hostName]]) {
+        [[LoginController sharedController] showNodeFoundWindow:[self.service hostName]];
+    }
 }
 
 - (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict {
