@@ -28,6 +28,7 @@
 #import "Network.h"
 
 #import "NSString_urlEncode.h"
+#import "NSMutableURLRequest_jsonpost.h"
 
 #define urlKey         @"serverUrl"
 #define addressKey     @"serverAddress"
@@ -204,23 +205,15 @@ BOOL gotVpn = false;
 }
 
 - (void)authenticateSocket {
+    NSString *postUrl    = [NSString stringWithFormat:@"%@/login", self.serverUrl];
     NSString *post = [[NSDictionary dictionaryWithObjectsAndKeys:
              [NSDictionary dictionaryWithObjectsAndKeys:self.userName, @"login", self.password, @"password", nil], @"user", nil ] JSONRepresentation];
-    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    NSString *postUrl = [NSString stringWithFormat:@"%@/login", self.serverUrl];
 
     self.cookies = nil;
 
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-
-
-    [request setURL:[NSURL URLWithString:postUrl]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/jsonrequest" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"application/jsonrequest" forHTTPHeaderField:@"Accept"];
-    [request setHTTPBody:postData];
+    NSMutableURLRequest *request = [NSMutableURLRequest generateJSONPostRequest:post
+                                                                        withURL:postUrl
+                                                                     andCookies:self.cookies];
 
     [[M3EncapsulatedURLConnection alloc] initWithRequest:request
                                                 delegate:self
