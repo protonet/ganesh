@@ -44,7 +44,6 @@ BOOL gotVpn = false;
 
 @implementation Socket
 @synthesize authenticated;
-@synthesize authenticityToken;
 @synthesize cookies;
 @synthesize serverUrl;
 @synthesize serverAddress;
@@ -190,7 +189,7 @@ BOOL gotVpn = false;
 {
     if (self.authenticated) {
         NSDictionary *ping = [NSDictionary dictionaryWithObjectsAndKeys:@"ping", @"operation", nil];
-        NSData *pingData = [[ping JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *pingData = [[ping NULLJSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
         [asyncSocket writeData:pingData withTimeout:-1 tag:PING_MSG];
     }
 }
@@ -205,13 +204,23 @@ BOOL gotVpn = false;
 }
 
 - (void)authenticateSocket {
-    NSString *authUrl = [NSString stringWithFormat:@"%@/sessions/create_token.json?login=%@&password=%@",
-                         self.serverUrl, self.userName, self.password];
+    NSString *post = [[NSDictionary dictionaryWithObjectsAndKeys:
+             [NSDictionary dictionaryWithObjectsAndKeys:self.userName, @"login", self.password, @"password", nil], @"user", nil ] JSONRepresentation];
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    NSString *postUrl = [NSString stringWithFormat:@"%@/login", self.serverUrl];
 
     self.cookies = nil;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authUrl]
-                                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                         timeoutInterval:60];
+
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+
+
+    [request setURL:[NSURL URLWithString:postUrl]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/jsonrequest" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/jsonrequest" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:postData];
 
     [[M3EncapsulatedURLConnection alloc] initWithRequest:request
                                                 delegate:self
@@ -259,7 +268,7 @@ BOOL gotVpn = false;
                          channel_uuid, @"channel_uuid",nil];
 
             DLog(@"%@", [tweet JSONRepresentation]);
-            NSData *sockData = [[tweet JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
+            NSData *sockData = [[tweet NULLJSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
             [asyncSocket writeData:sockData withTimeout:-1 tag:0];
         }
         else if ([internetReach currentReachabilityStatus] == IsReachable){
@@ -318,8 +327,8 @@ BOOL gotVpn = false;
         DLog(@"%@", response);
         DLog(@"%@", [authentication_dict objectForKey:@"token"]);
 
-        self.authenticityToken = [authentication_dict objectForKey:@"authenticity_token"];
-        if(self.authenticityToken == nil){
+        NSString * token = [authentication_dict objectForKey:@"token"];
+        if(token == nil){
             [[LoginController sharedController] showLoginWindow];
         }
         else {
@@ -330,7 +339,7 @@ BOOL gotVpn = false;
                          payload, @"payload",nil];
 
             DLog([auth JSONRepresentation]);
-            NSData *authData = [[auth JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
+            NSData *authData = [[auth NULLJSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
             [asyncSocket writeData:authData withTimeout:-1 tag:AUTH_MSG];
 
             self.authenticated = YES;

@@ -22,7 +22,6 @@
     NSNumber *serverPort;
     NSString *userName;
     NSString *password;
-    NSString *authenticityToken;
     NSArray  *cookies;
 
     NSTimer  *reconnTimer;
@@ -38,7 +37,6 @@
 @property(retain) NSNumber *serverPort;
 @property(retain) NSString *userName;
 @property(retain) NSString *password;
-@property(retain) NSString *authenticityToken;
 @property(retain) NSArray  *cookies;
 @property(retain) NSTimer  *reconnTimer;
 @property(retain) NSTimer  *pingTimer;

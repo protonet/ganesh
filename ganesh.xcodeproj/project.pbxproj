@@ -93,6 +93,7 @@
 		4D7105FB10EECB050066AC0C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105E810EECB050066AC0C /* SBJsonWriter.m */; };
 		4D7105FD10EECB050066AC0C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105ED10EECB050066AC0C /* Tweet.m */; };
 		4D7105FF10EECB050066AC0C /* Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7105F210EECB050066AC0C /* Socket.m */; };
+		4D8B0837127DE48700EDD125 /* ganesh.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B0835127DE48700EDD125 /* ganesh.icns */; };
 		4D906D51114E6C0100A6B353 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D906D50114E6C0100A6B353 /* Carbon.framework */; };
 		4D9342B9127B1AB800391762 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9342B8127B1AB800391762 /* LoginController.m */; };
 		4DA19266115A514700F3E872 /* release-notes.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DA19265115A514700F3E872 /* release-notes.html */; };
@@ -402,6 +403,7 @@
 		4D7105ED10EECB050066AC0C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		4D7105F110EECB050066AC0C /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
 		4D7105F210EECB050066AC0C /* Socket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Socket.m; sourceTree = "<group>"; };
+		4D8B0836127DE48700EDD125 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = English; path = English.lproj/ganesh.icns; sourceTree = "<group>"; };
 		4D906D50114E6C0100A6B353 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		4D9342B7127B1AB800391762 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		4D9342B8127B1AB800391762 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
@@ -661,6 +663,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D8B0835127DE48700EDD125 /* ganesh.icns */,
 				4DA19265115A514700F3E872 /* release-notes.html */,
 				27474BF2114692EA009DA65B /* Light.bbtheme */,
 				2746208B1145D22500ACC69E /* Bubbling Citrus.bbtheme */,
@@ -1014,6 +1017,7 @@
 				4DA58AC811495816005DAEB4 /* bullet_key.png in Resources */,
 				27B17F6E114A765200D523DD /* Defaults.plist in Resources */,
 				4DA19266115A514700F3E872 /* release-notes.html in Resources */,
+				4D8B0837127DE48700EDD125 /* ganesh.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1166,14 @@
 				2740EE3410A38F0800E11BDD /* English */,
 			);
 			name = Preferences.xib;
+			sourceTree = "<group>";
+		};
+		4D8B0835127DE48700EDD125 /* ganesh.icns */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D8B0836127DE48700EDD125 /* English */,
+			);
+			name = ganesh.icns;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
